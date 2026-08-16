@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TokenDance · 一个人的小动物园</title>
+<meta name="description" content="TokenDance 是 Tony 的小动物园：把好玩的小需求做成一只只应用。住户有终端风格生活记录器 every15min、癫痫健康伙伴守守 Goldie，还有一颗孵着的蛋。不为别的，纯粹好玩。">
+<meta name="author" content="Tony">
+<meta name="theme-color" content="#FBF4E1">
+<link rel="canonical" href="https://tokendance.life/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Open Graph / 社交分享卡 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TokenDance">
+<meta property="og:title" content="TokenDance · 一个人的小动物园">
+<meta property="og:description" content="把好玩的小需求做成一只只应用：every15min、守守 Goldie，还有一颗孵着的蛋。不为别的，纯粹好玩。">
+<meta property="og:url" content="https://tokendance.life/">
+<meta property="og:image" content="https://tokendance.life/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TokenDance — 海中央的小岛，琴鸟、蛋、蜜蜂和金毛住在上面">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TokenDance · 一个人的小动物园">
+<meta name="twitter:description" content="把好玩的小需求做成一只只应用：every15min、守守 Goldie，还有一颗孵着的蛋。">
+<meta name="twitter:image" content="https://tokendance.life/og-image.png">
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "TokenDance",
+      "alternateName": "TokenDance 一个人的小动物园",
+      "url": "https://tokendance.life/",
+      "inLanguage": "zh-CN",
+      "description": "把好玩的小需求做成一只只应用，养在这里。"
+    },
+    {
+      "@type": "Person",
+      "name": "Tony",
+      "url": "https://tokendance.life/#about",
+      "email": "mailto:tonybingpoon@gmail.com",
+      "description": "TokenDance 的园长。发现一个需求，哪怕它很小众，也把它做出来。"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "every15min",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web, iOS",
+      "description": "终端风格的生活记录器：想起来了就敲一行，一天攒下一小段一小段的时刻。数据只存在本地设备。",
+      "author": { "@type": "Person", "name": "Tony" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "守守 Goldie",
+      "alternateName": "Goldie",
+      "url": "https://goldie.tokendance.life/",
+      "applicationCategory": "MedicalApplication",
+      "operatingSystem": "iOS",
+      "description": "癫痫健康伙伴：用药打卡、发作记录与安全天数、看病管理、放松练习、守护圈。数据完全存在手机里，无账号、无广告、无追踪。",
+      "author": { "@type": "Person", "name": "Tony" }
+    }
+  ]
+}
+</script>
+<style>
+/* 动物森友会式：奶油 UI + 海岛世界。天色随访客的真实时间变化（?sky=day|dusk|night 可预览） */
+:root{
+  --bg:#FBF4E1;
+  --card:#FFFDF4;
+  --brown:#5D5343;
+  --brown-soft:#8A7C63;
+  --leaf:#6DB25A;
+  --leaf-deep:#4E9142;
+  --grass:#82C46C;
+  --grass-light:#A8D68A;
+  --honey:#E3B465;
+  --wood:#D8AC6E;
+  --shadow:0 3px 0 rgba(93,83,67,.08), 0 10px 24px rgba(93,83,67,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background-color:var(--bg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cpath d='M12 10 l5 9 h-10 z' fill='%23F0E6CC'/%3E%3Ccircle cx='48' cy='22' r='3' fill='%23F0E6CC'/%3E%3Cpath d='M54 50 l5 9 h-10 z' fill='%23F0E6CC'/%3E%3Ccircle cx='20' cy='56' r='2.5' fill='%23F0E6CC'/%3E%3C/svg%3E");
+  color:var(--brown);
+  font-family:ui-rounded,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:ui-monospace,Menlo,Consolas,"SF Mono",monospace}
+a{color:var(--leaf-deep);font-weight:700;text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+a:focus-visible{outline:2.5px solid var(--leaf);outline-offset:3px;border-radius:6px}
+svg{max-width:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* ============ 海岛 hero ============ */
+#hero{
+  /* 白天 */
+  --sky1:#A9DEF0; --sky2:#E2F4EC;
+  --ocean:#57C0DC; --wave:#8FDCEC; --foam:#FFFFFF;
+  --sand:#F2E2B6; --sun:#FFDE8A;
+  position:relative;
+  background:linear-gradient(var(--sky1), var(--sky2) 62%, var(--ocean) 62%);
+}
+#hero[data-sky="dusk"]{
+  --sky1:#F0B285; --sky2:#FBE3BC;
+  --ocean:#4FA3C4; --wave:#7CC2D8; --sand:#EAD2A0; --sun:#FFB45E;
+}
+#hero[data-sky="night"]{
+  --sky1:#1B2745; --sky2:#37517A;
+  --ocean:#2B577E; --wave:#4A7BA0; --sand:#CBB98E; --sun:#F4EBCF;
+}
+.vista{display:block;width:100%;height:clamp(320px,52vw,520px)}
+.moon,.stars{display:none}
+#hero[data-sky="night"] .sun{display:none}
+#hero[data-sky="night"] .moon,#hero[data-sky="night"] .stars{display:block}
+#hero[data-sky="night"] .land{filter:brightness(.74) saturate(.85)}
+#hero[data-sky="dusk"] .land{filter:brightness(.94) sepia(.14)}
+
+/* HUD 小圆签浮在天上 */
+.hud{position:absolute;top:18px;left:0;right:0;z-index:3;
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:0 22px}
+.chip{
+  background:var(--card);border-radius:999px;padding:5px 18px;
+  font-size:12.5px;font-weight:800;color:var(--brown-soft);
+  box-shadow:var(--shadow);letter-spacing:.06em;
+}
+.chip .dow{color:var(--leaf-deep)}
+
+/* logo 字牌：飘在岛的上空（动森 title 画面式） */
+.tokens{
+  position:absolute;z-index:2;top:clamp(58px,13%,96px);left:50%;
+  transform:translateX(-50%);
+  display:flex;gap:8px;align-items:flex-end;justify-content:center;
+  width:max-content;max-width:96vw;
+}
+.tok{
+  position:relative;display:inline-block;
+  background:var(--card);border-radius:14px;
+  padding:4px 12px 2px;
+  font-size:clamp(24px,4.6vw,38px);font-weight:800;line-height:1.5;color:var(--brown);
+  box-shadow:var(--shadow);
+  transform:rotate(var(--r,0deg)) translateY(var(--y,0));
+  transition:transform .18s ease;
+}
+.tok:hover{transform:rotate(0deg) translateY(-5px)}
+.tok.g{background:var(--leaf);color:#FFFDF4}
+.tok.h{background:var(--honey);color:#6B4F1E}
+@media (max-width:600px){
+  .tokens{gap:5px}
+  .tok{font-size:clamp(15px,4.4vw,21px);padding:3px 7px 1px;border-radius:9px}
+}
+@media (max-width:640px){.stakes{display:none}}
+
+/* ============ 环境动效（全部缓慢、有编排） ============ */
+@media (prefers-reduced-motion: no-preference){
+  /* token 逐字起伏 —— token dance 本身 */
+  .tok{animation:tokfloat 3.8s ease-in-out infinite;animation-delay:var(--d,0s)}
+  @keyframes tokfloat{0%,100%{top:0}50%{top:-4px}}
+  /* 云漂移 */
+  .cloud{animation:clouddrift linear infinite}
+  .cloud.c1{animation-duration:74s}
+  .cloud.c2{animation-duration:96s;animation-delay:-38s}
+  .cloud.c3{animation-duration:118s;animation-delay:-70s}
+  @keyframes clouddrift{0%{transform:translateX(-240px)}100%{transform:translateX(1200px)}}
+  /* 小飞机拉横幅，定期飞过 */
+  .plane{animation:fly 38s linear infinite}
+  @keyframes fly{0%{transform:translateX(-360px)}44%{transform:translateX(1340px)}44.001%,100%{transform:translateX(-360px)}}
+  /* 海浪横移（周期 120，位移一整段无缝循环） */
+  .wave-a{animation:waveslide 12s linear infinite}
+  .wave-b{animation:waveslide 19s linear infinite reverse}
+  @keyframes waveslide{to{transform:translateX(-120px)}}
+  /* 海面闪光 */
+  .twinkle{animation:twk 3.2s ease-in-out infinite;animation-delay:var(--d,0s);opacity:0}
+  @keyframes twk{0%,100%{opacity:0}50%{opacity:.9}}
+  /* 岸边浪圈脉动 */
+  .foam-ring{transform-box:fill-box;transform-origin:center;animation:foam 4.2s ease-out infinite}
+  .foam-ring.f2{animation-delay:2.1s}
+  @keyframes foam{0%{transform:scale(.985);opacity:.75}70%{opacity:.25}100%{transform:scale(1.06);opacity:0}}
+  /* 蜜蜂绕岛巡逻 */
+  .bee-sway{animation:beesway 11s ease-in-out infinite}
+  @keyframes beesway{0%,100%{transform:translateX(-34px)}50%{transform:translateX(34px)}}
+  .bee-bob{animation:beebob 3.8s ease-in-out infinite}
+  @keyframes beebob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  /* 角色呼吸 */
+  .breathe{transform-box:fill-box;transform-origin:50% 100%;animation:breathe 4.6s ease-in-out infinite}
+  .breathe.b2{animation-duration:5.4s;animation-delay:.9s}
+  @keyframes breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.016)}}
+  /* 蛋偶尔晃两下 */
+  .egg-rock{transform-box:fill-box;transform-origin:50% 100%;animation:eggrock 7s ease-in-out infinite}
+  @keyframes eggrock{0%,86%,100%{transform:rotate(0)}90%{transform:rotate(-3.5deg)}94%{transform:rotate(3.5deg)}}
+  /* 蝴蝶 */
+  .flutter{animation:flutter 9s ease-in-out infinite}
+  @keyframes flutter{0%,100%{transform:translate(0,0)}25%{transform:translate(16px,-12px)}55%{transform:translate(-10px,-20px)}80%{transform:translate(8px,-6px)}}
+  .flap{transform-box:fill-box;animation:flap .5s ease-in-out infinite alternate}
+  .flap.fl{transform-origin:100% 50%}
+  .flap.fr{transform-origin:0% 50%}
+  @keyframes flap{from{transform:scaleX(1)}to{transform:scaleX(.32)}}
+  /* 花朵摇曳 */
+  .swayflower{transform-box:fill-box;transform-origin:50% 100%;animation:swayf 5.5s ease-in-out infinite}
+  .swayflower.s2{animation-delay:1.4s}
+  @keyframes swayf{0%,100%{transform:rotate(-3.5deg)}50%{transform:rotate(3.5deg)}}
+  /* 星星（夜晚） */
+  .star{animation:twk 4s ease-in-out infinite;animation-delay:var(--d,0s)}
+}
+
+/* ============ 对话框 ============ */
+.talk{display:flex;align-items:flex-end;gap:18px;margin-top:44px}
+.talk .speaker{flex:0 0 auto}
+.bubble{
+  position:relative;flex:1;
+  background:var(--card);border-radius:26px;
+  padding:26px 28px 22px;
+  box-shadow:var(--shadow);
+  font-size:15.5px;
+}
+.bubble .tag{
+  position:absolute;top:-15px;left:24px;
+  background:var(--leaf);color:#FFFDF4;
+  border-radius:999px;padding:3px 20px;
+  font-size:13.5px;font-weight:800;letter-spacing:.1em;
+  box-shadow:0 2px 0 rgba(78,145,66,.35);
+}
+.bubble .tag.t2{background:var(--honey);color:#6B4F1E;box-shadow:0 2px 0 rgba(184,133,60,.3)}
+.bubble::before{
+  content:"";position:absolute;left:-8px;bottom:34px;
+  width:18px;height:18px;background:var(--card);border-radius:5px;
+  transform:rotate(45deg);
+}
+.bubble.no-tail::before{display:none}
+.bubble b{color:var(--leaf-deep);font-weight:800}
+.bubble .soft{color:var(--brown-soft)}
+@media (max-width:640px){
+  .talk{flex-direction:column;align-items:flex-start;gap:22px}
+  .bubble::before{left:44px;bottom:auto;top:-7px}
+}
+
+/* ============ 住户名册 ============ */
+section{padding:44px 0 8px}
+h2{display:flex;align-items:center;gap:10px;font-size:16px;letter-spacing:.2em;font-weight:800;color:var(--brown)}
+h2 svg{flex:0 0 auto}
+.plaques{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.plaques{grid-template-columns:1fr}}
+.plaque{
+  background:var(--card);border-radius:22px;
+  padding:20px 24px 18px;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+}
+.p-head{display:flex;align-items:center;gap:14px}
+.p-face{
+  width:58px;height:58px;border-radius:50%;overflow:hidden;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+}
+.p-face svg{width:100%;height:100%;display:block}
+.p-name{font-size:17px;font-weight:800}
+.p-name .latin{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--brown-soft);font-weight:600;letter-spacing:.02em}
+.plaque p{margin-top:12px;font-size:13.5px;color:var(--brown-soft);line-height:1.95}
+.plaque p b{color:var(--brown);font-weight:800}
+.phrase{
+  margin-top:auto;padding-top:12px;
+  font-size:12.5px;color:var(--brown-soft);
+}
+.phrase .lbl{
+  display:inline-block;background:var(--bg);border-radius:999px;
+  padding:1px 10px;font-size:11px;font-weight:800;color:var(--leaf-deep);
+  margin-right:8px;letter-spacing:.1em;
+}
+.phrase q{quotes:"「" "」";font-weight:700;color:var(--brown)}
+
+/* ============ 页脚 ============ */
+footer{padding:44px 0 60px;text-align:center;font-size:12.5px;color:var(--brown-soft);letter-spacing:.08em}
+footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
+</style>
+</head>
+<body>
+
+<!-- ============ 海上的小岛（title 画面） ============ -->
+<div id="hero" data-sky="day">
+  <div class="hud">
+    <span class="chip" id="date-chip">今天也是好天气</span>
+    <span class="chip mono">tokendance.life</span>
+  </div>
+
+  <h1 class="tokens" aria-label="TokenDance">
+    <span class="tok" style="--r:-4deg;--d:0s">T</span>
+    <span class="tok" style="--r:3deg;--y:3px;--d:.18s">o</span>
+    <span class="tok h" style="--r:-2deg;--y:-2px;--d:.36s">k</span>
+    <span class="tok" style="--r:5deg;--y:2px;--d:.54s">e</span>
+    <span class="tok" style="--r:-3deg;--d:.72s">n</span>
+    <span class="tok g" style="--r:4deg;--y:-3px;--d:.9s">D</span>
+    <span class="tok" style="--r:-5deg;--y:2px;--d:1.08s">a</span>
+    <span class="tok" style="--r:2deg;--d:1.26s">n</span>
+    <span class="tok" style="--r:-2deg;--y:3px;--d:1.44s">c</span>
+    <span class="tok" style="--r:4deg;--y:-2px;--d:1.62s">e</span>
+  </h1>
+
+  <svg class="vista" viewBox="0 0 960 540" preserveAspectRatio="xMidYMid slice"
+       role="img" aria-label="海中央的小岛：琴鸟、蛋、蜜蜂和小狗住在上面">
+    <!-- 太阳 / 月亮 / 星星 -->
+    <g class="sun">
+      <circle cx="212" cy="132" r="46" fill="var(--sun)" opacity=".35"/>
+      <circle cx="212" cy="132" r="30" fill="var(--sun)"/>
+    </g>
+    <g class="moon">
+      <circle cx="212" cy="128" r="26" fill="#F4EBCF"/>
+      <circle cx="224" cy="122" r="22" fill="var(--sky1)"/>
+    </g>
+    <g class="stars" fill="#F4EBCF">
+      <circle class="star" style="--d:0s"    cx="130" cy="96"  r="2.4"/>
+      <circle class="star" style="--d:1.2s"  cx="330" cy="84"  r="2"/>
+      <circle class="star" style="--d:2.3s"  cx="470" cy="120" r="2.6"/>
+      <circle class="star" style="--d:.6s"   cx="610" cy="88"  r="2"/>
+      <circle class="star" style="--d:1.8s"  cx="760" cy="110" r="2.4"/>
+      <circle class="star" style="--d:2.9s"  cx="850" cy="150" r="2"/>
+      <circle class="star" style="--d:3.4s"  cx="540" cy="160" r="1.8"/>
+      <circle class="star" style="--d:1.5s"  cx="260" cy="170" r="1.8"/>
+    </g>
+
+    <!-- 云 -->
+    <g class="cloud c1" opacity=".92">
+      <ellipse cx="140" cy="150" rx="52" ry="16" fill="#FFFDF4"/>
+      <ellipse cx="180" cy="158" rx="34" ry="12" fill="#FFFDF4"/>
+    </g>
+    <g class="cloud c2" opacity=".8">
+      <ellipse cx="60" cy="200" rx="44" ry="13" fill="#FFFDF4"/>
+      <ellipse cx="94" cy="207" rx="28" ry="10" fill="#FFFDF4"/>
+    </g>
+    <g class="cloud c3" opacity=".65">
+      <ellipse cx="100" cy="110" rx="36" ry="11" fill="#FFFDF4"/>
+    </g>
+
+    <!-- 小飞机拉横幅 -->
+    <g class="plane">
+      <g transform="translate(0,152)">
+        <rect x="-236" y="-14" width="196" height="30" rx="8" fill="#FFFDF4" opacity=".95"/>
+        <text x="-138" y="7" text-anchor="middle" font-size="14" font-weight="700"
+              font-family="ui-rounded,-apple-system,'PingFang SC',sans-serif" fill="#8A7C63">欢迎登岛 ♪</text>
+        <line x1="-40" y1="1" x2="-6" y2="1" stroke="#8A7C63" stroke-width="2"/>
+        <ellipse cx="26" cy="0" rx="32" ry="12" fill="#F7C948"/>
+        <circle cx="44" cy="-3" r="6" fill="#5D5343"/>
+        <path d="M14 -4 L-2 -22 L10 -22 L26 -6 Z" fill="#E8B93E"/>
+        <path d="M14 4 L2 20 L14 20 L28 6 Z" fill="#E8B93E"/>
+        <rect x="6" y="12" width="34" height="5" rx="2.5" fill="#DFF0F6"/>
+      </g>
+    </g>
+
+    <!-- 海 -->
+    <rect x="0" y="336" width="960" height="204" fill="var(--ocean)"/>
+    <!-- 远处海浪 -->
+    <g class="wave-a">
+      <path d="M-240 372 Q-210 364 -180 372 T-120 372 T-60 372 T0 372 T60 372 T120 372 T180 372 T240 372 T300 372 T360 372 T420 372 T480 372 T540 372 T600 372 T660 372 T720 372 T780 372 T840 372 T900 372 T960 372 T1020 372 T1080 372 T1140 372"
+            fill="none" stroke="var(--wave)" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+    </g>
+    <!-- 海面闪光 -->
+    <g stroke="var(--foam)" stroke-width="2" stroke-linecap="round">
+      <path class="twinkle" style="--d:0s"    d="M120 400 v8 M116 404 h8"/>
+      <path class="twinkle" style="--d:1.1s"  d="M840 390 v8 M836 394 h8"/>
+      <path class="twinkle" style="--d:2.2s"  d="M70 470 v8 M66 474 h8"/>
+      <path class="twinkle" style="--d:.6s"   d="M900 460 v8 M896 464 h8"/>
+      <path class="twinkle" style="--d:1.7s"  d="M420 500 v8 M416 504 h8"/>
+      <path class="twinkle" style="--d:2.8s"  d="M620 486 v8 M616 490 h8"/>
+    </g>
+
+    <!-- 岸边浪圈 -->
+    <ellipse class="foam-ring"    cx="480" cy="402" rx="318" ry="78" fill="none" stroke="var(--foam)" stroke-width="4"/>
+    <ellipse class="foam-ring f2" cx="480" cy="402" rx="336" ry="86" fill="none" stroke="var(--foam)" stroke-width="3"/>
+
+    <!-- 岛 -->
+    <g class="land">
+      <ellipse cx="480" cy="396" rx="300" ry="68" fill="var(--sand)"/>
+      <ellipse cx="480" cy="378" rx="264" ry="56" fill="var(--grass-light)"/>
+      <ellipse cx="480" cy="370" rx="238" ry="48" fill="var(--grass)"/>
+
+      <!-- 果树 -->
+      <g class="swayflower s2">
+        <rect x="660" y="318" width="12" height="38" rx="5" fill="#B98D4F"/>
+        <circle cx="666" cy="288" r="38" fill="#5DA24C"/>
+        <circle cx="644" cy="302" r="24" fill="#5DA24C"/>
+        <circle cx="690" cy="302" r="24" fill="#5DA24C"/>
+        <circle cx="654" cy="280" r="4.5" fill="#E85B4B"/>
+        <circle cx="676" cy="270" r="4.5" fill="#E85B4B"/>
+        <circle cx="682" cy="294" r="4.5" fill="#E85B4B"/>
+      </g>
+
+      <!-- 琴鸟 -->
+      <g transform="translate(222,190) scale(0.46)">
+        <g class="breathe">
+          <ellipse cx="162" cy="318" rx="78" ry="10" fill="#2E241A" opacity=".12"/>
+          <path d="M118 232 C44 192 30 104 78 62 C96 46 120 58 112 82" fill="none" stroke="#A9683F" stroke-width="12" stroke-linecap="round"/>
+          <path d="M206 232 C280 192 294 104 246 62 C228 46 204 58 212 82" fill="none" stroke="#A9683F" stroke-width="12" stroke-linecap="round"/>
+          <g fill="none" stroke="#8F6D49" stroke-width="3" stroke-linecap="round" opacity=".55">
+            <path d="M136 222 C84 176 82 112 112 76"/>
+            <path d="M150 216 C120 168 122 110 146 78"/>
+            <path d="M174 216 C204 168 202 110 178 78"/>
+            <path d="M188 222 C240 176 242 112 212 76"/>
+          </g>
+          <path d="M144 296 L144 314 M136 314 L154 314" stroke="#E9A83B" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M180 296 L180 314 M172 314 L190 314" stroke="#E9A83B" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <ellipse cx="162" cy="248" rx="64" ry="56" fill="#8F6D49"/>
+          <ellipse cx="218" cy="248" rx="18" ry="34" fill="#7C5C3D" transform="rotate(-14 218 248)"/>
+          <path d="M110 236 C84 224 68 196 74 172 C90 180 112 196 122 216 Z" fill="#7C5C3D"/>
+          <ellipse cx="162" cy="262" rx="42" ry="36" fill="#F3E5C8"/>
+          <path d="M144 208 Q162 226 180 208 Q176 232 162 236 Q148 232 144 208 Z" fill="#C6432C"/>
+          <circle cx="162" cy="140" r="66" fill="#8F6D49"/>
+          <ellipse cx="162" cy="154" rx="48" ry="40" fill="#E9D9BC"/>
+          <path d="M150 78 C148 64 152 56 158 50" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
+          <path d="M166 76 C168 62 176 54 184 52" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="138" cy="146" r="14" fill="#2E241A"/>
+          <circle cx="186" cy="146" r="14" fill="#2E241A"/>
+          <circle cx="133" cy="140" r="5" fill="#FFF"/>
+          <circle cx="181" cy="140" r="5" fill="#FFF"/>
+          <ellipse cx="120" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
+          <ellipse cx="204" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
+          <path d="M148 166 L162 160 L176 166 L162 182 Z" fill="#E9A83B"/>
+          <path d="M150 168 Q162 178 174 168 Q162 186 150 168 Z" fill="#C97B28"/>
+        </g>
+      </g>
+
+      <!-- 蛋 -->
+      <g transform="translate(352,300) scale(0.48)">
+        <g class="egg-rock">
+          <path d="M55 8 C28 8 14 46 14 76 C14 102 32 118 55 118 C78 118 96 102 96 76 C96 46 82 8 55 8 Z"
+                fill="#FFFDF4" stroke="#C9BA98" stroke-width="4"/>
+          <path d="M30 70 L40 60 L48 70 L57 59 L66 70 L75 61 L82 70" fill="none" stroke="#C9BA98" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="38" cy="42" r="3" fill="#E3B465"/>
+          <circle cx="68" cy="34" r="2.5" fill="#6DB25A"/>
+          <circle cx="74" cy="94" r="3" fill="#C6432C"/>
+        </g>
+      </g>
+
+      <!-- 小狗 -->
+      <g transform="translate(498,242) scale(0.4)">
+        <g class="breathe b2">
+          <ellipse cx="72" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(8 72 150)"/>
+          <ellipse cx="228" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(-8 228 150)"/>
+          <circle cx="150" cy="150" r="92" fill="#EBBE6B"/>
+          <path d="M150 60 L150 38" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
+          <path d="M126 66 L118 48" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
+          <path d="M174 66 L182 48" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
+          <ellipse cx="150" cy="188" rx="62" ry="52" fill="#FCF3D9"/>
+          <ellipse cx="92" cy="176" rx="18" ry="12" fill="#E8A17A" opacity=".75"/>
+          <ellipse cx="208" cy="176" rx="18" ry="12" fill="#E8A17A" opacity=".75"/>
+          <circle cx="114" cy="142" r="21" fill="#3B2A20"/>
+          <circle cx="186" cy="142" r="21" fill="#3B2A20"/>
+          <circle cx="108" cy="135" r="7" fill="#FFF"/>
+          <circle cx="180" cy="135" r="7" fill="#FFF"/>
+          <ellipse cx="150" cy="172" rx="15" ry="12" fill="#4A3226"/>
+          <path d="M136 196 Q136 228 150 228 Q164 228 164 196 Q157 200 150 200 Q143 200 136 196 Z" fill="#F08A9B"/>
+          <line x1="150" y1="204" x2="150" y2="220" stroke="#D96E82" stroke-width="3" stroke-linecap="round"/>
+          <rect x="96" y="238" width="108" height="20" rx="10" fill="#FFFFFF"/>
+          <circle cx="150" cy="266" r="14" fill="#FFC800" stroke="#E6A800" stroke-width="3"/>
+        </g>
+      </g>
+
+      <!-- 花 -->
+      <g class="swayflower">
+        <line x1="418" y1="384" x2="418" y2="364" stroke="#5FA04B" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="413" cy="358" r="4.5" fill="#FFFDF4"/><circle cx="423" cy="358" r="4.5" fill="#FFFDF4"/>
+        <circle cx="413" cy="367" r="4.5" fill="#FFFDF4"/><circle cx="423" cy="367" r="4.5" fill="#FFFDF4"/>
+        <circle cx="418" cy="362.5" r="4" fill="#E3B465"/>
+      </g>
+      <g class="swayflower s2">
+        <line x1="330" y1="392" x2="330" y2="374" stroke="#5FA04B" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="326" cy="369" r="4" fill="#FFFDF4"/><circle cx="334" cy="369" r="4" fill="#FFFDF4"/>
+        <circle cx="326" cy="377" r="4" fill="#FFFDF4"/><circle cx="334" cy="377" r="4" fill="#FFFDF4"/>
+        <circle cx="330" cy="373" r="3.5" fill="#C6432C"/>
+      </g>
+
+      <!-- 名字木牌 -->
+      <g class="stakes" font-size="12" font-weight="800" fill="#6B4F2A" text-anchor="middle"
+         font-family="ui-rounded,-apple-system,'PingFang SC',sans-serif">
+        <rect x="292" y="398" width="7" height="24" rx="3.5" fill="#B98D4F"/>
+        <rect x="266" y="380" width="60" height="24" rx="12" fill="#D8AC6E"/>
+        <text x="296" y="396">琴鸟</text>
+        <rect x="378" y="404" width="7" height="22" rx="3.5" fill="#B98D4F"/>
+        <rect x="356" y="386" width="52" height="24" rx="12" fill="#D8AC6E"/>
+        <text x="382" y="402">？</text>
+        <rect x="470" y="408" width="7" height="22" rx="3.5" fill="#B98D4F"/>
+        <rect x="444" y="390" width="60" height="24" rx="12" fill="#D8AC6E"/>
+        <text x="474" y="406">蜜蜂</text>
+        <rect x="560" y="404" width="7" height="22" rx="3.5" fill="#B98D4F"/>
+        <rect x="534" y="386" width="60" height="24" rx="12" fill="#D8AC6E"/>
+        <text x="564" y="402">金毛</text>
+      </g>
+
+      <!-- 蝴蝶 -->
+      <g class="flutter">
+        <g transform="translate(455,330)">
+          <path class="flap fl" d="M-2 0 Q-14 -12 -12 -2 Q-13 6 -2 2 Z" fill="#F2D9E8"/>
+          <path class="flap fr" d="M2 0 Q14 -12 12 -2 Q13 6 2 2 Z" fill="#F2D9E8"/>
+          <line x1="0" y1="-3" x2="0" y2="4" stroke="#5D5343" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 蜜蜂在岛上空巡逻 -->
+    <g class="bee-sway"><g class="bee-bob">
+      <g transform="translate(398,176) scale(0.22)">
+        <defs>
+          <linearGradient id="beeg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e3b465"/>
+            <stop offset="1" stop-color="#c89544"/>
+          </linearGradient>
+          <clipPath id="beebody"><rect x="116" y="124" width="280" height="266" rx="118"/></clipPath>
+        </defs>
+        <ellipse cx="136" cy="158" rx="74" ry="40" fill="#F3ECD8" transform="rotate(-32 136 158)"/>
+        <ellipse cx="376" cy="158" rx="74" ry="40" fill="#F3ECD8" transform="rotate(32 376 158)"/>
+        <path d="M212 132 q-16 -32 -38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="172" cy="86" r="11" fill="#c89544"/>
+        <path d="M300 132 q16 -32 38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="340" cy="86" r="11" fill="#c89544"/>
+        <rect x="116" y="124" width="280" height="266" rx="118" fill="url(#beeg)"/>
+        <g clip-path="url(#beebody)">
+          <rect x="116" y="272" width="280" height="44" fill="#4A3E2C"/>
+          <rect x="116" y="344" width="280" height="44" fill="#4A3E2C"/>
+        </g>
+        <rect x="182" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
+        <rect x="294" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
+        <path d="M238 246 q18 16 36 0" fill="none" stroke="#4A3E2C" stroke-width="10" stroke-linecap="round"/>
+        <text x="256" y="306" font-family="Menlo,Consolas,monospace" font-size="40" font-weight="700" text-anchor="middle" fill="#e3b465">15</text>
+      </g>
+    </g></g>
+
+    <!-- 岸线过渡到纸面 -->
+    <path d="M0 512 Q120 500 240 512 T480 512 T720 512 T960 512 V540 H0 Z" fill="#FBF4E1"/>
+  </svg>
+</div>
+
+<header class="wrap">
+  <div class="talk">
+    <div class="speaker">
+      <!-- 看门的琴鸟 -->
+      <svg width="132" height="140" viewBox="0 0 320 340" role="img" aria-label="看门的琴鸟">
+        <ellipse cx="162" cy="318" rx="78" ry="10" fill="#5D5343" opacity=".1"/>
+        <path d="M118 232 C44 192 30 104 78 62 C96 46 120 58 112 82" fill="none" stroke="#A9683F" stroke-width="12" stroke-linecap="round"/>
+        <path d="M206 232 C280 192 294 104 246 62 C228 46 204 58 212 82" fill="none" stroke="#A9683F" stroke-width="12" stroke-linecap="round"/>
+        <g fill="none" stroke="#8F6D49" stroke-width="3" stroke-linecap="round" opacity=".55">
+          <path d="M136 222 C84 176 82 112 112 76"/>
+          <path d="M150 216 C120 168 122 110 146 78"/>
+          <path d="M174 216 C204 168 202 110 178 78"/>
+          <path d="M188 222 C240 176 242 112 212 76"/>
+        </g>
+        <path d="M144 296 L144 314 M136 314 L154 314" stroke="#E9A83B" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M180 296 L180 314 M172 314 L190 314" stroke="#E9A83B" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <ellipse cx="162" cy="248" rx="64" ry="56" fill="#8F6D49"/>
+        <ellipse cx="218" cy="248" rx="18" ry="34" fill="#7C5C3D" transform="rotate(-14 218 248)"/>
+        <path d="M110 236 C84 224 68 196 74 172 C90 180 112 196 122 216 Z" fill="#7C5C3D"/>
+        <ellipse cx="162" cy="262" rx="42" ry="36" fill="#F3E5C8"/>
+        <path d="M144 208 Q162 226 180 208 Q176 232 162 236 Q148 232 144 208 Z" fill="#C6432C"/>
+        <circle cx="162" cy="140" r="66" fill="#8F6D49"/>
+        <ellipse cx="162" cy="154" rx="48" ry="40" fill="#E9D9BC"/>
+        <path d="M150 78 C148 64 152 56 158 50" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
+        <path d="M166 76 C168 62 176 54 184 52" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="138" cy="146" r="14" fill="#2E241A"/>
+        <circle cx="186" cy="146" r="14" fill="#2E241A"/>
+        <circle cx="133" cy="140" r="5" fill="#FFF"/>
+        <circle cx="181" cy="140" r="5" fill="#FFF"/>
+        <ellipse cx="120" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
+        <ellipse cx="204" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
+        <path d="M148 166 L162 160 L176 166 L162 182 Z" fill="#E9A83B"/>
+        <path d="M150 168 Q162 178 174 168 Q162 186 150 168 Z" fill="#C97B28"/>
+      </svg>
+    </div>
+    <div class="bubble">
+      <span class="tag">琴鸟</span>
+      欢迎登岛～♪ 这里是 <b>TokenDance</b>。
+      岛上养着园长做的小应用：每一只，都是从一个很小很小的需求变来的。
+      <span class="soft">不为别的，纯粹好玩。慢慢逛～</span>
+    </div>
+  </div>
+</header>
+
+<section class="wrap" id="residents">
+  <h2>
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M10 2 C15 4 17 9 16 15 C10 16 5 13 4 7 C6 4 8 2.5 10 2 Z" fill="#6DB25A"/>
+      <path d="M10 5 C11 9 12 12 14 14" stroke="#4E9142" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    住 户 名 册
+  </h2>
+  <div class="plaques">
+
+    <div class="plaque">
+      <div class="p-head">
+        <span class="p-face" style="background:#F6E3B8">
+          <svg viewBox="106 60 300 300" aria-hidden="true">
+            <ellipse cx="136" cy="158" rx="74" ry="40" fill="#EFE7D3" transform="rotate(-32 136 158)"/>
+            <ellipse cx="376" cy="158" rx="74" ry="40" fill="#EFE7D3" transform="rotate(32 376 158)"/>
+            <path d="M212 132 q-16 -32 -38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="172" cy="86" r="11" fill="#c89544"/>
+            <path d="M300 132 q16 -32 38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="340" cy="86" r="11" fill="#c89544"/>
+            <rect x="116" y="124" width="280" height="266" rx="118" fill="#DFA94F"/>
+            <rect x="182" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
+            <rect x="294" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
+            <path d="M238 246 q18 16 36 0" fill="none" stroke="#4A3E2C" stroke-width="10" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div class="p-name">蜜蜂<span class="latin">every15min</span></div>
+      </div>
+      <p>
+        一只准时的蜜蜂。<b>every15min</b> 是个终端样子的生活记录器：
+        想起来了就敲一行，一天就攒下一小段一小段的时刻。数据全在你自己的设备里。
+        蜜蜂按体内的钟出门采蜜，蜂巢的格子就像一天里的十五分钟。
+        <a href="https://ptthegreat.github.io/every15min-site/">去它家看看 →</a>
+      </p>
+      <div class="phrase"><span class="lbl">口头禅</span><q class="mono">$ log this moment...</q></div>
+    </div>
+
+    <div class="plaque">
+      <div class="p-head">
+        <span class="p-face" style="background:#DFF0C8">
+          <svg viewBox="30 30 240 240" aria-hidden="true">
+            <ellipse cx="72" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(8 72 150)"/>
+            <ellipse cx="228" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(-8 228 150)"/>
+            <circle cx="150" cy="150" r="92" fill="#EBBE6B"/>
+            <path d="M150 60 L150 38" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
+            <path d="M126 66 L118 48" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
+            <path d="M174 66 L182 48" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
+            <ellipse cx="150" cy="188" rx="62" ry="52" fill="#FCF3D9"/>
+            <circle cx="114" cy="142" r="21" fill="#3B2A20"/>
+            <circle cx="186" cy="142" r="21" fill="#3B2A20"/>
+            <circle cx="108" cy="135" r="7" fill="#FFF"/>
+            <circle cx="180" cy="135" r="7" fill="#FFF"/>
+            <ellipse cx="150" cy="172" rx="15" ry="12" fill="#4A3226"/>
+            <path d="M136 196 Q136 228 150 228 Q164 228 164 196 Q157 200 150 200 Q143 200 136 196 Z" fill="#F08A9B"/>
+          </svg>
+        </span>
+        <div class="p-name">金毛<span class="latin">守守 Goldie</span></div>
+      </div>
+      <p>
+        一只守护的金毛。<b>守守 Goldie</b> 陪癫痫朋友打卡用药、记录发作，
+        攒「安全天数」，管病历和复诊，还带着放松练习和紧急守护圈。
+        数据全在你自己的手机里 —— 无账号、无广告、无追踪。
+        现实里，金毛就是最常见的癫痫辅助犬。
+        <a href="https://goldie.tokendance.life/">去它家看看 →</a>
+      </p>
+      <div class="phrase"><span class="lbl">口头禅</span><q>今天也要好好吃药哦，汪</q></div>
+    </div>
+
+    <div class="plaque">
+      <div class="p-head">
+        <span class="p-face" style="background:#EADFC8">
+          <svg viewBox="88 66 148 148" aria-hidden="true">
+            <circle cx="162" cy="140" r="66" fill="#8F6D49"/>
+            <ellipse cx="162" cy="154" rx="48" ry="40" fill="#E9D9BC"/>
+            <path d="M150 78 C148 64 152 56 158 50" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
+            <path d="M166 76 C168 62 176 54 184 52" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="138" cy="146" r="14" fill="#2E241A"/>
+            <circle cx="186" cy="146" r="14" fill="#2E241A"/>
+            <circle cx="133" cy="140" r="5" fill="#FFF"/>
+            <circle cx="181" cy="140" r="5" fill="#FFF"/>
+            <ellipse cx="120" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
+            <ellipse cx="204" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
+            <path d="M148 166 L162 160 L176 166 L162 182 Z" fill="#E9A83B"/>
+            <path d="M150 168 Q162 178 174 168 Q162 186 150 168 Z" fill="#C97B28"/>
+          </svg>
+        </span>
+        <div class="p-name">琴鸟<span class="latin">看门的，不是应用</span></div>
+      </div>
+      <p>
+        岛上的看门鸟。琴鸟听过什么就能唱什么，唱不同的歌还会配上不同的舞 ——
+        歌和舞一一对应。token dance，鸟如其名。
+      </p>
+      <div class="phrase"><span class="lbl">口头禅</span><q>♪</q></div>
+    </div>
+
+    <div class="plaque">
+      <div class="p-head">
+        <span class="p-face" style="background:#F1E8D2">
+          <svg viewBox="0 -4 110 134" aria-hidden="true">
+            <path d="M55 8 C28 8 14 46 14 76 C14 102 32 118 55 118 C78 118 96 102 96 76 C96 46 82 8 55 8 Z"
+                  fill="#FFFDF4" stroke="#C9BA98" stroke-width="4"/>
+            <path d="M30 70 L40 60 L48 70 L57 59 L66 70 L75 61 L82 70" fill="none" stroke="#C9BA98" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="38" cy="42" r="3" fill="#E3B465"/>
+            <circle cx="68" cy="34" r="2.5" fill="#6DB25A"/>
+            <circle cx="74" cy="94" r="3" fill="#C6432C"/>
+          </svg>
+        </span>
+        <div class="p-name">蛋<span class="latin">？？？</span></div>
+      </div>
+      <p>还看不出来是什么。孵着呢。</p>
+      <div class="phrase"><span class="lbl">口头禅</span><q>……</q></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="wrap" id="about">
+  <h2>
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M10 2 C15 4 17 9 16 15 C10 16 5 13 4 7 C6 4 8 2.5 10 2 Z" fill="#6DB25A"/>
+      <path d="M10 5 C11 9 12 12 14 14" stroke="#4E9142" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    园 长 的 话
+  </h2>
+  <div class="talk" style="margin-top:30px">
+    <div class="bubble no-tail" style="flex:1">
+      <span class="tag t2">Tony · 园长</span>
+      我是 Tony。这座岛没有商业计划，也没有排期 ——
+      遇到一个有意思的小需求，就把它做出来。不为别的，好玩。
+      以前这种念头只能停在「想想」，现在有 AI 一起，一个人也能把它们真的孵出来。
+      域名选了 <b>.life</b> 而不是 .com，因为这本来就不是生意，是生活的一部分。
+      <span class="soft">岛上会慢慢热闹起来。有事找我：</span><a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="leaf" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true">
+    <path d="M10 2 C15 4 17 9 16 15 C10 16 5 13 4 7 C6 4 8 2.5 10 2 Z" fill="#6DB25A"/>
+  </svg>© 2026 tokendance.life · 一个人的小动物园
+</footer>
+
+<script>
+(function(){
+  var d=new Date();
+  var dows=["日","一","二","三","四","五","六"];
+  var el=document.getElementById("date-chip");
+  el.innerHTML=(d.getMonth()+1)+"月"+d.getDate()+"日 <span class='dow'>星期"+dows[d.getDay()]+"</span>";
+  /* 天色跟随真实时间；?sky=day|dusk|night 可强制预览 */
+  var q=new URLSearchParams(location.search).get("sky");
+  var h=d.getHours();
+  var sky=q||(h>=19||h<6?"night":h>=17?"dusk":"day");
+  document.getElementById("hero").setAttribute("data-sky",sky);
+})();
+</script>
+
+</body>
+</html>
