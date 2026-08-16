@@ -8,6 +8,9 @@
 <meta name="author" content="Tony">
 <meta name="theme-color" content="#FBF4E1">
 <link rel="canonical" href="https://tokendance.life/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -72,8 +75,8 @@
 <style>
 /* 动物森友会式：奶油 UI + 海岛世界。天色随访客的真实时间变化（?sky=day|dusk|night 可预览） */
 :root{
-  --bg:#FBF4E1;
-  --card:#FFFDF4;
+  --bg:#FFF6DE;
+  --card:#FFFBE9;
   --brown:#5D5343;
   --brown-soft:#8A7C63;
   --leaf:#6DB25A;
@@ -87,9 +90,9 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   background-color:var(--bg);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cpath d='M12 10 l5 9 h-10 z' fill='%23F0E6CC'/%3E%3Ccircle cx='48' cy='22' r='3' fill='%23F0E6CC'/%3E%3Cpath d='M54 50 l5 9 h-10 z' fill='%23F0E6CC'/%3E%3Ccircle cx='20' cy='56' r='2.5' fill='%23F0E6CC'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M-4 8 L8 -4 M10 22 L22 10 M24 36 L36 24' stroke='%23FAF0D8' stroke-width='4' fill='none'/%3E%3Cpath d='M-4 20 L20 -4 M4 36 L36 4 M20 44 L44 20' stroke='%23FCF4E2' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
   color:var(--brown);
-  font-family:ui-rounded,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-family:"M PLUS Rounded 1c","ZCOOL KuaiLe",ui-rounded,-apple-system,"PingFang SC","Hiragino Sans GB",system-ui,sans-serif;font-weight:700;
   line-height:1.9;
   -webkit-font-smoothing:antialiased;
 }
@@ -107,7 +110,7 @@ svg{max-width:100%}
   --ocean:#57C0DC; --wave:#8FDCEC; --foam:#FFFFFF;
   --sand:#F2E2B6; --sun:#FFDE8A;
   position:relative;
-  background:linear-gradient(var(--sky1), var(--sky2) 62%, var(--ocean) 62%);
+  background:linear-gradient(var(--sky1), var(--sky2));
 }
 #hero[data-sky="dusk"]{
   --sky1:#F0B285; --sky2:#FBE3BC;
@@ -215,30 +218,25 @@ svg{max-width:100%}
 .talk .speaker{flex:0 0 auto}
 .bubble{
   position:relative;flex:1;
-  background:var(--card);border-radius:26px;
-  padding:26px 28px 22px;
+  background:#FFFAE5;border-radius:32px;
+  padding:28px 30px 24px;
   box-shadow:var(--shadow);
-  font-size:15.5px;
+  font-size:15.5px;color:#7A7263;
 }
 .bubble .tag{
-  position:absolute;top:-15px;left:24px;
+  position:absolute;top:-18px;left:18px;
   background:var(--leaf);color:#FFFDF4;
-  border-radius:999px;padding:3px 20px;
-  font-size:13.5px;font-weight:800;letter-spacing:.1em;
-  box-shadow:0 2px 0 rgba(78,145,66,.35);
+  border-radius:999px;padding:5px 22px;
+  font-size:14px;font-weight:800;letter-spacing:.12em;
+  transform:rotate(-6deg);
+  box-shadow:0 3px 0 rgba(78,145,66,.3);
 }
-.bubble .tag.t2{background:var(--honey);color:#6B4F1E;box-shadow:0 2px 0 rgba(184,133,60,.3)}
-.bubble::before{
-  content:"";position:absolute;left:-8px;bottom:34px;
-  width:18px;height:18px;background:var(--card);border-radius:5px;
-  transform:rotate(45deg);
-}
-.bubble.no-tail::before{display:none}
-.bubble b{color:var(--leaf-deep);font-weight:800}
-.bubble .soft{color:var(--brown-soft)}
+.bubble .tag.t2{background:var(--honey);color:#6B4F1E;box-shadow:0 3px 0 rgba(184,133,60,.3)}
+.bubble::before{display:none}
+.bubble b{color:#E8930C;font-weight:800}
+.bubble .soft{color:#A89E8A}
 @media (max-width:640px){
   .talk{flex-direction:column;align-items:flex-start;gap:22px}
-  .bubble::before{left:44px;bottom:auto;top:-7px}
 }
 
 /* ============ 住户名册 ============ */
@@ -324,6 +322,13 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
       <circle class="star" style="--d:1.5s"  cx="260" cy="170" r="1.8"/>
     </g>
 
+    <!-- 四角星闪光 -->
+    <g fill="#FFFDF4">
+      <path class="twinkle" style="--d:.4s" d="M300 120 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3 z"/>
+      <path class="twinkle" style="--d:1.9s" d="M700 96 l2.5 7.5 7.5 2.5 -7.5 2.5 -2.5 7.5 -2.5 -7.5 -7.5 -2.5 7.5 -2.5 z"/>
+      <path class="twinkle" style="--d:3s" d="M560 200 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z"/>
+    </g>
+
     <!-- 云 -->
     <g class="cloud c1" opacity=".92">
       <ellipse cx="140" cy="150" rx="52" ry="16" fill="#FFFDF4"/>
@@ -353,7 +358,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
     </g>
 
     <!-- 海 -->
-    <rect x="0" y="336" width="960" height="204" fill="var(--ocean)"/>
+    <path d="M0 384 Q480 318 960 384 L960 540 L0 540 Z" fill="var(--ocean)"/>
     <g class="wave-a">
       <path d="M-240 372 Q-210 364 -180 372 T-120 372 T-60 372 T0 372 T60 372 T120 372 T180 372 T240 372 T300 372 T360 372 T420 372 T480 372 T540 372 T600 372 T660 372 T720 372 T780 372 T840 372 T900 372 T960 372 T1020 372 T1080 372 T1140 372"
             fill="none" stroke="var(--wave)" stroke-width="5" stroke-linecap="round" opacity=".7"/>
@@ -409,6 +414,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
           <path d="M300 132 q16 -32 38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
           <circle cx="340" cy="86" r="11" fill="#c89544"/>
           <rect x="116" y="124" width="280" height="266" rx="118" fill="url(#beeg)"/>
+          <ellipse cx="196" cy="176" rx="52" ry="30" fill="#FFF" opacity=".25" transform="rotate(-18 196 176)"/>
           <g clip-path="url(#beebody)">
             <rect x="116" y="272" width="280" height="44" fill="#4A3E2C"/>
             <rect x="116" y="344" width="280" height="44" fill="#4A3E2C"/>
@@ -428,6 +434,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
           <ellipse cx="72" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(8 72 150)"/>
           <ellipse cx="228" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(-8 228 150)"/>
           <circle cx="150" cy="150" r="92" fill="#EBBE6B"/>
+          <ellipse cx="116" cy="104" rx="34" ry="22" fill="#FFF" opacity=".22" transform="rotate(-24 116 104)"/>
           <path d="M150 60 L150 38" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
           <path d="M126 66 L118 48" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
           <path d="M174 66 L182 48" stroke="#C9963F" stroke-width="9" stroke-linecap="round"/>
@@ -508,6 +515,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
         <ellipse cx="162" cy="262" rx="42" ry="36" fill="#F3E5C8"/>
         <path d="M144 208 Q162 226 180 208 Q176 232 162 236 Q148 232 144 208 Z" fill="#C6432C"/>
         <circle cx="162" cy="140" r="66" fill="#8F6D49"/>
+        <ellipse cx="138" cy="106" rx="26" ry="16" fill="#FFF" opacity=".2" transform="rotate(-24 138 106)"/>
         <ellipse cx="162" cy="154" rx="48" ry="40" fill="#E9D9BC"/>
         <path d="M150 78 C148 64 152 56 158 50" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
         <path d="M166 76 C168 62 176 54 184 52" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
@@ -678,7 +686,12 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
   var d=new Date();
   var dows=["日","一","二","三","四","五","六"];
   var el=document.getElementById("date-chip");
-  el.innerHTML=(d.getMonth()+1)+"月"+d.getDate()+"日 <span class='dow'>星期"+dows[d.getDay()]+"</span>";
+  function tick(){
+    var n=new Date();
+    var hh=n.getHours(), mm=("0"+n.getMinutes()).slice(-2);
+    el.innerHTML=(n.getMonth()+1)+"月"+n.getDate()+"日 <span class='dow'>星期"+dows[n.getDay()]+"</span> "+hh+":"+mm;
+  }
+  tick(); setInterval(tick, 30000);
   /* 天色跟随真实时间；?sky=day|dusk|night 可强制预览 */
   var q=new URLSearchParams(location.search).get("sky");
   var h=d.getHours();
