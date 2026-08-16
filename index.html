@@ -156,7 +156,6 @@ svg{max-width:100%}
   .tokens{gap:5px}
   .tok{font-size:clamp(15px,4.4vw,21px);padding:3px 7px 1px;border-radius:9px}
 }
-@media (max-width:640px){.stakes{display:none}}
 
 /* ============ 环境动效（全部缓慢、有编排） ============ */
 @media (prefers-reduced-motion: no-preference){
@@ -258,6 +257,7 @@ h2 svg{flex:0 0 auto}
   width:58px;height:58px;border-radius:50%;overflow:hidden;flex:0 0 auto;
   display:flex;align-items:center;justify-content:center;
 }
+.p-face.tile{border-radius:16px}
 .p-face svg{width:100%;height:100%;display:block}
 .p-name{font-size:17px;font-weight:800}
 .p-name .latin{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--brown-soft);font-weight:600;letter-spacing:.02em}
@@ -302,7 +302,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
   </h1>
 
   <svg class="vista" viewBox="0 0 960 540" preserveAspectRatio="xMidYMid slice"
-       role="img" aria-label="海中央的小岛：琴鸟、蛋、蜜蜂和小狗住在上面">
+       role="img" aria-label="海中央的小岛：蜜蜂、金毛和一颗蛋，各自守着自己的应用">
     <!-- 太阳 / 月亮 / 星星 -->
     <g class="sun">
       <circle cx="212" cy="132" r="46" fill="var(--sun)" opacity=".35"/>
@@ -353,12 +353,10 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
 
     <!-- 海 -->
     <rect x="0" y="336" width="960" height="204" fill="var(--ocean)"/>
-    <!-- 远处海浪 -->
     <g class="wave-a">
       <path d="M-240 372 Q-210 364 -180 372 T-120 372 T-60 372 T0 372 T60 372 T120 372 T180 372 T240 372 T300 372 T360 372 T420 372 T480 372 T540 372 T600 372 T660 372 T720 372 T780 372 T840 372 T900 372 T960 372 T1020 372 T1080 372 T1140 372"
             fill="none" stroke="var(--wave)" stroke-width="5" stroke-linecap="round" opacity=".7"/>
     </g>
-    <!-- 海面闪光 -->
     <g stroke="var(--foam)" stroke-width="2" stroke-linecap="round">
       <path class="twinkle" style="--d:0s"    d="M120 400 v8 M116 404 h8"/>
       <path class="twinkle" style="--d:1.1s"  d="M840 390 v8 M836 394 h8"/>
@@ -378,65 +376,53 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
       <ellipse cx="480" cy="378" rx="264" ry="56" fill="var(--grass-light)"/>
       <ellipse cx="480" cy="370" rx="238" ry="48" fill="var(--grass)"/>
 
-      <!-- 果树 -->
+      <!-- 果树（左侧） -->
       <g class="swayflower s2">
-        <rect x="660" y="318" width="12" height="38" rx="5" fill="#B98D4F"/>
-        <circle cx="666" cy="288" r="38" fill="#5DA24C"/>
-        <circle cx="644" cy="302" r="24" fill="#5DA24C"/>
-        <circle cx="690" cy="302" r="24" fill="#5DA24C"/>
-        <circle cx="654" cy="280" r="4.5" fill="#E85B4B"/>
-        <circle cx="676" cy="270" r="4.5" fill="#E85B4B"/>
-        <circle cx="682" cy="294" r="4.5" fill="#E85B4B"/>
+        <rect x="172" y="316" width="12" height="38" rx="5" fill="#B98D4F"/>
+        <circle cx="178" cy="286" r="38" fill="#5DA24C"/>
+        <circle cx="156" cy="300" r="24" fill="#5DA24C"/>
+        <circle cx="202" cy="300" r="24" fill="#5DA24C"/>
+        <circle cx="166" cy="278" r="4.5" fill="#E85B4B"/>
+        <circle cx="188" cy="268" r="4.5" fill="#E85B4B"/>
+        <circle cx="194" cy="292" r="4.5" fill="#E85B4B"/>
       </g>
 
-      <!-- 琴鸟 -->
-      <g transform="translate(222,190) scale(0.46)">
-        <g class="breathe">
-          <ellipse cx="162" cy="318" rx="78" ry="10" fill="#2E241A" opacity=".12"/>
-          <path d="M118 232 C44 192 30 104 78 62 C96 46 120 58 112 82" fill="none" stroke="#A9683F" stroke-width="12" stroke-linecap="round"/>
-          <path d="M206 232 C280 192 294 104 246 62 C228 46 204 58 212 82" fill="none" stroke="#A9683F" stroke-width="12" stroke-linecap="round"/>
-          <g fill="none" stroke="#8F6D49" stroke-width="3" stroke-linecap="round" opacity=".55">
-            <path d="M136 222 C84 176 82 112 112 76"/>
-            <path d="M150 216 C120 168 122 110 146 78"/>
-            <path d="M174 216 C204 168 202 110 178 78"/>
-            <path d="M188 222 C240 176 242 112 212 76"/>
+      <!-- every15min：蜜蜂 + 它的终端色地台（同 App 图标） -->
+      <rect x="252" y="330" width="128" height="44" rx="14" fill="#1d2021"/>
+      <rect x="252" y="330" width="128" height="44" rx="14" fill="none" stroke="#3c3836" stroke-width="2"/>
+      <text x="316" y="358" text-anchor="middle" font-size="15" font-weight="700"
+            font-family="Menlo,Consolas,monospace" fill="#d8a657">15</text>
+      <g class="bee-bob">
+        <g transform="translate(250,196) scale(0.26)">
+          <defs>
+            <linearGradient id="beeg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e3b465"/>
+              <stop offset="1" stop-color="#c89544"/>
+            </linearGradient>
+            <clipPath id="beebody"><rect x="116" y="124" width="280" height="266" rx="118"/></clipPath>
+          </defs>
+          <ellipse cx="136" cy="158" rx="74" ry="40" fill="#F3ECD8" transform="rotate(-32 136 158)"/>
+          <ellipse cx="376" cy="158" rx="74" ry="40" fill="#F3ECD8" transform="rotate(32 376 158)"/>
+          <path d="M212 132 q-16 -32 -38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="172" cy="86" r="11" fill="#c89544"/>
+          <path d="M300 132 q16 -32 38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="340" cy="86" r="11" fill="#c89544"/>
+          <rect x="116" y="124" width="280" height="266" rx="118" fill="url(#beeg)"/>
+          <g clip-path="url(#beebody)">
+            <rect x="116" y="272" width="280" height="44" fill="#4A3E2C"/>
+            <rect x="116" y="344" width="280" height="44" fill="#4A3E2C"/>
           </g>
-          <path d="M144 296 L144 314 M136 314 L154 314" stroke="#E9A83B" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <path d="M180 296 L180 314 M172 314 L190 314" stroke="#E9A83B" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <ellipse cx="162" cy="248" rx="64" ry="56" fill="#8F6D49"/>
-          <ellipse cx="218" cy="248" rx="18" ry="34" fill="#7C5C3D" transform="rotate(-14 218 248)"/>
-          <path d="M110 236 C84 224 68 196 74 172 C90 180 112 196 122 216 Z" fill="#7C5C3D"/>
-          <ellipse cx="162" cy="262" rx="42" ry="36" fill="#F3E5C8"/>
-          <path d="M144 208 Q162 226 180 208 Q176 232 162 236 Q148 232 144 208 Z" fill="#C6432C"/>
-          <circle cx="162" cy="140" r="66" fill="#8F6D49"/>
-          <ellipse cx="162" cy="154" rx="48" ry="40" fill="#E9D9BC"/>
-          <path d="M150 78 C148 64 152 56 158 50" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
-          <path d="M166 76 C168 62 176 54 184 52" fill="none" stroke="#7C5C3D" stroke-width="6" stroke-linecap="round"/>
-          <circle cx="138" cy="146" r="14" fill="#2E241A"/>
-          <circle cx="186" cy="146" r="14" fill="#2E241A"/>
-          <circle cx="133" cy="140" r="5" fill="#FFF"/>
-          <circle cx="181" cy="140" r="5" fill="#FFF"/>
-          <ellipse cx="120" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
-          <ellipse cx="204" cy="164" rx="10" ry="6.5" fill="#D98E6B" opacity=".8"/>
-          <path d="M148 166 L162 160 L176 166 L162 182 Z" fill="#E9A83B"/>
-          <path d="M150 168 Q162 178 174 168 Q162 186 150 168 Z" fill="#C97B28"/>
+          <rect x="182" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
+          <rect x="294" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
+          <path d="M238 246 q18 16 36 0" fill="none" stroke="#4A3E2C" stroke-width="10" stroke-linecap="round"/>
+          <text x="256" y="306" font-family="Menlo,Consolas,monospace" font-size="40" font-weight="700" text-anchor="middle" fill="#e3b465">15</text>
         </g>
       </g>
 
-      <!-- 蛋 -->
-      <g transform="translate(352,300) scale(0.48)">
-        <g class="egg-rock">
-          <path d="M55 8 C28 8 14 46 14 76 C14 102 32 118 55 118 C78 118 96 102 96 76 C96 46 82 8 55 8 Z"
-                fill="#FFFDF4" stroke="#C9BA98" stroke-width="4"/>
-          <path d="M30 70 L40 60 L48 70 L57 59 L66 70 L75 61 L82 70" fill="none" stroke="#C9BA98" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="38" cy="42" r="3" fill="#E3B465"/>
-          <circle cx="68" cy="34" r="2.5" fill="#6DB25A"/>
-          <circle cx="74" cy="94" r="3" fill="#C6432C"/>
-        </g>
-      </g>
-
-      <!-- 小狗 -->
-      <g transform="translate(498,242) scale(0.4)">
+      <!-- 守守 Goldie：金毛 + 它的绿色地台（同 App 图标） -->
+      <rect x="560" y="334" width="128" height="44" rx="14" fill="#58CC02"/>
+      <rect x="560" y="334" width="128" height="44" rx="14" fill="none" stroke="#46A302" stroke-width="2"/>
+      <g transform="translate(562,226) scale(0.42)">
         <g class="breathe b2">
           <ellipse cx="72" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(8 72 150)"/>
           <ellipse cx="228" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(-8 228 150)"/>
@@ -459,74 +445,40 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
         </g>
       </g>
 
+      <!-- 蛋（孵着呢） -->
+      <g transform="translate(455,302) scale(0.46)">
+        <g class="egg-rock">
+          <path d="M55 8 C28 8 14 46 14 76 C14 102 32 118 55 118 C78 118 96 102 96 76 C96 46 82 8 55 8 Z"
+                fill="#FFFDF4" stroke="#C9BA98" stroke-width="4"/>
+          <path d="M30 70 L40 60 L48 70 L57 59 L66 70 L75 61 L82 70" fill="none" stroke="#C9BA98" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="38" cy="42" r="3" fill="#E3B465"/>
+          <circle cx="68" cy="34" r="2.5" fill="#6DB25A"/>
+          <circle cx="74" cy="94" r="3" fill="#C6432C"/>
+        </g>
+      </g>
+
       <!-- 花 -->
       <g class="swayflower">
-        <line x1="418" y1="384" x2="418" y2="364" stroke="#5FA04B" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="413" cy="358" r="4.5" fill="#FFFDF4"/><circle cx="423" cy="358" r="4.5" fill="#FFFDF4"/>
-        <circle cx="413" cy="367" r="4.5" fill="#FFFDF4"/><circle cx="423" cy="367" r="4.5" fill="#FFFDF4"/>
-        <circle cx="418" cy="362.5" r="4" fill="#E3B465"/>
-      </g>
-      <g class="swayflower s2">
-        <line x1="330" y1="392" x2="330" y2="374" stroke="#5FA04B" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="326" cy="369" r="4" fill="#FFFDF4"/><circle cx="334" cy="369" r="4" fill="#FFFDF4"/>
-        <circle cx="326" cy="377" r="4" fill="#FFFDF4"/><circle cx="334" cy="377" r="4" fill="#FFFDF4"/>
-        <circle cx="330" cy="373" r="3.5" fill="#C6432C"/>
+        <line x1="445" y1="384" x2="445" y2="366" stroke="#5FA04B" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="440" cy="361" r="4" fill="#FFFDF4"/><circle cx="450" cy="361" r="4" fill="#FFFDF4"/>
+        <circle cx="440" cy="369" r="4" fill="#FFFDF4"/><circle cx="450" cy="369" r="4" fill="#FFFDF4"/>
+        <circle cx="445" cy="365" r="3.5" fill="#E3B465"/>
       </g>
 
-      <!-- 名字木牌 -->
-      <g class="stakes" font-size="12" font-weight="800" fill="#6B4F2A" text-anchor="middle"
+      <!-- 名字木牌：直接写 App 名 -->
+      <g class="stakes" font-weight="800" fill="#6B4F2A" text-anchor="middle"
          font-family="ui-rounded,-apple-system,'PingFang SC',sans-serif">
-        <rect x="292" y="398" width="7" height="24" rx="3.5" fill="#B98D4F"/>
-        <rect x="266" y="380" width="60" height="24" rx="12" fill="#D8AC6E"/>
-        <text x="296" y="396">琴鸟</text>
-        <rect x="378" y="404" width="7" height="22" rx="3.5" fill="#B98D4F"/>
-        <rect x="356" y="386" width="52" height="24" rx="12" fill="#D8AC6E"/>
-        <text x="382" y="402">？</text>
-        <rect x="470" y="408" width="7" height="22" rx="3.5" fill="#B98D4F"/>
-        <rect x="444" y="390" width="60" height="24" rx="12" fill="#D8AC6E"/>
-        <text x="474" y="406">蜜蜂</text>
-        <rect x="560" y="404" width="7" height="22" rx="3.5" fill="#B98D4F"/>
-        <rect x="534" y="386" width="60" height="24" rx="12" fill="#D8AC6E"/>
-        <text x="564" y="402">金毛</text>
-      </g>
-
-      <!-- 蝴蝶 -->
-      <g class="flutter">
-        <g transform="translate(455,330)">
-          <path class="flap fl" d="M-2 0 Q-14 -12 -12 -2 Q-13 6 -2 2 Z" fill="#F2D9E8"/>
-          <path class="flap fr" d="M2 0 Q14 -12 12 -2 Q13 6 2 2 Z" fill="#F2D9E8"/>
-          <line x1="0" y1="-3" x2="0" y2="4" stroke="#5D5343" stroke-width="2" stroke-linecap="round"/>
-        </g>
+        <rect x="312" y="392" width="8" height="26" rx="4" fill="#B98D4F"/>
+        <rect x="252" y="374" width="128" height="26" rx="13" fill="#D8AC6E"/>
+        <text x="316" y="392" font-size="14" font-family="Menlo,Consolas,monospace">every15min</text>
+        <rect x="620" y="396" width="8" height="26" rx="4" fill="#B98D4F"/>
+        <rect x="560" y="378" width="128" height="26" rx="13" fill="#D8AC6E"/>
+        <text x="624" y="396" font-size="14">守守 Goldie</text>
+        <rect x="474" y="400" width="7" height="22" rx="3.5" fill="#B98D4F"/>
+        <rect x="456" y="382" width="44" height="24" rx="12" fill="#D8AC6E"/>
+        <text x="478" y="399" font-size="13">？</text>
       </g>
     </g>
-
-    <!-- 蜜蜂在岛上空巡逻 -->
-    <g class="bee-sway"><g class="bee-bob">
-      <g transform="translate(398,176) scale(0.22)">
-        <defs>
-          <linearGradient id="beeg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e3b465"/>
-            <stop offset="1" stop-color="#c89544"/>
-          </linearGradient>
-          <clipPath id="beebody"><rect x="116" y="124" width="280" height="266" rx="118"/></clipPath>
-        </defs>
-        <ellipse cx="136" cy="158" rx="74" ry="40" fill="#F3ECD8" transform="rotate(-32 136 158)"/>
-        <ellipse cx="376" cy="158" rx="74" ry="40" fill="#F3ECD8" transform="rotate(32 376 158)"/>
-        <path d="M212 132 q-16 -32 -38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
-        <circle cx="172" cy="86" r="11" fill="#c89544"/>
-        <path d="M300 132 q16 -32 38 -44" fill="none" stroke="#c89544" stroke-width="9" stroke-linecap="round"/>
-        <circle cx="340" cy="86" r="11" fill="#c89544"/>
-        <rect x="116" y="124" width="280" height="266" rx="118" fill="url(#beeg)"/>
-        <g clip-path="url(#beebody)">
-          <rect x="116" y="272" width="280" height="44" fill="#4A3E2C"/>
-          <rect x="116" y="344" width="280" height="44" fill="#4A3E2C"/>
-        </g>
-        <rect x="182" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
-        <rect x="294" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
-        <path d="M238 246 q18 16 36 0" fill="none" stroke="#4A3E2C" stroke-width="10" stroke-linecap="round"/>
-        <text x="256" y="306" font-family="Menlo,Consolas,monospace" font-size="40" font-weight="700" text-anchor="middle" fill="#e3b465">15</text>
-      </g>
-    </g></g>
 
     <!-- 岸线过渡到纸面 -->
     <path d="M0 512 Q120 500 240 512 T480 512 T720 512 T960 512 V540 H0 Z" fill="#FBF4E1"/>
@@ -589,7 +541,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
 
     <div class="plaque">
       <div class="p-head">
-        <span class="p-face" style="background:#F6E3B8">
+        <span class="p-face tile" style="background:#1d2021">
           <svg viewBox="106 60 300 300" aria-hidden="true">
             <ellipse cx="136" cy="158" rx="74" ry="40" fill="#EFE7D3" transform="rotate(-32 136 158)"/>
             <ellipse cx="376" cy="158" rx="74" ry="40" fill="#EFE7D3" transform="rotate(32 376 158)"/>
@@ -601,6 +553,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
             <rect x="182" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
             <rect x="294" y="178" width="36" height="52" rx="15" fill="#4A3E2C"/>
             <path d="M238 246 q18 16 36 0" fill="none" stroke="#4A3E2C" stroke-width="10" stroke-linecap="round"/>
+            <text x="256" y="306" font-family="Menlo,Consolas,monospace" font-size="40" font-weight="700" text-anchor="middle" fill="#e3b465">15</text>
           </svg>
         </span>
         <div class="p-name">蜜蜂<span class="latin">every15min</span></div>
@@ -616,7 +569,7 @@ footer .leaf{display:inline-block;vertical-align:-3px;margin-right:6px}
 
     <div class="plaque">
       <div class="p-head">
-        <span class="p-face" style="background:#DFF0C8">
+        <span class="p-face tile" style="background:#58CC02">
           <svg viewBox="30 30 240 240" aria-hidden="true">
             <ellipse cx="72" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(8 72 150)"/>
             <ellipse cx="228" cy="150" rx="42" ry="72" fill="#C9963F" transform="rotate(-8 228 150)"/>
