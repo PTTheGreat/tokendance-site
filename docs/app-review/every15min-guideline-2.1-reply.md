@@ -3,7 +3,7 @@
 > 用法：把下面 `--- 分隔线之间的英文正文` 整段粘进 App Store Connect 的 **Reply to App Review**，
 > 同时把同样内容存一份到 **App Review Information → Notes**（Apple 明确要求以后每次提交都带上）。
 >
-> **提交前必须替换的占位符**：`[[iOS 版本]]`。
+> **测试设备**：iPhone Air · iOS 26.6（已填入正文第 2 段）。
 >
 > **本稿对应的是已提交的 v1.0.0 / build 1**，即仓库 commit `5d63392` 及之前的状态：
 > 纯本地、零网络请求、6 套主题、命令里还有 `:prefix`。
@@ -42,7 +42,7 @@ Regarding the specific flows you listed:
 
 **2. Devices and operating systems tested**
 
-- iPhone Air — iOS [[iOS 版本]] (physical device; this is the device used for the attached recording)
+- iPhone Air — iOS 26.6 (physical device; this is the device used for the attached recording)
 
 The app is iPhone-only (`TARGETED_DEVICE_FAMILY = 1`), portrait-only, and its minimum deployment target is iOS 17.0. All pre-submission testing was performed on the physical device above, not in the Simulator.
 
@@ -56,7 +56,7 @@ The app is iPhone-only (`TARGETED_DEVICE_FAMILY = 1`), portrait-only, and its mi
 
 *Target audience.* Adults who want a frictionless personal log — developers, writers, researchers, and anyone who has bounced off structured journaling apps. The interface deliberately borrows the density and keyboard-first conventions of a terminal, which is the aesthetic this audience is fluent in. The app contains no objectionable content and is suitable for a general audience.
 
-*Value it provides.* A personal record you will actually keep, because logging costs one line and nothing is ever demanded of you — and a record that stays entirely under your control, on your own device and in your own iCloud, with no account, no ads, no analytics and no tracking.
+*Value it provides.* A personal record you will actually keep, because logging costs one line and nothing is ever demanded of you — and a record that stays entirely under your control, on your own device, with no account, no server, no ads, no analytics and no tracking.
 
 **4. Setup and access instructions**
 
@@ -102,8 +102,8 @@ TokenDance
 
 ## 提交前请自己核一遍（中文，不要粘给 Apple）
 
-1. **`[[iOS 版本]]` 必须换成真实版本号**（比如 `iOS 26.2`）。Apple 明确要 "latest operating system"，
-   录屏所在设备的系统版本要和这里写的一致，别写模拟器。
+1. **设备与系统已填好**：iPhone Air / iOS 26.6。Apple 明确要 "latest operating system"，
+   确认录屏就是在这台真机、这个系统上录的，别用模拟器。
 2. **录屏内容要对得上第 1 条的清单**。清单是按 build 1（commit `5d63392`）实际有的命令写的
    （`:help :theme :interval :prefix :find :tags :cal :goto :j :k :today :stats :export :import :reset :cls :about`）。
    录屏里没出现的，就把那一行删掉——Apple 会照着清单看录屏，写了没演反而扣分。

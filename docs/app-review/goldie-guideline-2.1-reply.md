@@ -3,7 +3,7 @@
 > 用法：把下面 `--- 分隔线之间的英文正文` 整段粘进 App Store Connect 的 **Reply to App Review**，
 > 同时把同样内容存一份到 **App Review Information → Notes**。
 >
-> **提交前必须替换的占位符**：`[[iOS 版本]]`。
+> **测试设备**：iPhone Air · iOS 26.6（已填入正文第 2 段）。
 >
 > ⚠️ **这份稿子描述的是 build 2（当前 main 的状态），不是你已送审的 v1.0 / build 1。**
 > 送审的那个包（commit `e2119c4`）entitlements 是空的——没有 HealthKit、没有 App Group，
@@ -42,7 +42,7 @@ Regarding the specific flows you listed:
 
 **2. Devices and operating systems tested**
 
-- iPhone Air — iOS [[iOS 版本]] (physical device; this is the device used for the attached recording)
+- iPhone Air — iOS 26.6 (physical device; this is the device used for the attached recording)
 
 The app is iPhone-only (`TARGETED_DEVICE_FAMILY = 1`), portrait-only, and its minimum deployment target is iOS 17.0. All pre-submission testing was performed on the physical device above, not in the Simulator. Automated unit and UI tests are also run against the app target as part of the build.
 
