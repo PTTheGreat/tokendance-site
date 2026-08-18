@@ -1,0 +1,33 @@
+Hello App Review Team,
+
+Thank you for the review. Brief answers below, in your order; a fuller version of all seven, with more detail, is in the attached PDF.
+
+1. SCREEN RECORDING
+Attached, captured on a physical iPhone Air (iOS 26.6). It starts by launching the app from the Home Screen and covers today's log view, typing several timestamped entries, attaching a photo via +img and the system photo picker, then :help, :theme, :interval, :cal (tapping a day) and :today, :find, :stats, and :export - plus adding the Home Screen widget and tapping it back into the app.
+- Accounts: none exist. No registration, sign-in or user identity, so there is no login or account-deletion flow to record. :reset --yes erases all entries; deleting the app removes all its data.
+- Purchases: every15min is paid up front. No In-App Purchase, subscription or StoreKit code, and nothing gated behind a payment, so there is no purchase flow to record.
+- User-generated content: entries are private notes stored only on the user's own device. No server, no feed, no sharing - one user can never see another's content, so reporting and blocking are not applicable.
+- Permission prompts: none. The app uses no location, contacts, camera, microphone, health data, notifications or ATT. Photo attachments use SwiftUI's PhotosPicker, which runs out of process and needs no photo-library access or purpose string.
+
+2. DEVICES TESTED
+iPhone Air - iOS 26.6 (physical device, the one used for the recording). iPhone-only, portrait-only, minimum deployment target iOS 17.0. No Simulator-only testing.
+
+3. FUNCTION AND AUDIENCE
+every15min is a personal capture log for adults who want a frictionless personal record and have bounced off structured journaling apps. It asks nothing of the user - no prompts, no goals, no notifications: you type one timestamped line whenever something happens. The day appears as a terminal-style stack of lines with a configurable rhythm interval and a 24-hour histogram. The bottom prompt is dual-mode: plain text logs a moment; ":" opens a command palette for search, calendar, tags, themes, statistics, export and import. No objectionable content; suitable for a general audience.
+
+4. SETUP AND ACCESS
+No setup, credentials, demo account or sample files are needed. Launch the app and the log view appears. Type any text and press return to save an entry. Type ":" then "help" to reach every feature.
+
+5. EXTERNAL SERVICES
+None, and the app makes no network requests at all. No backend of ours, no authentication, payment, data-provider, AI, advertising, analytics or crash-reporting service, and no third-party libraries - only Apple frameworks. No cloud sync or backup in this version: the app declares no iCloud or CloudKit entitlement and no background modes. Entries stay in an on-device SwiftData store. Data leaves the device only via :export, which hands a file to the system document picker; the destination is the user's choice (iCloud Drive in the recording - the Files app acting on the user's instruction, not the app syncing anything).
+
+6. REGIONAL DIFFERENCES
+None - the app is identical in every region and storefront. No geofencing, no region-gated content, and no feature enabled or disabled by country, IP address or carrier.
+
+7. REGULATED INDUSTRY / THIRD-PARTY MATERIAL
+Neither applies. every15min is a personal note-taking utility, providing no financial, medical, legal, gambling, cryptocurrency or dating service. It connects to no regulated provider, processes no payments, and requires no licence or authorisation. All content is our own original work, with no third-party trademarks or licensed data sets.
+
+Please let me know if you need more detail on any point.
+
+Kind regards,
+Tony

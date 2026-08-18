@@ -31,7 +31,7 @@ A screen recording captured on a physical iPhone Air running iOS 26.6 is attache
 - `:cal` — the month calendar with per-day density, tapping a day to open it, and `:today` to return
 - `:find` — full-text search across all entries, grouped by day, then `:find` with no argument to clear the search
 - `:stats` — lifetime totals
-- `:export` — writing a JSON backup out through the system document picker and saving it to On My iPhone. This is a purely local file operation; no server is involved
+- `:export` — writing a JSON backup out through the system document picker. The destination is chosen by the user in the picker; in the recording that choice was iCloud Drive. This is the system Files app acting on the user's instruction — the app itself performs no upload and has no iCloud entitlement
 - The 24-hour activity histogram at the bottom updating as entries accumulate
 - Adding the Home Screen widget, which shows today's count and the next slot, and tapping it to jump straight back into the app with the prompt focused
 
@@ -84,7 +84,7 @@ every15min uses **no external services of any kind, and makes no network request
 - There is no cloud sync and no cloud backup in this version. The app declares no iCloud or CloudKit entitlement and no background modes.
 - The app links against no third-party libraries whatsoever. It is built entirely on Apple's own frameworks: SwiftUI, SwiftData, WidgetKit, PhotosUI, and CryptoKit.
 
-All entries are stored in a SwiftData database inside an App Group container on the device — the App Group exists solely so the Home Screen widget can read today's summary from the same on-device file. Nothing ever leaves the device unless the user explicitly runs `:export`, which writes a file through the system document picker to a destination the user chooses. The optional export encryption is performed entirely on device with Apple's CryptoKit; no key or passphrase is ever transmitted anywhere. `:import` likewise reads a local file the user picks.
+All entries are stored in a SwiftData database inside an App Group container on the device — the App Group exists solely so the Home Screen widget can read today's summary from the same on-device file. Nothing ever leaves the device unless the user explicitly runs `:export`, which hands a file to the system document picker; the destination is the user's own choice there. In the attached recording that choice was iCloud Drive — that is the system Files app saving a file on the user's instruction, not the app syncing or uploading anything. The optional export encryption is performed entirely on device with Apple's CryptoKit; no key or passphrase is ever transmitted anywhere. `:import` likewise reads a local file the user picks.
 
 The app's `PrivacyInfo.xcprivacy` accordingly declares no tracking, no tracking domains, and no collected data types.
 
