@@ -4,17 +4,23 @@ Thank you for taking the time to review every15min. Below is the information you
 
 1. Screen recording
 
-A screen recording captured on a physical iPhone running the latest shipping iOS is attached to this submission. It begins with launching the app and shows the core loop the app exists for — capturing timestamped moments — from an empty day through to a populated one:
+A screen recording captured on a physical iPhone Air running iOS 26.6 is attached to this submission. It begins by launching the app from the Home Screen and walks through the typical user flow and every core feature:
 
-- Launching the app into the main log view for today
-- The header showing the current rhythm interval, the date, and the day-of-year counter
-- The status line showing the countdown to the next slot, the gap since the last entry, today's entry count, and the current streak
+- Cold launch from the Home Screen into the main log view for today
+- The header (rhythm interval, date, day-of-year counter) and the status line (countdown to the next slot, gap since the last entry, today's count, current streak)
 - Typing and saving several entries in succession from the bottom prompt, each one appended to the day with its own timestamp
-- Attaching a photo to an entry with the +img control and the system photo picker, and the resulting inline thumbnail in the log
-- Entering command mode with : and switching the color theme
+- Attaching a photo to an entry with the +img control and the system photo picker, and the resulting inline thumbnail in the log. Note that no permission dialog appears: SwiftUI's PhotosPicker runs out of process and requires no photo-library access or purpose string
+- :help — the complete command list, which is the single entry point to every feature in the app
+- :theme — switching between the six color palettes by tapping a row in the command output
+- :interval — changing the capture rhythm, with the header and the next-slot countdown updating to match
+- :cal — the month calendar with per-day density, tapping a day to open it, and :today to return
+- :find — full-text search across all entries, grouped by day, then :find with no argument to clear the search
+- :stats — lifetime totals
+- :export — writing a JSON backup out through the system document picker and saving it to On My iPhone. This is a purely local file operation; no server is involved
 - The 24-hour activity histogram at the bottom updating as entries accumulate
+- Adding the Home Screen widget, which shows today's count and the next slot, and tapping it to jump straight back into the app with the prompt focused
 
-The app's remaining commands — :help, :cal, :find, :tags, :stats, :goto, :interval, :prefix, :export, :import, :about, :reset — are all reachable from the same prompt and are described in section 4 below. They are variations on viewing and searching the same locally stored entries; none of them involves an account, a purchase, a network request, or a permission prompt. If it would help the review, I am glad to provide a second recording covering any or all of them, or a TestFlight build.
+The recording covers the app in full. The only commands not shown are :import (the mirror image of :export, reading a local file back in), :tags (browsing entries by hashtag), :goto, :prefix, :cls, :about and :reset, plus a few easter eggs. None of them involves an account, a purchase, a network request, or a permission prompt. I am glad to record any of them as well, or to provide a TestFlight build, if that would help.
 
 Regarding the specific flows you listed:
 

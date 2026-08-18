@@ -19,17 +19,23 @@ Thank you for taking the time to review every15min. Below is the information you
 
 **1. Screen recording**
 
-A screen recording captured on a physical iPhone running the latest shipping iOS is attached to this submission. It begins with launching the app and shows the core loop the app exists for — capturing timestamped moments — from an empty day through to a populated one:
+A screen recording captured on a physical iPhone Air running iOS 26.6 is attached to this submission. It begins by launching the app from the Home Screen and walks through the typical user flow and every core feature:
 
-- Launching the app into the main log view for today
-- The header showing the current rhythm interval, the date, and the day-of-year counter
-- The status line showing the countdown to the next slot, the gap since the last entry, today's entry count, and the current streak
+- Cold launch from the Home Screen into the main log view for today
+- The header (rhythm interval, date, day-of-year counter) and the status line (countdown to the next slot, gap since the last entry, today's count, current streak)
 - Typing and saving several entries in succession from the bottom prompt, each one appended to the day with its own timestamp
-- Attaching a photo to an entry with the `+img` control and the system photo picker, and the resulting inline thumbnail in the log
-- Entering command mode with `:` and switching the color theme
+- Attaching a photo to an entry with the `+img` control and the system photo picker, and the resulting inline thumbnail in the log. Note that **no permission dialog appears**: SwiftUI's `PhotosPicker` runs out of process and requires no photo-library access or purpose string
+- `:help` — the complete command list, which is the single entry point to every feature in the app
+- `:theme` — switching between the six color palettes by tapping a row in the command output
+- `:interval` — changing the capture rhythm, with the header and the next-slot countdown updating to match
+- `:cal` — the month calendar with per-day density, tapping a day to open it, and `:today` to return
+- `:find` — full-text search across all entries, grouped by day, then `:find` with no argument to clear the search
+- `:stats` — lifetime totals
+- `:export` — writing a JSON backup out through the system document picker and saving it to On My iPhone. This is a purely local file operation; no server is involved
 - The 24-hour activity histogram at the bottom updating as entries accumulate
+- Adding the Home Screen widget, which shows today's count and the next slot, and tapping it to jump straight back into the app with the prompt focused
 
-The app's remaining commands — `:help`, `:cal`, `:find`, `:tags`, `:stats`, `:goto`, `:interval`, `:prefix`, `:export`, `:import`, `:about`, `:reset` — are all reachable from the same prompt and are described in section 4 below. They are variations on viewing and searching the same locally stored entries; none of them involves an account, a purchase, a network request, or a permission prompt. If it would help the review, I am glad to provide a second recording covering any or all of them, or a TestFlight build.
+The recording covers the app in full. The only commands not shown are `:import` (the mirror image of `:export`, reading a local file back in), `:tags` (browsing entries by hashtag), `:goto`, `:prefix`, `:cls`, `:about` and `:reset`, plus a few easter eggs. None of them involves an account, a purchase, a network request, or a permission prompt. I am glad to record any of them as well, or to provide a TestFlight build, if that would help.
 
 Regarding the specific flows you listed:
 
@@ -102,30 +108,18 @@ TokenDance
 
 1. **设备与系统已填好**：iPhone Air / iOS 26.6。Apple 明确要 "latest operating system"，
    确认录屏就是在这台真机、这个系统上录的，别用模拟器。
-2. **第 1 段已按你实际那份录屏重写**：只写了「启动 → 连续输入几条 → `+img` 配图 → `:` 进命令模式换主题
-   → 直方图随之变化」，加一句说明其余命令都在第 4 段列了、可另外补录。
-   录屏里没有的东西现在一个都没提（`:cal` `:find` `:tags` `:stats` `:export` `:import` 小组件全部删掉了）。
+2. **第 1 段已按补录的那条录屏写好**，逐条对应分镜：冷启动 → 顶栏与状态行 → 连续输入 →
+   `+img` 配图（并点明不弹权限）→ `:help` → `:theme` → `:interval` → `:cal` + `:today` →
+   `:find` + 清除 → `:stats` → `:export` 存到本机 → 直方图 → 加小组件并点回 App。
 
-   **但我建议重录一条更完整的。** Apple 这次的原话是 "show the typical user flow through its core features"，
-   只演输入和换主题，很可能被认为没覆盖核心功能，再来一轮 2.1。补录大概 60 秒就够，按这个顺序拍：
+   **发之前拿录屏对一遍这 13 行**，哪一步实际没拍到就删掉那行。Apple 会照着清单看视频，
+   写了没演比少写更扣分。末尾那句「可以再补录 / 给 TestFlight」保留着，留一个缓冲。
 
-   1. 从桌面点图标冷启动（必须从启动开始，Apple 明确要求）
-   2. 连输 2～3 条，其中一条用 `+img` 配图
-   3. `:help` — 一屏就把全部能力交代清楚，这条最划算
-   4. `:cal` 打开月历，点其中一天跳过去，再 `:today` 回来
-   5. `:find` 搜一个词，`:tags` 点一个标签
-   6. `:stats` 看总计
-   7. `:export` 走一遍系统分享面板（不用真的存），体现数据可携出
-   8. 回桌面加一个小组件，点一下跳回 App
+   `:import` `:tags` `:goto` `:prefix` `:cls` `:about` `:reset` 和彩蛋都明确写了没演，这样交代反而干净。
 
-   录完把第 1 段换成这份清单即可，我可以帮你改。若时间紧、就用现在这版提交，
-   那就把「happy to provide a second recording」那句留着——已经写进去了。
+   注：`:tags` 我归到「没演」那一侧了（脚本里它是可选步骤，取决于你有没有打 `#标签`）。
+   如果你实际演了，把它从「not shown」那句里删掉、加进上面的清单即可。
 
-   彩蛋命令（`:sl` `:cowsay` `:fortune` `:moo`）不用演，稿子里也没提。
-
-3. **确认一下 `:interval` 的事**。截图里顶栏是 `30m`，不是默认的 `15m`。
-   如果这个 30 分钟是你在录屏之前就设好的，那没问题，第 1 段现在的写法（只说"顶栏显示当前节奏间隔"）是准确的；
-   如果是你在录屏当中用 `:interval 30` 改的，告诉我，我把这一步加回第 1 段——演了就该写上。
 3. **别把 main 分支的现状当成审核中的包**。这是这份稿子最容易出错的地方：
    - `abd7aa0`（8/16 16:31，build 2）才加了 CloudKit 同步 + iCloud entitlement + `remote-notification` 后台模式；
    - `22138bb` 才加了 nord / rose-pine / vesper / oled 四套主题（build 1 只有 6 套）；
