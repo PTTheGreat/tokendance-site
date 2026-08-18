@@ -19,23 +19,21 @@ Thank you for taking the time to review every15min. Below is the information you
 
 **1. Screen recording**
 
-A screen recording captured on a physical iPhone running the latest shipping iOS is attached to this submission. It starts from a cold launch of the app and walks through the complete typical user flow:
+A screen recording captured on a physical iPhone running the latest shipping iOS is attached to this submission. It begins with launching the app and shows the core loop the app exists for — capturing timestamped moments — from an empty day through to a populated one:
 
-- Cold launch and splash screen
-- The main log view: today's timestamped entries, the "next slot" countdown, the gap markers between entries, and the 24-hour activity histogram
-- Typing and saving a new entry from the bottom prompt
-- Attaching a photo to an entry with the system photo picker, and opening the attached image full screen
-- Entering command mode with `:` and using tab completion
-- `:help` (full command list), `:theme` (switching between the six color palettes), `:interval` (changing the 15-minute rhythm), `:prefix` (choosing the command prefix)
-- `:cal` (month calendar with per-day density), tapping a day to jump to it, `:j` / `:k` / `:today` for day navigation
-- `:find` (full-text search across all entries, grouped by day) and `:tags` (browsing entries by hashtag)
-- `:stats` (lifetime totals)
-- `:export` and `:export -e <passphrase>` (writing a JSON backup out through the system share sheet, optionally encrypted), and `:import` (reading one back in)
-- The Home Screen widget and its tap-to-capture deep link back into the app
+- Launching the app into the main log view for today
+- The header showing the current rhythm interval, the date, and the day-of-year counter
+- The status line showing the countdown to the next slot, the gap since the last entry, today's entry count, and the current streak
+- Typing and saving several entries in succession from the bottom prompt, each one appended to the day with its own timestamp
+- Attaching a photo to an entry with the `+img` control and the system photo picker, and the resulting inline thumbnail in the log
+- Entering command mode with `:` and switching the color theme
+- The 24-hour activity histogram at the bottom updating as entries accumulate
+
+The app's remaining commands — `:help`, `:cal`, `:find`, `:tags`, `:stats`, `:goto`, `:interval`, `:prefix`, `:export`, `:import`, `:about`, `:reset` — are all reachable from the same prompt and are described in section 4 below. They are variations on viewing and searching the same locally stored entries; none of them involves an account, a purchase, a network request, or a permission prompt. If it would help the review, I am glad to provide a second recording covering any or all of them, or a TestFlight build.
 
 Regarding the specific flows you listed:
 
-- **Account registration, login, account deletion** — the app has none. every15min has no account system, no sign-in of any kind, and no user identity. There is therefore no such flow to record. `:reset --yes` erases all locally stored entries, and deleting the app removes all of its data; both are shown in the recording.
+- **Account registration, login, account deletion** — the app has none. every15min has no account system, no sign-in of any kind, and no user identity. There is therefore no such flow to record. Because no account is ever created, there is nothing for a user to delete beyond their own data: the `:reset --yes` command erases all locally stored entries, and deleting the app removes all of its data along with it.
 - **Paid content, purchase or subscription flows** — every15min is a **paid-up-front app**. There is no In-App Purchase, no subscription, no auto-renewable content, and no StoreKit code in the binary. The entire app is unlocked for anyone who has downloaded it, so there is no purchase flow inside the app to record. Nothing in the app is gated behind a payment.
 - **User-generated content** — entries are private, personal notes stored only on the user's own device. There is no server, no account, no feed, no sharing between users, no comments, no profiles, and no way for one user to see another user's content. Because no user can ever be exposed to content authored by another user, there is no reporting or blocking mechanism, and none is applicable.
 - **Prompts requesting access to sensitive data or device capabilities** — the app requests **none**. It does not use location, contacts, camera, microphone, health data, notifications, or App Tracking Transparency, and it displays no permission dialogs at any point. Photo attachments use SwiftUI's `PhotosPicker`, which runs out of process and does not require photo-library access or a purpose string. This is why no permission prompt appears in the recording.
@@ -104,10 +102,30 @@ TokenDance
 
 1. **设备与系统已填好**：iPhone Air / iOS 26.6。Apple 明确要 "latest operating system"，
    确认录屏就是在这台真机、这个系统上录的，别用模拟器。
-2. **录屏内容要对得上第 1 条的清单**。清单是按 build 1（commit `5d63392`）实际有的命令写的
-   （`:help :theme :interval :prefix :find :tags :cal :goto :j :k :today :stats :export :import :reset :cls :about`）。
-   录屏里没出现的，就把那一行删掉——Apple 会照着清单看录屏，写了没演反而扣分。
-   彩蛋命令（`:sl` `:cowsay` `:fortune` `:moo`）没写进去，不用演。
+2. **第 1 段已按你实际那份录屏重写**：只写了「启动 → 连续输入几条 → `+img` 配图 → `:` 进命令模式换主题
+   → 直方图随之变化」，加一句说明其余命令都在第 4 段列了、可另外补录。
+   录屏里没有的东西现在一个都没提（`:cal` `:find` `:tags` `:stats` `:export` `:import` 小组件全部删掉了）。
+
+   **但我建议重录一条更完整的。** Apple 这次的原话是 "show the typical user flow through its core features"，
+   只演输入和换主题，很可能被认为没覆盖核心功能，再来一轮 2.1。补录大概 60 秒就够，按这个顺序拍：
+
+   1. 从桌面点图标冷启动（必须从启动开始，Apple 明确要求）
+   2. 连输 2～3 条，其中一条用 `+img` 配图
+   3. `:help` — 一屏就把全部能力交代清楚，这条最划算
+   4. `:cal` 打开月历，点其中一天跳过去，再 `:today` 回来
+   5. `:find` 搜一个词，`:tags` 点一个标签
+   6. `:stats` 看总计
+   7. `:export` 走一遍系统分享面板（不用真的存），体现数据可携出
+   8. 回桌面加一个小组件，点一下跳回 App
+
+   录完把第 1 段换成这份清单即可，我可以帮你改。若时间紧、就用现在这版提交，
+   那就把「happy to provide a second recording」那句留着——已经写进去了。
+
+   彩蛋命令（`:sl` `:cowsay` `:fortune` `:moo`）不用演，稿子里也没提。
+
+3. **确认一下 `:interval` 的事**。截图里顶栏是 `30m`，不是默认的 `15m`。
+   如果这个 30 分钟是你在录屏之前就设好的，那没问题，第 1 段现在的写法（只说"顶栏显示当前节奏间隔"）是准确的；
+   如果是你在录屏当中用 `:interval 30` 改的，告诉我，我把这一步加回第 1 段——演了就该写上。
 3. **别把 main 分支的现状当成审核中的包**。这是这份稿子最容易出错的地方：
    - `abd7aa0`（8/16 16:31，build 2）才加了 CloudKit 同步 + iCloud entitlement + `remote-notification` 后台模式；
    - `22138bb` 才加了 nord / rose-pine / vesper / oled 四套主题（build 1 只有 6 套）；

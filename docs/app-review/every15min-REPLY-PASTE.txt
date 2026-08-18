@@ -4,23 +4,21 @@ Thank you for taking the time to review every15min. Below is the information you
 
 1. Screen recording
 
-A screen recording captured on a physical iPhone running the latest shipping iOS is attached to this submission. It starts from a cold launch of the app and walks through the complete typical user flow:
+A screen recording captured on a physical iPhone running the latest shipping iOS is attached to this submission. It begins with launching the app and shows the core loop the app exists for — capturing timestamped moments — from an empty day through to a populated one:
 
-- Cold launch and splash screen
-- The main log view: today's timestamped entries, the "next slot" countdown, the gap markers between entries, and the 24-hour activity histogram
-- Typing and saving a new entry from the bottom prompt
-- Attaching a photo to an entry with the system photo picker, and opening the attached image full screen
-- Entering command mode with : and using tab completion
-- :help (full command list), :theme (switching between the six color palettes), :interval (changing the 15-minute rhythm), :prefix (choosing the command prefix)
-- :cal (month calendar with per-day density), tapping a day to jump to it, :j / :k / :today for day navigation
-- :find (full-text search across all entries, grouped by day) and :tags (browsing entries by hashtag)
-- :stats (lifetime totals)
-- :export and :export -e <passphrase> (writing a JSON backup out through the system share sheet, optionally encrypted), and :import (reading one back in)
-- The Home Screen widget and its tap-to-capture deep link back into the app
+- Launching the app into the main log view for today
+- The header showing the current rhythm interval, the date, and the day-of-year counter
+- The status line showing the countdown to the next slot, the gap since the last entry, today's entry count, and the current streak
+- Typing and saving several entries in succession from the bottom prompt, each one appended to the day with its own timestamp
+- Attaching a photo to an entry with the +img control and the system photo picker, and the resulting inline thumbnail in the log
+- Entering command mode with : and switching the color theme
+- The 24-hour activity histogram at the bottom updating as entries accumulate
+
+The app's remaining commands — :help, :cal, :find, :tags, :stats, :goto, :interval, :prefix, :export, :import, :about, :reset — are all reachable from the same prompt and are described in section 4 below. They are variations on viewing and searching the same locally stored entries; none of them involves an account, a purchase, a network request, or a permission prompt. If it would help the review, I am glad to provide a second recording covering any or all of them, or a TestFlight build.
 
 Regarding the specific flows you listed:
 
-- Account registration, login, account deletion — the app has none. every15min has no account system, no sign-in of any kind, and no user identity. There is therefore no such flow to record. :reset --yes erases all locally stored entries, and deleting the app removes all of its data; both are shown in the recording.
+- Account registration, login, account deletion — the app has none. every15min has no account system, no sign-in of any kind, and no user identity. There is therefore no such flow to record. Because no account is ever created, there is nothing for a user to delete beyond their own data: the :reset --yes command erases all locally stored entries, and deleting the app removes all of its data along with it.
 - Paid content, purchase or subscription flows — every15min is a paid-up-front app. There is no In-App Purchase, no subscription, no auto-renewable content, and no StoreKit code in the binary. The entire app is unlocked for anyone who has downloaded it, so there is no purchase flow inside the app to record. Nothing in the app is gated behind a payment.
 - User-generated content — entries are private, personal notes stored only on the user's own device. There is no server, no account, no feed, no sharing between users, no comments, no profiles, and no way for one user to see another user's content. Because no user can ever be exposed to content authored by another user, there is no reporting or blocking mechanism, and none is applicable.
 - Prompts requesting access to sensitive data or device capabilities — the app requests none. It does not use location, contacts, camera, microphone, health data, notifications, or App Tracking Transparency, and it displays no permission dialogs at any point. Photo attachments use SwiftUI's PhotosPicker, which runs out of process and does not require photo-library access or a purpose string. This is why no permission prompt appears in the recording.
