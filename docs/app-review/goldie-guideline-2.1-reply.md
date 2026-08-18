@@ -4,7 +4,12 @@
 > 同时把同样内容存一份到 **App Review Information → Notes**。
 >
 > **提交前必须替换的占位符**：`[[iOS 版本]]`。
-> **提交前建议先改一处代码**：见文末「必须先处理」第 2 条（ElevenLabs）。
+>
+> ⚠️ **这份稿子描述的是 build 2（当前 main 的状态），不是你已送审的 v1.0 / build 1。**
+> 送审的那个包（commit `e2119c4`）entitlements 是空的——没有 HealthKit、没有 App Group，
+> 而且用药提醒从未被调度（`1a9fc9e` 才修）。稿子里的 Apple Health、小组件、提醒流程
+> 在那个包里都跑不起来。**必须先传一个新 build，再用这份稿子回复。**
+> 详见文末「必须先处理」第 1 条。
 >
 > 这份 App 属于健康类，Apple 的第 7 条（受监管行业 / 第三方受保护材料）是这次的关键，
 > 正文第 7 段是重点，不要删减。
@@ -120,29 +125,41 @@ TokenDance
 
 ## 必须先处理（中文，不要粘给 Apple）
 
-1. **`[[iOS 版本]]` 换成真实版本号**（比如 `iOS 26.2`），要和录屏设备一致。
+1. **别用这份稿子去回复已送审的那个包——先传新 build。** 这是本次最关键的一条。
 
-2. **ElevenLabs 的代码建议在上架构建里彻底排除掉。**
-   现状：`EpiCare/Services/ElevenLabsService.swift` 会请求 `https://api.elevenlabs.io/v1`。
-   Release 构建里用户点不到它——`VoiceGuideService.swift` 的 `VoiceProvider.selectable` 在非 DEBUG 下
-   只返回 `[.system]`，而 API Key 输入区在 `RelaxView.swift:282` 被 `if voiceService.provider == .elevenLabs`
-   包住。所以正文第 5 段说"运行时不发网络请求"是**属实**的。
+   你送审的是 v1.0 / build 1，对应 commit `e2119c4`，它的 commit message 你自己写得很清楚：
+   *「送审现场存档：entitlements 被清空（v1.0 提审包不含 HealthKit/App Group，待恢复后出 build 2）」*。
+   在那个包里：
 
-   但有两个隐患：
-   - `provider` 是从 `UserDefaults` 读的（`VoiceGuideService.swift:52`）。如果一台设备上装过 DEBUG 版
-     并选过 ElevenLabs，升到正式版后这个值还在，UI 会直接暴露出 API Key 输入框和第三方调用。
-     审核机器一般碰不到，但这是真实存在的路径。
-   - 二进制里会留下 `api.elevenlabs.io` 这个字符串，和你隐私政策写的"不产生任何网络请求"字面冲突。
+   - `EpiCare/EpiCare.entitlements` 和 `EpiCareWidget/EpiCareWidget.entitlements` **都是空的 `<dict/>`**。
+     没有 HealthKit entitlement → 设置里的健康开关授权必然失败，静默无效；
+     没有 `group.com.epicare.shared` → 小组件读不到共享快照，等于是坏的。
+   - 但 `project.yml` 里 `NSHealthShareUsageDescription` / `NSHealthUpdateUsageDescription`
+     两条用途说明**还在**。声明了健康用途、功能却不工作，正好撞上 Apple 在信里点名的 5.1.1。
+   - `1a9fc9e 修复服药提醒从未被调度` 是 8/18 才提交的。也就是说**送审那个包里，用药提醒从来没被排过期**——
+     这是这个 App 的核心功能，在审核用的二进制里是坏的。这本身就够触发一次 2.1 Bugs 拒绝。
 
-   建议二选一，做完再提交：
-   - **A（推荐）**：整个 `ElevenLabsService.swift` 和 `VoiceSettingsSheet` 里的 ElevenLabs 区块用
-     `#if DEBUG` 包起来，正式包里根本不编译进去。同时在 `VoiceGuideService.init` 里加一道保险：
-     读到的 `provider` 若不在 `selectable` 里就回落到 `.system`。
-   - **B**：至少加上面那道 `selectable` 保险，正文第 5 段照现在这样如实写（已经写好了）。
+   所以正确顺序是：**用当前 main（entitlements 已由 `23413d9` 恢复、提醒已修）打一个 build 2 上传，
+   再用这份稿子回复。** 拿这份稿子去描述 build 1，等于向 Apple 承诺一堆在那个包里跑不起来的功能，
+   基本是第二次被拒。
 
-3. **隐私政策措辞微调。** 现在写的是"正常使用中不产生任何网络请求"。做完第 2 条 A 方案后这句完全成立；
-   若走 B 方案，建议改成"App Store 版本不产生任何网络请求"，措辞更严密。
-   另外可以补一句说明放松引导语音是离线预生成后打包在 App 内的——Apple 现在对 AI 服务问得很细，
+   如果你出于某种原因必须就 build 1 回复，告诉我，我把 Apple Health、小组件、提醒相关的段落
+   全部删掉重写——但我不建议，因为提醒功能坏了这件事绕不过去。
+
+2. **ElevenLabs：你的判断是对的，正式包确实不会调用它。** 我核过了——
+   `VoiceGuideService.swift` 的 `VoiceProvider.selectable` 在非 DEBUG 下只返回 `[.system]`，
+   而 API Key 输入区在 `RelaxView.swift:282` 被 `if voiceService.provider == .elevenLabs` 包住，
+   所以正式构建里根本点不到。正文第 5 段就是照这个事实写的：放松语音是离线预生成后打包的 mp3，
+   运行时不调用任何语音服务。这条不用改。
+
+   只有一个很小的边角情况，属于可做可不做的加固：`provider` 是从 `UserDefaults` 读的
+   （`VoiceGuideService.swift:52`），如果某台设备装过 DEBUG 版并选过 ElevenLabs，再装正式版时
+   这个值还在，UI 就会露出 API Key 输入框。审核不会碰到（他们是全新安装），
+   但在 `VoiceGuideService.init` 里加一句「读到的 provider 不在 `selectable` 里就回落 `.system`」
+   是一行的事，顺手做掉更干净。
+
+3. **隐私政策可以补一句语音来源。** 现在写的"正常使用中不产生任何网络请求"是成立的。
+   建议再加一句说明放松引导语音是离线预生成后随 App 打包的——Apple 现在对 AI 服务问得很细，
    官网先写清楚，比被追问再解释好。
 
 4. **年龄分级与医疗类目**：确认 App Store Connect 里 Age Rating 的
