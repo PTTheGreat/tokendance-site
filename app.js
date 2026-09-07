@@ -1,8 +1,10 @@
 (function(){
   "use strict";
+  // every15min 已上架。不带 /us/ 前缀，访客会自动落到自己所在地区的商店。
+  var EVERY15MIN_APPSTORE="https://apps.apple.com/app/id6801988119";
   var residents={
     lyrebird:{name:"琴鸟 · 迎宾员",token:"♪",color:"#26c56a",pos:[49,19],lines:["欢迎回来～这座岛会记得你认识过谁。","我听过什么就能唱什么，还会给每段旋律配一支舞。Token 和 Dance，就是这么来的。","如果第一次来，先去记录花园或守护诊所吧。它们已经开放了。"],actions:[{label:"替我选下一站",action:"random"},{label:"看看岛屿护照",action:"passport"}]},
-    bee:{name:"蜜蜂 · every15min",token:"15",color:"#2f75ff",pos:[20,47],lines:["嗡——欢迎来到记录花园。这里不要求你坚持写日记。","想起来时敲一行，就够了。一天会慢慢攒成许多个十五分钟的小格子。","所有记录都留在你自己的设备里。要去我的应用看看吗？"],actions:[{label:"去 every15min",href:"https://every15min.tokendance.life/"},{label:"拜访下一位",action:"random"}]},
+    bee:{name:"蜜蜂 · every15min",token:"15",color:"#2f75ff",pos:[20,47],lines:["嗡——欢迎来到记录花园。这里不要求你坚持写日记。","想起来时敲一行，就够了。一天会慢慢攒成许多个十五分钟的小格子。","所有记录都留在你自己的设备里。现在 App Store 上就能把我带回家啦。"],actions:[{label:"去 App Store 下载",href:EVERY15MIN_APPSTORE},{label:"看看官网",href:"https://every15min.tokendance.life/"},{label:"拜访下一位",action:"random"}]},
     goldie:{name:"Goldie · 守护伙伴",token:"●",color:"#ff63ae",pos:[78,45],lines:["汪！我负责记住重要的事：用药、发作、安全天数和复诊。","现实中的辅助犬也会陪伴癫痫朋友。我不替医生做决定，只把每天照顾好。","资料不离开手机，也没有账号、广告和追踪。"],actions:[{label:"去守守 Goldie",href:"https://goldie.tokendance.life/"},{label:"看看护照",action:"passport"}]},
     frog:{name:"青蛙 · 清净池塘",token:"↯",color:"#8e62e8",pos:[69,75],lines:["嘘——我在等下一只烦人的“飞虫”。","广告、弹窗和追踪器一冒头，我就用舌头把它拦下来。","手机广告拦截助手还在池塘边搭屋子。先盖一枚印章，等它开放。"],actions:[{label:"知道了，继续逛",action:"random"},{label:"看看护照",action:"passport"}]},
     otter:{name:"水獭 · Code Buddy",token:"{ }",color:"#ff9f1c",pos:[34,77],lines:["这颗蓝色代码石是我最顺手的工具。要用的时候，我一直都在菜单栏。","我不会抢走你的工作，只负责把零碎的代码小事递到手边。","macOS Code Buddy 的工坊正在施工。别担心，我把工具都收好了。"],actions:[{label:"继续探索",action:"random"},{label:"给园长写信",href:"mailto:tonybingpoon@gmail.com"}]}
