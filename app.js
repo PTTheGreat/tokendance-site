@@ -162,6 +162,7 @@
     for (const item of items) {
       const element = document.createElement(item.href ? "a" : "button");
       element.textContent = item.label;
+      if (actions.childElementCount === 0) element.className = "primary-action";
       if (item.href) {
         element.href = item.href;
         if (item.href.startsWith("https://")) {
@@ -179,7 +180,10 @@
     const resident = residents[current];
     $("#dialogue-name").textContent = resident.name;
     $("#dialogue-role").textContent = resident.role;
-    $("#speaker-icon").setAttribute("href", `assets/icons.svg#${current}`);
+    $("#speaker-icon").setAttribute(
+      "href",
+      `assets/icons.svg?v=focus-20260908#${current}`,
+    );
     $("#speaker-avatar").style.background = resident.color;
     // Whole sentences keep screen readers from announcing every typed character.
     $("#dialogue-text").textContent = resident.lines[lineIndex];
@@ -209,6 +213,7 @@
   function visit(id, focus = true) {
     if (!residents[id]) return;
     current = id;
+    $("#island-map").classList.add("is-exploring");
     lineIndex = 0;
     collect(id);
     $$(".map-spot").forEach((spot) => {

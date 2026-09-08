@@ -6,13 +6,13 @@
   font-display: swap;
 }
 :root {
-  --ink: #3d624e;
-  --muted: #6e7e68;
-  --fern: #51856a;
-  --sea: #9dd9d0;
-  --paper: #fffbea;
-  --cream: #f8f5e7;
-  --honey: #efce7b;
+  --ink: #294b3e;
+  --muted: #53675c;
+  --fern: #688875;
+  --sea: #d0e5dd;
+  --paper: #faf8ed;
+  --cream: #faf8ed;
+  --honey: #dfba65;
   --body-font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --round-font: "Island Rounded", "Hiragino Maru Gothic ProN", var(--body-font);
 }
@@ -61,7 +61,7 @@ svg {
 button:focus-visible,
 a:focus-visible,
 [tabindex="-1"]:focus-visible {
-  outline: 3px solid #be8a34;
+  outline: 3px solid #53675c;
   outline-offset: 5px;
 }
 h1,
@@ -116,31 +116,31 @@ h3 {
   font-family: var(--round-font);
   font-size: 21px;
   font-weight: 800;
-  padding: 11px 20px 12px 12px;
-  border: 2px solid #ffffffe6;
-  background: var(--paper);
-  border-radius: 16px 21px 17px 20px;
-  box-shadow: 0 5px 0 #5f987833;
-  transform: rotate(-2deg);
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
 }
 .brand small {
-  display: block;
+  display: none;
   font-family: var(--body-font);
   font-size: 9px;
   font-weight: 500;
   letter-spacing: 0.09em;
   margin-top: 5px;
-  color: #7c896c;
+  color: #53675c;
 }
 .brand-leaf {
-  background: #6d9b70;
-  color: var(--paper);
+  background: transparent;
+  color: var(--ink);
   border-radius: 50% 45% 50% 44%;
   display: grid;
   place-items: center;
   width: 34px;
   height: 38px;
-  transform: rotate(-10deg);
+  transform: none;
 }
 .brand-leaf svg {
   width: 23px;
@@ -158,14 +158,16 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  background: #fffbeded;
-  border: 2px solid #fffdf5;
-  box-shadow: 0 4px 0 #55846825;
-  border-radius: 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 12px;
   min-height: 43px;
   padding: 8px 13px;
   font-size: 11px;
   font-weight: 600;
+  border-color: transparent;
+  transform: none;
 }
 .tool-button svg,
 .passport-button svg {
@@ -174,20 +176,20 @@ h3 {
 }
 .tool-button:hover,
 .passport-button:hover {
-  background: #fff5c3;
-  transform: translateY(-2px);
+  background: #faf8ed80;
+  transform: none;
 }
 .tool-button[aria-pressed="true"] {
-  background: #eaf2bc;
+  background: #faf8edb3;
 }
 .passport-button {
-  background: #f8e8b6;
-  border-color: #fff3cb;
+  background: #deebe4;
+  border-color: #deebe4;
   transform: rotate(2deg);
 }
 .passport-button b {
   font-family: var(--round-font);
-  background: #fff7da;
+  background: #faf8ed80;
   border-radius: 8px;
   padding: 2px 5px;
   font-size: 10px;
@@ -203,9 +205,9 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  opacity: 0.32;
+  opacity: 0.12;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='120' viewBox='0 0 210 120'%3E%3Cpath d='M20 29q9 5 18 0m5 0q9 5 18 0M130 85q10 5 20 0m4 0q10 5 20 0' stroke='%23ffffff' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  animation: sea-breathe 16s ease-in-out infinite alternate;
+  animation: none;
 }
 @keyframes sea-breathe {
   to {
@@ -216,7 +218,7 @@ h3 {
   position: absolute;
   z-index: 0;
   pointer-events: none;
-  background: #f7ffec9c;
+  background: #faf8ed9c;
   border-radius: 50px;
   width: 120px;
   height: 35px;
@@ -253,40 +255,40 @@ h3 {
 }
 .island-welcome {
   position: absolute;
-  top: 90px;
+  top: 95px;
   left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
+  transform: translateX(-50%);
   text-align: center;
   z-index: 3;
   white-space: nowrap;
-  color: #537a60;
+  color: var(--ink);
 }
 .island-welcome h1 {
-  font-size: 21px;
+  font-size: clamp(24px, 2.4vw, 32px);
   line-height: 1.5;
-  letter-spacing: 0.08em;
+  letter-spacing: -0.015em;
   display: inline;
 }
 .island-welcome > span:last-child {
   display: block;
-  font-size: 9px;
-  letter-spacing: 0.16em;
-  margin-top: 3px;
-  color: #68866d;
+  font-size: 11px;
+  letter-spacing: 0;
+  margin-top: 8px;
+  color: var(--muted);
 }
 .welcome-flower {
-  color: #f5e2a2;
+  color: #a8beb0;
   font-size: 24px;
   display: inline-block;
   vertical-align: middle;
   margin-right: 6px;
-  text-shadow: 0 1px 0 #709674;
+  text-shadow: 0 1px 0 #53675c;
 }
 .game-stage {
   position: absolute;
   left: 50%;
-  top: 47%;
-  width: min(1060px, 99vw, calc((100svh - 70px) * 1.5));
+  top: 57%;
+  width: min(960px, 94vw, calc((100svh - 240px) * 1.5));
   aspect-ratio: 1.5;
   transform: translate(-50%, -50%);
 }
@@ -304,13 +306,10 @@ h3 {
   object-fit: contain;
   user-select: none;
   pointer-events: none;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    #000 7%,
-    #000 93%,
-    transparent
-  );
+  mask-image:
+    linear-gradient(to right, transparent, #000 4%, #000 96%, transparent),
+    linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+  mask-composite: intersect;
 }
 .map-spot {
   position: absolute;
@@ -323,24 +322,25 @@ h3 {
 }
 .spot-title {
   display: block;
-  background: var(--paper);
-  padding: 6px 13px 7px;
+  background: #faf8edc7;
+  padding: 5px 10px 6px;
   font-size: 12px;
-  font-weight: 600;
-  border: 2px solid #fffef2;
-  border-radius: 14px 12px 13px 10px;
-  box-shadow: 0 4px 0 #5b7f5733;
-  transform: rotate(-4deg);
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: none;
+  transform: none;
   transition:
     transform 0.18s,
     background 0.18s;
+  color: var(--ink);
 }
 .spot-title small {
   display: block;
   font-size: 9px;
   line-height: 1.4;
   font-weight: 400;
-  color: #778367;
+  color: var(--muted);
 }
 .spot-title svg {
   width: 13px;
@@ -351,12 +351,12 @@ h3 {
   position: absolute;
   bottom: 1px;
   left: calc(50% - 4px);
-  height: 8px;
-  width: 8px;
-  background: #fffbed;
-  border: 2px solid #fff;
+  height: 6px;
+  width: 6px;
+  background: var(--paper);
+  border: 1px solid var(--muted);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #ffffff45;
+  box-shadow: none;
 }
 .spot-pin:before {
   content: "";
@@ -366,7 +366,8 @@ h3 {
   width: 2px;
   height: 11px;
   border-radius: 3px;
-  background: #fffbed;
+  background: #faf8ed;
+  display: none;
 }
 .spot-lyrebird {
   left: 50%;
@@ -390,15 +391,17 @@ h3 {
 }
 .map-spot:hover .spot-title,
 .map-spot:focus-visible .spot-title {
-  transform: translateY(-5px) rotate(0);
-  background: #fff2b2;
+  transform: translateY(-3px);
+  background: var(--paper);
+  border-color: var(--ink);
 }
 .map-spot.is-active .spot-title {
-  background: #fff1b2;
-  border-color: #fffbdb;
+  background: var(--paper);
+  border-color: var(--ink);
+  font-weight: 700;
 }
 .map-spot.is-active .spot-pin {
-  background: #84a770;
+  background: #53675c;
 }
 .open-dot {
   display: inline-block;
@@ -406,17 +409,17 @@ h3 {
   height: 6px;
   margin-right: 5px;
   border-radius: 50%;
-  background: #7aa05a;
+  background: #53675c;
   vertical-align: middle;
 }
 .shell-secret {
   position: absolute;
-  right: 16%;
-  bottom: 18%;
+  right: 5%;
+  bottom: 26%;
   width: 44px;
   height: 44px;
   background: none;
-  color: #be9366;
+  color: #53675c;
   transform: rotate(17deg);
   border-radius: 50%;
   z-index: 3;
@@ -424,18 +427,18 @@ h3 {
 .shell-secret svg {
   width: 24px;
   height: 24px;
-  filter: drop-shadow(0 2px 0 #647d3c33);
+  filter: drop-shadow(0 2px 0 #53675c33);
 }
 .shell-secret:hover {
-  background: #fff7c76b;
+  background: #deebe46b;
 }
 .island-clock {
   position: absolute;
   bottom: 32px;
   left: 38px;
   z-index: 4;
-  color: #477a68;
-  text-shadow: 0 1px 0 #eaffed;
+  color: var(--muted);
+  text-shadow: none;
 }
 .island-clock > div {
   display: flex;
@@ -445,10 +448,10 @@ h3 {
 .island-clock svg {
   width: 28px;
   height: 28px;
-  color: #719674;
+  color: #53675c;
 }
 .island-clock #clock-hour {
-  font: 800 37px/1.2 var(--round-font);
+  font: 800 30px/1.2 var(--round-font);
   letter-spacing: 0.01em;
 }
 .island-clock time {
@@ -459,7 +462,7 @@ h3 {
 }
 .clock-weather {
   font-size: 10px;
-  color: #6c9984;
+  color: #53675c;
   display: block;
   margin-top: 3px;
 }
@@ -476,31 +479,32 @@ h3 {
   gap: 4px;
   font-size: 12px;
   font-weight: 600;
-  transform: rotate(4deg);
+  transform: none;
+  color: var(--muted);
 }
 .guide-icon {
   display: grid;
   place-items: center;
-  width: 68px;
-  height: 68px;
-  background: #fff8de;
-  border: 3px solid #fffdef;
-  border-radius: 21px;
-  box-shadow: 0 5px 0 #70997342;
+  width: 54px;
+  height: 54px;
+  background: transparent;
+  border: 1px solid #a8beb0;
+  border-radius: 15px;
+  box-shadow: none;
 }
 .guide-icon svg {
-  width: 45px;
-  height: 45px;
+  width: 34px;
+  height: 34px;
 }
 .guide-button > small {
   font-size: 9px;
-  color: #6e9280;
+  color: #53675c;
   font-weight: 400;
   line-height: 1.4;
 }
 .guide-button:hover .guide-icon {
-  transform: translateY(-4px);
-  background: #fff1b5;
+  transform: none;
+  background: var(--paper);
 }
 .dialogue {
   position: absolute;
@@ -512,21 +516,21 @@ h3 {
   gap: 18px;
   align-items: center;
   width: min(650px, calc(100% - 430px));
-  min-height: 145px;
-  padding: 22px 29px 16px;
+  min-height: 142px;
+  padding: 22px 27px;
   background: var(--paper);
-  border: 3px solid #fffef3;
-  border-radius: 37% 29% 25% 22% / 19% 26% 24% 27%;
-  box-shadow: 0 6px 0 #729c6630;
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 5px 18px #294b3e0a;
   isolation: isolate;
 }
 .speaker-avatar {
   width: 72px;
   height: 75px;
-  display: grid;
+  display: none;
   place-items: center;
   flex: 0 0 72px;
-  background: #e8edcf;
+  background: #deebe4;
   border-radius: 48% 43% 47% 41%;
   transform: rotate(-5deg);
 }
@@ -546,23 +550,21 @@ h3 {
   line-height: 1.3;
 }
 .dialogue-heading h2 {
-  position: absolute;
-  top: -18px;
-  left: 34px;
-  transform: rotate(-6deg);
-  min-width: 84px;
-  text-align: center;
-  background: #ddba77;
-  border: 2px solid #f2d594;
-  border-radius: 45% 35% 38% 27% / 35% 39% 30% 33%;
-  padding: 7px 15px;
-  color: #685839;
-  font-size: 14px;
-  box-shadow: 0 3px 0 #b8995933;
+  position: static;
+  transform: none;
+  min-width: 0;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 13px;
+  box-shadow: none;
 }
 .dialogue-heading > span {
   font-size: 10px;
-  color: #959471;
+  color: var(--muted);
 }
 .dialogue-heading .dialogue-page {
   margin-left: auto;
@@ -572,15 +574,15 @@ h3 {
 .dialogue-content > p {
   font-size: 14px;
   line-height: 1.8;
-  color: #686b4f;
-  min-height: 46px;
+  color: var(--ink);
+  min-height: 42px;
 }
 .dialogue-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 9px;
+  margin-top: 12px;
 }
 .dialogue-actions {
   display: flex;
@@ -595,26 +597,26 @@ h3 {
   font-size: 11px;
   font-weight: 600;
   padding: 3px 0;
-  color: #628262;
+  color: var(--muted);
   min-height: 29px;
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-color: #bdc99e;
+  text-decoration-color: #a8beb0;
 }
 .dialogue-actions a:hover,
 .dialogue-actions button:hover {
-  color: #956d3c;
+  color: #53675c;
 }
 .dialogue-next {
   background: none;
   font-size: 11px;
-  color: #a28547;
+  color: var(--muted);
   white-space: nowrap;
   min-height: 32px;
   padding: 5px 0;
 }
 .dialogue-next:hover {
-  color: #715121;
+  color: #294b3e;
 }
 .guide-dialog {
   width: min(1020px, calc(100% - 48px));
@@ -622,15 +624,15 @@ h3 {
   max-height: calc(100svh - 60px);
   margin: auto;
   padding: 0;
-  border: 5px solid #f9edcd;
+  border: 1px solid #a8beb0;
   border-radius: 22px;
   background: var(--cream);
   color: var(--ink);
-  box-shadow: 0 20px 80px #30594740;
+  box-shadow: 0 20px 80px #294b3e40;
   overscroll-behavior: contain;
 }
 .guide-dialog::backdrop {
-  background: #305b4d59;
+  background: #294b3e59;
   backdrop-filter: blur(5px);
 }
 .guide-bar {
@@ -640,9 +642,9 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #e3ecd0;
+  background: #deebe4;
   padding: 16px 28px;
-  border-bottom: 2px dashed #bdcba4;
+  border-bottom: 1px solid #a8beb0;
 }
 .guide-bar > div {
   display: flex;
@@ -658,7 +660,7 @@ h3 {
 }
 .guide-bar .passport-close {
   position: static;
-  background: #f6f5dc;
+  background: #deebe4;
 }
 .content-width {
   width: calc(100% - 72px);
@@ -666,7 +668,7 @@ h3 {
 }
 .guide-footer {
   text-align: center;
-  border-top: 1px dashed #d5dcc5;
+  border-top: 1px dashed #a8beb0;
   padding: 22px;
   color: var(--muted);
   font-size: 11px;
@@ -683,7 +685,7 @@ h3 {
   margin-left: 6px;
 }
 .text-link:hover {
-  color: #95672d;
+  color: #53675c;
 }
 .residents-section {
   padding-top: 69px;
@@ -707,7 +709,7 @@ h3 {
   width: 18px;
   height: 18px;
   margin-right: 4px;
-  color: #aa9653;
+  color: #53675c;
 }
 .section-heading h2 {
   font-size: 29px;
@@ -732,7 +734,7 @@ h3 {
   gap: 22px;
   align-items: center;
   padding: 32px 0;
-  border-top: 1px dashed #cdd7c4;
+  border-top: 1px dashed #a8beb0;
   min-width: 0;
 }
 .resident-portrait {
@@ -746,14 +748,14 @@ h3 {
   justify-content: center;
   gap: 3px;
   border-radius: 50% 50% 42% 42%;
-  background: #f0ebd5;
+  background: #deebe4;
 }
 .resident-portrait:after {
   content: "";
   position: absolute;
   width: 64px;
   height: 8px;
-  background: #7e874d1a;
+  background: #53675c1a;
   filter: blur(3px);
   border-radius: 50%;
   bottom: 30px;
@@ -766,20 +768,20 @@ h3 {
 }
 .resident-portrait > span {
   font-size: 9px;
-  color: #85784a;
+  color: #53675c;
   position: relative;
   z-index: 1;
 }
 .entry-goldie .resident-portrait {
-  background: #eee5d7;
+  background: #deebe4;
   transform: rotate(3deg);
 }
 .entry-otter .resident-portrait {
-  background: #e1eae4;
+  background: #deebe4;
   transform: rotate(-3deg);
 }
 .entry-frog .resident-portrait {
-  background: #e6ecd8;
+  background: #deebe4;
   transform: rotate(3deg);
 }
 .resident-details {
@@ -801,18 +803,18 @@ h3 {
 }
 .status-label {
   font-size: 9px;
-  border: 1px solid #dedccc;
-  background: #eeecdf;
+  border: 1px solid #deebe4;
+  background: #deebe4;
   border-radius: 4px;
-  color: #827b60;
+  color: #53675c;
   padding: 1px 5px;
   line-height: 1.6;
   white-space: nowrap;
 }
 .status-label.live {
-  background: #e5eedc;
-  border-color: #d5e3c5;
-  color: #547044;
+  background: #deebe4;
+  border-color: #deebe4;
+  color: #294b3e;
 }
 .resident-tagline {
   font-size: 14px;
@@ -854,7 +856,7 @@ h3 {
   font-weight: 400;
 }
 .growing-note {
-  color: #7e8773;
+  color: #53675c;
   font-size: 9px;
 }
 .directory-footnote {
@@ -862,7 +864,7 @@ h3 {
   gap: 7px;
   align-items: center;
   justify-content: center;
-  color: #7c8972;
+  color: #53675c;
   font-size: 11px;
   margin-top: 31px;
 }
@@ -881,8 +883,8 @@ h3 {
   position: relative;
   background: var(--paper);
   padding: 38px 42px 45px;
-  border: 1px solid #e1e1cf;
-  box-shadow: 3px 5px 0 #e9e9dc;
+  border: 1px solid #deebe4;
+  box-shadow: 3px 5px 0 #deebe4;
   transform: rotate(-1deg);
   border-radius: 3px;
 }
@@ -892,7 +894,7 @@ h3 {
   left: calc(50% - 44px);
   width: 88px;
   height: 27px;
-  background: #c4d1bda8;
+  background: #a8beb0a8;
   transform: rotate(3deg);
   clip-path: polygon(
     2% 0,
@@ -912,7 +914,7 @@ h3 {
   align-items: center;
   gap: 8px;
   font-size: 11px;
-  color: #7d876d;
+  color: #53675c;
   margin-bottom: 18px;
 }
 .notice-heading svg {
@@ -945,17 +947,17 @@ h3 {
   font-family: "Island Rounded", cursive;
   font-size: 22px;
   transform: rotate(-8deg);
-  color: #829179;
+  color: #53675c;
 }
 .daily-card {
   position: relative;
   align-self: center;
   padding: 27px 31px 23px;
-  background: #f4ebcf;
-  border: 1px solid #e6d9b3;
+  background: #deebe4;
+  border: 1px solid #a8beb0;
   border-radius: 3px;
   transform: rotate(2deg);
-  box-shadow: 3px 5px 0 #e9e5d5;
+  box-shadow: 3px 5px 0 #deebe4;
   min-height: 315px;
   text-align: center;
 }
@@ -963,9 +965,9 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px dashed #cabe99;
+  border-bottom: 1px dashed #a8beb0;
   padding-bottom: 13px;
-  color: #84744d;
+  color: #53675c;
   font-size: 11px;
 }
 .postcard-top svg {
@@ -974,7 +976,7 @@ h3 {
 }
 .daily-flower {
   margin: 18px auto 8px;
-  color: #ad9960;
+  color: #53675c;
 }
 .daily-flower svg {
   width: 40px;
@@ -989,13 +991,13 @@ h3 {
   white-space: pre-line;
 }
 .daily-card > button {
-  border: 1px solid #d9cba4;
+  border: 1px solid #a8beb0;
   background: transparent;
   border-radius: 50px;
   min-height: 36px;
   padding: 5px 14px;
   font-size: 10px;
-  color: #796e50;
+  color: #53675c;
 }
 .daily-card > button svg {
   width: 13px;
@@ -1003,13 +1005,13 @@ h3 {
   margin-right: 5px;
 }
 .daily-card > button:hover {
-  background: #fff9e7;
+  background: #faf8ed;
 }
 .postcard-bottom {
   display: block;
   margin-top: 18px;
   font-size: 9px;
-  color: #8b805f;
+  color: #53675c;
   letter-spacing: 0.08em;
 }
 .passport {
@@ -1018,16 +1020,16 @@ h3 {
   width: min(490px, calc(100% - 32px));
   max-height: calc(100svh - 48px);
   padding: 33px 34px 28px;
-  border: 1px solid #dedcc3;
+  border: 1px solid #a8beb0;
   border-radius: 22px;
   background: var(--paper);
-  box-shadow: 0 20px 80px #263c4140;
+  box-shadow: 0 20px 80px #294b3e40;
   color: var(--ink);
   text-align: center;
   overflow-y: auto;
 }
 .passport::backdrop {
-  background: #2a4a405c;
+  background: #294b3e5c;
   backdrop-filter: blur(4px);
 }
 body:has(.passport[open]) {
@@ -1040,15 +1042,15 @@ body:has(.passport[open]) {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #ebeeda;
+  background: #deebe4;
   font-size: 25px;
   line-height: 1;
 }
 .passport-emblem {
   display: grid;
   place-items: center;
-  border: 2px solid #6c8767;
-  color: #6c8767;
+  border: 2px solid #53675c;
+  color: #53675c;
   border-radius: 50%;
   width: 54px;
   height: 54px;
@@ -1082,7 +1084,7 @@ body:has(.passport[open]) {
   margin: 25px 0;
 }
 .stamp {
-  border: 2px dashed #cbd2bc;
+  border: 2px dashed #a8beb0;
   border-radius: 50% 44% 48% 46%;
   width: 104px;
   height: 112px;
@@ -1090,7 +1092,7 @@ body:has(.passport[open]) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f1f2e7;
+  background: #faf8ed;
 }
 .stamp svg {
   width: 53px;
@@ -1104,11 +1106,11 @@ body:has(.passport[open]) {
 }
 .stamp small {
   font-size: 8px;
-  color: #818870;
+  color: #53675c;
 }
 .stamp.is-collected {
-  border: 2px solid #8da87c;
-  background: #eef2db;
+  border: 2px solid #53675c;
+  background: #deebe4;
   transform: rotate(-5deg);
 }
 .stamp.is-collected:nth-child(2n) {
@@ -1119,28 +1121,28 @@ body:has(.passport[open]) {
   opacity: 1;
 }
 .stamp.is-collected small {
-  color: #4c7440;
+  color: #294b3e;
 }
 .passport progress {
   display: block;
   appearance: none;
   width: 100%;
   height: 7px;
-  background: #e3e6d8;
+  background: #deebe4;
   border: 0;
   border-radius: 9px;
   overflow: hidden;
 }
 .passport progress::-webkit-progress-bar {
-  background: #e3e6d8;
+  background: #deebe4;
 }
 .passport progress::-webkit-progress-value {
-  background: #84a16b;
+  background: #53675c;
   border-radius: 9px;
   transition: width 0.25s;
 }
 .passport progress::-moz-progress-bar {
-  background: #84a16b;
+  background: #53675c;
   border-radius: 9px;
 }
 .passport-message {
@@ -1164,11 +1166,11 @@ body:has(.passport[open]) {
   width: max-content;
   transform: translate(-50%, 14px);
   border-radius: 12px;
-  background: #365747;
+  background: #294b3e;
   color: var(--paper);
   padding: 12px 20px;
   font-size: 12px;
-  box-shadow: 0 5px 15px #25473826;
+  box-shadow: 0 5px 15px #294b3e26;
   pointer-events: none;
   opacity: 0;
   transition:
@@ -1238,9 +1240,31 @@ body:has(.passport[open]) {
 .passport-message {
   min-height: 24px;
 }
+
+.island-map:not(.is-exploring) .spot-bee .spot-title {
+  background: var(--honey);
+  color: var(--ink);
+  font-weight: 700;
+}
+.island-map:not(.is-exploring) .spot-bee .spot-title small {
+  color: var(--ink);
+}
+.dialogue-actions .primary-action {
+  padding: 8px 17px;
+  min-height: 38px;
+  border-radius: 20px;
+  background: var(--honey);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+.dialogue-actions .primary-action:hover {
+  background: #e8c779;
+  color: var(--ink);
+}
 @media (min-width: 1600px) {
   .game-stage {
-    width: min(1180px, 85vw, calc((100svh - 70px) * 1.5));
+    width: min(1060px, 85vw, calc((100svh - 240px) * 1.5));
   }
   .dialogue {
     bottom: 42px;
@@ -1451,7 +1475,7 @@ body:has(.passport[open]) {
     font-size: 10px;
     padding: 4px 8px 5px;
     border-radius: 11px 9px 10px 9px;
-    box-shadow: 0 3px 0 #5b7f5733;
+    box-shadow: 0 3px 0 #53675c33;
   }
   .spot-title small {
     font-size: 8px;
@@ -1476,7 +1500,7 @@ body:has(.passport[open]) {
     width: 6px;
     left: calc(50% - 3px);
     border-width: 1px;
-    box-shadow: 0 0 0 3px #ffffff50;
+    box-shadow: 0 0 0 3px #faf8ed50;
   }
   .spot-pin:before {
     height: 9px;
@@ -1487,8 +1511,8 @@ body:has(.passport[open]) {
   .shell-secret {
     width: 36px;
     height: 36px;
-    right: 23%;
-    bottom: 14%;
+    right: 3%;
+    bottom: 29%;
   }
   .shell-secret svg {
     width: 20px;

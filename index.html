@@ -9,17 +9,17 @@
       content="欢迎来到 Tony 的应用小岛。认识 every15min、守守 Goldie 和正在生长的小应用，和岛民聊聊天，收集一枚散步的印章。"
     />
     <meta name="author" content="Tony" />
-    <meta name="theme-color" content="#9dd9d0" />
+    <meta name="theme-color" content="#d0e5dd" />
     <link rel="canonical" href="https://tokendance.life/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link
       rel="preload"
-      href="assets/island-cartoon.webp"
+      href="assets/island-focus.webp"
       as="image"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=focus-20260908" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:title" content="TokenDance · 灵感慢慢生长的小岛" />
@@ -30,7 +30,7 @@
     <meta property="og:url" content="https://tokendance.life/" />
     <meta
       property="og:image"
-      content="https://tokendance.life/assets/island-social.jpg"
+      content="https://tokendance.life/assets/island-focus-social.jpg"
     />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
@@ -41,7 +41,7 @@
         <a class="brand" href="#island" aria-label="TokenDance 小岛首页"
           ><span class="brand-leaf"
             ><svg aria-hidden="true">
-              <use href="assets/icons.svg#leaf" /></svg></span
+              <use href="assets/icons.svg?v=focus-20260908#leaf" /></svg></span
           ><span>TokenDance<small>欢迎来到应用小岛</small></span></a
         >
         <div class="header-controls">
@@ -52,7 +52,8 @@
             aria-label="开始岛屿导览"
             aria-pressed="false"
           >
-            <svg aria-hidden="true"><use href="assets/icons.svg#compass" /></svg
+            <svg aria-hidden="true">
+              <use href="assets/icons.svg?v=focus-20260908#compass" /></svg
             ><span>带我逛逛</span>
           </button>
           <button
@@ -62,7 +63,8 @@
             aria-pressed="false"
             aria-label="播放岛屿音乐"
           >
-            <svg aria-hidden="true"><use href="assets/icons.svg#music" /></svg
+            <svg aria-hidden="true">
+              <use href="assets/icons.svg?v=focus-20260908#music" /></svg
             ><span>音乐关</span>
           </button>
           <button
@@ -73,7 +75,7 @@
             aria-controls="passport"
           >
             <svg aria-hidden="true">
-              <use href="assets/icons.svg#passport" /></svg
+              <use href="assets/icons.svg?v=focus-20260908#passport" /></svg
             ><span>集章护照</span><b id="stamp-count">0/5</b>
           </button>
         </div>
@@ -86,12 +88,9 @@
         aria-labelledby="island-title"
       >
         <div class="sea-pattern" aria-hidden="true"></div>
-        <div class="cloud cloud-one" aria-hidden="true"></div>
-        <div class="cloud cloud-two" aria-hidden="true"></div>
         <div class="island-welcome">
-          <span class="welcome-flower" aria-hidden="true">✿</span>
           <h1 id="island-title">今天也，慢慢来。</h1>
-          <span>这里是灵感生长的地方</span>
+          <span>几件小应用，照顾生活里的小事</span>
         </div>
         <div class="game-stage">
           <div
@@ -103,7 +102,7 @@
           >
             <img
               class="island-art"
-              src="assets/island-cartoon.webp"
+              src="assets/island-focus.webp"
               width="1536"
               height="1024"
               fetchpriority="high"
@@ -117,7 +116,7 @@
             >
               <span class="spot-title"
                 ><svg aria-hidden="true">
-                  <use href="assets/icons.svg#leaf" /></svg
+                  <use href="assets/icons.svg?v=focus-20260908#leaf" /></svg
                 >岛屿服务处</span
               ><span class="spot-pin" aria-hidden="true"></span>
             </button>
@@ -170,18 +169,18 @@
               aria-label="捡起沙滩上的贝壳"
             >
               <svg aria-hidden="true">
-                <use href="assets/icons.svg#shell" />
+                <use href="assets/icons.svg?v=focus-20260908#shell" />
               </svg>
             </button>
           </div>
         </div>
         <div class="island-clock">
           <div>
-            <svg aria-hidden="true"><use href="assets/icons.svg#sun" /></svg
+            <svg aria-hidden="true">
+              <use href="assets/icons.svg?v=focus-20260908#sun" /></svg
             ><span id="clock-hour">你好</span>
           </div>
-          <time id="clock">欢迎登岛</time
-          ><span class="clock-weather">小岛天气 · 晴</span>
+          <time id="clock">欢迎登岛</time>
         </div>
         <button
           class="guide-button"
@@ -192,7 +191,7 @@
         >
           <span class="guide-icon"
             ><svg aria-hidden="true">
-              <use href="assets/icons.svg#guide" /></svg></span
+              <use href="assets/icons.svg?v=focus-20260908#guide" /></svg></span
           ><span>岛民手册</span><small>看看岛上的应用</small>
         </button>
         <section
@@ -203,7 +202,10 @@
         >
           <div class="speaker-avatar" id="speaker-avatar">
             <svg aria-hidden="true">
-              <use id="speaker-icon" href="assets/icons.svg#lyrebird" />
+              <use
+                id="speaker-icon"
+                href="assets/icons.svg?v=focus-20260908#lyrebird"
+              />
             </svg>
           </div>
           <div class="dialogue-content">
@@ -213,12 +215,16 @@
               ><span class="dialogue-page" id="dialogue-page">欢迎登岛</span>
             </div>
             <p id="dialogue-text" aria-live="polite" aria-atomic="true">
-              嘿，欢迎上岛！我是琴鸟。点一点小屋，认识住在这里的小伙伴吧。
+              欢迎上岛。我是琴鸟，先带你去记录花园，留下今天的一个小瞬间。
             </p>
             <div class="dialogue-bottom">
               <div class="dialogue-actions" id="dialogue-actions">
-                <button type="button" data-action="random">
-                  先认识一位朋友 <span aria-hidden="true">▸</span></button
+                <button
+                  type="button"
+                  class="primary-action"
+                  data-resident="bee"
+                >
+                  逛逛记录花园 <span aria-hidden="true">▸</span></button
                 ><button type="button" data-action="guide">打开岛民手册</button>
               </div>
               <button
@@ -241,7 +247,9 @@
     >
       <div class="guide-bar">
         <div>
-          <svg aria-hidden="true"><use href="assets/icons.svg#leaf" /></svg>
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#leaf" />
+          </svg>
           <h2 id="guide-title">岛民手册</h2>
         </div>
         <button
@@ -262,7 +270,7 @@
           <div>
             <p class="section-note">
               <svg aria-hidden="true">
-                <use href="assets/icons.svg#flower" /></svg
+                <use href="assets/icons.svg?v=focus-20260908#flower" /></svg
               >每一个小应用，都有自己的故事
             </p>
             <h2 id="residents-title">认识岛上的小伙伴</h2>
@@ -275,7 +283,8 @@
         <div class="resident-directory">
           <article class="resident-entry entry-bee">
             <div class="resident-portrait">
-              <svg aria-hidden="true"><use href="assets/icons.svg#bee" /></svg
+              <svg aria-hidden="true">
+                <use href="assets/icons.svg?v=focus-20260908#bee" /></svg
               ><span>记录花园</span>
             </div>
             <div class="resident-details">
@@ -305,7 +314,7 @@
           <article class="resident-entry entry-goldie">
             <div class="resident-portrait">
               <svg aria-hidden="true">
-                <use href="assets/icons.svg#goldie" /></svg
+                <use href="assets/icons.svg?v=focus-20260908#goldie" /></svg
               ><span>守护小屋</span>
             </div>
             <div class="resident-details">
@@ -331,7 +340,8 @@
           </article>
           <article class="resident-entry entry-otter">
             <div class="resident-portrait">
-              <svg aria-hidden="true"><use href="assets/icons.svg#otter" /></svg
+              <svg aria-hidden="true">
+                <use href="assets/icons.svg?v=focus-20260908#otter" /></svg
               ><span>代码工坊</span>
             </div>
             <div class="resident-details">
@@ -352,7 +362,8 @@
           </article>
           <article class="resident-entry entry-frog">
             <div class="resident-portrait">
-              <svg aria-hidden="true"><use href="assets/icons.svg#frog" /></svg
+              <svg aria-hidden="true">
+                <use href="assets/icons.svg?v=focus-20260908#frog" /></svg
               ><span>清净池塘</span>
             </div>
             <div class="resident-details">
@@ -373,7 +384,8 @@
           </article>
         </div>
         <p class="directory-footnote">
-          <svg aria-hidden="true"><use href="assets/icons.svg#leaf" /></svg
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#leaf" /></svg
           >不赶进度，认真生长。小岛会慢慢热闹起来。
         </p>
       </section>
@@ -385,7 +397,8 @@
         <article class="notice-board">
           <span class="paper-tape" aria-hidden="true"></span>
           <div class="notice-heading">
-            <svg aria-hidden="true"><use href="assets/icons.svg#mail" /></svg
+            <svg aria-hidden="true">
+              <use href="assets/icons.svg?v=focus-20260908#mail" /></svg
             ><span>来自园长的一封信</span>
           </div>
           <h2 id="notice-title">做小小的应用，<br />照顾具体的生活。</h2>
@@ -400,16 +413,19 @@
         <aside class="daily-card" aria-labelledby="daily-title">
           <div class="postcard-top">
             <span id="daily-title">小岛日签</span
-            ><svg aria-hidden="true"><use href="assets/icons.svg#sun" /></svg>
+            ><svg aria-hidden="true">
+              <use href="assets/icons.svg?v=focus-20260908#sun" />
+            </svg>
           </div>
           <div class="daily-flower" aria-hidden="true">
-            <svg><use href="assets/icons.svg#flower" /></svg>
+            <svg><use href="assets/icons.svg?v=focus-20260908#flower" /></svg>
           </div>
           <p id="daily-note" aria-live="polite">
             今天适合记录一个<br />被忽略的小瞬间。
           </p>
           <button type="button" id="new-note">
-            <svg aria-hidden="true"><use href="assets/icons.svg#refresh" /></svg
+            <svg aria-hidden="true">
+              <use href="assets/icons.svg?v=focus-20260908#refresh" /></svg
             >再抽一张</button
           ><span class="postcard-bottom">把今天过成喜欢的样子</span>
         </aside>
@@ -435,7 +451,9 @@
         ×
       </button>
       <div class="passport-emblem">
-        <svg aria-hidden="true"><use href="assets/icons.svg#leaf" /></svg>
+        <svg aria-hidden="true">
+          <use href="assets/icons.svg?v=focus-20260908#leaf" />
+        </svg>
       </div>
       <p class="passport-island">TokenDance Island</p>
       <h2 id="passport-title">我的岛屿护照</h2>
@@ -444,23 +462,28 @@
       </p>
       <div class="stamp-grid" id="stamp-grid">
         <div class="stamp" data-stamp="lyrebird">
-          <svg aria-hidden="true"><use href="assets/icons.svg#lyrebird" /></svg
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#lyrebird" /></svg
           ><span>琴鸟</span><small>待拜访</small>
         </div>
         <div class="stamp" data-stamp="bee">
-          <svg aria-hidden="true"><use href="assets/icons.svg#bee" /></svg
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#bee" /></svg
           ><span>蜜蜂</span><small>待拜访</small>
         </div>
         <div class="stamp" data-stamp="goldie">
-          <svg aria-hidden="true"><use href="assets/icons.svg#goldie" /></svg
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#goldie" /></svg
           ><span>Goldie</span><small>待拜访</small>
         </div>
         <div class="stamp" data-stamp="otter">
-          <svg aria-hidden="true"><use href="assets/icons.svg#otter" /></svg
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#otter" /></svg
           ><span>水獭</span><small>待拜访</small>
         </div>
         <div class="stamp" data-stamp="frog">
-          <svg aria-hidden="true"><use href="assets/icons.svg#frog" /></svg
+          <svg aria-hidden="true">
+            <use href="assets/icons.svg?v=focus-20260908#frog" /></svg
           ><span>青蛙</span><small>待拜访</small>
         </div>
       </div>
@@ -478,6 +501,6 @@
       </button>
     </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js" defer></script>
+    <script src="app.js?v=focus-20260908" defer></script>
   </body>
 </html>
