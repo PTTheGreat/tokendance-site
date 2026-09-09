@@ -182,7 +182,7 @@
     $("#dialogue-role").textContent = resident.role;
     $("#speaker-icon").setAttribute(
       "href",
-      `assets/icons.svg?v=focus-20260908#${current}`,
+      `assets/icons.svg?v=characters-20260909#${current}`,
     );
     $("#speaker-avatar").style.background = resident.color;
     // Whole sentences keep screen readers from announcing every typed character.
