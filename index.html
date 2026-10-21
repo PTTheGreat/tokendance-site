@@ -6,7 +6,7 @@
     <title>TokenDance · 独立开发的 iOS 与 macOS 小工具</title>
     <meta
       name="description"
-      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录，以及开发中的 Code Buddy 与广告拦截助手。无账号、无广告、数据只存在你的设备上。"
+      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录，以及开发中的 Code Buddy 编程桌面伙伴与广告拦截助手。无账号、无广告、数据只存在你的设备上。"
     />
     <meta name="author" content="Tony" />
     <meta
@@ -15,10 +15,10 @@
     />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://tokendance.life/" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021e" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021e" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021f" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021f" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="styles.css?v=20261021e" />
+    <link rel="stylesheet" href="styles.css?v=20261021f" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -139,7 +139,7 @@
     <header class="site-header" id="site-header">
       <div class="wrap header-inner">
         <a class="brand" href="/">
-          <img src="favicon.svg?v=20261021e" width="22" height="22" alt="" />TokenDance
+          <img src="favicon.svg?v=20261021f" width="22" height="22" alt="" />TokenDance
         </a>
         <nav aria-label="主导航">
           <a href="#every15min">every15min</a>
@@ -184,7 +184,7 @@
                   <p class="story-kicker">时间记录 · iPhone · 已上架 App Store</p>
                   <h2 id="t-every15min">every15min</h2>
                   <ol class="story-steps">
-                    <li class="is-on"><h3>每 15 分钟，轻轻问一句</h3><p>到点推送一条提醒：“刚才在做什么？”不打扰，只提醒。</p></li>
+                    <li class="is-on"><h3>每 15 分钟，一个节拍</h3><p>App 和桌面小组件一直在倒数下一个整刻钟，到点就记一笔。节奏可以改成 5 到 60 分钟。</p></li>
                     <li><h3>敲一行，就记下了</h3><p>像在终端里输入一样，写一句话、加个标签，时间戳自动记上。</p></li>
                     <li><h3>一天过完，时间去哪一目了然</h3><p>24 小时时间轴标出记过的时段，标签统计告诉你时间花在了哪里。</p></li>
                     <li><h3>想找什么，find 一下</h3><p>输入 <code>find #work</code>，相关记录立刻筛出来。</p></li>
@@ -199,7 +199,7 @@
                 <div class="stage" aria-hidden="true">
                   <div class="stage-box e15-box" data-scene="0">
                     <div class="s s0">
-                      <div class="notif"><b>every15min</b><span>刚才在做什么？</span><small>现在</small></div>
+                      <div class="notif"><b>rhythm</b><span>next <em class="t-amb">09:30</em> · today 5 · 12d</span><small id="e15-left">01:50</small></div>
                       <div class="clock">
                         <svg viewBox="0 0 200 200">
                           <circle cx="100" cy="100" r="84" class="clock-track" />
@@ -264,9 +264,9 @@
                   <h2 id="t-goldie">守守 Goldie</h2>
                   <ol class="story-steps">
                     <li class="is-on"><h3>到点提醒，吃药像打卡</h3><p>一天多次服药自动分组，按一下就完成，连续打卡天数一天天涨。</p></li>
-                    <li><h3>发作时，一键开始记录</h3><p>计时自动开始，诱因、意识状态点选即可，复诊时说得清楚。</p></li>
-                    <li><h3>数平安的日子，而不是数发作</h3><p>“安全天数”把每一个平稳的日子记下来，看得见进步。</p></li>
-                    <li><h3>紧急时，让身边的人知道怎么帮你</h3><p>急救信息卡一键复制，紧急联系人一键拨打。</p></li>
+                    <li><h3>发作后，点几下就记清楚</h3><p>按步骤点选发作时间、严重程度、时长、可能诱因和意识状态，复诊时说得清楚。</p></li>
+                    <li><h3>数平安的日子，而不是数发作</h3><p>首页显示距离上次发作已经多少天，每一个平稳的日子都看得见。</p></li>
+                    <li><h3>紧急时，让身边的人知道怎么帮你</h3><p>紧急求助页一键复制癫痫说明文本，一键拨打急救电话或紧急联系人。</p></li>
                   </ol>
                   <div class="story-cta">
                     <a class="btn btn-goldie magnetic" href="https://goldie.tokendance.life/">了解守守</a>
@@ -278,11 +278,11 @@
                 <div class="stage" aria-hidden="true">
                   <div class="stage-box g-box" data-scene="0">
                     <div class="s s0">
-                      <div class="g-notif"><b>守守</b><span>晚上 8:00 · 该吃药啦</span></div>
+                      <div class="g-notif"><b>服药提醒</b><span>晚上 8:00 · 2 种药待服用</span></div>
                       <div class="dose">
                         <p class="dose-time">晚间</p>
                         <p class="dose-name">2 种药 · 饭后</p>
-                        <span class="dose-btn">我吃了</span>
+                        <span class="dose-btn">标记已服用</span>
                         <svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-16" /></svg>
                       </div>
                       <div class="streak"><span>连续打卡</span><b><em class="old">23</em><em class="new">24</em></b><span>天</span></div>
@@ -290,18 +290,17 @@
                     </div>
 
                     <div class="s s1">
-                      <p class="rec-label"><i></i>正在记录发作</p>
-                      <p class="watch" id="g-watch">00:00</p>
-                      <div class="chips">
-                        <span>强直阵挛</span><span>诱因：睡眠不足</span><span>意识：不清醒</span><span>发作后：头痛</span>
-                      </div>
-                      <p class="saved">已保存 · 复诊时可导出</p>
+                      <p class="rec-label">记录发作</p>
+                      <div class="wiz-bar"><i></i><i></i><i></i><i></i><i></i></div>
+                      <p class="wiz-step" id="g-step">发作时间</p>
+                      <div class="chips" id="g-chips"></div>
+                      <p class="saved">已保存</p>
                     </div>
 
                     <div class="s s2">
                       <div class="ring">
                         <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" class="ring-bg" /><circle cx="100" cy="100" r="86" class="ring-fg" /></svg>
-                        <div class="ring-num"><b id="g-days">0</b><span>安全天数</span></div>
+                        <div class="ring-num"><span>距上次发作</span><b id="g-days">0</b><span>天</span></div>
                       </div>
                       <div class="cal">
                         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -310,12 +309,11 @@
 
                     <div class="s s3">
                       <div class="sos-card">
-                        <p class="sos-title">急救信息卡</p>
-                        <p><span>我有癫痫</span>发作时请让我侧躺，不要往嘴里塞东西。</p>
-                        <p><span>超过 5 分钟</span>请拨打 120。</p>
-                        <p class="copied">已复制，可直接粘贴发送</p>
+                        <p class="sos-title">紧急求助</p>
+                        <p><span>急救信息</span>我有癫痫。发作时请让我侧躺，不要往嘴里塞东西，记下发作时间。</p>
+                        <p class="copied">癫痫说明文本已复制到剪贴板</p>
                       </div>
-                      <div class="call"><span class="call-btn">拨打 · 妈妈</span><i></i><i></i></div>
+                      <div class="call"><span class="call-btn">拨打 120 急救电话</span><i></i><i></i></div>
                     </div>
                   </div>
                 </div>
@@ -331,17 +329,17 @@
           <div class="coming-list">
             <article class="demo-card" id="code-buddy" data-reveal>
               <div class="demo cb" data-demo="codebuddy" aria-hidden="true">
-                <div class="cb-menubar"><span class="cb-apple"></span><span>Xcode</span><span class="cb-right"><i class="cb-icon"></i><i></i><i></i></span></div>
-                <div class="cb-editor"><i></i><i></i><i></i><i class="hl"></i><i></i><i></i></div>
-                <div class="cb-pop">
-                  <p class="cb-q">› <span id="cb-typing"></span></p>
-                  <pre class="cb-code"><span><b>let</b> f = ISO8601DateFormatter()</span><span>f.formatOptions = [.withInternetDateTime]</span><span><b>return</b> f.date(from: raw)</span></pre>
-                  <p class="cb-copied">⌘C 已复制，回到编辑器</p>
+                <div class="cb-menubar"><span class="cb-apple"></span><span>Terminal</span><span class="cb-right"><i class="cb-icon"></i><span id="cb-status">Claude Code · working</span><span class="cb-ctx" id="cb-ctx">CTX 34%</span></span></div>
+                <div class="cb-device">
+                  <svg class="cb-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" class="cb-ring-bg" /><circle cx="100" cy="100" r="92" class="cb-ring-fg" id="cb-ring" /></svg>
+                  <div class="cb-face"><i class="eye"></i><i class="eye"></i></div>
+                  <p class="cb-label" id="cb-label">正在工作</p>
+                  <span class="cb-z">z</span>
+                  <span class="cb-tap"></span>
                 </div>
-                <svg class="cb-cursor" viewBox="0 0 16 22"><path d="M1 1v17l4.5-4.2 3 6.7 3-1.4-3-6.6h6z" /></svg>
               </div>
               <h3>Code Buddy</h3>
-              <p>写代码卡在小事上时，点一下菜单栏，问一句，拿到代码，复制，继续写。macOS 菜单栏应用。</p>
+              <p>陪你用 Claude Code、Codex 写代码的桌面小伙伴。它盯着 AI 的进度，轮到你确认时睁大眼睛提醒你，轻点屏幕就能批准；上下文快满时提醒你交接。菜单栏里随时看上下文和用量额度。</p>
               <span class="tag">开发中</span>
             </article>
             <article class="demo-card" id="ad-blocker" data-reveal style="--d: 0.1s">
@@ -397,6 +395,6 @@
         </div>
       </div>
     </footer>
-    <script src="app.js?v=20261021e" defer></script>
+    <script src="app.js?v=20261021f" defer></script>
   </body>
 </html>

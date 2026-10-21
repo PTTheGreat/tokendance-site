@@ -104,30 +104,53 @@
   }
 
   async function goldieSeizure(alive) {
-    const watch = $("#g-watch");
-    const chips = $$(".s1 .chips span");
+    const wizard = [
+      ["发作时间", ["刚刚", "今天早些时候", "选择时间"], 0],
+      ["严重程度", ["轻微", "中等", "严重"], 1],
+      ["发作时长", ["< 1 分钟", "1–2 分钟", "2–5 分钟", "> 5 分钟"], 1],
+      ["可能诱因", ["睡眠不足", "漏服药物", "压力", "强光", "饮酒"], 0],
+      ["意识状态", ["意识保持", "意识丧失"], 1],
+    ];
+    const step = $("#g-step");
+    const chips = $("#g-chips");
+    const bars = $$(".s1 .wiz-bar i");
     const saved = $(".s1 .saved");
-    const fmt = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+    const show = ([label, options, pick], i, chosen) => {
+      step.textContent = label;
+      step.style.animation = "none";
+      void step.offsetWidth;
+      step.style.animation = "";
+      chips.innerHTML = options.map((o, k) => `<span class="${chosen && k === pick ? "on" : ""}">${o}</span>`).join("");
+      bars.forEach((b, k) => b.classList.toggle("on", k <= i));
+    };
     if (reduced) {
-      watch.textContent = fmt(94);
-      chips.forEach((c) => c.classList.add("on"));
+      show(wizard[4], 4, true);
       saved.classList.add("on");
       return;
     }
     while (alive()) {
-      chips.forEach((c) => c.classList.remove("on"));
       saved.classList.remove("on");
-      for (let s = 0; s <= 94 && alive(); s += 2) {
-        watch.textContent = fmt(s);
-        if (s === 30) chips[0].classList.add("on");
-        if (s === 52) chips[1].classList.add("on");
-        if (s === 70) chips[2].classList.add("on");
-        if (s === 86) chips[3].classList.add("on");
-        await sleep(45);
+      for (const [i, w] of wizard.entries()) {
+        if (!alive()) return;
+        show(w, i, false);
+        await sleep(650);
+        if (!alive()) return;
+        chips.children[w[2]].classList.add("on");
+        await sleep(650);
       }
-      if (!alive()) return;
       saved.classList.add("on");
-      await sleep(2600);
+      await sleep(2200);
+    }
+  }
+
+  async function e15Rhythm(alive) {
+    const left = $("#e15-left");
+    let s = 110;
+    while (alive()) {
+      left.textContent = `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+      if (reduced) return;
+      await sleep(1000);
+      s = s > 0 ? s - 1 : 899;
     }
   }
 
@@ -147,7 +170,7 @@
   }
 
   const sceneScripts = {
-    e15: { 1: e15Typing },
+    e15: { 0: e15Rhythm, 1: e15Typing },
     goldie: { 1: goldieSeizure, 2: goldieDays },
   };
 
@@ -183,31 +206,48 @@
 
   // ---------- Looping demos for the apps still in development ----------
   async function codeBuddy(el, alive) {
-    const q = $("#cb-typing", el);
-    const ask = "把这个日期解析改成 ISO 8601";
+    const status = $("#cb-status", el);
+    const ctx = $("#cb-ctx", el);
+    const label = $("#cb-label", el);
+    const ring = $("#cb-ring", el);
+    const setCtx = (pct) => {
+      ring.style.strokeDashoffset = String(578 * (1 - pct / 100));
+      ctx.textContent = `CTX ${pct}%`;
+    };
+    const state = (name, menu, text) => {
+      el.className = `demo cb st-${name}`;
+      status.textContent = menu;
+      label.textContent = text;
+    };
+    if (reduced) {
+      state("alert", "Claude Code · Your turn", "轮到你确认");
+      setCtx(58);
+      return;
+    }
     while (alive()) {
-      el.className = "demo cb";
-      q.textContent = "";
-      await sleep(700);
-      el.classList.add("aim");
-      await sleep(1000);
-      el.classList.add("click");
-      await sleep(200);
-      el.classList.remove("click");
-      el.classList.add("open");
-      await sleep(500);
-      for (let c = 1; c <= ask.length && alive(); c++) {
-        q.textContent = ask.slice(0, c);
-        await sleep(70);
-      }
+      state("focus", "Claude Code · working", "正在工作");
+      setCtx(34);
       await sleep(400);
-      el.classList.add("code");
-      await sleep(1400);
-      el.classList.add("copied");
-      await sleep(1200);
-      el.classList.remove("open");
-      el.classList.add("fixed");
+      setCtx(58);
       await sleep(2200);
+      if (!alive()) return;
+      state("alert", "Claude Code · Your turn", "轮到你确认");
+      await sleep(2000);
+      el.classList.add("tap");
+      await sleep(350);
+      state("happy", "Claude Code · approved", "已批准");
+      await sleep(1500);
+      if (!alive()) return;
+      state("focus", "Claude Code · working", "正在工作");
+      setCtx(86);
+      await sleep(2000);
+      state("handoff", "Claude Code · working", "上下文快满了，准备交接");
+      el.classList.add("st-focus");
+      await sleep(2200);
+      if (!alive()) return;
+      state("sleep", "Claude Code · idle", "空闲");
+      setCtx(12);
+      await sleep(2400);
     }
   }
 
@@ -244,8 +284,7 @@
     const run = runner();
     if (reduced) {
       if (el.dataset.demo === "codebuddy") {
-        el.classList.add("open", "code", "copied");
-        $("#cb-typing", el).textContent = "把这个日期解析改成 ISO 8601";
+        codeBuddy(el, () => true);
       } else {
         $("#ab-count", el).textContent = "已拦截 3";
       }
