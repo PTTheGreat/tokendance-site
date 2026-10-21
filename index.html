@@ -13,13 +13,19 @@
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1"
     />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://tokendance.life/" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021" />
-    <link rel="stylesheet" href="styles.css?v=20261021" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021b" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css?v=20261021b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -146,14 +152,14 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="TokenDance 首页">
-          <img src="favicon.svg?v=20261021" width="28" height="28" alt="" />
+          <img src="favicon.svg?v=20261021b" width="26" height="26" alt="" />
           <span>TokenDance</span>
         </a>
         <nav aria-label="主导航">
           <ul class="nav-list">
             <li><a href="#residents">工具</a></li>
             <li><a href="#principles">原则</a></li>
-            <li><a href="#faq">常见问题</a></li>
+            <li><a href="#faq">问答</a></li>
             <li><a href="#about">关于</a></li>
           </ul>
         </nav>
@@ -162,151 +168,213 @@
 
     <main id="main">
       <section class="hero" id="island" aria-labelledby="hero-title">
-        <div class="container">
-          <p class="eyebrow">独立开发 · 本地优先 · 无广告</p>
-          <h1 id="hero-title">隐私优先的独立应用与效率工具集</h1>
-          <p class="lead">
-            TokenDance 收录由独立开发者 Tony 设计与维护的软件工具。每个工具只解决一个具体问题：记录时间、照顾健康、辅助编程、减少干扰。数据默认保存在你的设备上。
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#residents">浏览全部工具</a>
-            <a class="button" href="mailto:tonybingpoon@gmail.com">联系开发者</a>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="kicker"><span class="dot"></span>独立工作室 · 2026</p>
+            <h1 id="hero-title">
+              <span class="h1-small">TokenDance 工具集</span>
+              把具体的小问题，<br />做成<em>安静可靠</em>的工具。
+            </h1>
+            <p class="lead">
+              隐私优先的独立应用与效率工具：时间记录、健康记录、开发辅助、内容过滤。由独立开发者 Tony 设计与长期维护，数据默认只留在你的设备上。
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#residents">浏览工具目录 <span aria-hidden="true">→</span></a>
+              <a class="button button-ghost" href="mailto:tonybingpoon@gmail.com">联系开发者</a>
+            </div>
           </div>
-          <dl class="stats">
-            <div><dt>已发布</dt><dd>2</dd></div>
-            <div><dt>开发中</dt><dd>2</dd></div>
-            <div><dt>广告与追踪</dt><dd>0</dd></div>
-          </dl>
+
+          <div class="index-window" aria-label="工具索引">
+            <div class="window-bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>tokendance — index</span>
+            </div>
+            <ol class="index-list">
+              <li>
+                <a href="#every15min">
+                  <span class="idx">01</span>
+                  <span class="name">every15min<small>时间记录</small></span>
+                  <span class="plat">iOS</span>
+                  <span class="state live">已上架</span>
+                </a>
+              </li>
+              <li>
+                <a href="#goldie">
+                  <span class="idx">02</span>
+                  <span class="name">守守 Goldie<small>健康记录</small></span>
+                  <span class="plat">iOS</span>
+                  <span class="state live">已上线</span>
+                </a>
+              </li>
+              <li>
+                <a href="#code-buddy">
+                  <span class="idx">03</span>
+                  <span class="name">Code Buddy<small>开发者工具</small></span>
+                  <span class="plat">macOS</span>
+                  <span class="state">开发中</span>
+                </a>
+              </li>
+              <li>
+                <a href="#ad-blocker">
+                  <span class="idx">04</span>
+                  <span class="name">广告拦截助手<small>内容过滤</small></span>
+                  <span class="plat">待定</span>
+                  <span class="state">开发中</span>
+                </a>
+              </li>
+            </ol>
+            <div class="window-foot">
+              <span>2 已发布</span><span>2 开发中</span><span>0 广告 · 0 追踪</span>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section" id="residents" aria-labelledby="tools-title">
         <div class="container">
-          <div class="section-head">
-            <h2 id="tools-title">工具目录</h2>
-            <p>按用途分类的全部工具与当前状态。</p>
-          </div>
-          <div class="tool-grid">
-            <article class="tool-card" id="every15min" aria-labelledby="t-every15min">
-              <div class="tool-top">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
-                </span>
-                <span class="status status-live">已上架</span>
-              </div>
+          <header class="section-head">
+            <p class="section-no">01 / 工具目录</p>
+            <h2 id="tools-title">每个工具，只做好一件事。</h2>
+          </header>
+
+          <article class="tool" id="every15min" aria-labelledby="t-every15min">
+            <div class="tool-text">
+              <p class="tool-meta"><span>01</span>时间记录 · 生活日志<b class="state live">已上架 App Store</b></p>
               <h3 id="t-every15min">every15min</h3>
-              <p class="tool-category">时间记录 · 生活日志</p>
-              <p class="tool-desc">
-                以 15 分钟为单位记录一天的时间去向，想起来就记一笔，用色块回看日常。不必写长日记，记录保存在设备本地。
-              </p>
-              <ul class="tool-meta">
-                <li>平台：iPhone（iOS）</li>
-                <li>获取：App Store</li>
-              </ul>
+              <p class="tool-tagline">让每个十五分钟，都有迹可循。</p>
+              <p>以 15 分钟为单位记录一天的时间去向，想起来就记一笔，一天自动拼成 96 个色块。不必写长日记，回看时一眼看清时间花在了哪里。记录保存在设备本地。</p>
+              <dl class="specs">
+                <div><dt>平台</dt><dd>iPhone · iOS</dd></div>
+                <div><dt>数据</dt><dd>本地保存</dd></div>
+              </dl>
               <div class="tool-links">
-                <a href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">App Store 下载<span class="sr-only">（新窗口打开）</span></a>
-                <a href="https://every15min.tokendance.life/">产品官网</a>
+                <a class="button button-primary" href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">App Store 下载<span class="sr-only">（新窗口打开）</span> <span aria-hidden="true">↗</span></a>
+                <a class="button button-ghost" href="https://every15min.tokendance.life/">产品官网</a>
               </div>
-            </article>
+            </div>
+            <figure class="tool-art art-every15min" aria-hidden="true">
+              <div class="day-card">
+                <div class="day-head"><b>今天</b><span>96 格 · 已记录 88</span></div>
+                <div class="day-grid"><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-m"></i><i class="c-m"></i><i class="c-l"></i><i class="c-l"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-e"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-l"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-e"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-m"></i><i class="c-m"></i><i class="c-m"></i><i class="c-m"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i></div>
+                <div class="day-axis"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
+                <ul class="legend">
+                  <li><i class="c-s"></i>睡眠</li><li><i class="c-w"></i>工作</li><li><i class="c-l"></i>生活</li><li><i class="c-m"></i>运动</li><li><i class="c-r"></i>阅读</li>
+                </ul>
+              </div>
+            </figure>
+          </article>
 
-            <article class="tool-card" id="goldie" aria-labelledby="t-goldie">
-              <div class="tool-top">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z" /><path d="M9 12h6M12 9v6" /></svg>
-                </span>
-                <span class="status status-live">已上线</span>
-              </div>
+          <article class="tool tool-flip" id="goldie" aria-labelledby="t-goldie">
+            <div class="tool-text">
+              <p class="tool-meta"><span>02</span>健康记录 · 癫痫管理<b class="state live">已上线</b></p>
               <h3 id="t-goldie">守守 Goldie</h3>
-              <p class="tool-category">健康记录 · 癫痫管理</p>
-              <p class="tool-desc">
-                面向癫痫患者与家属的记录工具：用药提醒、发作记录、无发作天数与复诊准备。无需账号，无广告与追踪，不替代医生诊断。
-              </p>
-              <ul class="tool-meta">
-                <li>平台：iPhone（iOS），支持小组件</li>
-                <li>数据：仅保存在本机</li>
-              </ul>
+              <p class="tool-tagline">重要的小事，有它帮你记得。</p>
+              <p>面向癫痫患者与家属的记录工具：用药提醒、发作记录、无发作天数统计与复诊准备。无需账号，没有广告与追踪。它是记录工具，不替代医生的诊断与建议。</p>
+              <dl class="specs">
+                <div><dt>平台</dt><dd>iPhone · 小组件</dd></div>
+                <div><dt>数据</dt><dd>仅保存在本机</dd></div>
+              </dl>
               <div class="tool-links">
-                <a href="https://goldie.tokendance.life/">产品官网</a>
+                <a class="button button-primary" href="https://goldie.tokendance.life/">了解守守 Goldie <span aria-hidden="true">→</span></a>
               </div>
-            </article>
+            </div>
+            <figure class="tool-art art-goldie" aria-hidden="true">
+              <div class="phone">
+                <div class="streak">
+                  <span>无发作天数</span>
+                  <b>126</b>
+                  <small>继续保持</small>
+                </div>
+                <div class="week">
+                  <span class="wk-label">本周用药</span>
+                  <div class="wk-row"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i></i></div>
+                  <div class="wk-row"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i></i><i></i></div>
+                  <div class="wk-days"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+                </div>
+                <div class="visit"><span>下次复诊</span><b>11 月 8 日</b></div>
+              </div>
+            </figure>
+          </article>
 
-            <article class="tool-card" id="code-buddy" aria-labelledby="t-codebuddy">
-              <div class="tool-top">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12" /></svg>
-                </span>
-                <span class="status">开发中</span>
-              </div>
+          <article class="tool" id="code-buddy" aria-labelledby="t-codebuddy">
+            <div class="tool-text">
+              <p class="tool-meta"><span>03</span>开发者工具<b class="state">开发中</b></p>
               <h3 id="t-codebuddy">Code Buddy</h3>
-              <p class="tool-category">开发者工具</p>
-              <p class="tool-desc">
-                常驻 macOS 菜单栏的代码助手，随时调出，处理编程中的零碎任务，让注意力留在主要工作上。
-              </p>
-              <ul class="tool-meta">
-                <li>平台：macOS 菜单栏</li>
-                <li>状态：内部开发中</li>
-              </ul>
+              <p class="tool-tagline">手边的代码伙伴，随叫随到。</p>
+              <p>常驻 macOS 菜单栏的代码助手。随时调出，处理编程中的零碎任务，处理完就收起，让注意力留在主要工作上。</p>
+              <dl class="specs">
+                <div><dt>平台</dt><dd>macOS 菜单栏</dd></div>
+                <div><dt>状态</dt><dd>内部开发中</dd></div>
+              </dl>
               <div class="tool-links">
-                <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy%20%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
+                <a class="button button-ghost" href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy%20%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
               </div>
-            </article>
+            </div>
+            <figure class="tool-art art-code" aria-hidden="true">
+              <div class="menubar"><span class="apple"></span><span>Xcode</span><span class="mb-right"><i class="buddy"></i><i></i><i></i><span>10:51</span></span></div>
+              <div class="popover">
+                <div class="pop-input">› 把这段日期解析改成 ISO 8601</div>
+                <pre><code><span class="k">let</span> f = <span class="t">ISO8601DateFormatter</span>()
+f.formatOptions = [.withInternetDateTime]
+<span class="k">return</span> f.date(from: raw)</code></pre>
+                <div class="pop-foot"><span>⌘ C 复制</span><span>esc 收起</span></div>
+              </div>
+              <figcaption>界面示意</figcaption>
+            </figure>
+          </article>
 
-            <article class="tool-card" id="ad-blocker" aria-labelledby="t-adblock">
-              <div class="tool-top">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg>
-                </span>
-                <span class="status">开发中</span>
-              </div>
+          <article class="tool tool-flip" id="ad-blocker" aria-labelledby="t-adblock">
+            <div class="tool-text">
+              <p class="tool-meta"><span>04</span>隐私 · 内容过滤<b class="state">开发中</b></p>
               <h3 id="t-adblock">广告拦截助手</h3>
-              <p class="tool-category">隐私 · 内容过滤</p>
-              <p class="tool-desc">
-                拦截广告、弹窗与跟踪器，减少屏幕上的干扰，把注意力还给真正想看的内容。
-              </p>
-              <ul class="tool-meta">
-                <li>平台：待公布</li>
-                <li>状态：规划与开发中</li>
-              </ul>
+              <p class="tool-tagline">让屏幕安静一点。</p>
+              <p>拦截广告、弹窗与跟踪器，减少屏幕上的干扰，把注意力还给真正想看的内容。</p>
+              <dl class="specs">
+                <div><dt>平台</dt><dd>待公布</dd></div>
+                <div><dt>状态</dt><dd>规划与开发中</dd></div>
+              </dl>
               <div class="tool-links">
-                <a href="mailto:tonybingpoon@gmail.com?subject=%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E5%8A%A9%E6%89%8B%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
+                <a class="button button-ghost" href="mailto:tonybingpoon@gmail.com?subject=%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E5%8A%A9%E6%89%8B%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
               </div>
-            </article>
-          </div>
+            </div>
+            <figure class="tool-art art-block" aria-hidden="true">
+              <div class="browser">
+                <div class="b-bar"><i></i><i></i><i></i><span class="b-url">news.example.com</span><span class="b-count">已拦截 23</span></div>
+                <div class="b-page">
+                  <span class="ln w80 strong"></span>
+                  <span class="ln w60"></span>
+                  <span class="blocked">广告已移除</span>
+                  <span class="ln"></span><span class="ln w90"></span><span class="ln w70"></span>
+                  <span class="blocked small">跟踪器已拦截</span>
+                  <span class="ln w85"></span><span class="ln w40"></span>
+                </div>
+              </div>
+              <figcaption>界面示意</figcaption>
+            </figure>
+          </article>
         </div>
       </section>
 
-      <section class="section section-alt" id="principles" aria-labelledby="principles-title">
+      <section class="section section-dark" id="principles" aria-labelledby="principles-title">
         <div class="container">
-          <div class="section-head">
-            <h2 id="principles-title">设计原则</h2>
-            <p>所有 TokenDance 工具共同遵守的四条约定。</p>
-          </div>
+          <header class="section-head">
+            <p class="section-no">02 / 设计原则</p>
+            <h2 id="principles-title">所有工具共同遵守的四条约定。</h2>
+          </header>
           <ol class="principles">
-            <li>
-              <h3>本地优先</h3>
-              <p>记录默认保存在你的设备上，离线可用，不依赖云端账号。</p>
-            </li>
-            <li>
-              <h3>无广告，无追踪</h3>
-              <p>不嵌入广告 SDK，不出售或共享个人数据，不做跨应用跟踪。</p>
-            </li>
-            <li>
-              <h3>一个工具，一件事</h3>
-              <p>功能保持克制，打开即用，把复杂度留在开发者这一侧。</p>
-            </li>
-            <li>
-              <h3>长期维护</h3>
-              <p>由同一位开发者持续迭代，问题与建议都能直接得到回复。</p>
-            </li>
+            <li><span>01</span><h3>本地优先</h3><p>记录默认保存在你的设备上，离线可用，不依赖云端账号。</p></li>
+            <li><span>02</span><h3>无广告，无追踪</h3><p>不嵌入广告 SDK，不出售或共享个人数据，不做跨应用跟踪。</p></li>
+            <li><span>03</span><h3>一个工具，一件事</h3><p>功能保持克制，打开即用，把复杂度留在开发者这一侧。</p></li>
+            <li><span>04</span><h3>长期维护</h3><p>由同一位开发者持续迭代，问题与建议都能直接得到回复。</p></li>
           </ol>
         </div>
       </section>
 
       <section class="section" id="faq" aria-labelledby="faq-title">
-        <div class="container narrow">
-          <div class="section-head">
-            <h2 id="faq-title">常见问题</h2>
-          </div>
+        <div class="container faq-grid">
+          <header class="section-head">
+            <p class="section-no">03 / 常见问题</p>
+            <h2 id="faq-title">你可能想知道的。</h2>
+          </header>
           <div class="faq">
             <details open>
               <summary>TokenDance 是什么？</summary>
@@ -328,34 +396,35 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="about" aria-labelledby="about-title">
-        <div class="container narrow about">
-          <h2 id="about-title">关于开发者</h2>
-          <p>
-            我是 Tony，一名独立开发者。TokenDance 里的每个工具都始于生活或工作中一个真实的问题。我希望软件安静、可靠、尊重隐私，并且长期可用。
-          </p>
-          <p>
-            合作、反馈或媒体联系：<a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
-          </p>
+      <section class="section section-tint" id="about" aria-labelledby="about-title">
+        <div class="container about">
+          <p class="section-no">04 / 关于</p>
+          <h2 id="about-title">「一个人做应用，把细节照顾好。」</h2>
+          <div class="about-body">
+            <p>我是 Tony，一名独立开发者。TokenDance 里的每个工具都始于生活或工作中一个真实的问题。我希望软件安静、可靠、尊重隐私，并且长期可用。</p>
+            <a class="button button-primary" href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>
-          <strong>TokenDance</strong>
-          <p>隐私优先的独立应用与效率工具集</p>
+      <div class="container">
+        <div class="footer-top">
+          <p class="wordmark" aria-hidden="true">TokenDance</p>
+          <nav aria-label="产品链接">
+            <ul>
+              <li><a href="https://every15min.tokendance.life/">every15min</a></li>
+              <li><a href="https://goldie.tokendance.life/">守守 Goldie</a></li>
+              <li><a href="#code-buddy">Code Buddy</a></li>
+              <li><a href="#ad-blocker">广告拦截助手</a></li>
+            </ul>
+          </nav>
         </div>
-        <nav aria-label="产品链接">
-          <ul>
-            <li><a href="https://every15min.tokendance.life/">every15min</a></li>
-            <li><a href="https://goldie.tokendance.life/">守守 Goldie</a></li>
-            <li><a href="#code-buddy">Code Buddy</a></li>
-            <li><a href="#ad-blocker">广告拦截助手</a></li>
-          </ul>
-        </nav>
-        <p class="copyright">© 2026 TokenDance · Tony</p>
+        <div class="footer-bottom">
+          <span>隐私优先的独立应用与效率工具集</span>
+          <span>© 2026 TokenDance · Tony</span>
+        </div>
       </div>
     </footer>
   </body>
