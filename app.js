@@ -5,6 +5,7 @@
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = matchMedia("(pointer: fine)").matches;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   // Split headings into characters so they can rise in one by one.
   $$("[data-split], #wordmark").forEach((el) => {
@@ -28,7 +29,7 @@
   );
   $$("[data-reveal], [data-split]").forEach((el) => io.observe(el));
 
-  // Header: solid after the hero starts scrolling, hidden while scrolling down.
+  // Header: solid once scrolled, hidden while scrolling down.
   const header = $("#site-header");
   let lastY = scrollY;
   const onHeader = () => {
@@ -40,53 +41,223 @@
   addEventListener("scroll", onHeader, { passive: true });
   onHeader();
 
-  // ---------- every15min live terminal ----------
-  const entries = [
-    ["07:42", "inbox to 3. quiet morning.", "#wake"],
-    ["08:18", "早上喝咖啡，把今天想记录的事写下来。", "#coffee"],
-    ["09:30", "standup. pushed dashboard fix to staging.", "#work"],
-    ["10:12", "rabbit hole on monospace CJK fallbacks.", "#yak"],
-    ["11:20", "phone call w/ mom — 12 min.", ""],
-    ["12:42", "午饭那一刻很适合变成一张小贴纸。", "#lunch"],
-    ["14:08", "afternoon coffee, refactor plan on a napkin.", "#work"],
-    ["15:06", "路上看到很好看的光，想把这一格留下来。", ""],
+  // Each stage is drawn on a fixed 440×500 canvas and scaled to its column.
+  const fitStage = (stage) => stage.style.setProperty("--s", String(stage.clientWidth / 440));
+  const ro = new ResizeObserver((list) => list.forEach((e) => fitStage(e.target)));
+  $$(".stage").forEach((st) => {
+    fitStage(st);
+    ro.observe(st);
+  });
+  $$(".cal i").forEach((c, k) => c.style.setProperty("--k", k));
+
+  // Runs `fn` with a token that goes stale as soon as another run starts.
+  function runner() {
+    let id = 0;
+    return (fn) => {
+      const mine = ++id;
+      fn(() => mine === id);
+    };
+  }
+
+  // ---------- Scene scripts that need JavaScript ----------
+  const e15Lines = [
+    ["09:30", "standup, pushed fix.", "#work"],
+    ["10:12", "rabbit hole on CJK fonts.", "#yak"],
+    ["12:42", "午饭，顺便散步。", "#lunch"],
+    ["14:08", "refactor plan on a napkin.", "#work"],
   ];
-  const log = $("#term-log");
-  const typing = $("#term-typing");
-  const strip = $("#term-strip");
-  const count = $("#t-count");
-  const next = $("#t-next");
-  const hours = new Set();
 
-  function renderStrip() {
-    let out = "";
-    for (let h = 0; h < 24; h++) out += hours.has(h) ? "<b>▆</b>" : "·";
-    strip.innerHTML = out;
+  function e15Entry([t, text, tag]) {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="tm">${t}</span><span>${text}${tag ? `<u>${tag}</u>` : ""}</span>`;
+    return li;
   }
 
-  function entryHtml([t, text, tag]) {
-    const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
-    return `<span class="tm">${t}</span><span>${esc(text)}${tag ? `<span class="tag">${tag}</span>` : ""}</span>`;
+  async function e15Typing(alive) {
+    const log = $("#e15-log");
+    const typing = $("#e15-typing");
+    const count = $("#e15-count");
+    if (reduced) {
+      log.replaceChildren(...e15Lines.map(e15Entry));
+      count.textContent = e15Lines.length;
+      return;
+    }
+    while (alive()) {
+      log.replaceChildren(e15Entry(["07:42", "inbox to 3. quiet morning.", "#wake"]));
+      count.textContent = "1";
+      for (const [i, e] of e15Lines.entries()) {
+        const line = e[1] + (e[2] ? " " + e[2] : "");
+        for (let c = 1; c <= line.length; c++) {
+          if (!alive()) return;
+          typing.textContent = line.slice(0, c);
+          await sleep(35 + Math.random() * 45);
+        }
+        await sleep(350);
+        if (!alive()) return;
+        typing.textContent = "";
+        log.append(e15Entry(e));
+        count.textContent = String(i + 2);
+        await sleep(700);
+      }
+      await sleep(1600);
+    }
   }
 
-  function staticTerminal() {
-    entries.forEach((e) => {
-      const li = document.createElement("li");
-      li.innerHTML = entryHtml(e);
-      $("#term-log").append(li);
-      hours.add(parseInt(e[0], 10));
-    });
-    $("#t-count").textContent = entries.length;
-    renderStrip();
+  async function goldieSeizure(alive) {
+    const watch = $("#g-watch");
+    const chips = $$(".s1 .chips span");
+    const saved = $(".s1 .saved");
+    const fmt = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+    if (reduced) {
+      watch.textContent = fmt(94);
+      chips.forEach((c) => c.classList.add("on"));
+      saved.classList.add("on");
+      return;
+    }
+    while (alive()) {
+      chips.forEach((c) => c.classList.remove("on"));
+      saved.classList.remove("on");
+      for (let s = 0; s <= 94 && alive(); s += 2) {
+        watch.textContent = fmt(s);
+        if (s === 30) chips[0].classList.add("on");
+        if (s === 52) chips[1].classList.add("on");
+        if (s === 70) chips[2].classList.add("on");
+        if (s === 86) chips[3].classList.add("on");
+        await sleep(45);
+      }
+      if (!alive()) return;
+      saved.classList.add("on");
+      await sleep(2600);
+    }
   }
 
-  if (reduced) {
-    $$(".pills i").forEach((p) => p.classList.add("on"));
-    $("#safe-days").textContent = "126";
-    $("#ring-fg").style.strokeDashoffset = 540.4 * (1 - 126 / 180);
-    staticTerminal();
-    return;
+  function goldieDays(alive) {
+    const out = $("#g-days");
+    if (reduced) {
+      out.textContent = "126";
+      return;
+    }
+    const start = performance.now();
+    (function tick(now) {
+      if (!alive()) return;
+      const t = Math.min((now - start - 300) / 2000, 1);
+      out.textContent = String(Math.max(0, Math.round(126 * (1 - Math.pow(1 - Math.max(t, 0), 3)))));
+      if (t < 1) requestAnimationFrame(tick);
+    })(start);
   }
+
+  const sceneScripts = {
+    e15: { 1: e15Typing },
+    goldie: { 1: goldieSeizure, 2: goldieDays },
+  };
+
+  // ---------- Scroll stories: progress through the track picks the scene ----------
+  const stories = $$("[data-story]").map((section) => ({
+    name: section.dataset.story,
+    track: $(".story-track", section),
+    box: $(".stage-box", section),
+    steps: $$(".story-steps li", section),
+    dots: $$(".story-dots i", section),
+    scene: -1,
+    run: runner(),
+  }));
+
+  function onStories() {
+    for (const st of stories) {
+      const r = st.track.getBoundingClientRect();
+      const n = st.steps.length;
+      const p = Math.min(Math.max(-r.top / (r.height - innerHeight), 0), 0.999);
+      const idx = Math.min(n - 1, Math.floor(p * n));
+      if (idx === st.scene) continue;
+      st.scene = idx;
+      st.box.dataset.scene = String(idx);
+      st.steps.forEach((li, i) => li.classList.toggle("is-on", i === idx));
+      st.dots.forEach((d, i) => d.classList.toggle("is-on", i === idx));
+      const script = sceneScripts[st.name][idx];
+      st.run(script ? (alive) => script(alive) : () => {});
+    }
+  }
+  addEventListener("scroll", onStories, { passive: true });
+  addEventListener("resize", onStories);
+  onStories();
+
+  // ---------- Looping demos for the apps still in development ----------
+  async function codeBuddy(el, alive) {
+    const q = $("#cb-typing", el);
+    const ask = "把这个日期解析改成 ISO 8601";
+    while (alive()) {
+      el.className = "demo cb";
+      q.textContent = "";
+      await sleep(700);
+      el.classList.add("aim");
+      await sleep(1000);
+      el.classList.add("click");
+      await sleep(200);
+      el.classList.remove("click");
+      el.classList.add("open");
+      await sleep(500);
+      for (let c = 1; c <= ask.length && alive(); c++) {
+        q.textContent = ask.slice(0, c);
+        await sleep(70);
+      }
+      await sleep(400);
+      el.classList.add("code");
+      await sleep(1400);
+      el.classList.add("copied");
+      await sleep(1200);
+      el.classList.remove("open");
+      el.classList.add("fixed");
+      await sleep(2200);
+    }
+  }
+
+  async function adBlock(el, alive) {
+    const count = $("#ab-count", el);
+    const ads = $$(".ad", el);
+    while (alive()) {
+      el.className = "demo ab";
+      ads.forEach((a) => a.classList.remove("zap"));
+      count.textContent = "已拦截 0";
+      await sleep(600);
+      el.classList.add("ads");
+      await sleep(900);
+      el.classList.add("popup");
+      await sleep(1300);
+      el.classList.add("scan");
+      const targets = [ads[0], null, ads[1]];
+      let n = 0;
+      for (const t of targets) {
+        await sleep(380);
+        if (!alive()) return;
+        if (t) t.classList.add("zap");
+        else el.classList.remove("popup");
+        count.textContent = `已拦截 ${++n}`;
+        count.classList.add("bump");
+        setTimeout(() => count.classList.remove("bump"), 250);
+      }
+      await sleep(3200);
+    }
+  }
+
+  const demos = { codebuddy: codeBuddy, adblock: adBlock };
+  $$("[data-demo]").forEach((el) => {
+    const run = runner();
+    if (reduced) {
+      if (el.dataset.demo === "codebuddy") {
+        el.classList.add("open", "code", "copied");
+        $("#cb-typing", el).textContent = "把这个日期解析改成 ISO 8601";
+      } else {
+        $("#ab-count", el).textContent = "已拦截 3";
+      }
+      return;
+    }
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) run((alive) => demos[el.dataset.demo](el, alive));
+      else run(() => {});
+    }, { threshold: 0.35 }).observe(el);
+  });
+
+  if (reduced) return;
 
   // ---------- Hero dot field ----------
   const canvas = $("#dots");
@@ -105,8 +276,7 @@
     const gap = width < 640 ? 24 : 30;
     dots = [];
     for (let y = gap / 2; y < height; y += gap)
-      for (let x = gap / 2; x < width; x += gap)
-        dots.push({ ox: x, oy: y, x, y });
+      for (let x = gap / 2; x < width; x += gap) dots.push({ ox: x, oy: y, x, y });
   }
 
   function drawDots() {
@@ -117,12 +287,11 @@
         const dx = d.ox - mouse.x;
         const dy = d.oy - mouse.y;
         const dist = Math.hypot(dx, dy);
-        const r = 150;
         let tx = d.ox;
         let ty = d.oy;
         let k = 0;
-        if (dist < r) {
-          k = 1 - dist / r;
+        if (dist < 150) {
+          k = 1 - dist / 150;
           const push = k * k * 34;
           tx += (dx / (dist || 1)) * push;
           ty += (dy / (dist || 1)) * push;
@@ -151,31 +320,6 @@
   sizeCanvas();
   drawDots();
 
-  // ---------- Floating icons: cursor parallax + scroll drift ----------
-  const icons = $$(".fi");
-  let px = 0;
-  let py = 0;
-  let cx = 0;
-  let cy = 0;
-  addEventListener("pointermove", (e) => {
-    px = (e.clientX / innerWidth - 0.5) * 2;
-    py = (e.clientY / innerHeight - 0.5) * 2;
-  });
-  (function floatLoop() {
-    cx += (px - cx) * 0.06;
-    cy += (py - cy) * 0.06;
-    const s = Math.min(scrollY / innerHeight, 1.2);
-    icons.forEach((img, i) => {
-      const depth = parseFloat(img.dataset.depth);
-      const side = i % 2 ? 1 : -1;
-      img.style.transform = `translate3d(${cx * depth * 40 + side * s * 160 * depth}px, ${
-        cy * depth * 40 - s * 260 * depth
-      }px, 0) scale(${1 + s * 0.25 * depth})`;
-      img.style.opacity = String(1 - s * 0.9);
-    });
-    requestAnimationFrame(floatLoop);
-  })();
-
   // ---------- Magnetic buttons ----------
   if (finePointer) {
     $$(".magnetic").forEach((btn) => {
@@ -186,124 +330,6 @@
         btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
       });
       btn.addEventListener("pointerleave", () => (btn.style.transform = ""));
-    });
-  }
-
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  let termStarted = false;
-
-  async function runTerminal() {
-    for (;;) {
-      log.innerHTML = "";
-      hours.clear();
-      renderStrip();
-      count.textContent = "0";
-      let prev = null;
-      for (const [i, e] of entries.entries()) {
-        const line = e[1] + (e[2] ? " " + e[2] : "");
-        for (let c = 1; c <= line.length; c++) {
-          typing.textContent = line.slice(0, c);
-          await sleep(18 + Math.random() * 32);
-        }
-        await sleep(380);
-        typing.textContent = "";
-        const minutes = (s) => parseInt(s, 10) * 60 + parseInt(s.slice(3), 10);
-        if (prev && minutes(e[0]) - minutes(prev) > 45) {
-          const gap = document.createElement("li");
-          const m = minutes(e[0]) - minutes(prev);
-          gap.className = "gap";
-          gap.textContent = `gap ${Math.floor(m / 60)}h${String(m % 60).padStart(2, "0")}m`;
-          log.append(gap);
-        }
-        const li = document.createElement("li");
-        li.innerHTML = entryHtml(e);
-        log.append(li);
-        while (log.children.length > 9) log.firstElementChild.remove();
-        prev = e[0];
-        hours.add(parseInt(e[0], 10));
-        renderStrip();
-        count.textContent = String(i + 1);
-        const nm = minutes(e[0]) + 15 - (minutes(e[0]) % 15);
-        next.textContent = `${String(Math.floor(nm / 60)).padStart(2, "0")}:${String(nm % 60).padStart(2, "0")}`;
-        await sleep(900);
-      }
-      await sleep(3000);
-    }
-  }
-
-  renderStrip();
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !termStarted) {
-      termStarted = true;
-      runTerminal();
-    }
-  }, { threshold: 0.3 }).observe($(".term"));
-
-  // ---------- Sticky screenshot showcase ----------
-  const showcase = $("#showcase");
-  const shots = $$(".shot");
-  const steps = $$("#steps li");
-  const phone = $("#phone");
-  function onShowcase() {
-    if (innerWidth <= 900) return;
-    const r = showcase.getBoundingClientRect();
-    const total = r.height - innerHeight;
-    const p = Math.min(Math.max(-r.top / total, 0), 0.999);
-    const idx = Math.floor(p * shots.length);
-    shots.forEach((s, i) => s.classList.toggle("is-on", i === idx));
-    steps.forEach((s, i) => s.classList.toggle("is-on", i === idx));
-    phone.style.setProperty("--ry", `${-14 + p * 28}deg`);
-    phone.style.setProperty("--rx", `${6 - p * 6}deg`);
-  }
-  addEventListener("scroll", onShowcase, { passive: true });
-  onShowcase();
-
-  // ---------- Goldie: counter, ring, pills, icon follows cursor ----------
-  const card = $("#goldie-card");
-  new IntersectionObserver(([e], obs) => {
-    if (!e.isIntersecting) return;
-    obs.disconnect();
-    const target = 126;
-    $("#ring-fg").style.strokeDashoffset = 540.4 * (1 - target / 180);
-    const start = performance.now();
-    (function tick(now) {
-      const t = Math.min((now - start) / 2000, 1);
-      $("#safe-days").textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
-      if (t < 1) requestAnimationFrame(tick);
-    })(start);
-    const pills = $$(".pills i");
-    const taken = [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11];
-    taken.forEach((n, k) => setTimeout(() => pills[n].classList.add("on"), 400 + k * 110));
-  }, { threshold: 0.4 }).observe(card);
-
-  const gIcon = $("#goldie-icon");
-  const goldie = $("#goldie");
-  if (finePointer) {
-    goldie.addEventListener("pointermove", (e) => {
-      const r = gIcon.getBoundingClientRect();
-      const dx = (e.clientX - (r.left + r.width / 2)) / innerWidth;
-      const dy = (e.clientY - (r.top + r.height / 2)) / innerHeight;
-      gIcon.style.transform = `translate(${dx * 30}px, ${dy * 30}px) rotate(${dx * 18}deg)`;
-    });
-    goldie.addEventListener("pointerleave", () => (gIcon.style.transform = ""));
-  }
-
-  // ---------- Spotlight + tilt cards ----------
-  if (finePointer) {
-    $$(".spot").forEach((card) => {
-      card.addEventListener("pointermove", (e) => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        card.style.setProperty("--x", `${x}px`);
-        card.style.setProperty("--y", `${y}px`);
-        card.style.setProperty("--ty", `${(x / r.width - 0.5) * 8}deg`);
-        card.style.setProperty("--tx", `${(0.5 - y / r.height) * 8}deg`);
-      });
-      card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--tx", "0deg");
-        card.style.setProperty("--ty", "0deg");
-      });
     });
   }
 })();
