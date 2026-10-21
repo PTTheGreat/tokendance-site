@@ -15,9 +15,10 @@
     />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://tokendance.life/" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021c" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021c" />
-    <link rel="stylesheet" href="styles.css?v=20261021c" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021d" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021d" />
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="stylesheet" href="styles.css?v=20261021d" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -136,11 +137,14 @@
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
-    <header class="site-header">
+    <header class="site-header" id="site-header">
       <div class="wrap header-inner">
-        <a class="brand" href="/">TokenDance</a>
+        <a class="brand" href="/">
+          <img src="favicon.svg?v=20261021d" width="22" height="22" alt="" />TokenDance
+        </a>
         <nav aria-label="主导航">
-          <a href="#residents">应用</a>
+          <a href="#every15min">every15min</a>
+          <a href="#goldie">守守</a>
           <a href="#coming">即将推出</a>
           <a href="#about">关于</a>
         </nav>
@@ -148,106 +152,183 @@
     </header>
 
     <main id="main">
-      <section class="intro wrap" id="island">
-        <h1>TokenDance</h1>
-        <p>
-          我是 Tony，一个人在做 iOS 和 macOS 上的小工具。每个应用都从自己生活里一个具体的麻烦开始，做到我自己每天愿意用为止。
-        </p>
-        <p class="intro-note">没有账号，没有广告，数据只存在你的设备上。</p>
-      </section>
-
-      <section class="apps wrap" id="residents" aria-labelledby="apps-title">
-        <h2 id="apps-title" class="label">应用</h2>
-
-        <article class="app" id="every15min">
-          <div class="app-head">
-            <img class="app-icon" src="assets/apps/every15min-icon.webp" width="120" height="120" alt="every15min 应用图标" />
-            <div>
-              <h3>every15min</h3>
-              <p class="app-sub">终端风格的时间记录 · iPhone</p>
-              <div class="app-actions">
-                <a class="store" href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">在 App Store 下载</a>
-                <a href="https://every15min.tokendance.life/">官网</a>
-              </div>
-            </div>
-          </div>
-          <p class="app-desc">
-            打开就是今天的日志，像在终端里一样敲一行“刚才在干嘛”。默认每 15 分钟提醒一次，记录带时间戳和标签，可以按日历翻看、按标签统计、用 <code>find</code> 搜索。底部一条 24 小时的时间轴，一眼看出哪段时间是空白的。
-          </p>
-          <ul class="shots" aria-label="every15min 截图">
-            <li><img src="assets/apps/every15min-4-find.webp" width="540" height="1174" loading="lazy" alt="every15min 日志页：带时间戳和标签的记录" /></li>
-            <li><img src="assets/apps/every15min-2-calendar.webp" width="540" height="1174" loading="lazy" alt="every15min 日历视图" /></li>
-            <li><img src="assets/apps/every15min-3-tags.webp" width="540" height="1174" loading="lazy" alt="every15min 标签统计" /></li>
-          </ul>
-        </article>
-
-        <article class="app" id="goldie">
-          <div class="app-head">
-            <img class="app-icon" src="assets/apps/goldie-icon.webp" width="120" height="120" alt="守守 Goldie 应用图标" />
-            <div>
-              <h3>守守 Goldie</h3>
-              <p class="app-sub">癫痫用药提醒与发作记录 · iPhone</p>
-              <div class="app-actions">
-                <a class="store" href="https://goldie.tokendance.life/">了解守守</a>
-              </div>
-            </div>
-          </div>
-          <p class="app-desc">
-            守守是一只金毛，现实里金毛正是最常见的癫痫辅助犬。它陪你按时吃药、记下每次发作，把“平安的天数”记下来，而不是只数发作次数。
-          </p>
-          <ul class="features">
-            <li><strong>吃药打卡</strong>一天多次自动分组，漏服可以补记，支持小组件、灵动岛和 Siri。</li>
-            <li><strong>发作记录</strong>时间、时长、诱因、意识状态，复诊时说得清楚。</li>
-            <li><strong>看病资料</strong>病历和化验单拍照存档，记下次复诊和想问医生的问题。</li>
-            <li><strong>放松练习</strong>呼吸、肌肉放松、身体扫描、着陆练习，带语音引导。</li>
-            <li><strong>守护圈</strong>紧急联系人一键拨打，急救信息卡一键复制。</li>
-          </ul>
-          <p class="fine">守守是记录工具，不提供诊断或治疗建议。</p>
-        </article>
-      </section>
-
-      <section class="coming wrap" id="coming" aria-labelledby="coming-title">
-        <h2 id="coming-title" class="label">即将推出</h2>
-        <div class="coming-list">
-          <article id="code-buddy">
-            <h3>Code Buddy</h3>
-            <p>macOS 菜单栏里的编程助手，随手调出，处理写代码时的零碎小事。</p>
-          </article>
-          <article id="ad-blocker">
-            <h3>广告拦截助手</h3>
-            <p>拦截广告、弹窗和跟踪器，让屏幕安静一点。</p>
-          </article>
+      <section class="hero" id="island" aria-labelledby="hero-title">
+        <canvas class="dots" id="dots" aria-hidden="true"></canvas>
+        <div class="float-icons" aria-hidden="true">
+          <img class="fi fi-1" data-depth="0.9" src="assets/apps/every15min-icon.webp" alt="" />
+          <img class="fi fi-2" data-depth="0.5" src="assets/apps/goldie-icon.webp" alt="" />
+          <img class="fi fi-3" data-depth="0.7" src="assets/apps/code-buddy-icon.svg" alt="" />
+          <img class="fi fi-4" data-depth="0.35" src="assets/apps/ad-blocker-icon.svg" alt="" />
         </div>
-        <p class="fine">
-          想在上线时收到通知，<a href="mailto:tonybingpoon@gmail.com?subject=%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">给我发封邮件</a>就好。
-        </p>
+        <div class="hero-inner wrap">
+          <p class="hero-eyebrow" data-reveal>TokenDance · Tony 的独立应用</p>
+          <h1 id="hero-title" data-split>做小而好用的工具。</h1>
+          <p class="hero-lead" data-reveal style="--d: 0.5s">
+            一个人做 iOS 和 macOS 小工具。每个应用都从生活里一个具体的麻烦开始，做到自己每天愿意用为止。没有账号，没有广告，数据只存在你的设备上。
+          </p>
+          <div class="hero-cta" data-reveal style="--d: 0.65s">
+            <a class="btn btn-dark magnetic" href="#residents">看看应用</a>
+            <a class="btn btn-line magnetic" href="mailto:tonybingpoon@gmail.com">写信给我</a>
+          </div>
+        </div>
+        <a class="scroll-hint" href="#residents" aria-label="向下滚动"><span></span></a>
       </section>
 
-      <section class="about wrap" id="about" aria-labelledby="about-title">
-        <h2 id="about-title" class="label">关于</h2>
-        <div class="about-cols">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>无账号</span><i>✳</i><span>无广告</span><i>✳</i><span>无追踪</span><i>✳</i><span>数据只在你的设备上</span><i>✳</i><span>一个人长期维护</span><i>✳</i>
+          <span>无账号</span><i>✳</i><span>无广告</span><i>✳</i><span>无追踪</span><i>✳</i><span>数据只在你的设备上</span><i>✳</i><span>一个人长期维护</span><i>✳</i>
+        </div>
+      </div>
+
+      <div id="residents">
+        <section class="e15" id="every15min" aria-labelledby="t-every15min">
+          <div class="wrap e15-top">
+            <div class="e15-copy">
+              <img class="app-icon" src="assets/apps/every15min-icon.webp" width="96" height="96" alt="every15min 应用图标" data-reveal />
+              <h2 id="t-every15min" data-split>every15min</h2>
+              <p class="app-sub" data-reveal>终端风格的时间记录 · iPhone · 已上架 App Store</p>
+              <p class="app-desc" data-reveal style="--d: 0.15s">
+                打开就是今天的日志，像在终端里一样敲一行“刚才在干嘛”。默认每 15 分钟提醒一次，每条记录带时间戳和标签。
+              </p>
+              <div class="hero-cta" data-reveal style="--d: 0.25s">
+                <a class="btn btn-light magnetic" href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">在 App Store 下载</a>
+                <a class="btn btn-ghost-dark magnetic" href="https://every15min.tokendance.life/">官网</a>
+              </div>
+            </div>
+            <div class="term" data-reveal style="--d: 0.2s" aria-hidden="true">
+              <div class="term-head">
+                <span class="t-acc">every15min</span> · 15m · <span class="t-amb">today</span>
+                <span class="t-right">:help</span>
+              </div>
+              <div class="term-stats">next <b class="t-amb" id="t-next">16:00</b> &nbsp; today <b class="t-amb" id="t-count">0</b> &nbsp; streak <b class="t-amb">12d</b></div>
+              <ol class="term-log" id="term-log"></ol>
+              <div class="term-strip">24h <span id="term-strip"></span></div>
+              <div class="term-input"><span class="t-acc">$</span> <span id="term-typing"></span><i class="caret"></i></div>
+            </div>
+          </div>
+
+          <div class="showcase" id="showcase">
+            <div class="showcase-sticky">
+              <div class="wrap showcase-grid">
+                <div class="phone" id="phone">
+                  <img class="shot is-on" src="assets/apps/every15min-4-find.webp" width="540" height="1174" alt="every15min 日志页：带时间戳和标签的记录" />
+                  <img class="shot" src="assets/apps/every15min-2-calendar.webp" width="540" height="1174" loading="lazy" alt="every15min 日历视图" />
+                  <img class="shot" src="assets/apps/every15min-3-tags.webp" width="540" height="1174" loading="lazy" alt="every15min 标签统计" />
+                </div>
+                <ol class="steps" id="steps">
+                  <li class="is-on">
+                    <span class="step-k">$ git log</span>
+                    <h3>一条一条，记下刚才</h3>
+                    <p>不用写日记。一句话加一个标签，时间自动记上。想找某件事，<code>find #work</code> 就出来了。</p>
+                    <img class="step-shot" src="assets/apps/every15min-4-find.webp" width="540" height="1174" loading="lazy" alt="" />
+                  </li>
+                  <li>
+                    <span class="step-k">$ cal</span>
+                    <h3>按日历翻回任意一天</h3>
+                    <p>哪天记了多少一目了然，点一下就回到那天的日志。</p>
+                    <img class="step-shot" src="assets/apps/every15min-2-calendar.webp" width="540" height="1174" loading="lazy" alt="" />
+                  </li>
+                  <li>
+                    <span class="step-k">$ tags --count</span>
+                    <h3>标签告诉你时间去哪了</h3>
+                    <p>#work、#coffee、#wake……按标签统计，再加一条 24 小时时间轴，空白的时段一眼可见。</p>
+                    <img class="step-shot" src="assets/apps/every15min-3-tags.webp" width="540" height="1174" loading="lazy" alt="" />
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="goldie" id="goldie" aria-labelledby="t-goldie">
+          <div class="wrap goldie-grid">
+            <div class="goldie-copy">
+              <img class="app-icon goldie-icon" id="goldie-icon" src="assets/apps/goldie-icon.webp" width="96" height="96" alt="守守 Goldie 应用图标" data-reveal />
+              <h2 id="t-goldie" data-split>守守 Goldie</h2>
+              <p class="app-sub" data-reveal>癫痫用药提醒与发作记录 · iPhone</p>
+              <p class="app-desc" data-reveal style="--d: 0.15s">
+                守守是一只金毛，现实里金毛正是最常见的癫痫辅助犬。它陪你按时吃药、记下每次发作，把“平安的天数”记下来，而不是只数发作次数。
+              </p>
+              <div class="hero-cta" data-reveal style="--d: 0.25s">
+                <a class="btn btn-goldie magnetic" href="https://goldie.tokendance.life/">了解守守</a>
+              </div>
+            </div>
+            <div class="goldie-card" id="goldie-card" data-reveal style="--d: 0.1s" aria-hidden="true">
+              <div class="ring">
+                <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" class="ring-bg" /><circle cx="100" cy="100" r="86" class="ring-fg" id="ring-fg" /></svg>
+                <div class="ring-num"><b id="safe-days">0</b><span>安全天数</span></div>
+              </div>
+              <div class="pills">
+                <span>早</span><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                <span>晚</span><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <p class="demo-note">示例数据</p>
+            </div>
+          </div>
+          <ul class="wrap goldie-features">
+            <li data-reveal><b>吃药打卡</b><span>一天多次自动分组，漏服可补记，支持小组件、灵动岛和 Siri。</span></li>
+            <li data-reveal style="--d: 0.08s"><b>发作记录</b><span>时间、时长、诱因、意识状态，复诊时说得清楚。</span></li>
+            <li data-reveal style="--d: 0.16s"><b>看病资料</b><span>病历、化验单拍照存档，记下想问医生的问题。</span></li>
+            <li data-reveal style="--d: 0.24s"><b>放松练习</b><span>呼吸、肌肉放松、身体扫描、着陆练习，带语音引导。</span></li>
+            <li data-reveal style="--d: 0.32s"><b>守护圈</b><span>紧急联系人一键拨打，急救信息卡一键复制。</span></li>
+          </ul>
+          <p class="wrap fine">守守是记录工具，不提供诊断或治疗建议。</p>
+        </section>
+      </div>
+
+      <section class="coming" id="coming" aria-labelledby="coming-title">
+        <div class="wrap">
+          <h2 id="coming-title" data-split>正在做的</h2>
+          <div class="coming-list">
+            <article class="spot" id="code-buddy" data-reveal>
+              <img src="assets/apps/code-buddy-icon.svg" width="64" height="64" alt="" />
+              <h3>Code Buddy</h3>
+              <p>macOS 菜单栏里的编程助手，随手调出，处理写代码时的零碎小事。</p>
+              <span class="tag">开发中</span>
+            </article>
+            <article class="spot" id="ad-blocker" data-reveal style="--d: 0.1s">
+              <img src="assets/apps/ad-blocker-icon.svg" width="64" height="64" alt="" />
+              <h3>广告拦截助手</h3>
+              <p>拦截广告、弹窗和跟踪器，让屏幕安静一点。</p>
+              <span class="tag">开发中</span>
+            </article>
+          </div>
+          <p class="fine" data-reveal>
+            想在上线时收到通知？<a href="mailto:tonybingpoon@gmail.com?subject=%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">给我发封邮件</a>。
+          </p>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div class="wrap about-cols">
           <div>
-            <h3>隐私</h3>
-            <p>应用里不放广告 SDK，不做跟踪，不需要注册。记录保存在你的手机上，我这边看不到任何内容。</p>
+            <h2 id="about-title" data-split>关于</h2>
+            <p class="about-lead" data-reveal>
+              应用里不放广告 SDK，不做跟踪，不需要注册。记录保存在你的手机上，我这边看不到任何内容。
+            </p>
           </div>
-          <div id="faq">
-            <h3>常见问题</h3>
-            <dl>
-              <dt>需要注册账号吗？</dt>
-              <dd>不需要。every15min 和守守都没有账号系统。</dd>
-              <dt>守守能代替医生吗？</dt>
-              <dd>不能。它帮你把情况记清楚，治疗请听医生的。</dd>
-              <dt>遇到问题怎么联系？</dt>
-              <dd>发邮件到 <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>，我会亲自回复。</dd>
-            </dl>
-          </div>
+          <dl id="faq" data-reveal style="--d: 0.1s">
+            <dt>需要注册账号吗？</dt>
+            <dd>不需要。every15min 和守守都没有账号系统。</dd>
+            <dt>守守能代替医生吗？</dt>
+            <dd>不能。它帮你把情况记清楚，治疗请听医生的。</dd>
+            <dt>遇到问题怎么联系？</dt>
+            <dd>发邮件到 <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>，我会亲自回复。</dd>
+          </dl>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer wrap">
-      <span>© 2026 TokenDance</span>
-      <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="wordmark" id="wordmark" aria-label="TokenDance">TokenDance</p>
+        <div class="footer-row">
+          <span>© 2026 TokenDance · Tony</span>
+          <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
+        </div>
+      </div>
     </footer>
+    <script src="app.js?v=20261021d" defer></script>
   </body>
 </html>
