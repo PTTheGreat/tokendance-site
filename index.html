@@ -3,48 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TokenDance · 隐私优先的独立应用与效率工具集</title>
+    <title>TokenDance · 独立开发的 iOS 与 macOS 小工具</title>
     <meta
       name="description"
-      content="TokenDance 是独立开发者 Tony 维护的工具集合：every15min 时间记录、守守 Goldie 癫痫用药与发作记录、Code Buddy 菜单栏代码助手、广告拦截助手。本地优先，无广告，无追踪。"
+      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录，以及开发中的 Code Buddy 与广告拦截助手。无账号、无广告、数据只存在你的设备上。"
     />
     <meta name="author" content="Tony" />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1"
     />
-    <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://tokendance.life/" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021b" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021b" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-    />
-    <link rel="stylesheet" href="styles.css?v=20261021b" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021c" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021c" />
+    <link rel="stylesheet" href="styles.css?v=20261021c" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:title" content="TokenDance · 隐私优先的独立应用与效率工具集" />
+    <meta property="og:title" content="TokenDance · 独立开发的 iOS 与 macOS 小工具" />
     <meta
       property="og:description"
-      content="时间记录、健康记录、开发者工具与内容过滤。本地优先，无广告，无追踪。"
+      content="every15min、守守 Goldie、Code Buddy、广告拦截助手。无账号、无广告，数据只存在你的设备上。"
     />
     <meta property="og:url" content="https://tokendance.life/" />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="TokenDance 工具集：every15min、守守 Goldie、Code Buddy、广告拦截助手" />
+    <meta property="og:image:alt" content="TokenDance：every15min 与守守 Goldie 的应用图标" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TokenDance · 隐私优先的独立应用与效率工具集" />
+    <meta name="twitter:title" content="TokenDance · 独立开发的 iOS 与 macOS 小工具" />
     <meta
       name="twitter:description"
-      content="时间记录、健康记录、开发者工具与内容过滤。本地优先，无广告，无追踪。"
+      content="every15min、守守 Goldie、Code Buddy、广告拦截助手。无账号、无广告，数据只存在你的设备上。"
     />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
 
@@ -66,14 +58,14 @@
             "@id": "https://tokendance.life/#website",
             "url": "https://tokendance.life/",
             "name": "TokenDance",
-            "description": "隐私优先的独立应用与效率工具集",
+            "description": "独立开发的 iOS 与 macOS 小工具",
             "inLanguage": "zh-CN",
             "publisher": { "@id": "https://tokendance.life/#organization" }
           },
           {
             "@type": "ItemList",
-            "@id": "https://tokendance.life/#tools",
-            "name": "TokenDance 工具目录",
+            "@id": "https://tokendance.life/#apps",
+            "name": "TokenDance 应用",
             "itemListElement": [
               {
                 "@type": "ListItem",
@@ -83,9 +75,11 @@
                   "name": "every15min",
                   "url": "https://every15min.tokendance.life/",
                   "sameAs": "https://apps.apple.com/app/id6801988119",
+                  "image": "https://tokendance.life/assets/apps/every15min-icon.webp",
+                  "screenshot": "https://tokendance.life/assets/apps/every15min-4-find.webp",
                   "applicationCategory": "LifestyleApplication",
                   "operatingSystem": "iOS",
-                  "description": "以 15 分钟为单位记录一天的时间去向，用色块回看日常，记录保存在设备本地。",
+                  "description": "终端风格的时间记录应用：每 15 分钟提醒记一行，用标签、日历和搜索回看一天。",
                   "publisher": { "@id": "https://tokendance.life/#organization" }
                 }
               },
@@ -95,11 +89,12 @@
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "守守 Goldie",
-                  "alternateName": "Goldie",
+                  "alternateName": "守守-癫痫用药提醒与发作记录",
                   "url": "https://goldie.tokendance.life/",
+                  "image": "https://tokendance.life/assets/apps/goldie-icon.webp",
                   "applicationCategory": "HealthApplication",
                   "operatingSystem": "iOS",
-                  "description": "面向癫痫患者与家属的记录工具：用药、发作、无发作天数与复诊准备。无需账号，无广告与追踪。",
+                  "description": "癫痫用药提醒与发作记录：吃药打卡、安全天数、复诊资料、放松练习与紧急联系人。无账号、无广告、无追踪。",
                   "publisher": { "@id": "https://tokendance.life/#organization" }
                 }
               }
@@ -111,34 +106,26 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "TokenDance 是什么？",
+                "name": "这些应用需要注册账号吗？",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "TokenDance 是独立开发者 Tony 维护的软件工具集合，每个工具解决一个具体问题，目前包括 every15min、守守 Goldie，以及开发中的 Code Buddy 和广告拦截助手。"
+                  "text": "不需要。every15min 和守守 Goldie 都没有账号系统，记录只保存在你自己的设备上。"
                 }
               },
               {
                 "@type": "Question",
-                "name": "我的数据保存在哪里？",
+                "name": "守守 Goldie 能代替医生吗？",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "TokenDance 的工具以本地存储为默认设计，every15min 和守守 Goldie 的记录保存在你自己的设备上，不需要注册账号。具体以各产品页面的隐私说明为准。"
+                  "text": "不能。守守是用药提醒和记录工具，帮你在复诊时把情况说清楚，不提供诊断或治疗建议。"
                 }
               },
               {
                 "@type": "Question",
-                "name": "守守 Goldie 可以代替医生的建议吗？",
+                "name": "遇到问题怎么联系？",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "不可以。守守 Goldie 是记录与提醒工具，帮助你整理用药和发作情况，方便复诊时与医生沟通，不提供诊断或治疗建议。"
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "如何反馈问题或提出新工具的想法？",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "欢迎发送邮件至 tonybingpoon@gmail.com，每一封邮件都会被阅读。"
+                  "text": "发邮件到 tonybingpoon@gmail.com，我会亲自回复。"
                 }
               }
             ]
@@ -150,282 +137,117 @@
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="/" aria-label="TokenDance 首页">
-          <img src="favicon.svg?v=20261021b" width="26" height="26" alt="" />
-          <span>TokenDance</span>
-        </a>
+      <div class="wrap header-inner">
+        <a class="brand" href="/">TokenDance</a>
         <nav aria-label="主导航">
-          <ul class="nav-list">
-            <li><a href="#residents">工具</a></li>
-            <li><a href="#principles">原则</a></li>
-            <li><a href="#faq">问答</a></li>
-            <li><a href="#about">关于</a></li>
-          </ul>
+          <a href="#residents">应用</a>
+          <a href="#coming">即将推出</a>
+          <a href="#about">关于</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero" id="island" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="kicker"><span class="dot"></span>独立工作室 · 2026</p>
-            <h1 id="hero-title">
-              <span class="h1-small">TokenDance 工具集</span>
-              把具体的小问题，<br />做成<em>安静可靠</em>的工具。
-            </h1>
-            <p class="lead">
-              隐私优先的独立应用与效率工具：时间记录、健康记录、开发辅助、内容过滤。由独立开发者 Tony 设计与长期维护，数据默认只留在你的设备上。
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#residents">浏览工具目录 <span aria-hidden="true">→</span></a>
-              <a class="button button-ghost" href="mailto:tonybingpoon@gmail.com">联系开发者</a>
+      <section class="intro wrap" id="island">
+        <h1>TokenDance</h1>
+        <p>
+          我是 Tony，一个人在做 iOS 和 macOS 上的小工具。每个应用都从自己生活里一个具体的麻烦开始，做到我自己每天愿意用为止。
+        </p>
+        <p class="intro-note">没有账号，没有广告，数据只存在你的设备上。</p>
+      </section>
+
+      <section class="apps wrap" id="residents" aria-labelledby="apps-title">
+        <h2 id="apps-title" class="label">应用</h2>
+
+        <article class="app" id="every15min">
+          <div class="app-head">
+            <img class="app-icon" src="assets/apps/every15min-icon.webp" width="120" height="120" alt="every15min 应用图标" />
+            <div>
+              <h3>every15min</h3>
+              <p class="app-sub">终端风格的时间记录 · iPhone</p>
+              <div class="app-actions">
+                <a class="store" href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">在 App Store 下载</a>
+                <a href="https://every15min.tokendance.life/">官网</a>
+              </div>
             </div>
           </div>
+          <p class="app-desc">
+            打开就是今天的日志，像在终端里一样敲一行“刚才在干嘛”。默认每 15 分钟提醒一次，记录带时间戳和标签，可以按日历翻看、按标签统计、用 <code>find</code> 搜索。底部一条 24 小时的时间轴，一眼看出哪段时间是空白的。
+          </p>
+          <ul class="shots" aria-label="every15min 截图">
+            <li><img src="assets/apps/every15min-4-find.webp" width="540" height="1174" loading="lazy" alt="every15min 日志页：带时间戳和标签的记录" /></li>
+            <li><img src="assets/apps/every15min-2-calendar.webp" width="540" height="1174" loading="lazy" alt="every15min 日历视图" /></li>
+            <li><img src="assets/apps/every15min-3-tags.webp" width="540" height="1174" loading="lazy" alt="every15min 标签统计" /></li>
+          </ul>
+        </article>
 
-          <div class="index-window" aria-label="工具索引">
-            <div class="window-bar" aria-hidden="true">
-              <i></i><i></i><i></i><span>tokendance — index</span>
-            </div>
-            <ol class="index-list">
-              <li>
-                <a href="#every15min">
-                  <span class="idx">01</span>
-                  <span class="name">every15min<small>时间记录</small></span>
-                  <span class="plat">iOS</span>
-                  <span class="state live">已上架</span>
-                </a>
-              </li>
-              <li>
-                <a href="#goldie">
-                  <span class="idx">02</span>
-                  <span class="name">守守 Goldie<small>健康记录</small></span>
-                  <span class="plat">iOS</span>
-                  <span class="state live">已上线</span>
-                </a>
-              </li>
-              <li>
-                <a href="#code-buddy">
-                  <span class="idx">03</span>
-                  <span class="name">Code Buddy<small>开发者工具</small></span>
-                  <span class="plat">macOS</span>
-                  <span class="state">开发中</span>
-                </a>
-              </li>
-              <li>
-                <a href="#ad-blocker">
-                  <span class="idx">04</span>
-                  <span class="name">广告拦截助手<small>内容过滤</small></span>
-                  <span class="plat">待定</span>
-                  <span class="state">开发中</span>
-                </a>
-              </li>
-            </ol>
-            <div class="window-foot">
-              <span>2 已发布</span><span>2 开发中</span><span>0 广告 · 0 追踪</span>
+        <article class="app" id="goldie">
+          <div class="app-head">
+            <img class="app-icon" src="assets/apps/goldie-icon.webp" width="120" height="120" alt="守守 Goldie 应用图标" />
+            <div>
+              <h3>守守 Goldie</h3>
+              <p class="app-sub">癫痫用药提醒与发作记录 · iPhone</p>
+              <div class="app-actions">
+                <a class="store" href="https://goldie.tokendance.life/">了解守守</a>
+              </div>
             </div>
           </div>
-        </div>
+          <p class="app-desc">
+            守守是一只金毛，现实里金毛正是最常见的癫痫辅助犬。它陪你按时吃药、记下每次发作，把“平安的天数”记下来，而不是只数发作次数。
+          </p>
+          <ul class="features">
+            <li><strong>吃药打卡</strong>一天多次自动分组，漏服可以补记，支持小组件、灵动岛和 Siri。</li>
+            <li><strong>发作记录</strong>时间、时长、诱因、意识状态，复诊时说得清楚。</li>
+            <li><strong>看病资料</strong>病历和化验单拍照存档，记下次复诊和想问医生的问题。</li>
+            <li><strong>放松练习</strong>呼吸、肌肉放松、身体扫描、着陆练习，带语音引导。</li>
+            <li><strong>守护圈</strong>紧急联系人一键拨打，急救信息卡一键复制。</li>
+          </ul>
+          <p class="fine">守守是记录工具，不提供诊断或治疗建议。</p>
+        </article>
       </section>
 
-      <section class="section" id="residents" aria-labelledby="tools-title">
-        <div class="container">
-          <header class="section-head">
-            <p class="section-no">01 / 工具目录</p>
-            <h2 id="tools-title">每个工具，只做好一件事。</h2>
-          </header>
-
-          <article class="tool" id="every15min" aria-labelledby="t-every15min">
-            <div class="tool-text">
-              <p class="tool-meta"><span>01</span>时间记录 · 生活日志<b class="state live">已上架 App Store</b></p>
-              <h3 id="t-every15min">every15min</h3>
-              <p class="tool-tagline">让每个十五分钟，都有迹可循。</p>
-              <p>以 15 分钟为单位记录一天的时间去向，想起来就记一笔，一天自动拼成 96 个色块。不必写长日记，回看时一眼看清时间花在了哪里。记录保存在设备本地。</p>
-              <dl class="specs">
-                <div><dt>平台</dt><dd>iPhone · iOS</dd></div>
-                <div><dt>数据</dt><dd>本地保存</dd></div>
-              </dl>
-              <div class="tool-links">
-                <a class="button button-primary" href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">App Store 下载<span class="sr-only">（新窗口打开）</span> <span aria-hidden="true">↗</span></a>
-                <a class="button button-ghost" href="https://every15min.tokendance.life/">产品官网</a>
-              </div>
-            </div>
-            <figure class="tool-art art-every15min" aria-hidden="true">
-              <div class="day-card">
-                <div class="day-head"><b>今天</b><span>96 格 · 已记录 88</span></div>
-                <div class="day-grid"><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-s"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-m"></i><i class="c-m"></i><i class="c-l"></i><i class="c-l"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-e"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-l"></i><i class="c-w"></i><i class="c-w"></i><i class="c-w"></i><i class="c-e"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-m"></i><i class="c-m"></i><i class="c-m"></i><i class="c-m"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-r"></i><i class="c-l"></i><i class="c-l"></i><i class="c-l"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i><i class="c-e"></i></div>
-                <div class="day-axis"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
-                <ul class="legend">
-                  <li><i class="c-s"></i>睡眠</li><li><i class="c-w"></i>工作</li><li><i class="c-l"></i>生活</li><li><i class="c-m"></i>运动</li><li><i class="c-r"></i>阅读</li>
-                </ul>
-              </div>
-            </figure>
+      <section class="coming wrap" id="coming" aria-labelledby="coming-title">
+        <h2 id="coming-title" class="label">即将推出</h2>
+        <div class="coming-list">
+          <article id="code-buddy">
+            <h3>Code Buddy</h3>
+            <p>macOS 菜单栏里的编程助手，随手调出，处理写代码时的零碎小事。</p>
           </article>
-
-          <article class="tool tool-flip" id="goldie" aria-labelledby="t-goldie">
-            <div class="tool-text">
-              <p class="tool-meta"><span>02</span>健康记录 · 癫痫管理<b class="state live">已上线</b></p>
-              <h3 id="t-goldie">守守 Goldie</h3>
-              <p class="tool-tagline">重要的小事，有它帮你记得。</p>
-              <p>面向癫痫患者与家属的记录工具：用药提醒、发作记录、无发作天数统计与复诊准备。无需账号，没有广告与追踪。它是记录工具，不替代医生的诊断与建议。</p>
-              <dl class="specs">
-                <div><dt>平台</dt><dd>iPhone · 小组件</dd></div>
-                <div><dt>数据</dt><dd>仅保存在本机</dd></div>
-              </dl>
-              <div class="tool-links">
-                <a class="button button-primary" href="https://goldie.tokendance.life/">了解守守 Goldie <span aria-hidden="true">→</span></a>
-              </div>
-            </div>
-            <figure class="tool-art art-goldie" aria-hidden="true">
-              <div class="phone">
-                <div class="streak">
-                  <span>无发作天数</span>
-                  <b>126</b>
-                  <small>继续保持</small>
-                </div>
-                <div class="week">
-                  <span class="wk-label">本周用药</span>
-                  <div class="wk-row"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i></i></div>
-                  <div class="wk-row"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i></i><i></i></div>
-                  <div class="wk-days"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-                </div>
-                <div class="visit"><span>下次复诊</span><b>11 月 8 日</b></div>
-              </div>
-            </figure>
-          </article>
-
-          <article class="tool" id="code-buddy" aria-labelledby="t-codebuddy">
-            <div class="tool-text">
-              <p class="tool-meta"><span>03</span>开发者工具<b class="state">开发中</b></p>
-              <h3 id="t-codebuddy">Code Buddy</h3>
-              <p class="tool-tagline">手边的代码伙伴，随叫随到。</p>
-              <p>常驻 macOS 菜单栏的代码助手。随时调出，处理编程中的零碎任务，处理完就收起，让注意力留在主要工作上。</p>
-              <dl class="specs">
-                <div><dt>平台</dt><dd>macOS 菜单栏</dd></div>
-                <div><dt>状态</dt><dd>内部开发中</dd></div>
-              </dl>
-              <div class="tool-links">
-                <a class="button button-ghost" href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy%20%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
-              </div>
-            </div>
-            <figure class="tool-art art-code" aria-hidden="true">
-              <div class="menubar"><span class="apple"></span><span>Xcode</span><span class="mb-right"><i class="buddy"></i><i></i><i></i><span>10:51</span></span></div>
-              <div class="popover">
-                <div class="pop-input">› 把这段日期解析改成 ISO 8601</div>
-                <pre><code><span class="k">let</span> f = <span class="t">ISO8601DateFormatter</span>()
-f.formatOptions = [.withInternetDateTime]
-<span class="k">return</span> f.date(from: raw)</code></pre>
-                <div class="pop-foot"><span>⌘ C 复制</span><span>esc 收起</span></div>
-              </div>
-              <figcaption>界面示意</figcaption>
-            </figure>
-          </article>
-
-          <article class="tool tool-flip" id="ad-blocker" aria-labelledby="t-adblock">
-            <div class="tool-text">
-              <p class="tool-meta"><span>04</span>隐私 · 内容过滤<b class="state">开发中</b></p>
-              <h3 id="t-adblock">广告拦截助手</h3>
-              <p class="tool-tagline">让屏幕安静一点。</p>
-              <p>拦截广告、弹窗与跟踪器，减少屏幕上的干扰，把注意力还给真正想看的内容。</p>
-              <dl class="specs">
-                <div><dt>平台</dt><dd>待公布</dd></div>
-                <div><dt>状态</dt><dd>规划与开发中</dd></div>
-              </dl>
-              <div class="tool-links">
-                <a class="button button-ghost" href="mailto:tonybingpoon@gmail.com?subject=%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E5%8A%A9%E6%89%8B%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
-              </div>
-            </div>
-            <figure class="tool-art art-block" aria-hidden="true">
-              <div class="browser">
-                <div class="b-bar"><i></i><i></i><i></i><span class="b-url">news.example.com</span><span class="b-count">已拦截 23</span></div>
-                <div class="b-page">
-                  <span class="ln w80 strong"></span>
-                  <span class="ln w60"></span>
-                  <span class="blocked">广告已移除</span>
-                  <span class="ln"></span><span class="ln w90"></span><span class="ln w70"></span>
-                  <span class="blocked small">跟踪器已拦截</span>
-                  <span class="ln w85"></span><span class="ln w40"></span>
-                </div>
-              </div>
-              <figcaption>界面示意</figcaption>
-            </figure>
+          <article id="ad-blocker">
+            <h3>广告拦截助手</h3>
+            <p>拦截广告、弹窗和跟踪器，让屏幕安静一点。</p>
           </article>
         </div>
+        <p class="fine">
+          想在上线时收到通知，<a href="mailto:tonybingpoon@gmail.com?subject=%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">给我发封邮件</a>就好。
+        </p>
       </section>
 
-      <section class="section section-dark" id="principles" aria-labelledby="principles-title">
-        <div class="container">
-          <header class="section-head">
-            <p class="section-no">02 / 设计原则</p>
-            <h2 id="principles-title">所有工具共同遵守的四条约定。</h2>
-          </header>
-          <ol class="principles">
-            <li><span>01</span><h3>本地优先</h3><p>记录默认保存在你的设备上，离线可用，不依赖云端账号。</p></li>
-            <li><span>02</span><h3>无广告，无追踪</h3><p>不嵌入广告 SDK，不出售或共享个人数据，不做跨应用跟踪。</p></li>
-            <li><span>03</span><h3>一个工具，一件事</h3><p>功能保持克制，打开即用，把复杂度留在开发者这一侧。</p></li>
-            <li><span>04</span><h3>长期维护</h3><p>由同一位开发者持续迭代，问题与建议都能直接得到回复。</p></li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section" id="faq" aria-labelledby="faq-title">
-        <div class="container faq-grid">
-          <header class="section-head">
-            <p class="section-no">03 / 常见问题</p>
-            <h2 id="faq-title">你可能想知道的。</h2>
-          </header>
-          <div class="faq">
-            <details open>
-              <summary>TokenDance 是什么？</summary>
-              <p>TokenDance 是独立开发者 Tony 维护的软件工具集合，每个工具解决一个具体问题，目前包括 every15min、守守 Goldie，以及开发中的 Code Buddy 和广告拦截助手。</p>
-            </details>
-            <details>
-              <summary>我的数据保存在哪里？</summary>
-              <p>TokenDance 的工具以本地存储为默认设计，every15min 和守守 Goldie 的记录保存在你自己的设备上，不需要注册账号。具体以各产品页面的隐私说明为准。</p>
-            </details>
-            <details>
-              <summary>守守 Goldie 可以代替医生的建议吗？</summary>
-              <p>不可以。守守 Goldie 是记录与提醒工具，帮助你整理用药和发作情况，方便复诊时与医生沟通，不提供诊断或治疗建议。</p>
-            </details>
-            <details>
-              <summary>如何反馈问题或提出新工具的想法？</summary>
-              <p>欢迎发送邮件至 <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>，每一封邮件都会被阅读。</p>
-            </details>
+      <section class="about wrap" id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="label">关于</h2>
+        <div class="about-cols">
+          <div>
+            <h3>隐私</h3>
+            <p>应用里不放广告 SDK，不做跟踪，不需要注册。记录保存在你的手机上，我这边看不到任何内容。</p>
           </div>
-        </div>
-      </section>
-
-      <section class="section section-tint" id="about" aria-labelledby="about-title">
-        <div class="container about">
-          <p class="section-no">04 / 关于</p>
-          <h2 id="about-title">「一个人做应用，把细节照顾好。」</h2>
-          <div class="about-body">
-            <p>我是 Tony，一名独立开发者。TokenDance 里的每个工具都始于生活或工作中一个真实的问题。我希望软件安静、可靠、尊重隐私，并且长期可用。</p>
-            <a class="button button-primary" href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com <span aria-hidden="true">↗</span></a>
+          <div id="faq">
+            <h3>常见问题</h3>
+            <dl>
+              <dt>需要注册账号吗？</dt>
+              <dd>不需要。every15min 和守守都没有账号系统。</dd>
+              <dt>守守能代替医生吗？</dt>
+              <dd>不能。它帮你把情况记清楚，治疗请听医生的。</dd>
+              <dt>遇到问题怎么联系？</dt>
+              <dd>发邮件到 <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>，我会亲自回复。</dd>
+            </dl>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-top">
-          <p class="wordmark" aria-hidden="true">TokenDance</p>
-          <nav aria-label="产品链接">
-            <ul>
-              <li><a href="https://every15min.tokendance.life/">every15min</a></li>
-              <li><a href="https://goldie.tokendance.life/">守守 Goldie</a></li>
-              <li><a href="#code-buddy">Code Buddy</a></li>
-              <li><a href="#ad-blocker">广告拦截助手</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="footer-bottom">
-          <span>隐私优先的独立应用与效率工具集</span>
-          <span>© 2026 TokenDance · Tony</span>
-        </div>
-      </div>
+    <footer class="site-footer wrap">
+      <span>© 2026 TokenDance</span>
+      <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
     </footer>
   </body>
 </html>
