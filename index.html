@@ -3,567 +3,360 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TokenDance · 灵感慢慢生长的小岛</title>
+    <title>TokenDance · 隐私优先的独立应用与效率工具集</title>
     <meta
       name="description"
-      content="欢迎来到 Tony 的应用小岛。认识 every15min、守守 Goldie 和正在生长的小应用，和岛民聊聊天，收集一枚散步的印章。"
+      content="TokenDance 是独立开发者 Tony 维护的工具集合：every15min 时间记录、守守 Goldie 癫痫用药与发作记录、Code Buddy 菜单栏代码助手、广告拦截助手。本地优先，无广告，无追踪。"
     />
     <meta name="author" content="Tony" />
-    <meta name="theme-color" content="#d0e5dd" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
+    />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://tokendance.life/" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="favicon.svg?v=characters-20260909"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="apple-touch-icon.png?v=characters-20260909"
-    />
-    <link
-      rel="preload"
-      href="assets/island-stage.webp"
-      as="image"
-      fetchpriority="high"
-    />
-    <link rel="stylesheet" href="styles.css?v=characters-20260909" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261021" />
+    <link rel="stylesheet" href="styles.css?v=20261021" />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
-    <meta property="og:title" content="TokenDance · 灵感慢慢生长的小岛" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="TokenDance · 隐私优先的独立应用与效率工具集" />
     <meta
       property="og:description"
-      content="把小小的想法，种成喜欢的生活。来 Tony 的应用小岛散散步。"
+      content="时间记录、健康记录、开发者工具与内容过滤。本地优先，无广告，无追踪。"
     />
     <meta property="og:url" content="https://tokendance.life/" />
-    <meta
-      property="og:image"
-      content="https://tokendance.life/assets/island-characters-social.png"
-    />
+    <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TokenDance 工具集：every15min、守守 Goldie、Code Buddy、广告拦截助手" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TokenDance · 隐私优先的独立应用与效率工具集" />
+    <meta
+      name="twitter:description"
+      content="时间记录、健康记录、开发者工具与内容过滤。本地优先，无广告，无追踪。"
+    />
+    <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://tokendance.life/#organization",
+            "name": "TokenDance",
+            "url": "https://tokendance.life/",
+            "logo": "https://tokendance.life/apple-touch-icon.png",
+            "email": "tonybingpoon@gmail.com",
+            "founder": { "@type": "Person", "name": "Tony" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://tokendance.life/#website",
+            "url": "https://tokendance.life/",
+            "name": "TokenDance",
+            "description": "隐私优先的独立应用与效率工具集",
+            "inLanguage": "zh-CN",
+            "publisher": { "@id": "https://tokendance.life/#organization" }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://tokendance.life/#tools",
+            "name": "TokenDance 工具目录",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "every15min",
+                  "url": "https://every15min.tokendance.life/",
+                  "sameAs": "https://apps.apple.com/app/id6801988119",
+                  "applicationCategory": "LifestyleApplication",
+                  "operatingSystem": "iOS",
+                  "description": "以 15 分钟为单位记录一天的时间去向，用色块回看日常，记录保存在设备本地。",
+                  "publisher": { "@id": "https://tokendance.life/#organization" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "守守 Goldie",
+                  "alternateName": "Goldie",
+                  "url": "https://goldie.tokendance.life/",
+                  "applicationCategory": "HealthApplication",
+                  "operatingSystem": "iOS",
+                  "description": "面向癫痫患者与家属的记录工具：用药、发作、无发作天数与复诊准备。无需账号，无广告与追踪。",
+                  "publisher": { "@id": "https://tokendance.life/#organization" }
+                }
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://tokendance.life/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "TokenDance 是什么？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TokenDance 是独立开发者 Tony 维护的软件工具集合，每个工具解决一个具体问题，目前包括 every15min、守守 Goldie，以及开发中的 Code Buddy 和广告拦截助手。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "我的数据保存在哪里？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TokenDance 的工具以本地存储为默认设计，every15min 和守守 Goldie 的记录保存在你自己的设备上，不需要注册账号。具体以各产品页面的隐私说明为准。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "守守 Goldie 可以代替医生的建议吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不可以。守守 Goldie 是记录与提醒工具，帮助你整理用药和发作情况，方便复诊时与医生沟通，不提供诊断或治疗建议。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "如何反馈问题或提出新工具的想法？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "欢迎发送邮件至 tonybingpoon@gmail.com，每一封邮件都会被阅读。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#guide-button">跳到岛民手册入口</a>
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#island" aria-label="TokenDance 小岛首页"
-          ><span class="brand-leaf"
-            ><svg aria-hidden="true">
-              <use
-                href="assets/icons.svg?v=characters-20260909#leaf"
-              /></svg></span
-          ><span>TokenDance<small>欢迎来到应用小岛</small></span></a
-        >
-        <div class="header-controls">
-          <button
-            id="tour-button"
-            class="tool-button"
-            type="button"
-            aria-label="开始岛屿导览"
-            aria-pressed="false"
-          >
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#compass" /></svg
-            ><span>带我逛逛</span>
-          </button>
-          <button
-            id="sound-button"
-            class="tool-button sound-button"
-            type="button"
-            aria-pressed="false"
-            aria-label="播放岛屿音乐"
-          >
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#music" /></svg
-            ><span>音乐关</span>
-          </button>
-          <button
-            class="passport-button"
-            id="passport-button"
-            type="button"
-            aria-haspopup="dialog"
-            aria-controls="passport"
-          >
-            <svg aria-hidden="true">
-              <use
-                href="assets/icons.svg?v=characters-20260909#passport"
-              /></svg
-            ><span>集章护照</span><b id="stamp-count">0/5</b>
-          </button>
-        </div>
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="TokenDance 首页">
+          <img src="favicon.svg?v=20261021" width="28" height="28" alt="" />
+          <span>TokenDance</span>
+        </a>
+        <nav aria-label="主导航">
+          <ul class="nav-list">
+            <li><a href="#residents">工具</a></li>
+            <li><a href="#principles">原则</a></li>
+            <li><a href="#faq">常见问题</a></li>
+            <li><a href="#about">关于</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
-    <main>
-      <section
-        class="island-section"
-        id="island"
-        aria-labelledby="island-title"
-      >
-        <div class="sea-pattern" aria-hidden="true"></div>
-        <div class="island-welcome">
-          <h1 id="island-title">今天也，慢慢来。</h1>
-          <span>几件小应用，照顾生活里的小事</span>
-        </div>
-        <div class="game-stage">
-          <div
-            class="island-map"
-            id="island-map"
-            tabindex="-1"
-            role="group"
-            aria-label="可探索的小岛地图，选择一处地点认识岛民"
-          >
-            <img
-              class="island-art"
-              src="assets/island-stage.webp"
-              width="1536"
-              height="1024"
-              fetchpriority="high"
-              alt="绿树与花园环绕的温暖小岛，四间小屋由小路相连，池塘边住着青蛙，沙滩上有一座木码头。"
-            />
-            <svg
-              class="island-residents"
-              viewBox="0 0 1536 1024"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <use
-                href="assets/icons.svg?v=characters-20260909#lyrebird"
-                x="592"
-                y="226"
-                width="102"
-                height="119"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#bee"
-                x="466"
-                y="258.667"
-                width="104"
-                height="121.333"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#goldie"
-                x="953"
-                y="401.667"
-                width="128"
-                height="149.333"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#otter"
-                x="604"
-                y="593"
-                width="132"
-                height="154"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#frog"
-                x="1044"
-                y="630.333"
-                width="100"
-                height="116.667"
-              />
-            </svg>
-            <button
-              class="map-spot spot-lyrebird"
-              type="button"
-              data-resident="lyrebird"
-              aria-label="拜访琴鸟，岛屿服务处"
-            >
-              <span class="spot-title"
-                ><svg aria-hidden="true">
-                  <use
-                    href="assets/icons.svg?v=characters-20260909#leaf"
-                  /></svg
-                >岛屿服务处</span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-bee"
-              type="button"
-              data-resident="bee"
-              aria-label="拜访蜜蜂，every15min 记录花园"
-            >
-              <span class="spot-title"
-                ><i class="open-dot" aria-hidden="true"></i>记录花园<small
-                  >every15min</small
-                ></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-goldie"
-              type="button"
-              data-resident="goldie"
-              aria-label="拜访 Goldie，守护小屋"
-            >
-              <span class="spot-title"
-                ><i class="open-dot" aria-hidden="true"></i>守护小屋<small
-                  >Goldie</small
-                ></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-otter"
-              type="button"
-              data-resident="otter"
-              aria-label="拜访水獭，Code Buddy 代码工坊"
-            >
-              <span class="spot-title">代码工坊<small>筹备中</small></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-frog"
-              type="button"
-              data-resident="frog"
-              aria-label="拜访青蛙，清净池塘"
-            >
-              <span class="spot-title">清净池塘<small>筹备中</small></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="shell-secret"
-              id="shell-secret"
-              type="button"
-              aria-label="捡起沙滩上的贝壳"
-            >
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#shell" />
-              </svg>
-            </button>
+
+    <main id="main">
+      <section class="hero" id="island" aria-labelledby="hero-title">
+        <div class="container">
+          <p class="eyebrow">独立开发 · 本地优先 · 无广告</p>
+          <h1 id="hero-title">隐私优先的独立应用与效率工具集</h1>
+          <p class="lead">
+            TokenDance 收录由独立开发者 Tony 设计与维护的软件工具。每个工具只解决一个具体问题：记录时间、照顾健康、辅助编程、减少干扰。数据默认保存在你的设备上。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#residents">浏览全部工具</a>
+            <a class="button" href="mailto:tonybingpoon@gmail.com">联系开发者</a>
           </div>
+          <dl class="stats">
+            <div><dt>已发布</dt><dd>2</dd></div>
+            <div><dt>开发中</dt><dd>2</dd></div>
+            <div><dt>广告与追踪</dt><dd>0</dd></div>
+          </dl>
         </div>
-        <div class="island-clock">
-          <div>
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#sun" /></svg
-            ><span id="clock-hour">你好</span>
+      </section>
+
+      <section class="section" id="residents" aria-labelledby="tools-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="tools-title">工具目录</h2>
+            <p>按用途分类的全部工具与当前状态。</p>
           </div>
-          <time id="clock">欢迎登岛</time>
-        </div>
-        <button
-          class="guide-button"
-          id="guide-button"
-          type="button"
-          aria-haspopup="dialog"
-          aria-controls="island-guide"
-        >
-          <span class="guide-icon"
-            ><svg aria-hidden="true">
-              <use
-                href="assets/icons.svg?v=characters-20260909#guide"
-              /></svg></span
-          ><span>岛民手册</span><small>看看岛上的应用</small>
-        </button>
-        <section
-          class="dialogue"
-          id="dialogue-zone"
-          aria-labelledby="dialogue-name"
-          tabindex="-1"
-        >
-          <div class="speaker-avatar" id="speaker-avatar">
-            <svg aria-hidden="true">
-              <use
-                id="speaker-icon"
-                href="assets/icons.svg?v=characters-20260909#lyrebird"
-              />
-            </svg>
-          </div>
-          <div class="dialogue-content">
-            <div class="dialogue-heading">
-              <h2 id="dialogue-name">琴鸟</h2>
-              <span id="dialogue-role">岛屿迎宾员</span
-              ><span class="dialogue-page" id="dialogue-page">欢迎登岛</span>
-            </div>
-            <p id="dialogue-text" aria-live="polite" aria-atomic="true">
-              欢迎上岛。我是琴鸟，先带你去记录花园，留下今天的一个小瞬间。
-            </p>
-            <div class="dialogue-bottom">
-              <div class="dialogue-actions" id="dialogue-actions">
-                <button
-                  type="button"
-                  class="primary-action"
-                  data-resident="bee"
-                >
-                  逛逛记录花园 <span aria-hidden="true">▸</span></button
-                ><button type="button" data-action="guide">打开岛民手册</button>
+          <div class="tool-grid">
+            <article class="tool-card" id="every15min" aria-labelledby="t-every15min">
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+                </span>
+                <span class="status status-live">已上架</span>
               </div>
-              <button
-                class="dialogue-next"
-                id="dialogue-next"
-                type="button"
-                hidden
-              >
-                下一句 <span aria-hidden="true">▸</span>
-              </button>
-            </div>
+              <h3 id="t-every15min">every15min</h3>
+              <p class="tool-category">时间记录 · 生活日志</p>
+              <p class="tool-desc">
+                以 15 分钟为单位记录一天的时间去向，想起来就记一笔，用色块回看日常。不必写长日记，记录保存在设备本地。
+              </p>
+              <ul class="tool-meta">
+                <li>平台：iPhone（iOS）</li>
+                <li>获取：App Store</li>
+              </ul>
+              <div class="tool-links">
+                <a href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">App Store 下载<span class="sr-only">（新窗口打开）</span></a>
+                <a href="https://every15min.tokendance.life/">产品官网</a>
+              </div>
+            </article>
+
+            <article class="tool-card" id="goldie" aria-labelledby="t-goldie">
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z" /><path d="M9 12h6M12 9v6" /></svg>
+                </span>
+                <span class="status status-live">已上线</span>
+              </div>
+              <h3 id="t-goldie">守守 Goldie</h3>
+              <p class="tool-category">健康记录 · 癫痫管理</p>
+              <p class="tool-desc">
+                面向癫痫患者与家属的记录工具：用药提醒、发作记录、无发作天数与复诊准备。无需账号，无广告与追踪，不替代医生诊断。
+              </p>
+              <ul class="tool-meta">
+                <li>平台：iPhone（iOS），支持小组件</li>
+                <li>数据：仅保存在本机</li>
+              </ul>
+              <div class="tool-links">
+                <a href="https://goldie.tokendance.life/">产品官网</a>
+              </div>
+            </article>
+
+            <article class="tool-card" id="code-buddy" aria-labelledby="t-codebuddy">
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12" /></svg>
+                </span>
+                <span class="status">开发中</span>
+              </div>
+              <h3 id="t-codebuddy">Code Buddy</h3>
+              <p class="tool-category">开发者工具</p>
+              <p class="tool-desc">
+                常驻 macOS 菜单栏的代码助手，随时调出，处理编程中的零碎任务，让注意力留在主要工作上。
+              </p>
+              <ul class="tool-meta">
+                <li>平台：macOS 菜单栏</li>
+                <li>状态：内部开发中</li>
+              </ul>
+              <div class="tool-links">
+                <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy%20%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
+              </div>
+            </article>
+
+            <article class="tool-card" id="ad-blocker" aria-labelledby="t-adblock">
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg>
+                </span>
+                <span class="status">开发中</span>
+              </div>
+              <h3 id="t-adblock">广告拦截助手</h3>
+              <p class="tool-category">隐私 · 内容过滤</p>
+              <p class="tool-desc">
+                拦截广告、弹窗与跟踪器，减少屏幕上的干扰，把注意力还给真正想看的内容。
+              </p>
+              <ul class="tool-meta">
+                <li>平台：待公布</li>
+                <li>状态：规划与开发中</li>
+              </ul>
+              <div class="tool-links">
+                <a href="mailto:tonybingpoon@gmail.com?subject=%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E5%8A%A9%E6%89%8B%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">上线时通知我</a>
+              </div>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="principles" aria-labelledby="principles-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="principles-title">设计原则</h2>
+            <p>所有 TokenDance 工具共同遵守的四条约定。</p>
+          </div>
+          <ol class="principles">
+            <li>
+              <h3>本地优先</h3>
+              <p>记录默认保存在你的设备上，离线可用，不依赖云端账号。</p>
+            </li>
+            <li>
+              <h3>无广告，无追踪</h3>
+              <p>不嵌入广告 SDK，不出售或共享个人数据，不做跨应用跟踪。</p>
+            </li>
+            <li>
+              <h3>一个工具，一件事</h3>
+              <p>功能保持克制，打开即用，把复杂度留在开发者这一侧。</p>
+            </li>
+            <li>
+              <h3>长期维护</h3>
+              <p>由同一位开发者持续迭代，问题与建议都能直接得到回复。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container narrow">
+          <div class="section-head">
+            <h2 id="faq-title">常见问题</h2>
+          </div>
+          <div class="faq">
+            <details open>
+              <summary>TokenDance 是什么？</summary>
+              <p>TokenDance 是独立开发者 Tony 维护的软件工具集合，每个工具解决一个具体问题，目前包括 every15min、守守 Goldie，以及开发中的 Code Buddy 和广告拦截助手。</p>
+            </details>
+            <details>
+              <summary>我的数据保存在哪里？</summary>
+              <p>TokenDance 的工具以本地存储为默认设计，every15min 和守守 Goldie 的记录保存在你自己的设备上，不需要注册账号。具体以各产品页面的隐私说明为准。</p>
+            </details>
+            <details>
+              <summary>守守 Goldie 可以代替医生的建议吗？</summary>
+              <p>不可以。守守 Goldie 是记录与提醒工具，帮助你整理用药和发作情况，方便复诊时与医生沟通，不提供诊断或治疗建议。</p>
+            </details>
+            <details>
+              <summary>如何反馈问题或提出新工具的想法？</summary>
+              <p>欢迎发送邮件至 <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>，每一封邮件都会被阅读。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="about" aria-labelledby="about-title">
+        <div class="container narrow about">
+          <h2 id="about-title">关于开发者</h2>
+          <p>
+            我是 Tony，一名独立开发者。TokenDance 里的每个工具都始于生活或工作中一个真实的问题。我希望软件安静、可靠、尊重隐私，并且长期可用。
+          </p>
+          <p>
+            合作、反馈或媒体联系：<a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
+          </p>
+        </div>
       </section>
     </main>
-    <dialog
-      class="guide-dialog"
-      id="island-guide"
-      aria-labelledby="guide-title"
-    >
-      <div class="guide-bar">
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
         <div>
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#leaf" />
-          </svg>
-          <h2 id="guide-title">岛民手册</h2>
+          <strong>TokenDance</strong>
+          <p>隐私优先的独立应用与效率工具集</p>
         </div>
-        <button
-          id="guide-close"
-          class="passport-close"
-          type="button"
-          aria-label="收起岛民手册"
-        >
-          ×
-        </button>
+        <nav aria-label="产品链接">
+          <ul>
+            <li><a href="https://every15min.tokendance.life/">every15min</a></li>
+            <li><a href="https://goldie.tokendance.life/">守守 Goldie</a></li>
+            <li><a href="#code-buddy">Code Buddy</a></li>
+            <li><a href="#ad-blocker">广告拦截助手</a></li>
+          </ul>
+        </nav>
+        <p class="copyright">© 2026 TokenDance · Tony</p>
       </div>
-      <section
-        class="residents-section content-width"
-        id="residents"
-        aria-labelledby="residents-title"
-      >
-        <div class="section-heading">
-          <div>
-            <p class="section-note">
-              <svg aria-hidden="true">
-                <use
-                  href="assets/icons.svg?v=characters-20260909#flower"
-                /></svg
-              >每一个小应用，都有自己的故事
-            </p>
-            <h2 id="residents-title">认识岛上的小伙伴</h2>
-          </div>
-          <span class="directory-status"
-            ><i class="open-dot" aria-hidden="true"></i>2 间小屋营业中，2
-            间正在生长</span
-          >
-        </div>
-        <div class="resident-directory">
-          <article class="resident-entry entry-bee">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#bee" /></svg
-              ><span>记录花园</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>every15min</h3>
-                <span class="status-label live">已上架</span>
-              </div>
-              <p class="resident-tagline">让每个十五分钟，都有迹可循。</p>
-              <p class="resident-description">
-                想起来就记一笔，用小格子拼起一天。<br />不必写长日记，记录留在你的设备里。
-              </p>
-              <div class="resident-links">
-                <a
-                  href="https://apps.apple.com/app/id6801988119"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >App Store 下载 <span aria-hidden="true">↗</span></a
-                ><a
-                  href="https://every15min.tokendance.life/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >逛逛记录工坊 <span aria-hidden="true">↗</span></a
-                ><button type="button" data-resident="bee">找蜜蜂聊聊</button>
-              </div>
-            </div>
-          </article>
-          <article class="resident-entry entry-goldie">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use
-                  href="assets/icons.svg?v=characters-20260909#goldie"
-                /></svg
-              ><span>守护小屋</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>守守 Goldie</h3>
-                <span class="status-label live">已开放</span>
-              </div>
-              <p class="resident-tagline">重要的小事，有我陪你记得。</p>
-              <p class="resident-description">
-                记录用药、发作与复诊，陪伴癫痫朋友。<br />没有账号和广告，安心照顾每一天。
-              </p>
-              <div class="resident-links">
-                <a
-                  href="https://goldie.tokendance.life/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >认识守守 <span aria-hidden="true">↗</span></a
-                ><button type="button" data-resident="goldie">
-                  找 Goldie 聊聊
-                </button>
-              </div>
-            </div>
-          </article>
-          <article class="resident-entry entry-otter">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#otter" /></svg
-              ><span>代码工坊</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>Code Buddy</h3>
-                <span class="status-label">筹备中</span>
-              </div>
-              <p class="resident-tagline">手边的小工具，随叫随到。</p>
-              <p class="resident-description">
-                住在 macOS 菜单栏的代码伙伴。<br />把零碎小事接过去，让思路继续向前。
-              </p>
-              <div class="resident-links">
-                <button type="button" data-resident="otter">
-                  去工坊串个门 <span aria-hidden="true">↗</span></button
-                ><span class="growing-note">水獭正在打磨工具</span>
-              </div>
-            </div>
-          </article>
-          <article class="resident-entry entry-frog">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#frog" /></svg
-              ><span>清净池塘</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>广告拦截助手</h3>
-                <span class="status-label">筹备中</span>
-              </div>
-              <p class="resident-tagline">让屏幕安静一点。</p>
-              <p class="resident-description">
-                帮你拦住广告、弹窗和追踪器。<br />把注意力还给真正想看的内容。
-              </p>
-              <div class="resident-links">
-                <button type="button" data-resident="frog">
-                  去池塘坐一会 <span aria-hidden="true">↗</span></button
-                ><span class="growing-note">青蛙正在搭建小屋</span>
-              </div>
-            </div>
-          </article>
-        </div>
-        <p class="directory-footnote">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#leaf" /></svg
-          >不赶进度，认真生长。小岛会慢慢热闹起来。
-        </p>
-      </section>
-      <section
-        class="notice-section content-width"
-        id="about"
-        aria-labelledby="notice-title"
-      >
-        <article class="notice-board">
-          <span class="paper-tape" aria-hidden="true"></span>
-          <div class="notice-heading">
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#mail" /></svg
-            ><span>来自园长的一封信</span>
-          </div>
-          <h2 id="notice-title">做小小的应用，<br />照顾具体的生活。</h2>
-          <p>嗨，我是 Tony，也是这座小岛的园长。</p>
-          <p>
-            这些应用都始于生活里一个真实的小问题。一个人慢慢做，把细节照顾好，让软件安静一点，也让日子轻松一点。
-          </p>
-          <a class="text-link" href="mailto:tonybingpoon@gmail.com"
-            >有个小想法？给我写封信 <span aria-hidden="true">↗</span></a
-          ><span class="signature" aria-hidden="true">Tony</span>
-        </article>
-        <aside class="daily-card" aria-labelledby="daily-title">
-          <div class="postcard-top">
-            <span id="daily-title">小岛日签</span
-            ><svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#sun" />
-            </svg>
-          </div>
-          <div class="daily-flower" aria-hidden="true">
-            <svg>
-              <use href="assets/icons.svg?v=characters-20260909#flower" />
-            </svg>
-          </div>
-          <p id="daily-note" aria-live="polite">
-            今天适合记录一个<br />被忽略的小瞬间。
-          </p>
-          <button type="button" id="new-note">
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#refresh" /></svg
-            >再抽一张</button
-          ><span class="postcard-bottom">把今天过成喜欢的样子</span>
-        </aside>
-      </section>
-      <footer class="guide-footer">
-        一个人做应用，也能养出一座岛。<small
-          >© 2026 TokenDance · 园长 Tony</small
-        >
-      </footer>
-    </dialog>
-    <dialog
-      class="passport"
-      id="passport"
-      aria-labelledby="passport-title"
-      aria-describedby="passport-copy"
-    >
-      <button
-        class="passport-close"
-        id="passport-close"
-        type="button"
-        aria-label="关闭护照"
-      >
-        ×
-      </button>
-      <div class="passport-emblem">
-        <svg aria-hidden="true">
-          <use href="assets/icons.svg?v=characters-20260909#leaf" />
-        </svg>
-      </div>
-      <p class="passport-island">TokenDance Island</p>
-      <h2 id="passport-title">我的岛屿护照</h2>
-      <p id="passport-copy">
-        每认识一位岛民，就留下一枚印章。<br />这份散步的回忆，只保存在你的设备里。
-      </p>
-      <div class="stamp-grid" id="stamp-grid">
-        <div class="stamp" data-stamp="lyrebird">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#lyrebird" /></svg
-          ><span>琴鸟</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="bee">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#bee" /></svg
-          ><span>蜜蜂</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="goldie">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#goldie" /></svg
-          ><span>Goldie</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="otter">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#otter" /></svg
-          ><span>水獭</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="frog">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#frog" /></svg
-          ><span>青蛙</span><small>待拜访</small>
-        </div>
-      </div>
-      <progress
-        id="passport-progress"
-        max="5"
-        value="0"
-        aria-label="已收集印章，五枚可集满"
-      ></progress>
-      <p class="passport-message" id="passport-message" role="status">
-        还有 5 位居民等着认识你。
-      </p>
-      <button class="reset-button" id="reset-progress" type="button">
-        重新开始散步
-      </button>
-    </dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=characters-20260909" defer></script>
+    </footer>
   </body>
 </html>

@@ -10,6 +10,8 @@ After changing a character, run from this repository:
 node scripts/sync-characters.mjs ../every15min-site ../epicare-site
 ```
 
-This rebuilds the animal symbols inside `assets/icons.svg`, the lyrebird favicon, the native SVG social card, and the two product mascots. The scene, handbook and passport reuse these symbols. Product homepages and privacy pages reuse their respective `mascot.svg`.
+This rebuilds the animal symbols inside `assets/icons.svg`, the native SVG social card, and the two product mascots. Product homepages and privacy pages reuse their respective `mascot.svg`.
 
-Raster export derivatives: render `social-card.svg` at 1200 × 630 into `assets/island-characters-social.png`; render `favicon.svg` contained in a 180 × 180 cream (#faf8ed) square into `apple-touch-icon.png`. Commit the SVG source and refreshed derivatives together. Refresh the character version query in HTML/app.js when shipping an update.
+Raster export derivatives: render `social-card.svg` at 1200 × 630 into `assets/island-characters-social.png`. Commit the SVG source and refreshed derivatives together.
+
+The tokendance.life homepage no longer shows the island scene; it uses the `favicon.svg` monogram and `assets/og-tokendance.png`. These characters remain the source for the product mascots.

@@ -25,10 +25,6 @@ for (const name of names) {
   sprite = sprite.replace(pattern, symbol);
 }
 writeFileSync(spritePath, sprite);
-copyFileSync(
-  join(root, "assets/characters/lyrebird.svg"),
-  join(root, "favicon.svg"),
-);
 for (const [i, name] of ["bee", "goldie"].entries()) {
   const destination = process.argv[i + 2];
   if (!destination) continue;
@@ -57,5 +53,5 @@ const card = [
 ];
 writeFileSync(join(root, "assets/characters/social-card.svg"), card.join("\n"));
 console.log(
-  "Character symbols, favicon and requested product mascots are synchronized.",
+  "Character symbols and requested product mascots are synchronized.",
 );
