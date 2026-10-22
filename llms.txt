@@ -1,0 +1,13 @@
+# TokenDance
+
+> TokenDance is Tony's independent app studio making small, privacy-first apps for iPhone and Mac. No accounts, no ads; your data stays on your device.
+
+## Apps
+
+- [every15min](https://every15min.tokendance.life/en/): a time log app for iPhone. Write one line about what just happened roughly every 15 minutes; it builds a daily timeline with tags, search and a 24-hour activity map. On-device only, US$1 one-time purchase. [App Store](https://apps.apple.com/app/id6801988119)
+- [Goldie](https://goldie.tokendance.life/): epilepsy medication reminders and seizure diary for iPhone, with dose check-ins, days since last seizure, appointment records and an emergency page. No account, no ads, no tracking. It does not diagnose or give treatment advice.
+
+## Site
+
+- [English home](https://tokendance.life/)
+- [中文首页](https://tokendance.life/zh/)

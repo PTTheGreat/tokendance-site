@@ -1700,6 +1700,11 @@ dd {
   color: #9a9aa0;
 }
 
+.footer-note {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
 /* ---------- 404 ---------- */
 .not-found {
   padding-top: 160px;
