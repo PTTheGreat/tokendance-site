@@ -234,12 +234,11 @@
   const SHAPES = {
     round: [0, 0, 0, 0, 0, 0, 0.22, 0],
     wide: [0, 0, 0, 0, 0, 0, 0.27, 0],
-    small: [0, 0, 0, 0, 0, 0, 0.185, 0],
     happy: [-0.2, 0.08, 0, -0.1, 0.2, 0.08, 0.085, 1],
     sleepy: [-0.2, -0.03, 0, 0.07, 0.2, -0.03, 0.075, 1],
     cross: [-0.12, -0.16, 0.2, 0, -0.12, 0.16, 0.08, 0],
   };
-  const DOTS = ["round", "wide", "small"];
+  const DOTS = ["round", "wide"];
   const FACE_EYES = { idle: "round", working: "round", waiting: "wide", done: "happy", error: "cross", sleep: "sleepy" };
   const POSE = { yaw: 0, pitch: 0, roll: 0, x: 0, y: 0, sx: 1, sy: 1, sc: 1 };
   const SPRINGS = { yaw: [110, 0.78], pitch: [110, 0.78], roll: [90, 0.7], x: [120, 0.8], y: [200, 0.62], sx: [380, 0.5], sy: [380, 0.5], sc: [140, 0.7] };
@@ -334,7 +333,7 @@
       const from = this.state;
       this.state = key;
       this.since = 0;
-      if (key === "working") { this.variant = "read"; this.variantNext = rand(5, 7); }
+      if (key === "working") { this.variant = "read"; this.variantNext = rand(6, 10); }
       if (from === "sleep") this.doBlink();
       this.want(FACE_EYES[key]);
     }
@@ -373,25 +372,21 @@
           this.variantNext -= dt;
           if (this.variantNext <= 0) {
             this.variant = this.variant === "read" && Math.random() < 0.6 ? "think" : "read";
-            this.variantNext = this.variant === "read" ? rand(5, 8) : rand(2.6, 3.6);
-            this.doBlink();
+            this.variantNext = this.variant === "read" ? rand(6, 10) : rand(2.5, 4);
           }
           if (this.variant === "read") {
-            // scan a line left to right, snap back, next line a touch lower
-            const line = 1.45, ph = (t % line) / line;
-            const yaw = ph < 0.8 ? -20 + 38 * (ph / 0.8) : 18 - 38 * ((ph - 0.8) / 0.2);
-            const tap = Math.abs(Math.sin(t * 9.5));
-            P.yaw = yaw; P.pitch = 15 + tap * 3 + Math.floor((t / line) % 3) * 1.5; P.roll = yaw * 0.08;
-            P.y = tap * 0.018;
-            this.want("round");
+            // scan a line left to right, glide back, next line a touch lower; the eyes stay
+            const line = 2.4, ph = (t % line) / line;
+            const yaw = ph < 0.75 ? -15 + 30 * (ph / 0.75) : 15 - 30 * ((ph - 0.75) / 0.25);
+            P.yaw = yaw; P.pitch = 12 + Math.floor((t / line) % 3) * 1.5; P.roll = yaw * 0.06;
           } else {
-            P.yaw = Math.sin(t * 0.9) * 16; P.pitch = -20; P.roll = Math.sin(t * 0.9) * 6;
-            this.want("small");
+            P.yaw = Math.sin(t * 0.6) * 10; P.pitch = -14; P.roll = Math.sin(t * 0.6) * 4;
           }
           break;
         }
         case "waiting": {
-          const ph = s % 2.0;
+          // hop every 2 s at first, then every 6 s
+          const ph = s < 12 ? s % 2.0 : (s - 12) % 6;
           P.pitch = -4; P.yaw = Math.sin(t * 0.7) * 5; P.roll = Math.sin(t * 0.7) * 3;
           if (ph < 0.12) { P.sx = 1.07; P.sy = 0.91; }
           else if (ph < 0.38) { P.y = -0.18; P.sx = 0.96; P.sy = 1.05; }
@@ -399,21 +394,21 @@
           break;
         }
         case "done": {
-          const loop = s % 3.4;
+          // two little hops, then stay pleased
           const hop = (h) => {
-            const ph = loop - h;
+            const ph = s - h;
             if (ph < 0 || ph > 0.62) return;
             if (ph < 0.1) { P.sx = 1.09; P.sy = 0.89; }
             else if (ph < 0.38) { P.y = -0.28; P.sx = 0.95; P.sy = 1.07; }
             else { P.sx = 1.05; P.sy = 0.95; }
           };
           hop(0.05); hop(0.8);
-          P.pitch = -10; P.roll = Math.sin(loop * 6) * 8 * Math.max(0, 1 - loop / 2.4);
+          P.pitch = -10; P.roll = Math.sin(s * 6) * 8 * Math.max(0, 1 - s / 2.4);
           break;
         }
         case "error": {
-          const loop = s % 4.5;
-          if (loop < 0.8) P.yaw = Math.sin(loop * 34) * 20 * (1 - loop / 0.8);
+          // shake it off once, then hang the head
+          if (s < 0.8) P.yaw = Math.sin(s * 34) * 20 * (1 - s / 0.8);
           else { P.pitch = 12; P.y = 0.04; P.sy = 0.97; P.sx = 1.02; P.roll = -4; P.yaw = Math.sin(t * 0.8) * 4; }
           break;
         }
@@ -436,7 +431,7 @@
       P.y += (P.pitch / 20) * 0.06;
 
       if (this.secondBlink !== null && this.clock >= this.secondBlink) { this.secondBlink = null; this.doBlink(false); }
-      if (this.state !== "sleep" && this.state !== "done") {
+      if (this.state === "idle" || this.state === "working" || this.state === "waiting") {
         this.nextBlink -= dt;
         if (this.nextBlink <= 0) { this.doBlink(Math.random() < 0.22); this.nextBlink = rand(2.4, 5.4); }
       }
@@ -492,8 +487,8 @@
   }
 
   const cbText = zh
-    ? { working: "正在工作", turn: "轮到你确认", ok: "已批准", handoff: "上下文快满了，准备交接", idle: "空闲" }
-    : { working: "Working", turn: "Your turn", ok: "Approved", handoff: "Context almost full, handing off", idle: "Idle" };
+    ? { working: "正在工作", turn: "轮到你确认", ok: "已批准", done: "完成了", handoff: "上下文快满了，准备交接", idle: "空闲" }
+    : { working: "Working", turn: "Your turn", ok: "Approved", done: "Done", handoff: "Context almost full, handing off", idle: "Idle" };
 
   async function codeBuddy(el, alive) {
     const status = $("#cb-status", el);
@@ -527,29 +522,35 @@
       requestAnimationFrame(frame);
     };
     requestAnimationFrame(frame);
+    // One turn, one face: tool calls and the context filling up only move
+    // the menu bar and the ring; the face changes when the turn needs you or ends.
     while (alive()) {
       state("working", "working", "Claude Code · working", cbText.working);
       setCtx(34);
       await sleep(400);
       setCtx(58);
-      await sleep(3200);
+      await sleep(4200);
       if (!alive()) return;
       state("waiting", "waiting", "Claude Code · Your turn", cbText.turn);
-      await sleep(2400);
+      await sleep(3200);
       el.classList.add("tap");
       await sleep(350);
-      state("done", "done", "Claude Code · approved", cbText.ok);
-      await sleep(2200);
-      if (!alive()) return;
-      state("working", "working", "Claude Code · working", cbText.working);
+      state("working", "working", "Claude Code · approved", cbText.ok);
+      await sleep(1600);
+      status.textContent = "Claude Code · working";
+      label.textContent = cbText.working;
       setCtx(86);
-      await sleep(2400);
+      await sleep(2000);
+      if (!alive()) return;
       state("handoff", "working", "Claude Code · working", cbText.handoff);
-      await sleep(2400);
+      await sleep(2600);
+      if (!alive()) return;
+      state("done", "done", "Claude Code · done", cbText.done);
+      await sleep(4000);
       if (!alive()) return;
       state("sleep", "sleep", "Claude Code · idle", cbText.idle);
       setCtx(12);
-      await sleep(3200);
+      await sleep(3600);
     }
   }
 
