@@ -85,7 +85,7 @@
                 "name": "The panel shows no numbers",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Usage comes from the session logs Claude Code and Codex write on your Mac. In Settings → 数据来源 (Data sources), check that the folder says 已授权 (granted), and that you have used those tools on this Mac."
+                  "text": "Usage comes from the session logs Claude Code and Codex write on your Mac. In Settings → Data Sources, check that the folder shows its path rather than Not granted, and that you have used those tools on this Mac."
                 }
               },
               {
@@ -93,7 +93,7 @@
                 "name": "How do I get told when the agent is waiting for me?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Turn on Precise Status: Settings → 精确状态 (Precise Status) → 复制开启指令 (copy the turn-on request), then paste it to Claude Code and let it add the hooks to ~/.claude/settings.json, or click 打开 settings.json and paste them in yourself. New sessions pick it up. The hooks only use the system's built-in sh to write events to ~/.claude/buddy/events.jsonl and never go online. Code Buddy itself never changes settings.json."
+                  "text": "Turn on Precise Status: Settings → Precise Status → Copy Turn-On Request, then paste it to Claude Code and let it add the hooks to ~/.claude/settings.json, or click Open settings.json and paste them in yourself. New sessions pick it up. The hooks only use the system’s built-in sh to write events to ~/.claude/buddy/events.jsonl and never go online. Code Buddy itself never changes settings.json."
                 }
               },
               {
@@ -136,19 +136,19 @@
         <ul>
           <li>macOS 14 or later</li>
           <li>Claude Code or Codex (the command-line tools) in use on this Mac</li>
-          <li>The interface is in Simplified Chinese for now</li>
+          <li>English, or Simplified Chinese when your Mac is set to Chinese</li>
         </ul>
 
         <h2>Getting started</h2>
         <ol>
           <li>
-            Open Code Buddy. The welcome window asks you to grant the log folders: <code>~/.claude</code> for Claude
-            Code and <code>~/.codex</code> for Codex. The panel already opens in the right folder, so just click 授权
-            (Grant). Skip the one you don't use; you can grant it later in Settings.
+            Open Code Buddy. The welcome window has a Grant… button for each tool: <code>~/.claude</code> for Claude Code
+            and <code>~/.codex</code> for Codex. The folder picker already opens in the right folder, so just click
+            Grant. Skip any you don’t use; you can grant them later in Settings. Click Get Started when you’re done.
           </li>
           <li>
-            Click the face in the menu bar to see status, usage and spend. 打开设置... opens Settings and 退出 Code Buddy
-            quits.
+            Click the face in the menu bar to see status, usage and spend. Settings… opens Settings, Show/Hide Desktop
+            Face toggles the face on your desktop, and Quit Code Buddy quits.
           </li>
         </ol>
 
@@ -158,36 +158,34 @@
           <li>Waiting: the agent needs your approval (with Precise Status on)</li>
           <li>Done: the turn is finished, come back and look</li>
           <li>Error: a request failed</li>
-          <li>Idle, asleep: nothing going on lately</li>
+          <li>Idle, Asleep: nothing going on lately</li>
         </ul>
 
         <h2>Common questions</h2>
         <h3>The panel shows no numbers</h3>
         <p>
-          Usage comes from the session logs Claude Code and Codex write on your Mac. In Settings → 数据来源 (Data
-          sources), check that the folder says 已授权 (granted), and that you have used those tools on this Mac.
+          Usage comes from the session logs Claude Code and Codex write on your Mac. In Settings → Data Sources, check
+          that the folder shows its path rather than Not granted, and that you have used those tools on this Mac.
         </p>
 
         <h3>It says the whole ~/.claude folder is needed</h3>
         <p>
-          You granted the projects folder inside <code>~/.claude</code>. Usage still works, but Precise Status needs
-          <code>~/.claude</code> itself: grant again in Settings → 数据来源 (Data sources) and pick
-          <code>~/.claude</code>.
+          You granted only the projects folder inside <code>~/.claude</code>. Usage still works, but Precise Status needs
+          <code>~/.claude</code> itself: in Settings → Data Sources, click Change… and pick <code>~/.claude</code>.
         </p>
 
         <h3>How do I get told when the agent is waiting for me?</h3>
         <p>
-          Turn on Precise Status: Settings → 精确状态 (Precise Status) → 复制开启指令 (copy the turn-on request), then paste
-          it to Claude Code and let it add the hooks to <code>~/.claude/settings.json</code>, or click 打开 settings.json
-          and paste them in yourself. New sessions pick it up. The hooks only use the system's built-in
-          <code>sh</code> to write events to <code>~/.claude/buddy/events.jsonl</code> and never go online. Code Buddy
-          itself never changes settings.json.
+          Turn on Precise Status: Settings → Precise Status → Copy Turn-On Request, then paste it to Claude Code and let it
+          add the hooks to <code>~/.claude/settings.json</code>, or click Open settings.json and paste them in yourself.
+          New sessions pick it up. The hooks only use the system’s built-in <code>sh</code> to write events to
+          <code>~/.claude/buddy/events.jsonl</code> and never go online. Code Buddy itself never changes settings.json.
         </p>
 
         <h3>How do I turn Precise Status off?</h3>
         <p>
-          Settings → 精确状态 (Precise Status) → 复制关闭指令 (copy the turn-off request) and paste it to Claude Code, or
-          delete the hooks whose command contains <code>buddy/events.jsonl</code> from settings.json yourself.
+          Settings → Precise Status → Copy Turn-Off Request, and paste it to Claude Code. Or delete the hooks whose command
+          contains <code>buddy/events.jsonl</code> from settings.json yourself.
         </p>
 
         <h3>How accurate is the spend?</h3>
@@ -195,16 +193,16 @@
 
         <h3>Desktop face</h3>
         <p>
-          Settings → 桌面浮窗 (Desktop face): show or hide it, pick one of three sizes, and drag it anywhere. 预览所有表情
-          (Preview all expressions) plays all six faces.
+          Settings → Desktop Face: turn Show Desktop Face on or off, pick Small, Medium or Large, and drag the face
+          anywhere. Preview All Expressions plays all six faces.
         </p>
 
-        <h3>Open at login</h3>
-        <p>Settings → 通用 (General) → 登录时启动 (Open at login). It is off by default.</p>
+        <h3>Launch at login</h3>
+        <p>Settings → General → Launch at Login. It is off by default.</p>
 
         <h3>Uninstalling</h3>
         <p>
-          Click 退出 Code Buddy in the panel, then drag the app from Applications to the Trash. If you turned on Precise
+          Click Quit Code Buddy in the panel, then drag the app from Applications to the Trash. If you turned on Precise
           Status, turn it off as above first, then delete the <code>~/.claude/buddy</code> folder.
         </p>
 
