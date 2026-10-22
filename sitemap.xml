@@ -17,9 +17,29 @@
   <url>
     <loc>https://tokendance.life/code-buddy/</loc>
     <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/code-buddy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/zh/code-buddy/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/code-buddy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/" />
   </url>
   <url>
     <loc>https://tokendance.life/code-buddy/privacy.html</loc>
     <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/code-buddy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/zh/code-buddy/privacy.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/code-buddy/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/privacy.html" />
   </url>
 </urlset>
