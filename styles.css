@@ -1466,14 +1466,11 @@ dd {
 }
 
 .cb-icon {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #8fb4ff;
+  width: 16px;
+  height: 16px;
 }
 
-.cb.st-alert .cb-icon {
-  background: #ffb347;
+.cb.st-waiting .cb-icon {
   animation: blink 0.8s steps(1) infinite;
 }
 
@@ -1502,7 +1499,7 @@ dd {
   transition: box-shadow 0.4s;
 }
 
-.cb.st-alert .cb-device {
+.cb.st-waiting .cb-device {
   box-shadow: 0 0 0 10px #262a33, 0 0 50px 4px rgba(255, 179, 71, 0.45);
 }
 
@@ -1534,45 +1531,20 @@ dd {
 }
 
 .cb-face {
-  display: flex;
-  gap: 26px;
-  margin-top: -10px;
+  width: 124px;
+  height: 124px;
+  margin-top: -30px;
+  overflow: visible;
 }
 
-.eye {
-  width: 26px;
-  height: 40px;
-  border-radius: 13px;
-  background: #e9f1ff;
-  transition: height 0.3s var(--ease), border-radius 0.3s, transform 0.3s var(--ease), background 0.3s;
-}
-
-.cb.st-focus .eye {
-  height: 16px;
-  border-radius: 8px;
-}
-
-.cb.st-alert .eye {
-  height: 46px;
-  transform: scale(1.12);
-  background: #ffd38a;
-}
-
-.cb.st-happy .eye {
-  height: 14px;
-  border-radius: 14px 14px 4px 4px;
-  transform: translateY(-4px);
-}
-
-.cb.st-sleep .eye {
-  height: 4px;
-  border-radius: 2px;
-  background: #6b7280;
+.cb.st-sleep .cb-face {
+  filter: saturate(0.75) brightness(0.8);
+  transition: filter 0.6s;
 }
 
 .cb-label {
   position: absolute;
-  bottom: 42px;
+  bottom: 34px;
   font-size: 12px;
   color: #aab3c5;
 }
