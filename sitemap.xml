@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tokendance.life/</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/zh/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/" />
   </url>
 </urlset>

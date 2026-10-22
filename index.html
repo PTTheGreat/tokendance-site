@@ -1,569 +1,388 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TokenDance · 灵感慢慢生长的小岛</title>
+    <title>TokenDance · Small, privacy-first apps for iPhone and Mac</title>
     <meta
       name="description"
-      content="欢迎来到 Tony 的应用小岛。认识 every15min、守守 Goldie 和正在生长的小应用，和岛民聊聊天，收集一枚散步的印章。"
+      content="TokenDance is Tony's independent app studio: every15min, a terminal-style time log for iPhone; Goldie, an epilepsy medication reminder and seizure diary; and Code Buddy, a desk companion for AI coding. No accounts, no ads, your data stays on your device."
     />
     <meta name="author" content="Tony" />
-    <meta name="theme-color" content="#d0e5dd" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
+    />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://tokendance.life/" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="favicon.svg?v=characters-20260909"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="apple-touch-icon.png?v=characters-20260909"
-    />
-    <link
-      rel="preload"
-      href="assets/island-stage.webp"
-      as="image"
-      fetchpriority="high"
-    />
-    <link rel="stylesheet" href="styles.css?v=characters-20260909" />
+    <link rel="alternate" hreflang="en" href="https://tokendance.life/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://tokendance.life/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022" />
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="stylesheet" href="/styles.css?v=20261022" />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
-    <meta property="og:title" content="TokenDance · 灵感慢慢生长的小岛" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:title" content="TokenDance · Small, privacy-first apps for iPhone and Mac" />
     <meta
       property="og:description"
-      content="把小小的想法，种成喜欢的生活。来 Tony 的应用小岛散散步。"
+      content="every15min, Goldie and Code Buddy. No accounts, no ads, your data stays on your device."
     />
     <meta property="og:url" content="https://tokendance.life/" />
-    <meta
-      property="og:image"
-      content="https://tokendance.life/assets/island-characters-social.png"
-    />
+    <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TokenDance: every15min and Goldie app icons" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TokenDance · Small, privacy-first apps for iPhone and Mac" />
+    <meta
+      name="twitter:description"
+      content="every15min, Goldie and Code Buddy. No accounts, no ads, your data stays on your device."
+    />
+    <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://tokendance.life/#organization",
+            "name": "TokenDance",
+            "url": "https://tokendance.life/",
+            "logo": "https://tokendance.life/apple-touch-icon.png",
+            "email": "tonybingpoon@gmail.com",
+            "founder": { "@type": "Person", "name": "Tony" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://tokendance.life/#website",
+            "url": "https://tokendance.life/",
+            "name": "TokenDance",
+            "description": "Small, privacy-first apps for iPhone and Mac",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://tokendance.life/#organization" }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://tokendance.life/#apps",
+            "name": "TokenDance apps",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "every15min",
+                  "url": "https://every15min.tokendance.life/",
+                  "sameAs": "https://apps.apple.com/app/id6801988119",
+                  "image": "https://tokendance.life/assets/apps/every15min-icon.webp",
+                  "applicationCategory": "LifestyleApplication",
+                  "operatingSystem": "iOS",
+                  "description": "A terminal-style time log: jot one line on a 15-minute rhythm, then look back with tags, a calendar and search.",
+                  "publisher": { "@id": "https://tokendance.life/#organization" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Goldie",
+                  "alternateName": "Goldie – Epilepsy Care Diary",
+                  "url": "https://goldie.tokendance.life/",
+                  "image": "https://tokendance.life/assets/apps/goldie-icon.webp",
+                  "applicationCategory": "HealthApplication",
+                  "operatingSystem": "iOS",
+                  "description": "Epilepsy medication reminders and seizure log: dose check-ins, streaks, days since last seizure, appointment records, breathing exercises and an emergency page. No account, no ads, no tracking.",
+                  "publisher": { "@id": "https://tokendance.life/#organization" }
+                }
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://tokendance.life/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do I need an account?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Neither every15min nor Goldie has accounts. Your records stay on your own device."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can Goldie replace my doctor?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Goldie is a reminder and logging tool that helps you describe what happened at your next appointment. It does not diagnose or give treatment advice."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I get in touch?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Email tonybingpoon@gmail.com. I read and answer every message myself."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#guide-button">跳到岛民手册入口</a>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#island" aria-label="TokenDance 小岛首页"
-          ><span class="brand-leaf"
-            ><svg aria-hidden="true">
-              <use
-                href="assets/icons.svg?v=characters-20260909#leaf"
-              /></svg></span
-          ><span>TokenDance<small>欢迎来到应用小岛</small></span></a
-        >
-        <div class="header-controls">
-          <button
-            id="tour-button"
-            class="tool-button"
-            type="button"
-            aria-label="开始岛屿导览"
-            aria-pressed="false"
-          >
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#compass" /></svg
-            ><span>带我逛逛</span>
-          </button>
-          <button
-            id="sound-button"
-            class="tool-button sound-button"
-            type="button"
-            aria-pressed="false"
-            aria-label="播放岛屿音乐"
-          >
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#music" /></svg
-            ><span>音乐关</span>
-          </button>
-          <button
-            class="passport-button"
-            id="passport-button"
-            type="button"
-            aria-haspopup="dialog"
-            aria-controls="passport"
-          >
-            <svg aria-hidden="true">
-              <use
-                href="assets/icons.svg?v=characters-20260909#passport"
-              /></svg
-            ><span>集章护照</span><b id="stamp-count">0/5</b>
-          </button>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/favicon.svg?v=20261022" width="22" height="22" alt="" />TokenDance
+        </a>
+        <nav aria-label="Main">
+          <a href="#every15min">every15min</a>
+          <a href="#goldie">Goldie</a>
+          <a href="#coming">In the works</a>
+          <a href="#about">About</a>
+        </nav>
+        <a class="lang" href="/zh/" hreflang="zh-CN" lang="zh-CN">中文</a>
       </div>
     </header>
-    <main>
-      <section
-        class="island-section"
-        id="island"
-        aria-labelledby="island-title"
-      >
-        <div class="sea-pattern" aria-hidden="true"></div>
-        <div class="island-welcome">
-          <h1 id="island-title">今天也，慢慢来。</h1>
-          <span>几件小应用，照顾生活里的小事</span>
-        </div>
-        <div class="game-stage">
-          <div
-            class="island-map"
-            id="island-map"
-            tabindex="-1"
-            role="group"
-            aria-label="可探索的小岛地图，选择一处地点认识岛民"
-          >
-            <img
-              class="island-art"
-              src="assets/island-stage.webp"
-              width="1536"
-              height="1024"
-              fetchpriority="high"
-              alt="绿树与花园环绕的温暖小岛，四间小屋由小路相连，池塘边住着青蛙，沙滩上有一座木码头。"
-            />
-            <svg
-              class="island-residents"
-              viewBox="0 0 1536 1024"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <use
-                href="assets/icons.svg?v=characters-20260909#lyrebird"
-                x="592"
-                y="226"
-                width="102"
-                height="119"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#bee"
-                x="466"
-                y="258.667"
-                width="104"
-                height="121.333"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#goldie"
-                x="953"
-                y="401.667"
-                width="128"
-                height="149.333"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#otter"
-                x="604"
-                y="593"
-                width="132"
-                height="154"
-              />
-              <use
-                href="assets/icons.svg?v=characters-20260909#frog"
-                x="1044"
-                y="630.333"
-                width="100"
-                height="116.667"
-              />
-            </svg>
-            <button
-              class="map-spot spot-lyrebird"
-              type="button"
-              data-resident="lyrebird"
-              aria-label="拜访琴鸟，岛屿服务处"
-            >
-              <span class="spot-title"
-                ><svg aria-hidden="true">
-                  <use
-                    href="assets/icons.svg?v=characters-20260909#leaf"
-                  /></svg
-                >岛屿服务处</span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-bee"
-              type="button"
-              data-resident="bee"
-              aria-label="拜访蜜蜂，every15min 记录花园"
-            >
-              <span class="spot-title"
-                ><i class="open-dot" aria-hidden="true"></i>记录花园<small
-                  >every15min</small
-                ></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-goldie"
-              type="button"
-              data-resident="goldie"
-              aria-label="拜访 Goldie，守护小屋"
-            >
-              <span class="spot-title"
-                ><i class="open-dot" aria-hidden="true"></i>守护小屋<small
-                  >Goldie</small
-                ></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-otter"
-              type="button"
-              data-resident="otter"
-              aria-label="拜访水獭，Code Buddy 代码工坊"
-            >
-              <span class="spot-title">代码工坊<small>筹备中</small></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="map-spot spot-frog"
-              type="button"
-              data-resident="frog"
-              aria-label="拜访青蛙，清净池塘"
-            >
-              <span class="spot-title">清净池塘<small>筹备中</small></span
-              ><span class="spot-pin" aria-hidden="true"></span>
-            </button>
-            <button
-              class="shell-secret"
-              id="shell-secret"
-              type="button"
-              aria-label="捡起沙滩上的贝壳"
-            >
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#shell" />
-              </svg>
-            </button>
+
+    <main id="main">
+      <section class="hero" id="island" aria-labelledby="hero-title">
+        <canvas class="dots" id="dots" aria-hidden="true"></canvas>
+        <div class="hero-inner wrap">
+          <p class="hero-eyebrow" data-reveal>TokenDance · independent apps by Tony</p>
+          <h1 id="hero-title" data-split>Small tools, done well.</h1>
+          <p class="hero-lead" data-reveal style="--d: 0.5s">
+            I build small apps for iPhone and Mac, on my own. Each one starts with a real annoyance in daily life and isn't done until I want to use it every day. No accounts, no ads, your data stays on your device.
+          </p>
+          <div class="hero-cta" data-reveal style="--d: 0.65s">
+            <a class="btn btn-dark magnetic" href="#every15min">See how they work</a>
+            <a class="btn btn-line magnetic" href="mailto:tonybingpoon@gmail.com">Write to me</a>
           </div>
         </div>
-        <div class="island-clock">
-          <div>
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#sun" /></svg
-            ><span id="clock-hour">你好</span>
-          </div>
-          <time id="clock">欢迎登岛</time>
+        <a class="scroll-hint" href="#residents" aria-label="Scroll down"><span></span></a>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>No accounts</span><i>✳</i><span>No ads</span><i>✳</i><span>No tracking</span><i>✳</i><span>Your data stays on your device</span><i>✳</i><span>Built and maintained by one person</span><i>✳</i>
+          <span>No accounts</span><i>✳</i><span>No ads</span><i>✳</i><span>No tracking</span><i>✳</i><span>Your data stays on your device</span><i>✳</i><span>Built and maintained by one person</span><i>✳</i>
         </div>
-        <button
-          class="guide-button"
-          id="guide-button"
-          type="button"
-          aria-haspopup="dialog"
-          aria-controls="island-guide"
-        >
-          <span class="guide-icon"
-            ><svg aria-hidden="true">
-              <use
-                href="assets/icons.svg?v=characters-20260909#guide"
-              /></svg></span
-          ><span>岛民手册</span><small>看看岛上的应用</small>
-        </button>
-        <section
-          class="dialogue"
-          id="dialogue-zone"
-          aria-labelledby="dialogue-name"
-          tabindex="-1"
-        >
-          <div class="speaker-avatar" id="speaker-avatar">
-            <svg aria-hidden="true">
-              <use
-                id="speaker-icon"
-                href="assets/icons.svg?v=characters-20260909#lyrebird"
-              />
-            </svg>
-          </div>
-          <div class="dialogue-content">
-            <div class="dialogue-heading">
-              <h2 id="dialogue-name">琴鸟</h2>
-              <span id="dialogue-role">岛屿迎宾员</span
-              ><span class="dialogue-page" id="dialogue-page">欢迎登岛</span>
-            </div>
-            <p id="dialogue-text" aria-live="polite" aria-atomic="true">
-              欢迎上岛。我是琴鸟，先带你去记录花园，留下今天的一个小瞬间。
-            </p>
-            <div class="dialogue-bottom">
-              <div class="dialogue-actions" id="dialogue-actions">
-                <button
-                  type="button"
-                  class="primary-action"
-                  data-resident="bee"
-                >
-                  逛逛记录花园 <span aria-hidden="true">▸</span></button
-                ><button type="button" data-action="guide">打开岛民手册</button>
+      </div>
+
+      <div id="residents">
+        <!-- every15min: four scroll-driven scenes -->
+        <section class="story e15" id="every15min" data-story="e15" aria-labelledby="t-every15min">
+          <div class="story-track" style="--n: 4">
+            <div class="story-sticky">
+              <div class="wrap story-grid">
+                <div class="story-copy">
+                  <p class="story-kicker">Time log · iPhone · On the App Store</p>
+                  <h2 id="t-every15min">every15min</h2>
+                  <ol class="story-steps">
+                    <li class="is-on"><h3>A beat every 15 minutes</h3><p>The app and its home-screen widget count down to the next quarter hour. When it hits, jot a line. The rhythm can be anything from 5 to 60 minutes.</p></li>
+                    <li><h3>Type one line and it's logged</h3><p>Like typing into a terminal: one sentence, an optional tag, and the timestamp is added for you.</p></li>
+                    <li><h3>See where the day went</h3><p>A 24-hour bar marks the hours you logged, and tag counts show where your time actually goes.</p></li>
+                    <li><h3>Find anything with find</h3><p>Type <code>find #work</code> and every matching entry is pulled up.</p></li>
+                  </ol>
+                  <div class="story-cta">
+                    <a class="btn btn-light magnetic" href="https://apps.apple.com/app/id6801988119" rel="noopener" target="_blank">Download on the App Store</a>
+                    <a class="btn btn-ghost-dark magnetic" href="https://every15min.tokendance.life/">Website</a>
+                  </div>
+                  <div class="story-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="stage" aria-hidden="true">
+                  <div class="stage-box e15-box" data-scene="0">
+                    <div class="s s0">
+                      <div class="notif"><b>rhythm</b><span>next <em class="t-amb">09:30</em> · today 5 · 12d</span><small id="e15-left">01:50</small></div>
+                      <div class="clock">
+                        <svg viewBox="0 0 200 200">
+                          <circle cx="100" cy="100" r="84" class="clock-track" />
+                          <path class="q q1" d="M100 16 A84 84 0 0 1 184 100" />
+                          <path class="q q2" d="M184 100 A84 84 0 0 1 100 184" />
+                          <path class="q q3" d="M100 184 A84 84 0 0 1 16 100" />
+                          <path class="q q4" d="M16 100 A84 84 0 0 1 100 16" />
+                          <line class="hand" x1="100" y1="100" x2="100" y2="34" />
+                          <circle cx="100" cy="100" r="5" class="hub" />
+                        </svg>
+                      </div>
+                      <div class="quarters"><span>:00</span><span>:15</span><span>:30</span><span>:45</span></div>
+                    </div>
+
+                    <div class="s s1">
+                      <div class="mini-head"><span class="t-acc">every15min</span> · today <span class="t-amb" id="e15-count">0</span></div>
+                      <ol class="mini-log" id="e15-log"></ol>
+                      <div class="mini-input"><span class="t-acc">$</span> <span id="e15-typing"></span><i class="caret"></i></div>
+                    </div>
+
+                    <div class="s s2">
+                      <p class="mini-label">24h</p>
+                      <div class="day-bar">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i class="f"></i><i class="f"></i><i></i><i class="f"></i><i></i><i></i><i class="f"></i><i class="f"></i><i></i><i></i>
+                      </div>
+                      <div class="day-axis"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
+                      <p class="mini-label">tags --count</p>
+                      <ul class="tag-bars">
+                        <li><span>#work</span><b style="--w: 92%"></b><em>×9</em></li>
+                        <li><span>#coffee</span><b style="--w: 38%"></b><em>×3</em></li>
+                        <li><span>#read</span><b style="--w: 26%"></b><em>×2</em></li>
+                        <li><span>#wake</span><b style="--w: 12%"></b><em>×1</em></li>
+                      </ul>
+                    </div>
+
+                    <div class="s s3">
+                      <div class="mini-input find"><span class="t-acc">:</span> <span class="find-text">find #work</span></div>
+                      <ol class="find-list">
+                        <li><span class="tm">07:42</span>inbox to 3. quiet morning. <u>#wake</u></li>
+                        <li class="hit"><span class="tm">09:30</span>standup, pushed fix. <u>#work</u></li>
+                        <li><span class="tm">12:42</span>lunch, then a short walk. <u>#lunch</u></li>
+                        <li class="hit"><span class="tm">14:08</span>refactor plan on a napkin. <u>#work</u></li>
+                        <li><span class="tm">15:06</span>lovely light on the way home.</li>
+                        <li class="hit"><span class="tm">16:30</span>review PR, ship it. <u>#work</u></li>
+                      </ol>
+                      <p class="find-result">3 matches</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <button
-                class="dialogue-next"
-                id="dialogue-next"
-                type="button"
-                hidden
-              >
-                下一句 <span aria-hidden="true">▸</span>
-              </button>
             </div>
           </div>
         </section>
+
+        <!-- Goldie: four scroll-driven scenes -->
+        <section class="story goldie" id="goldie" data-story="goldie" aria-labelledby="t-goldie">
+          <div class="story-track" style="--n: 4">
+            <div class="story-sticky">
+              <div class="wrap story-grid">
+                <div class="story-copy">
+                  <p class="story-kicker">Epilepsy meds &amp; seizure diary · iPhone</p>
+                  <h2 id="t-goldie">Goldie</h2>
+                  <ol class="story-steps">
+                    <li class="is-on"><h3>Meds that feel like a check-in</h3><p>Daily doses are grouped automatically. One tap marks them taken, and your streak grows day by day.</p></li>
+                    <li><h3>Log a seizure in a few taps</h3><p>Step through when it happened, how severe, how long, possible triggers and consciousness, so you can explain it clearly at your next appointment.</p></li>
+                    <li><h3>Count the safe days, not the seizures</h3><p>The home screen shows how many days it's been since your last seizure, so every calm day is visible.</p></li>
+                    <li><h3>Help the people around you help you</h3><p>The emergency page copies your seizure guidance in one tap and calls emergency services or your contacts in one more.</p></li>
+                  </ol>
+                  <div class="story-cta">
+                    <a class="btn btn-goldie magnetic" href="https://goldie.tokendance.life/">Meet Goldie</a>
+                  </div>
+                  <p class="story-fine">Goldie is a logging tool and does not diagnose or give treatment advice. Numbers in the animation are examples.</p>
+                  <div class="story-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="stage" aria-hidden="true">
+                  <div class="stage-box g-box" data-scene="0">
+                    <div class="s s0">
+                      <div class="g-notif"><b>Medication Reminder</b><span>8:00 PM · 2 meds due</span></div>
+                      <div class="dose">
+                        <p class="dose-time">Evening</p>
+                        <p class="dose-name">2 meds · after dinner</p>
+                        <span class="dose-btn">Mark as taken</span>
+                        <svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-16" /></svg>
+                      </div>
+                      <div class="streak"><b><em class="old">23</em><em class="new">24</em></b><span>days in a row</span></div>
+                      <div class="burst"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+
+                    <div class="s s1">
+                      <p class="rec-label">Log a seizure</p>
+                      <div class="wiz-bar"><i></i><i></i><i></i><i></i><i></i></div>
+                      <p class="wiz-step" id="g-step">When did it happen?</p>
+                      <div class="chips" id="g-chips"></div>
+                      <p class="saved">Saved</p>
+                    </div>
+
+                    <div class="s s2">
+                      <div class="ring">
+                        <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" class="ring-bg" /><circle cx="100" cy="100" r="86" class="ring-fg" /></svg>
+                        <div class="ring-num"><b id="g-days">0</b><span>days since last seizure</span></div>
+                      </div>
+                      <div class="cal">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                      </div>
+                    </div>
+
+                    <div class="s s3">
+                      <div class="sos-card">
+                        <p class="sos-title">Emergency</p>
+                        <p><span>Emergency Info</span>I have epilepsy. During a seizure, roll me onto my side, don't put anything in my mouth, and note the time.</p>
+                        <p class="copied">Seizure guidance copied to clipboard.</p>
+                      </div>
+                      <div class="call"><span class="call-btn">Call emergency services</span><i></i><i></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="coming" id="coming" aria-labelledby="coming-title">
+        <div class="wrap">
+          <h2 id="coming-title" data-split>In the works</h2>
+          <div class="coming-list">
+            <article class="demo-card" id="code-buddy" data-reveal>
+              <div class="demo cb" data-demo="codebuddy" aria-hidden="true">
+                <div class="cb-menubar"><span class="cb-apple"></span><span>Terminal</span><span class="cb-right"><i class="cb-icon"></i><span id="cb-status">Claude Code · working</span><span class="cb-ctx" id="cb-ctx">CTX 34%</span></span></div>
+                <div class="cb-device">
+                  <svg class="cb-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" class="cb-ring-bg" /><circle cx="100" cy="100" r="92" class="cb-ring-fg" id="cb-ring" /></svg>
+                  <div class="cb-face"><i class="eye"></i><i class="eye"></i></div>
+                  <p class="cb-label" id="cb-label">Working</p>
+                  <span class="cb-z">z</span>
+                  <span class="cb-tap"></span>
+                </div>
+              </div>
+              <h3>Code Buddy</h3>
+              <p>A desk companion for coding with Claude Code and Codex. It watches what the AI is doing, opens its eyes wide when it's your turn to confirm, and lets you approve with a tap. When the context window is nearly full, it tells you it's time to hand off. The menu bar shows context and usage limits at a glance.</p>
+              <span class="tag">In development</span>
+            </article>
+          </div>
+          <p class="fine" data-reveal>
+            Want to hear when it ships? <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy%20launch">Send me an email</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div class="wrap about-cols">
+          <div>
+            <h2 id="about-title" data-split>About</h2>
+            <p class="about-lead" data-reveal>
+              No ad SDKs, no tracking, no sign-up. Your records live on your phone, and I can't see any of them.
+            </p>
+          </div>
+          <dl id="faq" data-reveal style="--d: 0.1s">
+            <dt>Do I need an account?</dt>
+            <dd>No. Neither every15min nor Goldie has accounts.</dd>
+            <dt>Can Goldie replace my doctor?</dt>
+            <dd>No. It helps you keep a clear record. Treatment decisions belong to your doctor.</dd>
+            <dt>How do I get in touch?</dt>
+            <dd>Email <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>. I answer every message myself.</dd>
+          </dl>
+        </div>
       </section>
     </main>
-    <dialog
-      class="guide-dialog"
-      id="island-guide"
-      aria-labelledby="guide-title"
-    >
-      <div class="guide-bar">
-        <div>
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#leaf" />
-          </svg>
-          <h2 id="guide-title">岛民手册</h2>
-        </div>
-        <button
-          id="guide-close"
-          class="passport-close"
-          type="button"
-          aria-label="收起岛民手册"
-        >
-          ×
-        </button>
-      </div>
-      <section
-        class="residents-section content-width"
-        id="residents"
-        aria-labelledby="residents-title"
-      >
-        <div class="section-heading">
-          <div>
-            <p class="section-note">
-              <svg aria-hidden="true">
-                <use
-                  href="assets/icons.svg?v=characters-20260909#flower"
-                /></svg
-              >每一个小应用，都有自己的故事
-            </p>
-            <h2 id="residents-title">认识岛上的小伙伴</h2>
-          </div>
-          <span class="directory-status"
-            ><i class="open-dot" aria-hidden="true"></i>2 间小屋营业中，2
-            间正在生长</span
-          >
-        </div>
-        <div class="resident-directory">
-          <article class="resident-entry entry-bee">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#bee" /></svg
-              ><span>记录花园</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>every15min</h3>
-                <span class="status-label live">已上架</span>
-              </div>
-              <p class="resident-tagline">让每个十五分钟，都有迹可循。</p>
-              <p class="resident-description">
-                想起来就记一笔，用小格子拼起一天。<br />不必写长日记，记录留在你的设备里。
-              </p>
-              <div class="resident-links">
-                <a
-                  href="https://apps.apple.com/app/id6801988119"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >App Store 下载 <span aria-hidden="true">↗</span></a
-                ><a
-                  href="https://every15min.tokendance.life/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >逛逛记录工坊 <span aria-hidden="true">↗</span></a
-                ><button type="button" data-resident="bee">找蜜蜂聊聊</button>
-              </div>
-            </div>
-          </article>
-          <article class="resident-entry entry-goldie">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use
-                  href="assets/icons.svg?v=characters-20260909#goldie"
-                /></svg
-              ><span>守护小屋</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>守守 Goldie</h3>
-                <span class="status-label live">已开放</span>
-              </div>
-              <p class="resident-tagline">重要的小事，有我陪你记得。</p>
-              <p class="resident-description">
-                记录用药、发作与复诊，陪伴癫痫朋友。<br />没有账号和广告，安心照顾每一天。
-              </p>
-              <div class="resident-links">
-                <a
-                  href="https://goldie.tokendance.life/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >认识守守 <span aria-hidden="true">↗</span></a
-                ><button type="button" data-resident="goldie">
-                  找 Goldie 聊聊
-                </button>
-              </div>
-            </div>
-          </article>
-          <article class="resident-entry entry-otter">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#otter" /></svg
-              ><span>代码工坊</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>Code Buddy</h3>
-                <span class="status-label">筹备中</span>
-              </div>
-              <p class="resident-tagline">手边的小工具，随叫随到。</p>
-              <p class="resident-description">
-                住在 macOS 菜单栏的代码伙伴。<br />把零碎小事接过去，让思路继续向前。
-              </p>
-              <div class="resident-links">
-                <button type="button" data-resident="otter">
-                  去工坊串个门 <span aria-hidden="true">↗</span></button
-                ><span class="growing-note">水獭正在打磨工具</span>
-              </div>
-            </div>
-          </article>
-          <article class="resident-entry entry-frog">
-            <div class="resident-portrait">
-              <svg aria-hidden="true">
-                <use href="assets/icons.svg?v=characters-20260909#frog" /></svg
-              ><span>清净池塘</span>
-            </div>
-            <div class="resident-details">
-              <div class="resident-heading">
-                <h3>广告拦截助手</h3>
-                <span class="status-label">筹备中</span>
-              </div>
-              <p class="resident-tagline">让屏幕安静一点。</p>
-              <p class="resident-description">
-                帮你拦住广告、弹窗和追踪器。<br />把注意力还给真正想看的内容。
-              </p>
-              <div class="resident-links">
-                <button type="button" data-resident="frog">
-                  去池塘坐一会 <span aria-hidden="true">↗</span></button
-                ><span class="growing-note">青蛙正在搭建小屋</span>
-              </div>
-            </div>
-          </article>
-        </div>
-        <p class="directory-footnote">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#leaf" /></svg
-          >不赶进度，认真生长。小岛会慢慢热闹起来。
-        </p>
-      </section>
-      <section
-        class="notice-section content-width"
-        id="about"
-        aria-labelledby="notice-title"
-      >
-        <article class="notice-board">
-          <span class="paper-tape" aria-hidden="true"></span>
-          <div class="notice-heading">
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#mail" /></svg
-            ><span>来自园长的一封信</span>
-          </div>
-          <h2 id="notice-title">做小小的应用，<br />照顾具体的生活。</h2>
-          <p>嗨，我是 Tony，也是这座小岛的园长。</p>
-          <p>
-            这些应用都始于生活里一个真实的小问题。一个人慢慢做，把细节照顾好，让软件安静一点，也让日子轻松一点。
-          </p>
-          <a class="text-link" href="mailto:tonybingpoon@gmail.com"
-            >有个小想法？给我写封信 <span aria-hidden="true">↗</span></a
-          ><span class="signature" aria-hidden="true">Tony</span>
-        </article>
-        <aside class="daily-card" aria-labelledby="daily-title">
-          <div class="postcard-top">
-            <span id="daily-title">小岛日签</span
-            ><svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#sun" />
-            </svg>
-          </div>
-          <div class="daily-flower" aria-hidden="true">
-            <svg>
-              <use href="assets/icons.svg?v=characters-20260909#flower" />
-            </svg>
-          </div>
-          <p id="daily-note" aria-live="polite">
-            今天适合记录一个<br />被忽略的小瞬间。
-          </p>
-          <button type="button" id="new-note">
-            <svg aria-hidden="true">
-              <use href="assets/icons.svg?v=characters-20260909#refresh" /></svg
-            >再抽一张</button
-          ><span class="postcard-bottom">把今天过成喜欢的样子</span>
-        </aside>
-      </section>
-      <footer class="guide-footer">
-        一个人做应用，也能养出一座岛。<small
-          >© 2026 TokenDance · 园长 Tony</small
-        >
-      </footer>
-    </dialog>
-    <dialog
-      class="passport"
-      id="passport"
-      aria-labelledby="passport-title"
-      aria-describedby="passport-copy"
-    >
-      <button
-        class="passport-close"
-        id="passport-close"
-        type="button"
-        aria-label="关闭护照"
-      >
-        ×
-      </button>
-      <div class="passport-emblem">
-        <svg aria-hidden="true">
-          <use href="assets/icons.svg?v=characters-20260909#leaf" />
-        </svg>
-      </div>
-      <p class="passport-island">TokenDance Island</p>
-      <h2 id="passport-title">我的岛屿护照</h2>
-      <p id="passport-copy">
-        每认识一位岛民，就留下一枚印章。<br />这份散步的回忆，只保存在你的设备里。
-      </p>
-      <div class="stamp-grid" id="stamp-grid">
-        <div class="stamp" data-stamp="lyrebird">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#lyrebird" /></svg
-          ><span>琴鸟</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="bee">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#bee" /></svg
-          ><span>蜜蜂</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="goldie">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#goldie" /></svg
-          ><span>Goldie</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="otter">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#otter" /></svg
-          ><span>水獭</span><small>待拜访</small>
-        </div>
-        <div class="stamp" data-stamp="frog">
-          <svg aria-hidden="true">
-            <use href="assets/icons.svg?v=characters-20260909#frog" /></svg
-          ><span>青蛙</span><small>待拜访</small>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="wordmark" id="wordmark" aria-label="TokenDance">TokenDance</p>
+        <div class="footer-row">
+          <span>© 2026 TokenDance · Tony</span>
+          <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
         </div>
       </div>
-      <progress
-        id="passport-progress"
-        max="5"
-        value="0"
-        aria-label="已收集印章，五枚可集满"
-      ></progress>
-      <p class="passport-message" id="passport-message" role="status">
-        还有 5 位居民等着认识你。
-      </p>
-      <button class="reset-button" id="reset-progress" type="button">
-        重新开始散步
-      </button>
-    </dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=characters-20260909" defer></script>
+    </footer>
+    <script src="/app.js?v=20261022" defer></script>
   </body>
 </html>
