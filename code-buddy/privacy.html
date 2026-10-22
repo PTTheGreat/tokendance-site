@@ -1,17 +1,20 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Code Buddy 隐私政策 · Privacy Policy</title>
+    <title>Code Buddy Privacy Policy</title>
     <meta
       name="description"
-      content="Code Buddy Mac 版隐私政策：不收集任何数据，没有联网权限，只在本机读取你授权的 Claude Code 和 Codex 会话日志。Code Buddy for Mac collects no data and has no network access."
+      content="Privacy policy for Code Buddy for Mac: it collects no data, has no network access, and only reads the Claude Code and Codex session logs you grant, on your Mac."
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://tokendance.life/code-buddy/privacy.html" />
+    <link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/privacy.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/code-buddy/zh/privacy.html" />
+    <link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/privacy.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <link rel="stylesheet" href="/styles.css?v=20261022f" />
@@ -19,16 +22,16 @@
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:url" content="https://tokendance.life/code-buddy/privacy.html" />
-    <meta property="og:title" content="Code Buddy 隐私政策 · Privacy Policy" />
-    <meta property="og:description" content="Code Buddy 不收集任何数据。Code Buddy collects no data." />
+    <meta property="og:title" content="Code Buddy Privacy Policy" />
+    <meta property="og:description" content="Code Buddy collects no data and has no network access." />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="zh_CN" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Code Buddy 隐私政策 · Privacy Policy" />
-    <meta name="twitter:description" content="Code Buddy 不收集任何数据。Code Buddy collects no data." />
+    <meta name="twitter:title" content="Code Buddy Privacy Policy" />
+    <meta name="twitter:description" content="Code Buddy collects no data and has no network access." />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <script type="application/ld+json">
       {
@@ -45,8 +48,8 @@
             "@type": "WebPage",
             "@id": "https://tokendance.life/code-buddy/privacy.html",
             "url": "https://tokendance.life/code-buddy/privacy.html",
-            "name": "Code Buddy 隐私政策 · Privacy Policy",
-            "inLanguage": "zh-CN",
+            "name": "Code Buddy Privacy Policy",
+            "inLanguage": "en",
             "about": {
               "@id": "https://tokendance.life/code-buddy/#app"
             },
@@ -72,7 +75,7 @@
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "隐私政策 · Privacy Policy",
+                "name": "Privacy Policy",
                 "item": "https://tokendance.life/code-buddy/privacy.html"
               }
             ]
@@ -82,84 +85,22 @@
     </script>
   </head>
   <body class="doc-page">
-    <a class="skip-link" href="#main">跳到正文 · Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="brand" href="/zh/">
+        <a class="brand" href="/">
           <img src="/favicon.svg?v=20261022b" width="22" height="22" alt="" />TokenDance
         </a>
-        <a class="lang" href="#en" hreflang="en" lang="en">English</a>
+        <a class="lang" href="/code-buddy/zh/privacy.html" hreflang="zh-CN" lang="zh-CN">中文</a>
       </div>
     </header>
 
     <main id="main" class="wrap doc">
       <p class="doc-eyebrow">Code Buddy · Mac</p>
-      <h1>隐私政策<br /><span lang="en">Privacy Policy</span></h1>
-      <p class="doc-meta">
-        适用于 Mac App Store 上的 Code Buddy · 生效日期 2026 年 10 月 22 日<br />
-        <span lang="en">Applies to Code Buddy on the Mac App Store · Effective 2026-10-22</span>
-      </p>
-      <nav class="doc-langs" aria-label="Language">
-        <a href="#zh" lang="zh-CN">中文</a>
-        <a href="#en" lang="en">English</a>
-      </nav>
+      <h1>Privacy Policy</h1>
+      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective October 22, 2026</p>
 
-      <section id="zh">
-        <h2>简要说明</h2>
-        <p>Code Buddy 不收集任何数据。它读到的日志和算出来的数字，都只留在你的 Mac 上。</p>
-
-        <h2>读取哪些文件</h2>
-        <p>
-          Code Buddy 只读取你在 App 里授权的文件夹（通常是 <code>~/.claude</code> 和
-          <code>~/.codex</code>）中，Claude Code 和 Codex 自己写下的会话日志，用来判断它们现在的状态、统计 token
-          用量和估算费用。读取是只读的：Code Buddy 不会改动这些文件，也读不到授权文件夹以外的内容。
-        </p>
-
-        <h2>不联网</h2>
-        <p>
-          Code Buddy 运行在 macOS 的 App 沙盒里，没有联网权限，不连接任何服务器。没有账号，也没有统计、广告或第三方 SDK。
-        </p>
-
-        <h2>保存在本机的内容</h2>
-        <p>
-          你的设置（是否显示桌面浮窗、浮窗大小和位置、是否登录时启动）和授权文件夹的访问凭证，只保存在这台 Mac 上 Code Buddy
-          自己的沙盒文件夹里。
-        </p>
-
-        <h2>精确状态</h2>
-        <p>
-          “精确状态”默认关闭。开启后，Claude Code 的 hook 会把事件逐行追加到
-          <code>~/.claude/buddy/events.jsonl</code>。这些 hook 由你自己（或你让 Claude Code）加进
-          <code>~/.claude/settings.json</code>，只调用系统自带的 <code>sh</code>，不联网。这个文件只在你的 Mac
-          上，Code Buddy 只读取它。
-        </p>
-
-        <h2>我们能看到什么</h2>
-        <p>什么也看不到。我们收不到、也读不到你的日志、用量和设置。</p>
-
-        <h2>删除</h2>
-        <p>
-          Code Buddy 保存的内容都在 <code>~/Library/Containers/com.taopan.codebuddy</code>。删除 App
-          和这个文件夹，它在这台 Mac 上留下的内容就全部清除了。开启过精确状态的话，先在设置 → 精确状态里点“复制关闭指令”，粘贴给
-          Claude Code 移除 hook（也可以自己从 <code>settings.json</code> 里删掉），再删除
-          <code>~/.claude/buddy</code> 文件夹。
-        </p>
-
-        <h2>本网站</h2>
-        <p>
-          以上内容只针对 App。本网站（tokendance.life）使用 Google Analytics 和 Cloudflare Web Analytics
-          统计访问量和访问来源。两者都不在你的浏览器里保存 Cookie，Google Analytics 已关闭 Google
-          信号和广告个性化。我们只看汇总数据，不会用来识别任何人。
-        </p>
-
-        <h2>政策变更</h2>
-        <p>如本政策发生变更，新版本会发布在此页面，并更新生效日期。</p>
-
-        <h2>联系我们</h2>
-        <p>隐私相关问题，请写信到 <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>。</p>
-      </section>
-
-      <section id="en" lang="en">
+      <section id="en">
         <h2>The short version</h2>
         <p>Code Buddy collects no data. The logs it reads and the numbers it works out stay on your Mac.</p>
 
@@ -224,7 +165,7 @@
         <p class="wordmark" aria-label="TokenDance">TokenDance</p>
         <div class="footer-row">
           <span>© 2026 TokenDance · Tony</span>
-          <span><a href="/code-buddy/">Code Buddy 使用帮助 · Help</a> · <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a></span>
+          <span><a href="/code-buddy/">Code Buddy Help</a> · <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a></span>
         </div>
       </div>
     </footer>
