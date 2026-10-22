@@ -6,7 +6,7 @@
     <title>TokenDance · Small, privacy-first apps for iPhone and Mac</title>
     <meta
       name="description"
-      content="TokenDance is Tony's independent app studio: every15min, a terminal-style time log for iPhone; Goldie, an epilepsy medication reminder and seizure diary; and Code Buddy, a desk companion for AI coding. No accounts, no ads, your data stays on your device."
+      content="TokenDance is Tony's independent app studio: every15min, a terminal-style time log for iPhone; Goldie, an epilepsy medication reminder and seizure diary; and Code Buddy, a Mac menu bar buddy for Claude Code and Codex. No accounts, no ads, your data stays on your device."
     />
     <meta name="author" content="Tony" />
     <meta
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="/styles.css?v=20261022d" />
+    <link rel="stylesheet" href="/styles.css?v=20261022f" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -56,7 +56,10 @@
             "url": "https://tokendance.life/",
             "logo": "https://tokendance.life/apple-touch-icon.png",
             "email": "tonybingpoon@gmail.com",
-            "founder": { "@type": "Person", "name": "Tony" }
+            "founder": {
+              "@type": "Person",
+              "name": "Tony"
+            }
           },
           {
             "@type": "WebSite",
@@ -65,7 +68,9 @@
             "name": "TokenDance",
             "description": "Small, privacy-first apps for iPhone and Mac",
             "inLanguage": "en",
-            "publisher": { "@id": "https://tokendance.life/#organization" }
+            "publisher": {
+              "@id": "https://tokendance.life/#organization"
+            }
           },
           {
             "@type": "ItemList",
@@ -84,7 +89,9 @@
                   "applicationCategory": "LifestyleApplication",
                   "operatingSystem": "iOS",
                   "description": "A terminal-style time log: jot one line on a 15-minute rhythm, then look back with tags, a calendar and search.",
-                  "publisher": { "@id": "https://tokendance.life/#organization" }
+                  "publisher": {
+                    "@id": "https://tokendance.life/#organization"
+                  }
                 }
               },
               {
@@ -99,7 +106,25 @@
                   "applicationCategory": "HealthApplication",
                   "operatingSystem": "iOS",
                   "description": "Epilepsy medication reminders and seizure log: dose check-ins, streaks, days since last seizure, appointment records, breathing exercises and an emergency page. No account, no ads, no tracking.",
-                  "publisher": { "@id": "https://tokendance.life/#organization" }
+                  "publisher": {
+                    "@id": "https://tokendance.life/#organization"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Code Buddy",
+                  "url": "https://tokendance.life/code-buddy/",
+                  "image": "https://tokendance.life/assets/apps/code-buddy-icon.svg",
+                  "applicationCategory": "DeveloperApplication",
+                  "operatingSystem": "macOS 14 or later",
+                  "description": "A menu bar buddy for Claude Code and Codex on the Mac: its face shows whether the agent is working, waiting for you or done, with token usage and estimated spend. Runs locally with no network access.",
+                  "publisher": {
+                    "@id": "https://tokendance.life/#organization"
+                  }
                 }
               }
             ]
@@ -113,7 +138,7 @@
                 "name": "Do I need an account?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. Neither every15min nor Goldie has accounts. Your records stay on your own device."
+                  "text": "No. None of the apps has an account. Your records stay on your own device."
                 }
               },
               {
@@ -344,7 +369,8 @@
                 </div>
               </div>
               <h3>Code Buddy</h3>
-              <p>A desk companion for coding with Claude Code and Codex. It watches what the AI is doing, opens its eyes wide when it's your turn to confirm, and lets you approve with a tap. When the context window is nearly full, it tells you it's time to hand off. The menu bar shows context and usage limits at a glance.</p>
+              <p>A small face in your Mac menu bar for coding with Claude Code and Codex. Its expression tells you whether the agent is working, waiting for your approval or done, and the panel shows token usage and estimated spend. It all runs on your Mac with no network access.</p>
+              <p class="card-links"><a href="/code-buddy/">Help</a><a href="/code-buddy/privacy.html">Privacy</a></p>
               <span class="tag">In development</span>
             </article>
           </div>
@@ -364,7 +390,7 @@
           </div>
           <dl id="faq" data-reveal style="--d: 0.1s">
             <dt>Do I need an account?</dt>
-            <dd>No. Neither every15min nor Goldie has accounts.</dd>
+            <dd>No. None of the apps has an account.</dd>
             <dt>Can Goldie replace my doctor?</dt>
             <dd>No. It helps you keep a clear record. Treatment decisions belong to your doctor.</dd>
             <dt>How do I get in touch?</dt>
