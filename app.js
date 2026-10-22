@@ -7,13 +7,23 @@
   const finePointer = matchMedia("(pointer: fine)").matches;
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-  // Split headings into characters so they can rise in one by one.
+  // Split headings into characters so they can rise in one by one. Characters
+  // are grouped into unbreakable words so lines only wrap at spaces (or between
+  // CJK characters, which may break anywhere).
   $$("[data-split], #wordmark").forEach((el) => {
-    const text = el.textContent;
+    const text = el.textContent.trim();
     el.setAttribute("aria-label", text);
-    el.innerHTML = [...text]
-      .map((c, i) => `<span class="ch" aria-hidden="true" style="--i:${i}">${c}</span>`)
-      .join("");
+    let i = 0;
+    const ch = (c) => `<span class="ch" style="--i:${i++}">${c}</span>`;
+    const word = (w) => `<span class="w">${[...w].map(ch).join("")}</span>`;
+    el.innerHTML = `<span aria-hidden="true">${text
+      .split(/(\s+)/)
+      .map((t) => {
+        if (!t) return "";
+        if (/^\s+$/.test(t)) return " ";
+        return /[\u3000-\u9fff\uff00-\uffef]/.test(t) ? [...t].map(word).join("") : word(t);
+      })
+      .join("")}</span>`;
   });
 
   // Reveal on scroll.
