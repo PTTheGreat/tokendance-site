@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Code Buddy 使用帮助 · Support</title>
+    <meta
+      name="description"
+      content="Code Buddy 使用帮助：安装要求、授权日志文件夹、表情含义、精确状态、常见问题和联系方式。Help for Code Buddy, the Mac menu bar buddy for Claude Code and Codex."
+    />
+    <meta name="author" content="Tony" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://tokendance.life/code-buddy/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
+    <link rel="stylesheet" href="/styles.css?v=20261022e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TokenDance" />
+    <meta property="og:url" content="https://tokendance.life/code-buddy/" />
+    <meta property="og:title" content="Code Buddy 使用帮助 · Support" />
+    <meta
+      property="og:description"
+      content="Mac 菜单栏里的一张小圆脸，陪你用 Claude Code 和 Codex 写代码。A menu bar buddy for AI coding on the Mac."
+    />
+    <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
+  </head>
+  <body class="doc-page">
+    <a class="skip-link" href="#main">跳到正文 · Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/zh/">
+          <img src="/favicon.svg?v=20261022b" width="22" height="22" alt="" />TokenDance
+        </a>
+        <a class="lang" href="#en" hreflang="en" lang="en">English</a>
+      </div>
+    </header>
+
+    <main id="main" class="wrap doc">
+      <p class="doc-eyebrow">Code Buddy · Mac</p>
+      <h1>使用帮助<br /><span lang="en">Support</span></h1>
+      <p class="doc-lead">
+        Code Buddy 是住在 Mac 菜单栏里的一张小圆脸。Claude Code 或 Codex 在干活、在等你确认，还是已经做完，看它的表情就知道；它还会帮你算
+        token 用量和花费。全部在本机完成，不联网。
+      </p>
+      <p class="doc-note">
+        遇到问题或有建议，请写信到 <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a>，每封我都会亲自看、亲自回。<br />
+        <span lang="en">Questions or ideas? Email <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a>. I read and answer every message myself.</span>
+      </p>
+      <nav class="doc-langs" aria-label="Language">
+        <a href="#zh" lang="zh-CN">中文</a>
+        <a href="#en" lang="en">English</a>
+      </nav>
+
+      <section id="zh">
+        <h2>使用前提</h2>
+        <ul>
+          <li>macOS 14 或更新版本</li>
+          <li>这台 Mac 上在用 Claude Code 或 Codex 命令行工具</li>
+          <li>界面目前只有简体中文</li>
+        </ul>
+
+        <h2>开始使用</h2>
+        <ol>
+          <li>
+            打开 Code Buddy，欢迎窗口会请你授权日志文件夹：Claude Code 是 <code>~/.claude</code>，Codex 是
+            <code>~/.codex</code>。授权窗口已经打开在对应的文件夹里，直接点“授权”就行。没装的那个可以跳过，之后也能在设置里授权。
+          </li>
+          <li>点菜单栏里的小圆脸打开面板，看状态、用量和花费。面板里的“打开设置...”进入设置，“退出 Code Buddy”退出。</li>
+        </ol>
+
+        <h2>表情是什么意思</h2>
+        <ul>
+          <li>干活：助手在思考、调用工具、改代码</li>
+          <li>等你：助手停下来等你确认（需要开启精确状态）</li>
+          <li>完成：这一轮做完了，可以回来看结果</li>
+          <li>出错：请求没有成功</li>
+          <li>待机、睡觉：最近没有动静</li>
+        </ul>
+
+        <h2>常见问题</h2>
+        <h3>面板里没有数字</h3>
+        <p>
+          用量来自 Claude Code 和 Codex 写在本机的会话日志。请在设置 → 数据来源里确认对应的文件夹显示“已授权”，并且这台 Mac
+          上用过这些工具。
+        </p>
+
+        <h3>提示“需要授权整个 ~/.claude 文件夹”</h3>
+        <p>
+          你授权的是 <code>~/.claude</code> 里面的 projects 文件夹。用量照常能看，但精确状态要用到 <code>~/.claude</code>
+          本身：在设置 → 数据来源里重新授权，选 <code>~/.claude</code>。
+        </p>
+
+        <h3>怎么让它在等我确认时提醒我</h3>
+        <p>
+          开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进
+          <code>~/.claude/settings.json</code>；也可以点“打开 settings.json”自己粘贴进去。之后新开的会话生效。这些 hook
+          只用系统自带的 <code>sh</code> 把事件写进 <code>~/.claude/buddy/events.jsonl</code>，不联网。Code Buddy
+          自己不会改动 settings.json。
+        </p>
+
+        <h3>怎么关掉精确状态</h3>
+        <p>
+          设置 → 精确状态 → 复制关闭指令，同样粘贴给 Claude Code；或者自己从 settings.json 里删掉命令中含有
+          <code>buddy/events.jsonl</code> 的 hook。
+        </p>
+
+        <h3>费用准吗</h3>
+        <p>费用按公开的 API 价格估算，不是账单。如果你用的是订阅套餐，只能当作参考。</p>
+
+        <h3>桌面浮窗</h3>
+        <p>设置 → 桌面浮窗：显示或隐藏，大、中、小三种尺寸，拖到哪里都行。“预览所有表情”会把六种表情播一遍。</p>
+
+        <h3>开机自动启动</h3>
+        <p>设置 → 通用 → 登录时启动。默认关闭。</p>
+
+        <h3>卸载</h3>
+        <p>
+          在面板里点“退出 Code Buddy”，再把它从“应用程序”拖到废纸篓。开启过精确状态的话，先按上面的方法关掉，再删除
+          <code>~/.claude/buddy</code> 文件夹。
+        </p>
+
+        <h2>隐私</h2>
+        <p>Code Buddy 不收集任何数据，没有联网权限。详见<a href="/code-buddy/privacy.html">隐私政策</a>。</p>
+
+        <h2>联系</h2>
+        <p><a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a></p>
+
+        <p class="doc-fine">
+          Code Buddy 由独立开发者制作，与 Anthropic、OpenAI 没有关联。Claude Code 是 Anthropic 的商标，Codex 是 OpenAI
+          的商标。
+        </p>
+      </section>
+
+      <section id="en" lang="en">
+        <h2>Requirements</h2>
+        <ul>
+          <li>macOS 14 or later</li>
+          <li>Claude Code or Codex (the command-line tools) in use on this Mac</li>
+          <li>The interface is in Simplified Chinese for now</li>
+        </ul>
+
+        <h2>Getting started</h2>
+        <ol>
+          <li>
+            Open Code Buddy. The welcome window asks you to grant the log folders: <code>~/.claude</code> for Claude
+            Code and <code>~/.codex</code> for Codex. The panel already opens in the right folder, so just click 授权
+            (Grant). Skip the one you don't use; you can grant it later in Settings.
+          </li>
+          <li>
+            Click the face in the menu bar to see status, usage and spend. 打开设置... opens Settings and 退出 Code Buddy
+            quits.
+          </li>
+        </ol>
+
+        <h2>What the faces mean</h2>
+        <ul>
+          <li>Working: the agent is thinking, calling tools or editing code</li>
+          <li>Waiting: the agent needs your approval (with Precise Status on)</li>
+          <li>Done: the turn is finished, come back and look</li>
+          <li>Error: a request failed</li>
+          <li>Idle, asleep: nothing going on lately</li>
+        </ul>
+
+        <h2>Common questions</h2>
+        <h3>The panel shows no numbers</h3>
+        <p>
+          Usage comes from the session logs Claude Code and Codex write on your Mac. In Settings → 数据来源 (Data
+          sources), check that the folder says 已授权 (granted), and that you have used those tools on this Mac.
+        </p>
+
+        <h3>It says the whole ~/.claude folder is needed</h3>
+        <p>
+          You granted the projects folder inside <code>~/.claude</code>. Usage still works, but Precise Status needs
+          <code>~/.claude</code> itself: grant again in Settings → 数据来源 (Data sources) and pick
+          <code>~/.claude</code>.
+        </p>
+
+        <h3>How do I get told when the agent is waiting for me?</h3>
+        <p>
+          Turn on Precise Status: Settings → 精确状态 (Precise Status) → 复制开启指令 (copy the turn-on request), then paste
+          it to Claude Code and let it add the hooks to <code>~/.claude/settings.json</code>, or click 打开 settings.json
+          and paste them in yourself. New sessions pick it up. The hooks only use the system's built-in
+          <code>sh</code> to write events to <code>~/.claude/buddy/events.jsonl</code> and never go online. Code Buddy
+          itself never changes settings.json.
+        </p>
+
+        <h3>How do I turn Precise Status off?</h3>
+        <p>
+          Settings → 精确状态 (Precise Status) → 复制关闭指令 (copy the turn-off request) and paste it to Claude Code, or
+          delete the hooks whose command contains <code>buddy/events.jsonl</code> from settings.json yourself.
+        </p>
+
+        <h3>How accurate is the spend?</h3>
+        <p>It is estimated from public API prices and is not a bill. If you are on a subscription plan, treat it as a guide.</p>
+
+        <h3>Desktop face</h3>
+        <p>
+          Settings → 桌面浮窗 (Desktop face): show or hide it, pick one of three sizes, and drag it anywhere. 预览所有表情
+          (Preview all expressions) plays all six faces.
+        </p>
+
+        <h3>Open at login</h3>
+        <p>Settings → 通用 (General) → 登录时启动 (Open at login). It is off by default.</p>
+
+        <h3>Uninstalling</h3>
+        <p>
+          Click 退出 Code Buddy in the panel, then drag the app from Applications to the Trash. If you turned on Precise
+          Status, turn it off as above first, then delete the <code>~/.claude/buddy</code> folder.
+        </p>
+
+        <h2>Privacy</h2>
+        <p>Code Buddy collects no data and has no network access. See the <a href="/code-buddy/privacy.html">privacy policy</a>.</p>
+
+        <h2>Contact</h2>
+        <p><a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a></p>
+
+        <p class="doc-fine">
+          Code Buddy is made by an independent developer and is not affiliated with Anthropic or OpenAI. Claude Code is a
+          trademark of Anthropic; Codex is a trademark of OpenAI.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="wordmark" aria-label="TokenDance">TokenDance</p>
+        <div class="footer-row">
+          <span>© 2026 TokenDance · Tony</span>
+          <span><a href="/code-buddy/privacy.html">Code Buddy 隐私政策 · Privacy</a> · <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a></span>
+        </div>
+      </div>
+    </footer>
+    <script src="/analytics.js?v=20261022"></script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
+  </body>
+</html>
