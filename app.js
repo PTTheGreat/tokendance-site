@@ -60,10 +60,11 @@
   }
 
   // ---------- Scene scripts that need JavaScript ----------
+  const zh = document.documentElement.lang.startsWith("zh");
   const e15Lines = [
     ["09:30", "standup, pushed fix.", "#work"],
     ["10:12", "rabbit hole on CJK fonts.", "#yak"],
-    ["12:42", "午饭，顺便散步。", "#lunch"],
+    ["12:42", zh ? "午饭，顺便散步。" : "lunch, then a walk.", "#lunch"],
     ["14:08", "refactor plan on a napkin.", "#work"],
   ];
 
@@ -104,13 +105,21 @@
   }
 
   async function goldieSeizure(alive) {
-    const wizard = [
-      ["发作时间", ["刚刚", "今天早些时候", "选择时间"], 0],
-      ["严重程度", ["轻微", "中等", "严重"], 1],
-      ["发作时长", ["< 1 分钟", "1–2 分钟", "2–5 分钟", "> 5 分钟"], 1],
-      ["可能诱因", ["睡眠不足", "漏服药物", "压力", "强光", "饮酒"], 0],
-      ["意识状态", ["意识保持", "意识丧失"], 1],
-    ];
+    const wizard = zh
+      ? [
+          ["发作时间", ["刚刚", "今天早些时候", "选择时间"], 0],
+          ["严重程度", ["轻微", "中等", "严重"], 1],
+          ["发作时长", ["< 1 分钟", "1–2 分钟", "2–5 分钟", "> 5 分钟"], 1],
+          ["可能诱因", ["睡眠不足", "漏服药物", "压力", "强光", "饮酒"], 0],
+          ["意识状态", ["意识保持", "意识丧失"], 1],
+        ]
+      : [
+          ["When did it happen?", ["Just now", "Earlier today", "Pick a time"], 0],
+          ["How severe was it?", ["Mild", "Moderate", "Severe"], 1],
+          ["How long did it last?", ["< 1 min", "1–2 min", "2–5 min", "> 5 min"], 1],
+          ["Possible triggers", ["Lack of sleep", "Missed dose", "Stress", "Bright light", "Alcohol"], 0],
+          ["Were you conscious?", ["Conscious", "Lost consciousness"], 1],
+        ];
     const step = $("#g-step");
     const chips = $("#g-chips");
     const bars = $$(".s1 .wiz-bar i");
@@ -205,6 +214,10 @@
   onStories();
 
   // ---------- Looping demos for the apps still in development ----------
+  const cbText = zh
+    ? { working: "正在工作", turn: "轮到你确认", ok: "已批准", handoff: "上下文快满了，准备交接", idle: "空闲" }
+    : { working: "Working", turn: "Your turn", ok: "Approved", handoff: "Context almost full, handing off", idle: "Idle" };
+
   async function codeBuddy(el, alive) {
     const status = $("#cb-status", el);
     const ctx = $("#cb-ctx", el);
@@ -220,74 +233,42 @@
       label.textContent = text;
     };
     if (reduced) {
-      state("alert", "Claude Code · Your turn", "轮到你确认");
+      state("alert", "Claude Code · Your turn", cbText.turn);
       setCtx(58);
       return;
     }
     while (alive()) {
-      state("focus", "Claude Code · working", "正在工作");
+      state("focus", "Claude Code · working", cbText.working);
       setCtx(34);
       await sleep(400);
       setCtx(58);
       await sleep(2200);
       if (!alive()) return;
-      state("alert", "Claude Code · Your turn", "轮到你确认");
+      state("alert", "Claude Code · Your turn", cbText.turn);
       await sleep(2000);
       el.classList.add("tap");
       await sleep(350);
-      state("happy", "Claude Code · approved", "已批准");
+      state("happy", "Claude Code · approved", cbText.ok);
       await sleep(1500);
       if (!alive()) return;
-      state("focus", "Claude Code · working", "正在工作");
+      state("focus", "Claude Code · working", cbText.working);
       setCtx(86);
       await sleep(2000);
-      state("handoff", "Claude Code · working", "上下文快满了，准备交接");
+      state("handoff", "Claude Code · working", cbText.handoff);
       el.classList.add("st-focus");
       await sleep(2200);
       if (!alive()) return;
-      state("sleep", "Claude Code · idle", "空闲");
+      state("sleep", "Claude Code · idle", cbText.idle);
       setCtx(12);
       await sleep(2400);
     }
   }
 
-  async function adBlock(el, alive) {
-    const count = $("#ab-count", el);
-    const ads = $$(".ad", el);
-    while (alive()) {
-      el.className = "demo ab";
-      ads.forEach((a) => a.classList.remove("zap"));
-      count.textContent = "已拦截 0";
-      await sleep(600);
-      el.classList.add("ads");
-      await sleep(900);
-      el.classList.add("popup");
-      await sleep(1300);
-      el.classList.add("scan");
-      const targets = [ads[0], null, ads[1]];
-      let n = 0;
-      for (const t of targets) {
-        await sleep(380);
-        if (!alive()) return;
-        if (t) t.classList.add("zap");
-        else el.classList.remove("popup");
-        count.textContent = `已拦截 ${++n}`;
-        count.classList.add("bump");
-        setTimeout(() => count.classList.remove("bump"), 250);
-      }
-      await sleep(3200);
-    }
-  }
-
-  const demos = { codebuddy: codeBuddy, adblock: adBlock };
+  const demos = { codebuddy: codeBuddy };
   $$("[data-demo]").forEach((el) => {
     const run = runner();
     if (reduced) {
-      if (el.dataset.demo === "codebuddy") {
-        codeBuddy(el, () => true);
-      } else {
-        $("#ab-count", el).textContent = "已拦截 3";
-      }
+      codeBuddy(el, () => true);
       return;
     }
     new IntersectionObserver(([e]) => {
