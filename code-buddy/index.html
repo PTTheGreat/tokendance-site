@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Code Buddy 使用帮助 · Support</title>
+    <title>Code Buddy 使用帮助：Mac 菜单栏看 Claude Code、Codex 状态与用量 · Support</title>
     <meta
       name="description"
       content="Code Buddy 使用帮助：安装要求、授权日志文件夹、表情含义、精确状态、常见问题和联系方式。Help for Code Buddy, the Mac menu bar buddy for Claude Code and Codex."
@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://tokendance.life/code-buddy/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
-    <link rel="stylesheet" href="/styles.css?v=20261022e" />
+    <link rel="stylesheet" href="/styles.css?v=20261022f" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -25,6 +25,98 @@
       content="Mac 菜单栏里的一张小圆脸，陪你用 Claude Code 和 Codex 写代码。A menu bar buddy for AI coding on the Mac."
     />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Code Buddy 使用帮助 · Support" />
+    <meta name="twitter:description" content="Mac 菜单栏里的一张小圆脸，陪你用 Claude Code 和 Codex 写代码。A menu bar buddy for AI coding on the Mac." />
+    <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://tokendance.life/#organization",
+            "name": "TokenDance",
+            "url": "https://tokendance.life/",
+            "email": "tonybingpoon@gmail.com"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://tokendance.life/code-buddy/#app",
+            "name": "Code Buddy",
+            "url": "https://tokendance.life/code-buddy/",
+            "image": "https://tokendance.life/assets/apps/code-buddy-icon.svg",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "macOS 14 or later",
+            "inLanguage": "zh-CN",
+            "description": "Mac 菜单栏里的编程伙伴：看表情就知道 Claude Code、Codex 在干活、在等你确认还是已经做完，还能看 token 用量和估算花费。本机运行，不联网，不收集任何数据。A Mac menu bar buddy for Claude Code and Codex with status, token usage and spend.",
+            "publisher": {
+              "@id": "https://tokendance.life/#organization"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "TokenDance",
+                "item": "https://tokendance.life/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Code Buddy",
+                "item": "https://tokendance.life/code-buddy/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://tokendance.life/code-buddy/#faq",
+            "inLanguage": "zh-CN",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "面板里没有数字",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "用量来自 Claude Code 和 Codex 写在本机的会话日志。请在设置 → 数据来源里确认对应的文件夹显示“已授权”，并且这台 Mac 上用过这些工具。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "怎么让它在等我确认时提醒我",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进 ~/.claude/settings.json。之后新开的会话生效。这些 hook 只把事件写进本机文件，不联网。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "费用准吗",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "费用按公开的 API 价格估算，不是账单。如果你用的是订阅套餐，只能当作参考。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Code Buddy 会收集我的数据吗",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不会。Code Buddy 不收集任何数据，没有联网权限，只在本机读取你授权的 Claude Code 和 Codex 会话日志。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="doc-page">
     <a class="skip-link" href="#main">跳到正文 · Skip to content</a>

@@ -6,6 +6,7 @@
 
 - [every15min](https://every15min.tokendance.life/en/): a time log app for iPhone. Write one line about what just happened roughly every 15 minutes; it builds a daily timeline with tags, search and a 24-hour activity map. On-device only, US$1 one-time purchase. [App Store](https://apps.apple.com/app/id6801988119)
 - [Goldie](https://goldie.tokendance.life/): epilepsy medication reminders and seizure diary for iPhone, with dose check-ins, days since last seizure, appointment records and an emergency page. No account, no ads, no tracking. It does not diagnose or give treatment advice.
+- [Code Buddy](https://tokendance.life/code-buddy/): a menu bar buddy for Claude Code and Codex on the Mac (macOS 14+). Its face shows whether the agent is working, waiting for your approval or done, and the panel shows token usage and estimated spend. Runs locally with no network access and collects no data. [Privacy policy](https://tokendance.life/code-buddy/privacy.html)
 
 ## Site
 
