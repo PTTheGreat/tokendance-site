@@ -1,0 +1,30 @@
+# Every morning, email the last 24 hours of Cloudflare stats for tokendance.life:
+# Web Analytics visits and AI crawler requests. See scripts/cf-report.py.
+# Secrets: CF_API_TOKEN (Account Analytics:Read + Zone Analytics:Read),
+# SMTP_USER, SMTP_PASS (iCloud app-specific password by default), optional MAIL_TO.
+name: Cloudflare Report
+
+on:
+  schedule:
+    - cron: "0 1 * * *" # 09:00 Beijing time
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and email report
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: 1476b181ccaf1c77f1ddc19bd14304ee
+          CF_ZONE_ID: 9b9324dc0eea6c5b80783fcc1304f710
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python3 scripts/cf-report.py
