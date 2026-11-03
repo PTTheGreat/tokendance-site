@@ -1968,3 +1968,22 @@ dd {
   font-size: 15px;
   font-weight: 600;
 }
+
+.card-cta,
+.doc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 8px 0 4px;
+}
+
+.card-cta span,
+.doc-cta span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.doc-cta {
+  margin: 24px 0;
+}

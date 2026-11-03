@@ -17,7 +17,7 @@
     <link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
-    <link rel="stylesheet" href="/styles.css?v=20261022f" />
+    <link rel="stylesheet" href="/styles.css?v=20261103" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -56,7 +56,15 @@
             "description": "A menu bar buddy for Claude Code and Codex on the Mac. Its face shows whether your AI coding agent is working, waiting for your approval or done, and the panel shows token usage and estimated spend. Runs locally with no network access and collects no data.",
             "publisher": {
               "@id": "https://tokendance.life/#organization"
-            }
+            },
+            "sameAs": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
+            "downloadUrl": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "softwareVersion": "1.0.0"
           },
           {
             "@type": "BreadcrumbList",
@@ -129,13 +137,14 @@
         is working, waiting for your approval or done, and it keeps count of token usage and spend. Everything happens
         on your Mac, offline.
       </p>
+      <p class="doc-cta"><a class="btn btn-dark" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">Download for Mac</a><span>Free on the Mac App Store · macOS 14 or later</span></p>
       <p class="doc-note">Questions or ideas? Email <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a>. I read and answer every message myself.</p>
 
       <section id="en">
         <h2>Requirements</h2>
         <ul>
           <li>macOS 14 or later</li>
-          <li>Claude Code or Codex (the command-line tools) in use on this Mac</li>
+          <li>Claude Code (in the terminal, the Claude desktop app or the VS Code extension) or Codex (CLI, desktop app or IDE extension) in use on this Mac. Code Buddy reads local sessions on this Mac only; cloud sessions don’t show up.</li>
           <li>English, or Simplified Chinese when your Mac is set to Chinese</li>
         </ul>
 
