@@ -6,7 +6,7 @@
     <title>TokenDance · 独立开发的 iOS 与 macOS 小工具</title>
     <meta
       name="description"
-      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录，以及 Mac 菜单栏编程伙伴 Code Buddy。无账号、无广告、数据只存在你的设备上。"
+      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录，以及 Mac 菜单栏编程伙伴 Code Buddy（已上架 Mac App Store）。无账号、无广告、数据只存在你的设备上。"
     />
     <meta name="author" content="Tony" />
     <meta
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="/styles.css?v=20261022f" />
+    <link rel="stylesheet" href="/styles.css?v=20261103" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -124,7 +124,15 @@
                   "description": "Mac 菜单栏里的编程伙伴：看表情就知道 Claude Code、Codex 在干活、在等你确认还是已经做完，还能看 token 用量和估算花费。本机运行，不联网。",
                   "publisher": {
                     "@id": "https://tokendance.life/#organization"
-                  }
+                  },
+                  "sameAs": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
+                  "downloadUrl": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  },
+                  "softwareVersion": "1.0.0"
                 }
               }
             ]
@@ -173,7 +181,7 @@
         <nav aria-label="主导航">
           <a href="#every15min">every15min</a>
           <a href="#goldie">守守</a>
-          <a href="#coming">即将推出</a>
+          <a href="#coming">Code Buddy</a>
           <a href="#about">关于</a>
         </nav>
         <a class="lang" href="/" hreflang="en" lang="en">EN</a>
@@ -355,7 +363,7 @@
 
       <section class="coming" id="coming" aria-labelledby="coming-title">
         <div class="wrap">
-          <h2 id="coming-title" data-split>正在做的</h2>
+          <h2 id="coming-title" data-split>Mac 上的</h2>
           <div class="coming-list">
             <article class="demo-card" id="code-buddy" data-reveal>
               <div class="demo cb" data-demo="codebuddy" aria-hidden="true">
@@ -370,13 +378,11 @@
               </div>
               <h3>Code Buddy</h3>
               <p>住在 Mac 菜单栏里的一张小圆脸，陪你用 Claude Code 和 Codex 写代码。看它的表情就知道助手在干活、在等你确认还是已经做完；面板里还能看 token 用量和估算花费。全部在本机完成，不联网。</p>
+              <p class="card-cta"><a class="btn btn-dark magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">在 Mac App Store 下载</a><span>中国大陆区暂未上架</span></p>
               <p class="card-links"><a href="/zh/code-buddy/">使用帮助</a><a href="/zh/code-buddy/privacy.html">隐私政策</a></p>
-              <span class="tag">开发中</span>
+              <span class="tag">免费 · macOS 14 或更新版本</span>
             </article>
           </div>
-          <p class="fine" data-reveal>
-            想在上线时收到通知？<a href="mailto:tonybingpoon@gmail.com?subject=%E4%B8%8A%E7%BA%BF%E9%80%9A%E7%9F%A5">给我发封邮件</a>。
-          </p>
         </div>
       </section>
 
