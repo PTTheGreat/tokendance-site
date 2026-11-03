@@ -6,7 +6,7 @@
     <title>Code Buddy Privacy Policy</title>
     <meta
       name="description"
-      content="Privacy policy for Code Buddy for Mac: it collects no data, has no network access, and only reads the Claude Code and Codex session logs you grant, on your Mac."
+      content="Privacy policy for Code Buddy for Mac: it collects no data, has no network access, and only reads the Claude Code, Codex, Grok and Cursor session logs you grant, on your Mac."
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
@@ -17,7 +17,7 @@
     <link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/privacy.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
-    <link rel="stylesheet" href="/styles.css?v=20261103" />
+    <link rel="stylesheet" href="/styles.css?v=20261103b" />
 
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="TokenDance" />
@@ -98,7 +98,7 @@
     <main id="main" class="wrap doc">
       <p class="doc-eyebrow">Code Buddy · Mac</p>
       <h1>Privacy Policy</h1>
-      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective October 22, 2026</p>
+      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 3, 2026</p>
 
       <section id="en">
         <h2>The short version</h2>
@@ -106,8 +106,8 @@
 
         <h2>What it reads</h2>
         <p>
-          Code Buddy reads only the session logs that Claude Code and Codex write in the folders you grant in the app
-          (usually <code>~/.claude</code> and <code>~/.codex</code>), to show what those tools are doing, count tokens
+          Code Buddy reads only the session logs that Claude Code, Codex, Grok and Cursor write in the folders you grant in the app
+          (usually <code>~/.claude</code>, <code>~/.codex</code>, <code>~/.grok</code> and <code>~/.cursor</code>), to show what those tools are doing, count tokens
           and estimate spend. Access is read-only: Code Buddy never changes these files and cannot read anything outside
           the folders you granted.
         </p>
@@ -115,7 +115,7 @@
         <h2>No network access</h2>
         <p>
           Code Buddy runs in the macOS App Sandbox without network access and connects to no server. There is no
-          account, no analytics, no advertising and no third-party SDK.
+          account, no analytics, no advertising and no third&#8209;party SDK.
         </p>
 
         <h2>What stays on your Mac</h2>
@@ -128,7 +128,7 @@
         <p>
           Precise Status is off by default. When you turn it on, Claude Code's hooks append each event as one line to
           <code>~/.claude/buddy/events.jsonl</code>. You add these hooks to <code>~/.claude/settings.json</code>
-          yourself (or ask Claude Code to); they only call the system's built-in <code>sh</code> and never go online.
+          yourself (or ask Claude Code to); they only call the system's built&#8209;in <code>sh</code> and never go online.
           The file stays on your Mac, and Code Buddy only reads it.
         </p>
 
@@ -138,7 +138,7 @@
         <h2>Removing it</h2>
         <p>
           Everything Code Buddy stores is in <code>~/Library/Containers/com.taopan.codebuddy</code>. Delete the app and
-          that folder, and nothing it kept is left on your Mac. If you turned on Precise Status, first open Settings → Precise Status, click Copy Turn-Off Request and paste it to Claude Code to remove the
+          that folder, and nothing it kept is left on your Mac. If you turned on Precise Status, first open Settings → Precise Status, click Copy Turn&#8209;Off Request and paste it to Claude Code to remove the
           hooks (or delete them from <code>settings.json</code> yourself), then delete the
           <code>~/.claude/buddy</code> folder.
         </p>

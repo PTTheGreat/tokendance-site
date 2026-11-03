@@ -3,35 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Code Buddy 使用帮助：Mac 菜单栏看 Claude Code、Codex 状态与用量</title>
+    <title>Code Buddy 编程小伙伴：在 Mac 菜单栏看 Claude Code、Codex、Grok、Cursor 的状态</title>
     <meta
       name="description"
-      content="Code Buddy 使用帮助：Mac 菜单栏里的 AI 编程伙伴，看 Claude Code、Codex 在干活、等你确认还是已完成，以及 token 用量和花费。安装要求、授权、表情含义、精确状态、常见问题和联系方式。"
+      content="Code Buddy 是免费的 Mac 菜单栏应用：一张小圆脸告诉你 Claude Code、Codex、Grok、Cursor 在干活、在等你确认还是已经做完，还帮你算 token 用量和花费。全部在本机完成，不联网。"
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0e0e10" />
     <link rel="canonical" href="https://tokendance.life/zh/code-buddy/" />
     <link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/" />
     <link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/code-buddy/" />
     <link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
+    <link rel="icon" type="image/svg+xml" href="/assets/apps/code-buddy-icon.svg?v=20261103b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
-    <link rel="stylesheet" href="/styles.css?v=20261103" />
+    <link rel="stylesheet" href="/styles.css?v=20261103b" />
+    <link rel="stylesheet" href="/code-buddy/cb.css?v=20261103b" />
+    <meta name="apple-itunes-app" content="app-id=6825784479" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:url" content="https://tokendance.life/zh/code-buddy/" />
-    <meta property="og:title" content="Code Buddy 使用帮助：Mac 菜单栏看 Claude Code、Codex 状态与用量" />
-    <meta property="og:description" content="Mac 菜单栏里的一张小圆脸，陪你用 Claude Code 和 Codex 写代码。" />
+    <meta property="og:title" content="Code Buddy 编程小伙伴：在 Mac 菜单栏看 Claude Code、Codex、Grok、Cursor 的状态" />
+    <meta property="og:description" content="Mac 菜单栏里的一张小圆脸，看一眼就知道 AI 编程助手在干活、在等你还是做完了。Mac App Store 免费下载。" />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Code Buddy 使用帮助：Mac 菜单栏看 Claude Code、Codex 状态与用量" />
-    <meta name="twitter:description" content="Mac 菜单栏里的一张小圆脸，陪你用 Claude Code 和 Codex 写代码。" />
+    <meta name="twitter:title" content="Code Buddy 编程小伙伴：在 Mac 菜单栏看 Claude Code、Codex、Grok、Cursor 的状态" />
+    <meta name="twitter:description" content="Mac 菜单栏里的一张小圆脸，看一眼就知道 AI 编程助手在干活、在等你还是做完了。Mac App Store 免费下载。" />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <script type="application/ld+json">
       {
@@ -50,21 +52,44 @@
             "name": "Code Buddy",
             "alternateName": "Code Buddy – Agent Status",
             "url": "https://tokendance.life/code-buddy/",
+            "sameAs": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
+            "downloadUrl": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
             "image": "https://tokendance.life/assets/apps/code-buddy-icon.svg",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "macOS 14 or later",
-            "description": "Mac 菜单栏里的编程伙伴：看表情就知道 Claude Code、Codex 在干活、在等你确认还是已经做完，还能看 token 用量和估算花费。本机运行，不联网，不收集任何数据。",
-            "publisher": {
-              "@id": "https://tokendance.life/#organization"
-            },
-            "sameAs": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
-            "downloadUrl": "https://apps.apple.com/app/code-buddy-agent-status/id6825784479",
+            "inLanguage": "zh-CN",
+            "description": "免费的 Mac 菜单栏应用：看表情就知道 Claude Code、Codex、Grok、Cursor 在干活、在等你确认还是已经做完，还能看 token 用量和估算花费。本机运行，不联网，不收集任何数据。",
+            "featureList": [
+              "菜单栏小圆脸显示助手状态：干活、等你、完成、出错、待机、睡觉",
+              "支持 Claude Code、Codex、Grok、Cursor",
+              "同时开多个助手时显示最需要你的那个",
+              "今天、7 天、30 天的费用、token、请求和缓存命中，按工具分开",
+              "每个会话的上下文占用和 Codex 的 5 小时、每周额度",
+              "三种风格：原生、伙伴、环境光",
+              "桌面浮窗，三种尺寸",
+              "只读、不联网、不收集数据"
+            ],
             "offers": {
               "@type": "Offer",
               "price": "0",
               "priceCurrency": "USD"
             },
-            "softwareVersion": "1.0.0"
+            "publisher": {
+              "@id": "https://tokendance.life/#organization"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tokendance.life/zh/code-buddy/",
+            "url": "https://tokendance.life/zh/code-buddy/",
+            "name": "Code Buddy 编程小伙伴：在 Mac 菜单栏看 Claude Code、Codex、Grok、Cursor 的状态",
+            "inLanguage": "zh-CN",
+            "about": {
+              "@id": "https://tokendance.life/code-buddy/#app"
+            },
+            "isPartOf": {
+              "@id": "https://tokendance.life/#website"
+            }
           },
           {
             "@type": "BreadcrumbList",
@@ -118,106 +143,228 @@
       }
     </script>
   </head>
-  <body class="doc-page">
+  <body class="cb-page">
     <a class="skip-link" href="#main">跳到正文</a>
     <header class="site-header">
       <div class="wrap header-inner">
         <a class="brand" href="/zh/">
           <img src="/favicon.svg?v=20261022b" width="22" height="22" alt="" />TokenDance
         </a>
+        <nav aria-label="Code Buddy">
+          <a href="#how">怎么用</a>
+          <a href="#agents">多个助手</a>
+          <a href="#usage">用量</a>
+          <a href="#help">帮助</a>
+        </nav>
         <a class="lang" href="/code-buddy/" hreflang="en" lang="en">EN</a>
       </div>
     </header>
 
-    <main id="main" class="wrap doc">
-      <p class="doc-eyebrow">Code Buddy · Mac</p>
-      <h1>使用帮助</h1>
-      <p class="doc-lead">
-        Code Buddy 是住在 Mac 菜单栏里的一张小圆脸。Claude Code 或 Codex 在干活、在等你确认，还是已经做完，看它的表情就知道；它还会帮你算
-        token 用量和花费。全部在本机完成，不联网。
-      </p>
-      <p class="doc-cta"><a class="btn btn-dark" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">在 Mac App Store 下载</a><span>免费 · macOS 14 或更新版本 · 中国大陆区暂未上架</span></p>
-      <p class="doc-note">遇到问题或有建议，请写信到 <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a>，每封我都会亲自看、亲自回。</p>
-
-      <section>
-        <h2>使用前提</h2>
-        <ul>
-          <li>macOS 14 或更新版本</li>
-          <li>这台 Mac 上在用 Claude Code（终端、Claude 桌面 App 或 VS Code 扩展）或 Codex（命令行、桌面 App 或 IDE 扩展）。Code Buddy 只读这台 Mac 上的本地会话，看不到云端会话。</li>
-          <li>界面支持简体中文和英文，跟随系统语言</li>
-        </ul>
-
-        <h2>开始使用</h2>
-        <ol>
-          <li>
-            打开 Code Buddy，欢迎窗口会请你授权日志文件夹：Claude Code 是 <code>~/.claude</code>，Codex 是
-            <code>~/.codex</code>。授权窗口已经打开在对应的文件夹里，直接点“授权”就行。没装的那个可以跳过，之后也能在设置里授权。
-          </li>
-          <li>点菜单栏里的小圆脸打开面板，看状态、用量和花费。面板里的“打开设置...”进入设置，“退出 Code Buddy”退出。</li>
-        </ol>
-
-        <h2>表情是什么意思</h2>
-        <ul>
-          <li>干活：助手在思考、调用工具、改代码</li>
-          <li>等你：助手停下来等你确认（需要开启精确状态）</li>
-          <li>完成：这一轮做完了，可以回来看结果</li>
-          <li>出错：请求没有成功</li>
-          <li>待机、睡觉：最近没有动静</li>
-        </ul>
-
-        <h2>常见问题</h2>
-        <h3>面板里没有数字</h3>
-        <p>
-          用量来自 Claude Code 和 Codex 写在本机的会话日志。请在设置 → 数据来源里确认对应的文件夹显示的是路径而不是“未授权”，并且这台 Mac
-          上用过这些工具。
-        </p>
-
-        <h3>提示“需要授权整个 ~/.claude 文件夹”</h3>
-        <p>
-          你授权的是 <code>~/.claude</code> 里面的 projects 文件夹。用量照常能看，但精确状态要用到 <code>~/.claude</code>
-          本身：在设置 → 数据来源里点“更换…”，选 <code>~/.claude</code>。
-        </p>
-
-        <h3>怎么让它在等我确认时提醒我</h3>
-        <p>
-          开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进
-          <code>~/.claude/settings.json</code>；也可以点“打开 settings.json”自己粘贴进去。之后新开的会话生效。这些 hook
-          只用系统自带的 <code>sh</code> 把事件写进 <code>~/.claude/buddy/events.jsonl</code>，不联网。Code Buddy
-          自己不会改动 settings.json。
-        </p>
-
-        <h3>怎么关掉精确状态</h3>
-        <p>
-          设置 → 精确状态 → 复制关闭指令，同样粘贴给 Claude Code；或者自己从 settings.json 里删掉命令中含有
-          <code>buddy/events.jsonl</code> 的 hook。
-        </p>
-
-        <h3>费用准吗</h3>
-        <p>费用按公开的 API 价格估算，不是账单。如果你用的是订阅套餐，只能当作参考。</p>
-
-        <h3>桌面浮窗</h3>
-        <p>设置 → 桌面浮窗：显示或隐藏，大、中、小三种尺寸，拖到哪里都行。“预览所有表情”会把六种表情播一遍。</p>
-
-        <h3>开机自动启动</h3>
-        <p>设置 → 通用 → 登录时启动。默认关闭。</p>
-
-        <h3>卸载</h3>
-        <p>
-          在面板里点“退出 Code Buddy”，再把它从“应用程序”拖到废纸篓。开启过精确状态的话，先按上面的方法关掉，再删除
-          <code>~/.claude/buddy</code> 文件夹。
-        </p>
-
-        <h2>隐私</h2>
-        <p>Code Buddy 不收集任何数据，没有联网权限。详见<a href="/zh/code-buddy/privacy.html">隐私政策</a>。</p>
-
-        <h2>联系</h2>
-        <p><a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a></p>
-
-        <p class="doc-fine">
-          Code Buddy 由独立开发者制作，与 Anthropic、OpenAI 没有关联。Claude Code 是 Anthropic 的商标，Codex 是 OpenAI
-          的商标。
-        </p>
+    <main id="main">
+      <section class="cb-hero">
+        <div class="cb-wrap cb-hero-grid">
+          <div>
+            <p class="cb-eyebrow">Code Buddy 编程小伙伴 · Mac</p>
+            <h1>AI 编程助手<br />在忙什么，<em>看一眼就知道。</em></h1>
+            <p class="cb-lead">菜单栏里的一张小圆脸：Claude Code、Codex、Grok、Cursor 在干活、在等你确认，还是已经做完，扫一眼就知道。它还帮你算 token 用量和花费，全部在本机完成。</p>
+            <div class="cb-cta"><a class="btn btn-orange magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">在 Mac App Store 下载</a><small>免费 · macOS 14 或更新版本 · 中国大陆区暂未上架</small></div>
+            <ul class="cb-agents" aria-label="Works with"><li>Claude Code</li><li>Codex</li><li>Grok</li><li>Cursor</li></ul>
+          </div>
+          <div class="cb-mac st-working" id="cb-hero-mac" aria-hidden="true">
+            <div class="cb-menubar"><span class="mb-buddy"><svg viewBox="0 0 200 200"></svg>42%</span><span>周二 10:24</span></div>
+            <div class="cb-mac-stage"><svg class="big-face" viewBox="0 0 200 200"></svg><span class="cb-pill"><i></i><span></span></span></div>
+          </div>
+        </div>
       </section>
+
+      <section class="cb-section" id="how" aria-labelledby="how-h">
+        <div class="cb-wrap">
+          <div class="cb-head cb-reveal"><p class="kicker">怎么用</p><h2 id="how-h">需要你的时候，它会抬头看你。</h2><p>不用一直盯着终端。Code Buddy 读取助手的会话日志，一有变化就换表情。余光扫一眼菜单栏，就知道要不要切回去。</p></div>
+          <div class="cb-split cb-reveal" id="cb-turn" aria-hidden="true">
+            <div class="cb-card cb-term"><div class="cb-term-bar"><span></span><span></span><span></span></div><ol></ol></div>
+            <div class="cb-card cb-watch"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><p></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cb-section" id="agents" aria-labelledby="agents-h">
+        <div class="cb-wrap">
+          <div class="cb-head cb-reveal"><p class="kicker">同时开好几个</p><h2 id="agents-h">四个助手，一张脸。</h2><p>一个项目里跑 Claude Code，另一个里跑 Grok 也没关系。小圆脸总是显示最需要你的那个，菜单栏显示有几个在忙，每个会话都列出项目名和上下文占用。脚本和机器人跑的会话单独列出，不会让小圆脸跟着变。</p></div>
+          <div class="cb-card cb-agents-demo cb-reveal" id="cb-agents" aria-hidden="true">
+            <div class="who">
+              <div class="cb-menubar"><span class="mb-buddy"><svg viewBox="0 0 200 200"></svg><span class="busy"></span></span></div>
+              <svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg>
+              <p class="why"></p>
+            </div>
+            <ul>
+              <li class="agent-row" data-name="Claude Code" data-project="buddy"><i></i><b>Claude Code</b><span></span></li>
+              <li class="agent-row" data-name="Grok" data-project="site"><i></i><b>Grok</b><span></span></li>
+              <li class="agent-row" data-name="Cursor" data-project="web-app"><i></i><b>Cursor</b><span></span></li>
+              <li class="agent-row" data-name="Codex" data-project="api-server"><i></i><b>Codex</b><span></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cb-section" aria-labelledby="faces-h">
+        <div class="cb-wrap">
+          <div class="cb-head cb-reveal"><p class="kicker">六种表情</p><h2 id="faces-h">不用读字，看脸就懂。</h2></div>
+          <ul class="cb-faces cb-reveal">
+          <li data-state="working"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><b>干活</b><span>在思考、调用工具、改代码</span></li>
+          <li data-state="waiting"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><b>等你</b><span>停下来等你确认</span></li>
+          <li data-state="done"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><b>完成</b><span>这一轮做完了</span></li>
+          <li data-state="error"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><b>出错</b><span>请求没有成功</span></li>
+          <li data-state="idle"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><b>待机</b><span>最近没有动静</span></li>
+          <li data-state="sleep"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><b>睡觉</b><span>安静了好一会儿</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cb-section" id="usage" aria-labelledby="usage-h">
+        <div class="cb-wrap">
+          <div class="cb-head cb-reveal"><p class="kicker">用量和花费</p><h2 id="usage-h">AI 帮你写代码，花了多少钱一清二楚。</h2><p>今天、7 天、30 天的费用、token、请求次数和缓存命中率，按工具分开算。费用按公开的 API 价格估算，不是账单，只能当参考。</p></div>
+          <div class="cb-split cb-reveal">
+            <div class="cb-card cb-usage" id="cb-usage" aria-hidden="true">
+              <div class="cb-tabs"><span class="on">今天</span><span>7 天</span><span>30 天</span></div>
+              <p class="cb-spend"><b>$18.62</b><small>按 API 价格</small></p>
+              <p class="cb-by-tool">Claude Code $17.32 · Codex $1.30 · Grok $0.00</p>
+              <div class="cb-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <dl class="cb-stats"><div><dt>Token</dt><dd>25.85M</dd></div><div><dt>请求</dt><dd>1,153</dd></div><div><dt>缓存命中</dt><dd>93%</dd></div></dl>
+            </div>
+            <div class="cb-card cb-meters" id="cb-meters">
+            <div class="cb-meter"><p>上下文<span>42% · 还很宽裕</span></p><div class="track"><i data-v="42"></i></div></div>
+            <div class="cb-meter"><p>Codex 5 小时额度<span>35% · 3 小时 33 分后重置</span></p><div class="track"><i data-v="35"></i></div></div>
+            <div class="cb-meter"><p>Codex 每周额度<span>12% · 6 天 20 小时后重置</span></p><div class="track"><i data-v="12"></i></div></div>
+              <p class="cb-note">上下文显示当前会话用了多少，快满时会提醒你。5 小时和每周额度是 Codex 的。Cursor 不在本机记录 token 用量，所以只显示状态。图中数字为示例。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cb-section" aria-labelledby="styles-h">
+        <div class="cb-wrap">
+          <div class="cb-head cb-reveal"><p class="kicker">三种风格</p><h2 id="styles-h">挑一个适合你桌面的小伙伴。</h2></div>
+          <div class="cb-styles">
+          <article class="cb-card cb-style look-native cb-reveal">
+            <div class="look"><svg class="face" viewBox="0 0 200 200" aria-hidden="true" data-state="working"></svg><span class="cb-pill"><i></i><span>干活 · Bash · buddy</span></span></div>
+            <div class="txt"><h3>原生</h3><p>像 Mac 自带的一样。</p></div>
+          </article>
+          <article class="cb-card cb-style look-companion cb-reveal">
+            <div class="look"><svg class="face" viewBox="0 0 200 200" aria-hidden="true" data-state="working"></svg><span class="bubble">正在 buddy 里敲代码… 还有 1 个</span></div>
+            <div class="txt"><h3>伙伴</h3><p>会说话的小伙伴。</p></div>
+          </article>
+          <article class="cb-card cb-style look-ambient cb-reveal">
+            <div class="look"><svg class="face" viewBox="0 0 200 200" aria-hidden="true" data-state="waiting"></svg></div>
+            <div class="txt"><h3>环境光</h3><p>屏幕边上一点安静的光。</p></div>
+          </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cb-section" aria-labelledby="privacy-h">
+        <div class="cb-wrap">
+          <div class="cb-head cb-reveal"><p class="kicker">隐私</p><h2 id="privacy-h">你的日志不会离开这台 Mac。</h2><p>详见<a href="/zh/code-buddy/privacy.html">隐私政策</a>。</p></div>
+          <ul class="cb-points cb-reveal">
+          <li><b>只读</b><span>只读取你授权的文件夹里的会话日志：<code>~/.claude</code>、<code>~/.codex</code>、<code>~/.grok</code>、<code>~/.cursor</code>。</span></li>
+          <li><b>不联网</b><span>没有联网权限，什么都不上传，也不用注册账号。</span></li>
+          <li><b>不收集数据</b><span>没有统计、广告和第三方 SDK，也不用装任何命令行工具。</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cb-section cb-final">
+        <div class="cb-wrap">
+          <svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg>
+          <h2>给菜单栏请一个小伙伴。</h2>
+          <div class="cb-cta"><a class="btn btn-orange magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">在 Mac App Store 下载</a><small>免费 · macOS 14 或更新版本 · 中国大陆区暂未上架</small></div>
+        </div>
+      </section>
+
+      <div class="cb-help" id="help">
+        <div class="wrap doc">
+          <h2 class="cb-help-title">使用帮助</h2>
+          <p class="doc-lead">安装要求、表情含义和常见问题。</p>
+          <p class="doc-note">遇到问题或有建议，请写信到 <a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a>，每封我都会亲自看、亲自回。</p>
+          <section id="zh">
+          <h2>使用前提</h2>
+          <ul>
+            <li>macOS 14 或更新版本</li>
+            <li>这台 Mac 上在用 Claude Code（终端、Claude 桌面 App 或 VS Code 扩展）、Codex（命令行、桌面 App 或 IDE 扩展）、Grok 或 Cursor。Code Buddy 只读这台 Mac 上的本地会话，看不到云端会话。</li>
+            <li>界面支持简体中文和英文，跟随系统语言</li>
+          </ul>
+
+          <h2>开始使用</h2>
+          <ol>
+            <li>
+              打开 Code Buddy，欢迎窗口会请你授权日志文件夹：Claude Code 是 <code>~/.claude</code>，Codex 是
+              <code>~/.codex</code>，Grok 是 <code>~/.grok</code>，Cursor 是 <code>~/.cursor</code>。授权窗口已经打开在对应的文件夹里，直接点“授权”就行。没装的那个可以跳过，之后也能在设置里授权。
+            </li>
+            <li>点菜单栏里的小圆脸打开面板，看状态、用量和花费。面板里的“打开设置...”进入设置，“退出 Code Buddy”退出。</li>
+          </ol>
+
+          <h2>表情是什么意思</h2>
+          <ul>
+            <li>干活：助手在思考、调用工具、改代码</li>
+            <li>等你：助手停下来等你确认（需要开启精确状态）</li>
+            <li>完成：这一轮做完了，可以回来看结果</li>
+            <li>出错：请求没有成功</li>
+            <li>待机、睡觉：最近没有动静</li>
+          </ul>
+
+          <h2>常见问题</h2>
+          <h3>面板里没有数字</h3>
+          <p>
+            用量来自 Claude Code 和 Codex 写在本机的会话日志。请在设置 → 数据来源里确认对应的文件夹显示的是路径而不是“未授权”，并且这台 Mac
+            上用过这些工具。
+          </p>
+
+          <h3>提示“需要授权整个 ~/.claude 文件夹”</h3>
+          <p>
+            你授权的是 <code>~/.claude</code> 里面的 projects 文件夹。用量照常能看，但精确状态要用到 <code>~/.claude</code>
+            本身：在设置 → 数据来源里点“更换…”，选 <code>~/.claude</code>。
+          </p>
+
+          <h3>怎么让它在等我确认时提醒我</h3>
+          <p>
+            开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进
+            <code>~/.claude/settings.json</code>；也可以点“打开 settings.json”自己粘贴进去。之后新开的会话生效。这些 hook
+            只用系统自带的 <code>sh</code> 把事件写进 <code>~/.claude/buddy/events.jsonl</code>，不联网。Code Buddy
+            自己不会改动 settings.json。
+          </p>
+
+          <h3>怎么关掉精确状态</h3>
+          <p>
+            设置 → 精确状态 → 复制关闭指令，同样粘贴给 Claude Code；或者自己从 settings.json 里删掉命令中含有
+            <code>buddy/events.jsonl</code> 的 hook。
+          </p>
+
+          <h3>费用准吗</h3>
+          <p>费用按公开的 API 价格估算，不是账单。如果你用的是订阅套餐，只能当作参考。</p>
+
+          <h3>桌面浮窗</h3>
+          <p>设置 → 桌面浮窗：显示或隐藏，大、中、小三种尺寸，拖到哪里都行。“预览所有表情”会把六种表情播一遍。</p>
+
+          <h3>开机自动启动</h3>
+          <p>设置 → 通用 → 登录时启动。默认关闭。</p>
+
+          <h3>卸载</h3>
+          <p>
+            在面板里点“退出 Code Buddy”，再把它从“应用程序”拖到废纸篓。开启过精确状态的话，先按上面的方法关掉，再删除
+            <code>~/.claude/buddy</code> 文件夹。
+          </p>
+
+          <h2>隐私</h2>
+          <p>Code Buddy 不收集任何数据，没有联网权限。详见<a href="/zh/code-buddy/privacy.html">隐私政策</a>。</p>
+
+          <h2>联系</h2>
+          <p><a href="mailto:tonybingpoon@gmail.com?subject=Code%20Buddy">tonybingpoon@gmail.com</a></p>
+
+          <p class="doc-fine">
+            Code Buddy 由独立开发者制作，与 Anthropic、OpenAI、xAI、Anysphere 没有关联。Claude Code 是 Anthropic 的商标，Codex 是 OpenAI 的商标，Grok 是 xAI 的商标，Cursor 是 Anysphere 的商标。
+          </p>
+          </section>
+        </div>
+      </div>
     </main>
 
     <footer class="site-footer">
@@ -229,6 +376,8 @@
         </div>
       </div>
     </footer>
+    <script src="/code-buddy/face.js?v=20261103b"></script>
+    <script src="/code-buddy/cb.js?v=20261103b"></script>
     <script src="/analytics.js?v=20261022"></script>
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
   </body>
