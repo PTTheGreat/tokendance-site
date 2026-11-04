@@ -191,98 +191,10 @@
   const sceneScripts = {
     e15: { 0: e15Rhythm, 1: e15Typing },
     goldie: { 1: goldieSeizure, 2: goldieDays },
+    cbx: { 0: cbxMenu, 1: cbxTurn, 2: cbxAgents, 3: cbxSpend },
   };
 
-  // ---------- Product stories: swipe sideways, tap a dot or use the arrows ----------
-  // Scrolling the page never changes the step, so you can scroll straight
-  // past a product without stepping through every scene.
-  const L = zh
-    ? { prev: "上一条", next: "下一条", step: (i) => `第 ${i} 条` }
-    : { prev: "Previous", next: "Next", step: (i) => `Step ${i}` };
-  $$("[data-story]").forEach((section) => {
-    const name = section.dataset.story;
-    const box = $(".stage-box", section);
-    const steps = $$(".story-steps li", section);
-    const nav = $(".story-dots", section);
-    const n = steps.length;
-    const run = runner();
-    let idx = -1;
-
-    nav.removeAttribute("aria-hidden");
-    nav.textContent = "";
-    const btn = (cls, label, text) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = cls;
-      b.setAttribute("aria-label", label);
-      if (text) b.textContent = text;
-      nav.appendChild(b);
-      return b;
-    };
-    const prev = btn("story-arrow prev", L.prev, "‹");
-    const dots = steps.map((_, i) => btn("dot", L.step(i + 1)));
-    const next = btn("story-arrow next", L.next, "›");
-
-    function go(i) {
-      i = Math.max(0, Math.min(n - 1, i));
-      if (i === idx) return;
-      idx = i;
-      box.dataset.scene = String(i);
-      steps.forEach((li, k) => li.classList.toggle("is-on", k === i));
-      dots.forEach((d, k) => {
-        d.classList.toggle("is-on", k === i);
-        d.setAttribute("aria-current", k === i ? "step" : "false");
-      });
-      prev.disabled = i === 0;
-      next.disabled = i === n - 1;
-      const script = sceneScripts[name][i];
-      run(script ? (alive) => script(alive) : () => {});
-    }
-    prev.addEventListener("click", () => go(idx - 1));
-    next.addEventListener("click", () => go(idx + 1));
-    dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
-
-    // Touch: a mostly sideways swipe changes the step; anything else scrolls.
-    const area = $(".story-sticky", section);
-    let x0 = null, y0 = 0;
-    area.addEventListener("touchstart", (e) => {
-      if (e.touches.length !== 1) { x0 = null; return; }
-      x0 = e.touches[0].clientX;
-      y0 = e.touches[0].clientY;
-    }, { passive: true });
-    area.addEventListener("touchend", (e) => {
-      if (x0 === null) return;
-      const t = e.changedTouches[0];
-      const dx = t.clientX - x0, dy = t.clientY - y0;
-      x0 = null;
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) go(idx + (dx < 0 ? 1 : -1));
-    }, { passive: true });
-
-    // Trackpad: a sideways two-finger swipe changes the step once per gesture.
-    let acc = 0, lock = 0;
-    area.addEventListener("wheel", (e) => {
-      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
-      e.preventDefault(); // keep the browser from treating it as "back"
-      const now = performance.now();
-      if (now < lock) return;
-      acc += e.deltaX;
-      if (Math.abs(acc) > 50) {
-        go(idx + (acc > 0 ? 1 : -1));
-        acc = 0;
-        lock = now + 650;
-      }
-    }, { passive: false });
-
-    // Arrow keys while the step controls have focus.
-    nav.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") { go(idx + 1); e.preventDefault(); }
-      if (e.key === "ArrowLeft") { go(idx - 1); e.preventDefault(); }
-    });
-
-    go(0);
-  });
-
-  // ---------- Looping demos for the apps still in development ----------
+  // ---------- Code Buddy's face ----------
   // Code Buddy's face, ported from Buddy/macos/character (v5). The head is a
   // unit sphere: the eyes sit on its surface, so turning slides them across
   // the face and squeezes the far one. Every eye shape is one round-capped
@@ -613,17 +525,251 @@
     }
   }
 
-  const demos = { codebuddy: codeBuddy };
-  $$("[data-demo]").forEach((el) => {
-    const run = runner();
+  // ---------- Code Buddy story scenes ----------
+  const cbxT = zh
+    ? {
+        cap: { idle: "空闲", working: "Claude Code 在干活", waiting: "Claude Code 在等你", done: "做完了，回来看看" },
+        term: [
+          ["cmd", "&gt; 给设置页加上深色模式", "working", 1300],
+          ["run", "⏺ 读取 src/settings.tsx", null, 1000],
+          ["run", "⏺ 修改 src/theme.ts", null, 900],
+          ["ask", "允许修改 src/theme.ts 吗？<br />❯ 1. 允许&nbsp;&nbsp; 2. 拒绝", "waiting", 3200],
+          ["cmd", "&gt; 1", "working", 1300],
+          ["run", "⏺ 运行 npm test", null, 1200],
+          ["ok", "✓ 12 个测试通过", "done", 3800],
+        ],
+        state: { idle: "空闲", working: "干活", waiting: "等你", done: "完成", error: "出错" },
+        why: (a, s) => `${a} ${{ waiting: "在等你", done: "做完了", error: "出错了", working: "在干活", idle: "没动静" }[s]}`,
+        busy: (n) => `${n} 个在忙`,
+      }
+    : {
+        cap: { idle: "Idle", working: "Claude Code is working", waiting: "Claude Code needs you", done: "Done. Come back and look." },
+        term: [
+          ["cmd", "&gt; add dark mode to the settings page", "working", 1300],
+          ["run", "⏺ Read src/settings.tsx", null, 1000],
+          ["run", "⏺ Edit src/theme.ts", null, 900],
+          ["ask", "Allow edit to src/theme.ts?<br />❯ 1. Yes&nbsp;&nbsp; 2. No", "waiting", 3200],
+          ["cmd", "&gt; 1", "working", 1300],
+          ["run", "⏺ Run npm test", null, 1200],
+          ["ok", "✓ 12 tests passed", "done", 3800],
+        ],
+        state: { idle: "Idle", working: "Working", waiting: "Waiting", done: "Done", error: "Error" },
+        why: (a, s) => `${a} ${{ waiting: "needs you", done: "is done", error: "hit an error", working: "is working", idle: "is idle" }[s]}`,
+        busy: (n) => `${n} busy`,
+      };
+  const cbxFaces = new Map();
+  const faceFor = (svg) => {
+    if (!cbxFaces.has(svg)) cbxFaces.set(svg, new BuddyFace(svg));
+    return cbxFaces.get(svg);
+  };
+  // Animate faces while `alive`; with reduced motion, settle them once.
+  function animateFaces(faces, alive) {
     if (reduced) {
-      codeBuddy(el, () => true);
+      faces.forEach((f) => { for (let i = 0; i < 40; i++) f.step(i * 0.03, 0.03); });
       return;
     }
+    let last = performance.now();
+    const frame = (now) => {
+      if (!alive()) return;
+      const dt = Math.min(0.033, (now - last) / 1000);
+      last = now;
+      faces.forEach((f) => f.step(now / 1000, dt));
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  function cbxMenu(alive) {
+    const el = $("#cbx-menu");
+    if (el) codeBuddy(el, alive);
+  }
+
+  async function cbxTurn(alive) {
+    const list = $("#cbx-term");
+    if (!list) return;
+    const cap = $("#cbx-cap");
+    const who = cap.parentNode;
+    const face = faceFor($(".cbx-face", who));
+    const set = (s) => {
+      face.set(s);
+      who.className = `cbx-who st-${s}`;
+      cap.textContent = cbxT.cap[s];
+    };
+    const add = (kind, html) => {
+      const li = document.createElement("li");
+      li.className = kind;
+      li.innerHTML = html;
+      list.appendChild(li);
+    };
+    if (reduced) {
+      list.textContent = "";
+      cbxT.term.slice(0, 4).forEach(([k, h]) => add(k, h));
+      set("waiting");
+      animateFaces([face], alive);
+      return;
+    }
+    animateFaces([face], alive);
+    while (alive()) {
+      list.textContent = "";
+      set("idle");
+      await sleep(700);
+      for (const [kind, html, state, wait] of cbxT.term) {
+        if (!alive()) return;
+        add(kind, html);
+        if (state) set(state);
+        await sleep(wait);
+      }
+    }
+  }
+
+  async function cbxAgents(alive) {
+    const box = $(".cbx-box .s2");
+    if (!box) return;
+    const face = faceFor($(".cbx-face", box));
+    const rows = $$(".cbx-agents li", box);
+    const why = $("#cbx-why");
+    const busy = $("#cbx-busy");
+    const RANK = { waiting: 5, error: 4, done: 3, working: 2, idle: 1 };
+    // states for Claude Code, Codex, Grok, Cursor at each beat
+    const beats = [
+      ["working", "working", "idle", "done"],
+      ["working", "working", "waiting", "done"],
+      ["working", "done", "working", "idle"],
+      ["waiting", "done", "working", "working"],
+      ["working", "idle", "working", "working"],
+      ["done", "idle", "working", "working"],
+    ];
+    const show = (b) => {
+      let pick = 0;
+      b.forEach((s, i) => {
+        rows[i].className = `st-${s}`;
+        $("span", rows[i]).textContent = `${cbxT.state[s]} · ${rows[i].dataset.project}`;
+        if (RANK[s] > RANK[b[pick]]) pick = i;
+      });
+      rows[pick].classList.add("pick");
+      face.set(b[pick]);
+      why.textContent = cbxT.why(rows[pick].dataset.name, b[pick]);
+      busy.textContent = cbxT.busy(b.filter((s) => s === "working" || s === "waiting").length);
+    };
+    animateFaces([face], alive);
+    if (reduced) { show(beats[1]); return; }
+    while (alive())
+      for (const b of beats) {
+        if (!alive()) return;
+        show(b);
+        await sleep(2600);
+      }
+  }
+
+  async function cbxSpend(alive) {
+    const el = $("#cbx-spend");
+    if (!el) return;
+    const to = 18.62;
+    if (reduced) { el.textContent = "$" + to.toFixed(2); return; }
+    const n = 30;
+    for (let i = 0; i <= n && alive(); i++) {
+      el.textContent = "$" + ((to * i) / n).toFixed(2);
+      await sleep(28);
+    }
+  }
+
+  // ---------- Product stories: swipe sideways, tap a dot or use the arrows ----------
+  // Scrolling the page never changes the step, so you can scroll straight
+  // past a product without stepping through every scene.
+  const L = zh
+    ? { prev: "上一条", next: "下一条", step: (i) => `第 ${i} 条` }
+    : { prev: "Previous", next: "Next", step: (i) => `Step ${i}` };
+  $$("[data-story]").forEach((section) => {
+    const name = section.dataset.story;
+    const box = $(".stage-box", section);
+    const steps = $$(".story-steps li", section);
+    const nav = $(".story-dots", section);
+    const n = steps.length;
+    const run = runner();
+    let idx = -1;
+
+    nav.removeAttribute("aria-hidden");
+    nav.textContent = "";
+    const btn = (cls, label, text) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = cls;
+      b.setAttribute("aria-label", label);
+      if (text) b.textContent = text;
+      nav.appendChild(b);
+      return b;
+    };
+    const prev = btn("story-arrow prev", L.prev, "‹");
+    const dots = steps.map((_, i) => btn("dot", L.step(i + 1)));
+    const next = btn("story-arrow next", L.next, "›");
+
+    function go(i) {
+      i = Math.max(0, Math.min(n - 1, i));
+      if (i === idx) return;
+      idx = i;
+      box.dataset.scene = String(i);
+      steps.forEach((li, k) => li.classList.toggle("is-on", k === i));
+      dots.forEach((d, k) => {
+        d.classList.toggle("is-on", k === i);
+        d.setAttribute("aria-current", k === i ? "step" : "false");
+      });
+      prev.disabled = i === 0;
+      next.disabled = i === n - 1;
+      play();
+    }
+    // Scene scripts run only while the section is on screen.
+    let visible = false;
+    function play() {
+      const script = visible && sceneScripts[name][idx];
+      run(script ? (alive) => script(alive) : () => {});
+    }
     new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) run((alive) => demos[el.dataset.demo](el, alive));
-      else run(() => {});
-    }, { threshold: 0.35 }).observe(el);
+      if (e.isIntersecting === visible) return;
+      visible = e.isIntersecting;
+      play();
+    }, { rootMargin: "120px 0px" }).observe(section);
+    prev.addEventListener("click", () => go(idx - 1));
+    next.addEventListener("click", () => go(idx + 1));
+    dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
+
+    // Touch: a mostly sideways swipe changes the step; anything else scrolls.
+    const area = $(".story-sticky", section);
+    let x0 = null, y0 = 0;
+    area.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) { x0 = null; return; }
+      x0 = e.touches[0].clientX;
+      y0 = e.touches[0].clientY;
+    }, { passive: true });
+    area.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - x0, dy = t.clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) go(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    // Trackpad: a sideways two-finger swipe changes the step once per gesture.
+    let acc = 0, lock = 0;
+    area.addEventListener("wheel", (e) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault(); // keep the browser from treating it as "back"
+      const now = performance.now();
+      if (now < lock) return;
+      acc += e.deltaX;
+      if (Math.abs(acc) > 50) {
+        go(idx + (acc > 0 ? 1 : -1));
+        acc = 0;
+        lock = now + 650;
+      }
+    }, { passive: false });
+
+    // Arrow keys while the step controls have focus.
+    nav.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { go(idx + 1); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { go(idx - 1); e.preventDefault(); }
+    });
+
+    go(0);
   });
 
   if (reduced) return;
