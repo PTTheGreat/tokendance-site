@@ -21,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="/styles.css?v=20261104a" />
+    <link rel="stylesheet" href="/styles.css?v=20261104b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -181,7 +181,7 @@
         <nav aria-label="主导航">
           <a href="#every15min">every15min</a>
           <a href="#goldie">守守</a>
-          <a href="#coming">Code Buddy</a>
+          <a href="#code-buddy">Code Buddy</a>
           <a href="#about">关于</a>
         </nav>
         <a class="lang" href="/" hreflang="en" lang="en">EN</a>
@@ -358,32 +358,78 @@
             </div>
           </div>
         </section>
-      </div>
 
-      <section class="coming" id="coming" aria-labelledby="coming-title">
-        <div class="wrap">
-          <h2 id="coming-title" data-split>Mac 上的</h2>
-          <div class="coming-list">
-            <article class="demo-card" id="code-buddy" data-reveal>
-              <div class="demo cb" data-demo="codebuddy" aria-hidden="true">
-                <div class="cb-menubar"><span class="cb-apple"></span><span>Terminal</span><span class="cb-right"><svg class="cb-icon" viewBox="0 0 200 200"></svg><span id="cb-status">Claude Code · working</span><span class="cb-ctx" id="cb-ctx">CTX 34%</span></span></div>
-                <div class="cb-device">
-                  <svg class="cb-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" class="cb-ring-bg" /><circle cx="100" cy="100" r="92" class="cb-ring-fg" id="cb-ring" /></svg>
-                  <svg class="cb-face" viewBox="0 0 200 200"></svg>
-                  <p class="cb-label" id="cb-label">正在工作</p>
-                  <span class="cb-z">z</span>
-                  <span class="cb-tap"></span>
+        <!-- Code Buddy: four scenes, changed by swiping sideways -->
+        <section class="story cbx" id="code-buddy" data-story="cbx" aria-labelledby="t-code-buddy">
+          <div class="story-track" id="coming" style="--n: 4">
+            <div class="story-sticky">
+              <div class="wrap story-grid">
+                <div class="story-copy">
+                  <p class="story-kicker">编程助手状态 · Mac · 已上架</p>
+                  <h2 id="t-code-buddy">Code Buddy</h2>
+                  <ol class="story-steps">
+                    <li class="is-on"><h3>助手在忙什么，看一眼就知道</h3><p>菜单栏里有一张小圆脸，桌面上还有个大的。看它的表情就知道助手在干活、在等你，还是做完了。</p></li>
+                    <li><h3>需要你的时候，它会抬头看你</h3><p>Claude Code 停下来等你批准时，小圆脸马上抬头看你，不用每分钟去翻终端。</p></li>
+                    <li><h3>四个助手，一张脸</h3><p>Claude Code、Codex、Grok、Cursor 可以同时开。小圆脸显示最需要你的那个，菜单栏显示有几个在忙。</p></li>
+                    <li><h3>用量和花费，按工具分开算</h3><p>今天、7 天、30 天的 token 和估算花费按工具分开列，还能看 Codex 的额度。Cursor 只显示状态。</p></li>
+                  </ol>
+                  <div class="story-cta">
+                    <a class="btn btn-light magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">在 Mac App Store 下载</a>
+                    <a class="btn btn-ghost-dark magnetic" href="/zh/code-buddy/">了解更多</a>
+                  </div>
+                  <p class="story-fine">免费 · macOS 14 或更新版本 · 只读本机日志，不联网 · 中国大陆区暂未上架。动画里的数字只是示例。</p>
+                  <div class="story-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="stage" aria-hidden="true">
+                  <div class="stage-box cbx-box" data-scene="0">
+                    <div class="s s0">
+                      <div class="demo cb" id="cbx-menu">
+                        <div class="cb-menubar"><span class="cb-apple"></span><span>Terminal</span><span class="cb-right"><svg class="cb-icon" viewBox="0 0 200 200"></svg><span id="cb-status">Claude Code · working</span><span class="cb-ctx" id="cb-ctx">CTX 34%</span></span></div>
+                        <div class="cb-device">
+                          <svg class="cb-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" class="cb-ring-bg" /><circle cx="100" cy="100" r="92" class="cb-ring-fg" id="cb-ring" /></svg>
+                          <svg class="cb-face" viewBox="0 0 200 200"></svg>
+                          <p class="cb-label" id="cb-label">正在工作</p>
+                          <span class="cb-z">z</span>
+                          <span class="cb-tap"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="s s1">
+                      <div class="cbx-term">
+                        <p class="cbx-bar"><i></i><i></i><i></i><span>终端 — buddy</span></p>
+                        <ol id="cbx-term"></ol>
+                      </div>
+                      <div class="cbx-who"><svg class="cbx-face" viewBox="0 0 200 200"></svg><p id="cbx-cap"></p></div>
+                    </div>
+
+                    <div class="s s2">
+                      <div class="cbx-pick"><span class="cbx-busy" id="cbx-busy"></span><svg class="cbx-face" viewBox="0 0 200 200"></svg><p id="cbx-why"></p></div>
+                      <ul class="cbx-agents">
+                        <li data-name="Claude Code" data-project="buddy"><i></i><b>Claude Code</b><span></span></li>
+                        <li data-name="Codex" data-project="api"><i></i><b>Codex</b><span></span></li>
+                        <li data-name="Grok" data-project="site"><i></i><b>Grok</b><span></span></li>
+                        <li data-name="Cursor" data-project="app"><i></i><b>Cursor</b><span></span></li>
+                      </ul>
+                    </div>
+
+                    <div class="s s3">
+                      <p class="cbx-label">今天 · 估算花费</p>
+                      <p class="cbx-spend" id="cbx-spend">$0.00</p>
+                      <p class="cbx-split">Claude Code $17.32 · Codex $1.30 · Grok $0.00</p>
+                      <div class="cbx-bars"><i style="--h: 40%"></i><i style="--h: 8%"></i><i style="--h: 22%"></i><i style="--h: 38%"></i><i style="--h: 66%"></i><i style="--h: 44%"></i><i style="--h: 72%"></i></div>
+                      <div class="cbx-meter"><p><span>Codex · 5 小时额度</span><b>42%</b></p><div><i style="--w: 42%"></i></div></div>
+                      <div class="cbx-meter"><p><span>Codex · 每周额度</span><b>18%</b></p><div><i style="--w: 18%"></i></div></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <h3><a href="/zh/code-buddy/">Code Buddy</a></h3>
-              <p>住在 Mac 菜单栏里的一张小圆脸，陪你用 Claude Code、Codex、Grok 和 Cursor 写代码。看它的表情就知道助手在干活、在等你确认还是已经做完；面板里还能看 token 用量和估算花费。全部在本机完成，不联网。</p>
-              <p class="card-cta"><a class="btn btn-dark magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">在 Mac App Store 下载</a><span>中国大陆区暂未上架</span></p>
-              <p class="card-links"><a href="/zh/code-buddy/">了解更多</a><a href="/zh/code-buddy/#help">使用帮助</a><a href="/zh/code-buddy/privacy.html">隐私政策</a></p>
-              <span class="tag">免费 · macOS 14 或更新版本</span>
-            </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+
 
       <section class="about" id="about" aria-labelledby="about-title">
         <div class="wrap about-cols">
@@ -417,6 +463,6 @@
     </footer>
     <script src="/analytics.js?v=20261022"></script>
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
-    <script src="/app.js?v=20261104a" defer></script>
+    <script src="/app.js?v=20261104b" defer></script>
   </body>
 </html>

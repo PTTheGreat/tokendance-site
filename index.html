@@ -21,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="/styles.css?v=20261104a" />
+    <link rel="stylesheet" href="/styles.css?v=20261104b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -181,7 +181,7 @@
         <nav aria-label="Main">
           <a href="#every15min">every15min</a>
           <a href="#goldie">Goldie</a>
-          <a href="#coming">Code Buddy</a>
+          <a href="#code-buddy">Code Buddy</a>
           <a href="#about">About</a>
         </nav>
         <a class="lang" href="/zh/" hreflang="zh-CN" lang="zh-CN">中文</a>
@@ -358,32 +358,78 @@
             </div>
           </div>
         </section>
-      </div>
 
-      <section class="coming" id="coming" aria-labelledby="coming-title">
-        <div class="wrap">
-          <h2 id="coming-title" data-split>For your Mac</h2>
-          <div class="coming-list">
-            <article class="demo-card" id="code-buddy" data-reveal>
-              <div class="demo cb" data-demo="codebuddy" aria-hidden="true">
-                <div class="cb-menubar"><span class="cb-apple"></span><span>Terminal</span><span class="cb-right"><svg class="cb-icon" viewBox="0 0 200 200"></svg><span id="cb-status">Claude Code · working</span><span class="cb-ctx" id="cb-ctx">CTX 34%</span></span></div>
-                <div class="cb-device">
-                  <svg class="cb-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" class="cb-ring-bg" /><circle cx="100" cy="100" r="92" class="cb-ring-fg" id="cb-ring" /></svg>
-                  <svg class="cb-face" viewBox="0 0 200 200"></svg>
-                  <p class="cb-label" id="cb-label">Working</p>
-                  <span class="cb-z">z</span>
-                  <span class="cb-tap"></span>
+        <!-- Code Buddy: four scenes, changed by swiping sideways -->
+        <section class="story cbx" id="code-buddy" data-story="cbx" aria-labelledby="t-code-buddy">
+          <div class="story-track" id="coming" style="--n: 4">
+            <div class="story-sticky">
+              <div class="wrap story-grid">
+                <div class="story-copy">
+                  <p class="story-kicker">Agent status · Mac · On the App Store</p>
+                  <h2 id="t-code-buddy">Code Buddy</h2>
+                  <ol class="story-steps">
+                    <li class="is-on"><h3>Your agent, at a glance</h3><p>A small face in the menu bar, and a bigger one on your desktop, shows whether the agent is working, waiting for you or done.</p></li>
+                    <li><h3>It looks up when you're needed</h3><p>When Claude Code stops to ask for approval, the face looks right at you. No more checking the terminal every minute.</p></li>
+                    <li><h3>Four agents, one face</h3><p>Claude Code, Codex, Grok and Cursor can all run at once. The face shows whichever needs you most, and the menu bar counts how many are busy.</p></li>
+                    <li><h3>Tokens and spend, by tool</h3><p>Today, 7 days or 30 days of tokens and estimated spend for each tool, plus your Codex limits. Cursor shows status only.</p></li>
+                  </ol>
+                  <div class="story-cta">
+                    <a class="btn btn-light magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">Download for Mac</a>
+                    <a class="btn btn-ghost-dark magnetic" href="/code-buddy/">Learn more</a>
+                  </div>
+                  <p class="story-fine">Free · macOS 14 or later · Reads local logs only, nothing leaves your Mac. Numbers in the animation are examples.</p>
+                  <div class="story-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="stage" aria-hidden="true">
+                  <div class="stage-box cbx-box" data-scene="0">
+                    <div class="s s0">
+                      <div class="demo cb" id="cbx-menu">
+                        <div class="cb-menubar"><span class="cb-apple"></span><span>Terminal</span><span class="cb-right"><svg class="cb-icon" viewBox="0 0 200 200"></svg><span id="cb-status">Claude Code · working</span><span class="cb-ctx" id="cb-ctx">CTX 34%</span></span></div>
+                        <div class="cb-device">
+                          <svg class="cb-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" class="cb-ring-bg" /><circle cx="100" cy="100" r="92" class="cb-ring-fg" id="cb-ring" /></svg>
+                          <svg class="cb-face" viewBox="0 0 200 200"></svg>
+                          <p class="cb-label" id="cb-label">Working</p>
+                          <span class="cb-z">z</span>
+                          <span class="cb-tap"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="s s1">
+                      <div class="cbx-term">
+                        <p class="cbx-bar"><i></i><i></i><i></i><span>Terminal — buddy</span></p>
+                        <ol id="cbx-term"></ol>
+                      </div>
+                      <div class="cbx-who"><svg class="cbx-face" viewBox="0 0 200 200"></svg><p id="cbx-cap"></p></div>
+                    </div>
+
+                    <div class="s s2">
+                      <div class="cbx-pick"><span class="cbx-busy" id="cbx-busy"></span><svg class="cbx-face" viewBox="0 0 200 200"></svg><p id="cbx-why"></p></div>
+                      <ul class="cbx-agents">
+                        <li data-name="Claude Code" data-project="buddy"><i></i><b>Claude Code</b><span></span></li>
+                        <li data-name="Codex" data-project="api"><i></i><b>Codex</b><span></span></li>
+                        <li data-name="Grok" data-project="site"><i></i><b>Grok</b><span></span></li>
+                        <li data-name="Cursor" data-project="app"><i></i><b>Cursor</b><span></span></li>
+                      </ul>
+                    </div>
+
+                    <div class="s s3">
+                      <p class="cbx-label">Today · estimated spend</p>
+                      <p class="cbx-spend" id="cbx-spend">$0.00</p>
+                      <p class="cbx-split">Claude Code $17.32 · Codex $1.30 · Grok $0.00</p>
+                      <div class="cbx-bars"><i style="--h: 40%"></i><i style="--h: 8%"></i><i style="--h: 22%"></i><i style="--h: 38%"></i><i style="--h: 66%"></i><i style="--h: 44%"></i><i style="--h: 72%"></i></div>
+                      <div class="cbx-meter"><p><span>Codex · 5-hour limit</span><b>42%</b></p><div><i style="--w: 42%"></i></div></div>
+                      <div class="cbx-meter"><p><span>Codex · weekly limit</span><b>18%</b></p><div><i style="--w: 18%"></i></div></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <h3><a href="/code-buddy/">Code Buddy</a></h3>
-              <p>A small face in your Mac menu bar for coding with Claude Code, Codex, Grok and Cursor. Its expression tells you whether the agent is working, waiting for your approval or done, and the panel shows token usage and estimated spend. It all runs on your Mac with no network access.</p>
-              <p class="card-cta"><a class="btn btn-dark magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">Download for Mac</a><span>Free on the Mac App Store</span></p>
-              <p class="card-links"><a href="/code-buddy/">Learn more</a><a href="/code-buddy/#help">Help</a><a href="/code-buddy/privacy.html">Privacy</a></p>
-              <span class="tag">macOS 14 or later</span>
-            </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+
 
       <section class="about" id="about" aria-labelledby="about-title">
         <div class="wrap about-cols">
@@ -417,6 +463,6 @@
     </footer>
     <script src="/analytics.js?v=20261022"></script>
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
-    <script src="/app.js?v=20261104a" defer></script>
+    <script src="/app.js?v=20261104b" defer></script>
   </body>
 </html>
