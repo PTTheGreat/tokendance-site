@@ -421,20 +421,21 @@ dd {
   }
 }
 
-/* ---------- Scroll stories ---------- */
+/* ---------- Product stories ----------
+   Scrolling down passes straight through. The steps change only when you
+   swipe sideways, use the arrows or tap a dot. */
 .story-track {
   position: relative;
-  height: calc((var(--n) + 0.6) * 100vh);
 }
 
 .story-sticky {
-  position: sticky;
-  top: 0;
   display: grid;
   align-items: center;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 112px 0 96px;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 .story-grid {
@@ -506,22 +507,87 @@ dd {
 
 .story-dots {
   display: flex;
+  align-items: center;
   gap: 8px;
   margin-top: 32px;
 }
 
-.story-dots i {
+.story-dots i,
+.story-dots .dot {
   width: 8px;
   height: 8px;
+  padding: 0;
+  border: 0;
   border-radius: 4px;
   background: currentColor;
   opacity: 0.2;
   transition: width 0.4s var(--ease), opacity 0.4s;
 }
 
-.story-dots i.is-on {
+.story-dots .dot {
+  position: relative;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* a bigger hit area than the dot itself */
+.story-dots .dot::after {
+  content: "";
+  position: absolute;
+  inset: -12px -4px;
+}
+
+.story-dots i.is-on,
+.story-dots .dot.is-on {
   width: 28px;
   opacity: 0.9;
+}
+
+.story-dots .dot:hover {
+  opacity: 0.5;
+}
+
+.story-dots .dot.is-on:hover {
+  opacity: 0.9;
+}
+
+.story-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s var(--ease);
+}
+
+.story-arrow:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.story-arrow:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.story-arrow:disabled {
+  opacity: 0.15;
+  cursor: default;
+}
+
+.story-arrow.prev {
+  margin-right: 8px;
+}
+
+.story-arrow.next {
+  margin-left: 8px;
 }
 
 /* stage: a fixed 440×500 canvas scaled to fit */
@@ -1842,13 +1908,24 @@ dd {
     gap: 48px;
   }
   .story-sticky {
-    align-items: start;
-    padding-top: 76px;
+    min-height: 0;
+    padding: 88px 0 72px;
   }
   .story-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
+    gap: 0;
   }
+  /* phone order: title, step text, picture, arrows, download */
+  .story-copy {
+    display: contents;
+  }
+  .story-kicker { order: 1; }
+  .story h2 { order: 2; }
+  .story-steps { order: 3; }
+  .story .stage { order: 4; margin-top: 20px; }
+  .story-dots { order: 5; justify-content: center; }
+  .story-cta { order: 6; justify-content: center; }
+  .story-fine { order: 7; text-align: center; }
   .story h2 {
     font-size: 34px;
   }
@@ -1862,16 +1939,15 @@ dd {
     margin-top: 4px;
     font-size: 15px;
   }
-  .story-cta,
-  .story-fine {
-    display: none;
+  .story-cta {
+    margin-top: 24px;
   }
   .story-dots {
-    margin-top: 14px;
+    margin-top: 18px;
   }
   .stage {
     justify-self: center;
-    width: min(100%, calc((100svh - 330px) * 0.88));
+    width: min(100%, 380px);
   }
   .coming-list {
     grid-template-columns: 1fr;

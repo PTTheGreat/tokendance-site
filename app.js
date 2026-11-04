@@ -193,35 +193,94 @@
     goldie: { 1: goldieSeizure, 2: goldieDays },
   };
 
-  // ---------- Scroll stories: progress through the track picks the scene ----------
-  const stories = $$("[data-story]").map((section) => ({
-    name: section.dataset.story,
-    track: $(".story-track", section),
-    box: $(".stage-box", section),
-    steps: $$(".story-steps li", section),
-    dots: $$(".story-dots i", section),
-    scene: -1,
-    run: runner(),
-  }));
+  // ---------- Product stories: swipe sideways, tap a dot or use the arrows ----------
+  // Scrolling the page never changes the step, so you can scroll straight
+  // past a product without stepping through every scene.
+  const L = zh
+    ? { prev: "上一条", next: "下一条", step: (i) => `第 ${i} 条` }
+    : { prev: "Previous", next: "Next", step: (i) => `Step ${i}` };
+  $$("[data-story]").forEach((section) => {
+    const name = section.dataset.story;
+    const box = $(".stage-box", section);
+    const steps = $$(".story-steps li", section);
+    const nav = $(".story-dots", section);
+    const n = steps.length;
+    const run = runner();
+    let idx = -1;
 
-  function onStories() {
-    for (const st of stories) {
-      const r = st.track.getBoundingClientRect();
-      const n = st.steps.length;
-      const p = Math.min(Math.max(-r.top / (r.height - innerHeight), 0), 0.999);
-      const idx = Math.min(n - 1, Math.floor(p * n));
-      if (idx === st.scene) continue;
-      st.scene = idx;
-      st.box.dataset.scene = String(idx);
-      st.steps.forEach((li, i) => li.classList.toggle("is-on", i === idx));
-      st.dots.forEach((d, i) => d.classList.toggle("is-on", i === idx));
-      const script = sceneScripts[st.name][idx];
-      st.run(script ? (alive) => script(alive) : () => {});
+    nav.removeAttribute("aria-hidden");
+    nav.textContent = "";
+    const btn = (cls, label, text) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = cls;
+      b.setAttribute("aria-label", label);
+      if (text) b.textContent = text;
+      nav.appendChild(b);
+      return b;
+    };
+    const prev = btn("story-arrow prev", L.prev, "‹");
+    const dots = steps.map((_, i) => btn("dot", L.step(i + 1)));
+    const next = btn("story-arrow next", L.next, "›");
+
+    function go(i) {
+      i = Math.max(0, Math.min(n - 1, i));
+      if (i === idx) return;
+      idx = i;
+      box.dataset.scene = String(i);
+      steps.forEach((li, k) => li.classList.toggle("is-on", k === i));
+      dots.forEach((d, k) => {
+        d.classList.toggle("is-on", k === i);
+        d.setAttribute("aria-current", k === i ? "step" : "false");
+      });
+      prev.disabled = i === 0;
+      next.disabled = i === n - 1;
+      const script = sceneScripts[name][i];
+      run(script ? (alive) => script(alive) : () => {});
     }
-  }
-  addEventListener("scroll", onStories, { passive: true });
-  addEventListener("resize", onStories);
-  onStories();
+    prev.addEventListener("click", () => go(idx - 1));
+    next.addEventListener("click", () => go(idx + 1));
+    dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
+
+    // Touch: a mostly sideways swipe changes the step; anything else scrolls.
+    const area = $(".story-sticky", section);
+    let x0 = null, y0 = 0;
+    area.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) { x0 = null; return; }
+      x0 = e.touches[0].clientX;
+      y0 = e.touches[0].clientY;
+    }, { passive: true });
+    area.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - x0, dy = t.clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) go(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    // Trackpad: a sideways two-finger swipe changes the step once per gesture.
+    let acc = 0, lock = 0;
+    area.addEventListener("wheel", (e) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault(); // keep the browser from treating it as "back"
+      const now = performance.now();
+      if (now < lock) return;
+      acc += e.deltaX;
+      if (Math.abs(acc) > 50) {
+        go(idx + (acc > 0 ? 1 : -1));
+        acc = 0;
+        lock = now + 650;
+      }
+    }, { passive: false });
+
+    // Arrow keys while the step controls have focus.
+    nav.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { go(idx + 1); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { go(idx - 1); e.preventDefault(); }
+    });
+
+    go(0);
+  });
 
   // ---------- Looping demos for the apps still in development ----------
   // Code Buddy's face, ported from Buddy/macos/character (v5). The head is a
