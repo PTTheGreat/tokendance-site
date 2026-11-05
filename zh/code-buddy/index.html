@@ -64,7 +64,7 @@
               "支持 Claude Code、Codex、Grok、Cursor",
               "同时开多个助手时显示最需要你的那个",
               "今天、7 天、30 天的费用、token、请求和缓存命中，按工具分开",
-              "每个会话的上下文占用和 Codex 的 5 小时、每周额度",
+              "每个开着的会话和它的上下文占用，Codex 的 5 小时、每周额度还剩多少",
               "三种风格：原生、伙伴、环境光",
               "桌面浮窗，三种尺寸",
               "只读、不联网、不收集数据"
@@ -126,7 +126,7 @@
                 "name": "怎么让它在等我确认时提醒我",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进 ~/.claude/settings.json；也可以点“打开 settings.json”自己粘贴进去。之后新开的会话生效。这些 hook 只用系统自带的 sh 把事件写进 ~/.claude/buddy/events.jsonl，不联网。Code Buddy 自己不会改动 settings.json。"
+                  "text": "较新版本的 Claude Code 会在自己的会话文件里记下权限确认框，Code Buddy 几秒内就能显示，不用做任何设置。想在确认框出现的一瞬间就收到提醒，就开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进 ~/.claude/settings.json；也可以点“打开 settings.json”自己粘贴进去。之后新开的会话生效。这些 hook 只用系统自带的 sh 把事件写进 ~/.claude/buddy/events.jsonl，不联网。Code Buddy 自己不会改动 settings.json。"
                 }
               },
               {
@@ -189,7 +189,7 @@
 
       <section class="cb-section" id="agents" aria-labelledby="agents-h">
         <div class="cb-wrap">
-          <div class="cb-head cb-reveal"><p class="kicker">同时开好几个</p><h2 id="agents-h">四个助手，一张脸。</h2><p>一个项目里跑 Claude Code，另一个里跑 Grok 也没关系。小圆脸总是显示最需要你的那个，菜单栏显示有几个在忙，每个会话都列出项目名和上下文占用。脚本和机器人跑的会话单独列出，不会让小圆脸跟着变。</p></div>
+          <div class="cb-head cb-reveal"><p class="kicker">同时开好几个</p><h2 id="agents-h">四个助手，一张脸。</h2><p>一个项目里跑 Claude Code，另一个里跑 Grok 也没关系。小圆脸总是显示最需要你的那个，菜单栏和桌面浮窗显示有几个在忙，每个开着的会话都列出项目名和上下文占用，需要你的排在前面。脚本和机器人跑的会话单独列出，不会让小圆脸跟着变。</p></div>
           <div class="cb-card cb-agents-demo cb-reveal" id="cb-agents" aria-hidden="true">
             <div class="who">
               <div class="cb-menubar"><span class="mb-buddy"><svg viewBox="0 0 200 200"></svg><span class="busy"></span></span></div>
@@ -233,9 +233,9 @@
             </div>
             <div class="cb-card cb-meters" id="cb-meters">
             <div class="cb-meter"><p>上下文<span>42% · 还很宽裕</span></p><div class="track"><i data-v="42"></i></div></div>
-            <div class="cb-meter"><p>Codex 5 小时额度<span>35% · 3 小时 33 分后重置</span></p><div class="track"><i data-v="35"></i></div></div>
-            <div class="cb-meter"><p>Codex 每周额度<span>12% · 6 天 20 小时后重置</span></p><div class="track"><i data-v="12"></i></div></div>
-              <p class="cb-note">上下文显示当前会话用了多少，快满时会提醒你。5 小时和每周额度是 Codex 的。Cursor 不在本机记录 token 用量，所以只显示状态。图中数字为示例。</p>
+            <div class="cb-meter"><p>Codex 5 小时<span>剩 65% · 3 小时 33 分后重置</span></p><div class="track"><i data-v="65"></i></div></div>
+            <div class="cb-meter"><p>Codex 每周<span>剩 88% · 6 天 20 小时后重置</span></p><div class="track"><i data-v="88"></i></div></div>
+              <p class="cb-note">上下文显示当前会话用了多少，快满时会提醒你。额度显示 Codex 的 5 小时和每周额度还剩多少。Claude Code 不在本机保存额度，所以 Claude 那一栏给的是打开用量页的链接。Cursor 不在本机记录 token 用量，所以只显示状态。图中数字为示例。</p>
             </div>
           </div>
         </div>
@@ -305,7 +305,7 @@
           <h2>表情是什么意思</h2>
           <ul>
             <li>干活：助手在思考、调用工具、改代码</li>
-            <li>等你：助手停下来等你确认（需要开启精确状态）</li>
+            <li>等你：助手停下来等你确认</li>
             <li>完成：这一轮做完了，可以回来看结果</li>
             <li>出错：请求没有成功</li>
             <li>待机、睡觉：最近没有动静</li>
@@ -320,13 +320,14 @@
 
           <h3>提示“需要授权整个 ~/.claude 文件夹”</h3>
           <p>
-            你授权的是 <code>~/.claude</code> 里面的 projects 文件夹。用量照常能看，但精确状态要用到 <code>~/.claude</code>
+            你授权的是 <code>~/.claude</code> 里面的 projects 文件夹。用量照常能看，但要看到等你批准和用精确状态，都需要 <code>~/.claude</code>
             本身：在设置 → 数据来源里点“更换…”，选 <code>~/.claude</code>。
           </p>
 
           <h3>怎么让它在等我确认时提醒我</h3>
           <p>
-            开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进
+            较新版本的 Claude Code 会在自己的会话文件里记下权限确认框，Code Buddy 几秒内就能显示，不用做任何设置。
+            想在确认框出现的一瞬间就收到提醒，就开启精确状态：设置 → 精确状态 → 复制开启指令，粘贴给 Claude Code，让它帮你把 hook 加进
             <code>~/.claude/settings.json</code>；也可以点“打开 settings.json”自己粘贴进去。之后新开的会话生效。这些 hook
             只用系统自带的 <code>sh</code> 把事件写进 <code>~/.claude/buddy/events.jsonl</code>，不联网。Code Buddy
             自己不会改动 settings.json。
@@ -342,7 +343,7 @@
           <p>费用按公开的 API 价格估算，不是账单。如果你用的是订阅套餐，只能当作参考。</p>
 
           <h3>桌面浮窗</h3>
-          <p>设置 → 桌面浮窗：显示或隐藏，大、中、小三种尺寸，拖到哪里都行。“预览所有表情”会把六种表情播一遍。</p>
+          <p>设置 → 桌面浮窗：显示或隐藏，大、中、小三种尺寸，拖到哪里都行。“预览所有表情”会在按钮旁边把六种表情播一遍，桌面浮窗也跟着变。</p>
 
           <h3>开机自动启动</h3>
           <p>设置 → 通用 → 登录时启动。默认关闭。</p>

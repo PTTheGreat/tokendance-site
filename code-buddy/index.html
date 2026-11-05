@@ -64,7 +64,7 @@
               "Supports Claude Code, Codex, Grok and Cursor",
               "Shows the agent that needs you most when several run at once",
               "Spend, tokens, requests and cache hits for today, 7 and 30 days, split by tool",
-              "Context use per session and Codex 5-hour and weekly limits",
+              "Every open session with its context use, and what's left of Codex's 5-hour and weekly limits",
               "Three styles: Native, Companion and Ambient",
               "Desktop face in three sizes",
               "Read-only, offline, no data collected"
@@ -126,7 +126,7 @@
                 "name": "How do I get told when the agent is waiting for me?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Turn on Precise Status: Settings → Precise Status → Copy Turn-On Request, then paste it to Claude Code and let it add the hooks to ~/.claude/settings.json, or click Open settings.json and paste them in yourself. New sessions pick it up. The hooks only use the system’s built-in sh to write events to ~/.claude/buddy/events.jsonl and never go online. Code Buddy itself never changes settings.json."
+                  "text": "Recent versions of Claude Code note a permission prompt in their own session files, and Code Buddy shows it within a few seconds, with nothing to set up. For an alert the moment it appears, turn on Precise Status: Settings → Precise Status → Copy Turn-On Request, then paste it to Claude Code and let it add the hooks to ~/.claude/settings.json, or click Open settings.json and paste them in yourself. New sessions pick it up. The hooks only use the system’s built-in sh to write events to ~/.claude/buddy/events.jsonl and never go online. Code Buddy itself never changes settings.json."
                 }
               },
               {
@@ -189,7 +189,7 @@
 
       <section class="cb-section" id="agents" aria-labelledby="agents-h">
         <div class="cb-wrap">
-          <div class="cb-head cb-reveal"><p class="kicker">Several agents at once</p><h2 id="agents-h">Four agents. One face.</h2><p>Run Claude Code in one project and Grok in another. The face always shows the one that needs you most, the menu bar shows how many are busy, and every session is listed with its project and context. Runs started by scripts and bots are listed apart and don’t move the face.</p></div>
+          <div class="cb-head cb-reveal"><p class="kicker">Several agents at once</p><h2 id="agents-h">Four agents. One face.</h2><p>Run Claude Code in one project and Grok in another. The face always shows the one that needs you most, the menu bar and desktop face show how many are busy, and every open session is listed with its project and context, the ones that need you first. Runs started by scripts and bots are listed apart and don’t move the face.</p></div>
           <div class="cb-card cb-agents-demo cb-reveal" id="cb-agents" aria-hidden="true">
             <div class="who">
               <div class="cb-menubar"><span class="mb-buddy"><svg viewBox="0 0 200 200"></svg><span class="busy"></span></span></div>
@@ -233,9 +233,9 @@
             </div>
             <div class="cb-card cb-meters" id="cb-meters">
             <div class="cb-meter"><p>Context<span>42% · plenty of room</span></p><div class="track"><i data-v="42"></i></div></div>
-            <div class="cb-meter"><p>Codex 5&#8209;hour limit<span>35% · resets in 3h 33m</span></p><div class="track"><i data-v="35"></i></div></div>
-            <div class="cb-meter"><p>Codex weekly limit<span>12% · resets in 6d 20h</span></p><div class="track"><i data-v="12"></i></div></div>
-              <p class="cb-note">Context shows how full the current session is and warns you before it runs out. The 5&#8209;hour and weekly limits are Codex’s. Cursor shows status only, since it keeps no token counts on your Mac. Numbers here are examples.</p>
+            <div class="cb-meter"><p>Codex 5&#8209;hour<span>65% left · resets in 3h 33m</span></p><div class="track"><i data-v="65"></i></div></div>
+            <div class="cb-meter"><p>Codex weekly<span>88% left · resets in 6d 20h</span></p><div class="track"><i data-v="88"></i></div></div>
+              <p class="cb-note">Context shows how full the current session is and warns you before it runs out. The limits show what’s left of Codex’s 5&#8209;hour and weekly windows. Claude Code doesn’t save its limits on your Mac, so for Claude the card links to its usage page. Cursor shows status only, since it keeps no token counts on your Mac. Numbers here are examples.</p>
             </div>
           </div>
         </div>
@@ -309,7 +309,7 @@
           <h2>What the faces mean</h2>
           <ul>
             <li>Working: the agent is thinking, calling tools or editing code</li>
-            <li>Waiting: the agent needs your approval (with Precise Status on)</li>
+            <li>Waiting: the agent needs your approval</li>
             <li>Done: the turn is finished, come back and look</li>
             <li>Error: a request failed</li>
             <li>Idle, Asleep: nothing going on lately</li>
@@ -324,13 +324,15 @@
 
           <h3>It says the whole ~/.claude folder is needed</h3>
           <p>
-            You granted only the projects folder inside <code>~/.claude</code>. Usage still works, but Precise Status needs
+            You granted only the projects folder inside <code>~/.claude</code>. Usage still works, but approvals and Precise Status need
             <code>~/.claude</code> itself: in Settings → Data Sources, click Change… and pick <code>~/.claude</code>.
           </p>
 
           <h3>How do I get told when the agent is waiting for me?</h3>
           <p>
-            Turn on Precise Status: Settings → Precise Status → Copy Turn-On Request, then paste it to Claude Code and let it
+            Recent versions of Claude Code note a permission prompt in their own session files, and Code Buddy shows it
+            within a few seconds, with nothing to set up. For an alert the moment it appears, turn on Precise Status:
+            Settings → Precise Status → Copy Turn-On Request, then paste it to Claude Code and let it
             add the hooks to <code>~/.claude/settings.json</code>, or click Open settings.json and paste them in yourself.
             New sessions pick it up. The hooks only use the system’s built-in <code>sh</code> to write events to
             <code>~/.claude/buddy/events.jsonl</code> and never go online. Code Buddy itself never changes settings.json.
@@ -348,7 +350,7 @@
           <h3>Desktop face</h3>
           <p>
             Settings → Desktop Face: turn Show Desktop Face on or off, pick Small, Medium or Large, and drag the face
-            anywhere. Preview All Expressions plays all six faces.
+            anywhere. Preview All Expressions plays all six faces beside the button, and the desktop face plays along.
           </p>
 
           <h3>Launch at login</h3>
