@@ -98,7 +98,7 @@
     <main id="main" class="wrap doc">
       <p class="doc-eyebrow">Code Buddy · Mac</p>
       <h1>Privacy Policy</h1>
-      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 3, 2026</p>
+      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 5, 2026</p>
 
       <section id="en">
         <h2>The short version</h2>
@@ -106,9 +106,10 @@
 
         <h2>What it reads</h2>
         <p>
-          Code Buddy reads only the session logs that Claude Code, Codex, Grok and Cursor write in the folders you grant in the app
+          Code Buddy reads only the session logs and session status files that Claude Code, Codex, Grok and Cursor write in the folders you grant in the app
           (usually <code>~/.claude</code>, <code>~/.codex</code>, <code>~/.grok</code> and <code>~/.cursor</code>), to show what those tools are doing, count tokens
-          and estimate spend. Access is read-only: Code Buddy never changes these files and cannot read anything outside
+          and estimate spend. To tell which Claude Code sessions are still open, it also asks macOS whether the processes those files name are still
+          running. Access is read-only: Code Buddy never changes these files and cannot read anything outside
           the folders you granted.
         </p>
 
