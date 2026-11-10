@@ -212,6 +212,13 @@
     { spend: 18.62, split: [17.32, 1.3, 0], tokens: "25.85M", req: "1,153", cache: "93%", bars: [40, 8, 3, 38, 66, 44, 72] },
     { spend: 96.4, split: [88.1, 8.3, 0], tokens: "141.2M", req: "6,830", cache: "91%", bars: [52, 30, 61, 44, 70, 58, 80] },
     { spend: 342.75, split: [310.2, 31.55, 1], tokens: "512.6M", req: "24,910", cache: "92%", bars: [60, 72, 55, 80, 66, 74, 90] },
+    { spend: 1284.3, split: [1160.4, 119.9, 4], tokens: "1.92B", req: "93,402", cache: "92%", bars: [48, 62, 70, 58, 81, 76, 90] },
+  ];
+  const PROJECTS = [
+    [["buddy", 11.2], ["site", 5.12], ["api-server", 2.3]],
+    [["buddy", 52.4], ["api-server", 26.1], ["site", 17.9]],
+    [["buddy", 190.3], ["api-server", 88.45], ["site", 64]],
+    [["buddy", 702.1], ["api-server", 331.7], ["site", 250.5]],
   ];
   const money = (v) => "$" + v.toFixed(2);
   const countTo = async (el, to) => {
@@ -225,6 +232,8 @@
     if (reduced) $(".cb-spend b", us).textContent = money(d.spend);
     else countTo($(".cb-spend b", us), d.spend);
     $(".cb-by-tool", us).textContent = `Claude Code ${money(d.split[0])} · Codex ${money(d.split[1])} · Grok ${money(d.split[2])}`;
+    const by = $(".cb-by-project", us);
+    if (by) by.textContent = (zh ? "项目：" : "Projects: ") + PROJECTS[k].map(([n, v]) => `${n} ${money(v)}`).join(" · ");
     $$(".cb-bars i", us).forEach((b, i) => (b.style.height = d.bars[i] + "%"));
     const dd = $$(".cb-stats dd", us);
     dd[0].textContent = d.tokens;
@@ -235,7 +244,7 @@
   const fillMeters = () => meters.forEach((m) => (m.style.width = m.dataset.v + "%"));
   if (reduced) { showPeriod(0); fillMeters(); }
   else {
-    loop(us, async (alive) => { while (alive()) for (let k = 0; k < 3; k++) { if (!alive()) return; showPeriod(k); await sleep(3400); } });
+    loop(us, async (alive) => { while (alive()) for (let k = 0; k < DATA.length; k++) { if (!alive()) return; showPeriod(k); await sleep(3400); } });
     new IntersectionObserver(([e], o) => { if (e.isIntersecting) { fillMeters(); o.disconnect(); } }, { threshold: 0.3 }).observe($("#cb-meters"));
   }
 

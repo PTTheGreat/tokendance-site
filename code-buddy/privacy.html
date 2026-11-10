@@ -98,7 +98,7 @@
     <main id="main" class="wrap doc">
       <p class="doc-eyebrow">Code Buddy · Mac</p>
       <h1>Privacy Policy</h1>
-      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 5, 2026</p>
+      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 10, 2026</p>
 
       <section id="en">
         <h2>The short version</h2>
@@ -121,9 +121,15 @@
 
         <h2>What stays on your Mac</h2>
         <p>
-          Your settings (whether the desktop face is shown, its size and position, whether it opens at login) and the
-          access grants for your folders are kept only on this Mac, in Code Buddy's own sandbox folder.
+          Your settings (whether the desktop face is shown, its size and position, whether it opens at login, which
+          notifications are on) and the access grants for your folders are kept only on this Mac, in Code Buddy's own sandbox folder.
         </p>
+        <p>
+          So the All range still works after old logs are cleaned up, Code Buddy keeps daily usage totals (requests, tokens and
+          estimated spend, split by tool, model and project folder name) in that same sandbox folder. No conversation content is
+          kept, and nothing is uploaded.
+        </p>
+        <p>Notifications are sent by macOS on your Mac, through no server.</p>
 
         <h2>Precise Status</h2>
         <p>
@@ -133,14 +139,22 @@
           The file stays on your Mac, and Code Buddy only reads it.
         </p>
 
+        <h2>Claude Limits</h2>
+        <p>
+          Claude Limits is off by default. When you turn it on, Claude Code's status line command writes its status line data
+          (including your plan's usage limits) to <code>~/.claude/buddy/statusline.json</code>, then runs your own status line as
+          before. You add this command to <code>~/.claude/settings.json</code> yourself (or ask Claude Code to); it only calls the
+          system's built&#8209;in <code>sh</code> and never goes online. The file stays on your Mac, and Code Buddy only reads it.
+        </p>
+
         <h2>What we can see</h2>
         <p>Nothing. We never receive and cannot read your logs, usage or settings.</p>
 
         <h2>Removing it</h2>
         <p>
           Everything Code Buddy stores is in <code>~/Library/Containers/com.taopan.codebuddy</code>. Delete the app and
-          that folder, and nothing it kept is left on your Mac. If you turned on Precise Status, first open Settings → Precise Status, click Copy Turn&#8209;Off Request and paste it to Claude Code to remove the
-          hooks (or delete them from <code>settings.json</code> yourself), then delete the
+          that folder, and nothing it kept is left on your Mac. If you turned on Precise Status or Claude Limits, first click Copy Turn&#8209;Off Request in that part of Settings and paste it to Claude Code to remove the
+          hooks and status line (or delete them from <code>settings.json</code> yourself), then delete the
           <code>~/.claude/buddy</code> folder.
         </p>
 
