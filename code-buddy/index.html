@@ -6,7 +6,7 @@
     <title>Code Buddy – Agent Status: see Claude Code, Codex, Grok and Cursor in your Mac menu bar</title>
     <meta
       name="description"
-      content="Code Buddy is a free Mac menu bar app that shows whether your AI coding agents (Claude Code, Codex, Grok, Cursor) are working, waiting for your approval or done, and tracks token usage and spend. Runs on your Mac, offline."
+      content="Code Buddy is a free Mac menu bar app that shows whether your AI coding agents (Claude Code, Codex, Grok, Cursor) are working, waiting for your approval or done, tracks spend by tool and project, and notifies you when an agent needs you. Runs on your Mac, offline."
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
@@ -58,13 +58,15 @@
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "macOS 14 or later",
             "inLanguage": "en",
-            "description": "A free Mac menu bar app that shows whether your AI coding agents (Claude Code, Codex, Grok and Cursor) are working, waiting for your approval or done, with token usage and estimated spend. Runs locally with no network access and collects no data.",
+            "description": "A free Mac menu bar app that shows whether your AI coding agents (Claude Code, Codex, Grok and Cursor) are working, waiting for your approval or done, with token usage and estimated spend by tool and project, and notifications when they need you. Runs locally with no network access and collects no data.",
             "featureList": [
               "Menu bar face showing agent status: working, waiting, done, error, idle, asleep",
               "Supports Claude Code, Codex, Grok and Cursor",
               "Shows the agent that needs you most when several run at once",
-              "Spend, tokens, requests and cache hits for today, 7 and 30 days, split by tool",
-              "Every open session with its context use, and what's left of Codex's 5-hour and weekly limits",
+              "Spend, tokens, requests and cache hits for today, 7 days, 30 days and all time, split by tool and by project",
+              "History kept on your Mac after old logs are cleaned up",
+              "Every open session with its context use, and what's left of Claude's and Codex's 5-hour and weekly limits",
+              "Notifications when an agent waits for approval, a long run ends, or a limit runs low or resets",
               "Three styles: Native, Companion and Ambient",
               "Desktop face in three sizes",
               "Read-only, offline, no data collected"
@@ -166,7 +168,7 @@
           <div>
             <p class="cb-eyebrow">Code Buddy for Mac</p>
             <h1>Your coding agents, <em>at a glance.</em></h1>
-            <p class="cb-lead">A little face in your menu bar shows whether Claude Code, Codex, Grok or Cursor is working, waiting for you, or done. It also keeps count of tokens and spend. Everything stays on your Mac.</p>
+            <p class="cb-lead">A little face in your menu bar shows whether Claude Code, Codex, Grok or Cursor is working, waiting for you, or done. It also counts tokens and spend by project, and taps you on the shoulder with a notification when you’re looking elsewhere. Everything stays on your Mac.</p>
             <div class="cb-cta"><a class="btn btn-orange magnetic" href="https://apps.apple.com/app/code-buddy-agent-status/id6825784479" rel="noopener" target="_blank">Download for Mac</a><small>Free on the Mac App Store · macOS 14 or later</small></div>
             <ul class="cb-agents" aria-label="Works with"><li>Claude Code</li><li>Codex</li><li>Grok</li><li>Cursor</li></ul>
           </div>
@@ -179,7 +181,7 @@
 
       <section class="cb-section" id="how" aria-labelledby="how-h">
         <div class="cb-wrap">
-          <div class="cb-head cb-reveal"><p class="kicker">How it works</p><h2 id="how-h">When it needs you, it looks at you.</h2><p>Stop babysitting the terminal. Code Buddy reads your agent’s session logs and changes its face the moment something happens. Glance up, and you know whether to switch back.</p></div>
+          <div class="cb-head cb-reveal"><p class="kicker">How it works</p><h2 id="how-h">When it needs you, it looks at you.</h2><p>Stop babysitting the terminal. Code Buddy reads your agent’s session logs and changes its face the moment something happens. Glance up, and you know whether to switch back. Not looking? A notification tells you when a session waits for your approval, a long run finishes, or a limit is about to run out.</p></div>
           <div class="cb-split cb-reveal" id="cb-turn" aria-hidden="true">
             <div class="cb-card cb-term"><div class="cb-term-bar"><span></span><span></span><span></span></div><ol></ol></div>
             <div class="cb-card cb-watch"><svg class="face" viewBox="0 0 200 200" aria-hidden="true"></svg><p></p></div>
@@ -222,20 +224,22 @@
 
       <section class="cb-section" id="usage" aria-labelledby="usage-h">
         <div class="cb-wrap">
-          <div class="cb-head cb-reveal"><p class="kicker">Usage and spend</p><h2 id="usage-h">Know what your agents cost.</h2><p>Spend, tokens, requests and cache hits for today, 7 days and 30 days, split by tool. Spend is estimated from public API prices, so treat it as a guide, not a bill.</p></div>
+          <div class="cb-head cb-reveal"><p class="kicker">Usage and spend</p><h2 id="usage-h">Know what your agents cost.</h2><p>Spend, tokens, requests and cache hits for today, 7 days, 30 days and all time, split by tool and by project. Code Buddy keeps each day’s totals on your Mac, so your history stays after Claude Code cleans up old logs. Spend is estimated from public API prices, so treat it as a guide, not a bill.</p></div>
           <div class="cb-split cb-reveal">
             <div class="cb-card cb-usage" id="cb-usage" aria-hidden="true">
-              <div class="cb-tabs"><span class="on">Today</span><span>7 days</span><span>30 days</span></div>
+              <div class="cb-tabs"><span class="on">Today</span><span>7 days</span><span>30 days</span><span>All</span></div>
               <p class="cb-spend"><b>$18.62</b><small>at API prices</small></p>
               <p class="cb-by-tool">Claude Code $17.32 · Codex $1.30 · Grok $0.00</p>
+              <p class="cb-by-project">Projects: buddy $11.20 · site $5.12 · api-server $2.30</p>
               <div class="cb-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <dl class="cb-stats"><div><dt>Tokens</dt><dd>25.85M</dd></div><div><dt>Requests</dt><dd>1,153</dd></div><div><dt>From cache</dt><dd>93%</dd></div></dl>
             </div>
             <div class="cb-card cb-meters" id="cb-meters">
             <div class="cb-meter"><p>Context<span>42% · plenty of room</span></p><div class="track"><i data-v="42"></i></div></div>
+            <div class="cb-meter"><p>Claude 5&#8209;hour<span>42% left · resets in 2h 10m</span></p><div class="track"><i data-v="42"></i></div></div>
             <div class="cb-meter"><p>Codex 5&#8209;hour<span>65% left · resets in 3h 33m</span></p><div class="track"><i data-v="65"></i></div></div>
             <div class="cb-meter"><p>Codex weekly<span>88% left · resets in 6d 20h</span></p><div class="track"><i data-v="88"></i></div></div>
-              <p class="cb-note">Context shows how full the current session is and warns you before it runs out. The limits show what’s left of Codex’s 5&#8209;hour and weekly windows. Claude Code doesn’t save its limits on your Mac, so for Claude the card links to its usage page. Cursor shows status only, since it keeps no token counts on your Mac. Numbers here are examples.</p>
+              <p class="cb-note">Context shows how full the current session is and warns you before it runs out. The limits show what’s left of Codex’s 5&#8209;hour and weekly windows, and Claude’s too on a Pro or Max plan once you turn on Claude Limits in Settings: Claude Code only hands them to its status line, so Code Buddy asks for a status line that saves them on your Mac and still runs yours. Cursor shows status only, since it keeps no token counts on your Mac. Numbers here are examples.</p>
             </div>
           </div>
         </div>

@@ -535,7 +535,8 @@
   letter-spacing: 0;
 }
 
-.cb-by-tool {
+.cb-by-tool,
+.cb-by-project {
   margin: 0 0 20px;
   color: #d8d7db;
   font-size: 15px;
