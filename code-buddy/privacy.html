@@ -6,7 +6,7 @@
     <title>Code Buddy Privacy Policy</title>
     <meta
       name="description"
-      content="Privacy policy for Code Buddy for Mac: it collects no data, has no network access, and only reads the Claude Code, Codex, Grok and Cursor session logs you grant, on your Mac."
+      content="Privacy policy for Code Buddy for Mac: it collects no data, stays offline by default, and only reads the Claude Code, Codex, Grok and Cursor session logs you grant, on your Mac."
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
@@ -23,7 +23,7 @@
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:url" content="https://tokendance.life/code-buddy/privacy.html" />
     <meta property="og:title" content="Code Buddy Privacy Policy" />
-    <meta property="og:description" content="Code Buddy collects no data and has no network access." />
+    <meta property="og:description" content="Code Buddy collects no data and stays offline by default." />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -31,7 +31,7 @@
     <meta property="og:locale:alternate" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Code Buddy Privacy Policy" />
-    <meta name="twitter:description" content="Code Buddy collects no data and has no network access." />
+    <meta name="twitter:description" content="Code Buddy collects no data and stays offline by default." />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <script type="application/ld+json">
       {
@@ -98,7 +98,7 @@
     <main id="main" class="wrap doc">
       <p class="doc-eyebrow">Code Buddy · Mac</p>
       <h1>Privacy Policy</h1>
-      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 10, 2026</p>
+      <p class="doc-meta">Applies to Code Buddy on the Mac App Store · Effective November 17, 2026</p>
 
       <section id="en">
         <h2>The short version</h2>
@@ -113,10 +113,11 @@
           the folders you granted.
         </p>
 
-        <h2>No network access</h2>
+        <h2>Offline by default</h2>
         <p>
-          Code Buddy runs in the macOS App Sandbox without network access and connects to no server. There is no
-          account, no analytics, no advertising and no third&#8209;party SDK.
+          Code Buddy runs in the macOS App Sandbox and connects to no server of ours; we don't run one. There is no
+          account, no analytics, no advertising and no third&#8209;party SDK. The only feature that goes online is Codex
+          Limits, below, which is off by default.
         </p>
 
         <h2>What stays on your Mac</h2>
@@ -145,6 +146,15 @@
           (including your plan's usage limits) to <code>~/.claude/buddy/statusline.json</code>, then runs your own status line as
           before. You add this command to <code>~/.claude/settings.json</code> yourself (or ask Claude Code to); it only calls the
           system's built&#8209;in <code>sh</code> and never goes online. The file stays on your Mac, and Code Buddy only reads it.
+        </p>
+
+        <h2>Codex Limits</h2>
+        <p>
+          Codex Limits is off by default. When you turn it on, Code Buddy reads the ChatGPT sign&#8209;in that Codex saved in
+          <code>~/.codex/auth.json</code> and, every 5 minutes, sends one request to OpenAI's <code>chatgpt.com</code> for your
+          account's 5&#8209;hour and weekly limits, the same request Codex's own <code>/status</code> makes. It goes straight to
+          OpenAI, never through us, and nothing else is sent. The sign&#8209;in is only read: never changed, stored or sent anywhere
+          else. OpenAI's privacy policy covers that request. Turn the switch off and Code Buddy stays offline.
         </p>
 
         <h2>What we can see</h2>

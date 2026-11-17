@@ -6,7 +6,7 @@
     <title>Code Buddy 隐私政策</title>
     <meta
       name="description"
-      content="Code Buddy Mac 版隐私政策：不收集任何数据，没有联网权限，只在本机读取你授权的 Claude Code、Codex、Grok 和 Cursor 会话日志。"
+      content="Code Buddy Mac 版隐私政策：不收集任何数据，默认不联网，只在本机读取你授权的 Claude Code、Codex、Grok 和 Cursor 会话日志。"
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
@@ -23,7 +23,7 @@
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:url" content="https://tokendance.life/zh/code-buddy/privacy.html" />
     <meta property="og:title" content="Code Buddy 隐私政策" />
-    <meta property="og:description" content="Code Buddy 不收集任何数据，没有联网权限。" />
+    <meta property="og:description" content="Code Buddy 不收集任何数据，默认不联网。" />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -31,7 +31,7 @@
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Code Buddy 隐私政策" />
-    <meta name="twitter:description" content="Code Buddy 不收集任何数据，没有联网权限。" />
+    <meta name="twitter:description" content="Code Buddy 不收集任何数据，默认不联网。" />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <script type="application/ld+json">
       {
@@ -98,7 +98,7 @@
     <main id="main" class="wrap doc">
       <p class="doc-eyebrow">Code Buddy · Mac</p>
       <h1>隐私政策</h1>
-      <p class="doc-meta">适用于 Mac App Store 上的 Code Buddy · 生效日期 2026 年 11 月 10 日</p>
+      <p class="doc-meta">适用于 Mac App Store 上的 Code Buddy · 生效日期 2026 年 11 月 17 日</p>
 
       <section>
         <h2>简要说明</h2>
@@ -111,9 +111,9 @@
           用量和估算费用。为了分清哪些 Claude Code 会话还开着，它还会向 macOS 查询这些文件里记录的进程是否仍在运行。读取是只读的：Code Buddy 不会改动这些文件，也读不到授权文件夹以外的内容。
         </p>
 
-        <h2>不联网</h2>
+        <h2>默认不联网</h2>
         <p>
-          Code Buddy 运行在 macOS 的 App 沙盒里，没有联网权限，不连接任何服务器。没有账号，也没有统计、广告或第三方 SDK。
+          Code Buddy 运行在 macOS 的 App 沙盒里，不连接我们的任何服务器（我们也没有服务器）。没有账号，也没有统计、广告或第三方 SDK。唯一会联网的是下面的“Codex 额度”，默认关闭。
         </p>
 
         <h2>保存在本机的内容</h2>
@@ -139,6 +139,13 @@
           “Claude 额度”默认关闭。开启后，Claude Code 的状态栏命令会把状态栏数据（包括你套餐的用量额度）写进
           <code>~/.claude/buddy/statusline.json</code>，再原样运行你原来的状态栏。这个命令由你自己（或你让 Claude Code）加进
           <code>~/.claude/settings.json</code>，只调用系统自带的 <code>sh</code>，不联网。这个文件只在你的 Mac 上，Code Buddy 只读取它。
+        </p>
+
+        <h2>Codex 额度</h2>
+        <p>
+          “Codex 额度”默认关闭。开启后，Code Buddy 读取 Codex 保存在 <code>~/.codex/auth.json</code> 里的 ChatGPT 登录信息，每 5 分钟向
+          OpenAI 的 <code>chatgpt.com</code> 发一次请求，查询你账号的 5 小时和每周额度，和 Codex 自己的 <code>/status</code> 发的请求一样。请求直接发给
+          OpenAI，不经过我们，除此之外什么都不发。登录信息只读取，不会被修改、保存或发到别处。这个请求受 OpenAI 的隐私政策约束。关掉开关，Code Buddy 就不再联网。
         </p>
 
         <h2>我们能看到什么</h2>
