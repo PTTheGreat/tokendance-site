@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Speechless: Voice Keyboard – hold to talk, let go for text</title>
+    <meta
+      name="description"
+      content="Speechless is a free iPhone voice keyboard, in preparation for the App Store. Hold the pad, talk, let go, and the text goes in where the cursor is. It works with the AI service you bring: you add your own API key, and what you say goes to that service after you agree."
+    />
+    <meta name="author" content="Tony" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f6f6f5" />
+    <link rel="canonical" href="https://tokendance.life/speechless/" />
+    <link rel="alternate" hreflang="en" href="https://tokendance.life/speechless/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/speechless/" />
+    <link rel="alternate" hreflang="x-default" href="https://tokendance.life/speechless/" />
+    <link rel="icon" type="image/webp" href="/assets/apps/speechless-icon.webp?v=20261124a" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="stylesheet" href="/styles.css?v=20261124a" />
+    <link rel="stylesheet" href="/speechless/sp.css?v=20261124a" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TokenDance" />
+    <meta property="og:url" content="https://tokendance.life/speechless/" />
+    <meta property="og:title" content="Speechless: Voice Keyboard – hold to talk, let go for text" />
+    <meta property="og:description" content="A voice keyboard for iPhone that works with the AI service you bring. In preparation for the App Store." />
+    <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Speechless: Voice Keyboard – hold to talk, let go for text" />
+    <meta name="twitter:description" content="A voice keyboard for iPhone that works with the AI service you bring. In preparation for the App Store." />
+    <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://tokendance.life/#organization",
+            "name": "TokenDance",
+            "url": "https://tokendance.life/",
+            "email": "tonybingpoon@gmail.com"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://tokendance.life/speechless/#app",
+            "name": "Speechless",
+            "alternateName": "Speechless: Voice Keyboard",
+            "url": "https://tokendance.life/speechless/",
+            "image": "https://tokendance.life/assets/apps/speechless-icon.webp",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "iOS 17 or later",
+            "inLanguage": "en",
+            "description": "A voice keyboard for iPhone, in preparation for the App Store: hold the pad, talk, let go, and the text goes in where the cursor is. It works with the AI service you bring: you add your own API key, and what you say goes to that service after you agree in the app. Ordinary typing works offline.",
+            "featureList": [
+              "Hold to talk, or tap to start and tap to stop",
+              "Works with the AI service you bring, with your own API key: OpenRouter, OpenAI, Alibaba Cloud Model Studio (Qwen), Volcengine Ark (Doubao), SiliconFlow or another OpenAI-compatible service",
+              "One model for recognition and one for cleanup, from the same service or from two",
+              "Chinese and English in one sentence",
+              "Removes filler words and false starts and fixes punctuation",
+              "Slide up while holding: left cancels, right sends where the return key is Send, Search or Go",
+              "Undo, or say it again",
+              "ABC typing keyboard that works offline and without Full Access",
+              "No ads, no tracking, no analytics"
+            ],
+            "publisher": {
+              "@id": "https://tokendance.life/#organization"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tokendance.life/speechless/",
+            "url": "https://tokendance.life/speechless/",
+            "name": "Speechless: Voice Keyboard – hold to talk, let go for text",
+            "inLanguage": "en",
+            "about": {
+              "@id": "https://tokendance.life/speechless/#app"
+            },
+            "isPartOf": {
+              "@id": "https://tokendance.life/#website"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "TokenDance",
+                "item": "https://tokendance.life/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Speechless",
+                "item": "https://tokendance.life/speechless/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://tokendance.life/speechless/#faq",
+            "inLanguage": "en",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do I need an account?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not with me. For voice you need an API key from the AI service you choose, which means an account there. Typing needs neither."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why does it ask for Allow Full Access?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "iOS gives a keyboard no network and no microphone without it, so voice can’t work. The ABC keyboard doesn’t need it. With Full Access on, Speechless still doesn’t store, log or send what you type."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it listen in the background?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. It records only while you dictate, with the system’s microphone indicator and the keyboard’s own animation showing. Recording stops after 3 minutes at most, and after a minute without speech when you started it with a tap."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does it cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The app is free, with no in-app purchase and no ads. The AI services you add bill you directly for what you use. I sell no AI usage and get nothing from any of them."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I stop it sending anything?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "In the Speechless app, go to AI services, choose the service and tap Withdraw consent. Nothing more is sent there. You can do this for each service at any time. Typing still works."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="sp-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/favicon.svg?v=20261022b" width="22" height="22" alt="" />TokenDance
+        </a>
+        <nav aria-label="Speechless">
+          <a href="#how">How it works</a>
+          <a href="#service">AI service</a>
+          <a href="#sent">Privacy</a>
+          <a href="#help">Help</a>
+        </nav>
+        <a class="lang" href="/zh/speechless/" hreflang="zh-CN" lang="zh-CN">中文</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="sp-hero" id="sp-hero">
+        <div class="sp-wrap sp-hero-copy">
+          <p class="sp-eyebrow"><img src="/assets/apps/speechless-icon.webp?v=20261124a" width="40" height="40" alt="" />Speechless: Voice Keyboard for iPhone</p>
+          <h1><span class="w">Hold<span class="pt">.</span></span> <span class="w">Talk<span class="pt">.</span></span> <span class="w">Let go<span class="pt">.</span></span></h1>
+          <div class="sp-hero-row">
+            <p class="sp-lead">A voice keyboard that works with the AI service you bring. Hold the pad, say it, let go, and the text goes in where the cursor is, without leaving the app you’re in.</p>
+            <div>
+              <p class="sp-status"><i></i>In preparation for the App Store</p>
+              <p class="sp-small">Free app · iOS 17 or later · you add your own AI service and API key</p>
+            </div>
+          </div>
+        </div>
+        <div class="sp-wrap sp-field">
+          <span class="sp-tag">Example</span>
+          <p><span id="sp-text" data-lines='[{"text":"Can we push the design review to Thursday afternoon?"},{"text":"Running ten minutes late. Start without me."},{"text":"那个 PR 我看完了，没问题，下午 merge 吧。","lang":"zh-CN"}]'>Can we push the design review to Thursday afternoon?</span><span class="sp-caret" aria-hidden="true"></span></p>
+        </div>
+        <div class="sp-kb">
+          <button class="sp-pad" id="sp-pad" type="button">
+            <canvas aria-hidden="true"></canvas>
+            <span class="sp-hint">Hold to play the example. The microphone stays off.</span>
+          </button>
+          <div class="sp-wrap sp-keys" aria-hidden="true">
+            <span>ABC</span><span>,</span><span>space</span><span><svg viewBox="0 0 24 24"><path d="M9 5h11a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H9l-6-7z" /><path d="m11.5 9.5 5 5m0-5-5 5" /></svg></span><span class="go">Send</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sp-section" id="how" aria-labelledby="how-h">
+        <div class="sp-wrap">
+          <div class="sp-head"><h2 id="how-h">Hold, tap or slide.</h2><p>The whole pad is one key. It lights up with your voice, so you can see it’s listening.</p></div>
+          <ul class="sp-moves">
+            <li><svg class="sp-led" viewBox="0 0 442 156" aria-hidden="true" focusable="false"><path d="M13 13h.01M26 13h.01M39 13h.01M52 13h.01M65 13h.01M78 13h.01M91 13h.01M104 13h.01M117 13h.01M130 13h.01M143 13h.01M156 13h.01M169 13h.01M182 13h.01M195 13h.01M208 13h.01M234 13h.01M247 13h.01M260 13h.01M273 13h.01M286 13h.01M299 13h.01M312 13h.01M325 13h.01M338 13h.01M351 13h.01M364 13h.01M377 13h.01M390 13h.01M403 13h.01M416 13h.01M429 13h.01M13 26h.01M26 26h.01M39 26h.01M52 26h.01M65 26h.01M78 26h.01M91 26h.01M104 26h.01M117 26h.01M130 26h.01M143 26h.01M156 26h.01M169 26h.01M182 26h.01M260 26h.01M273 26h.01M286 26h.01M299 26h.01M312 26h.01M325 26h.01M338 26h.01M351 26h.01M364 26h.01M377 26h.01M390 26h.01M403 26h.01M416 26h.01M429 26h.01M13 39h.01M26 39h.01M39 39h.01M52 39h.01M65 39h.01M78 39h.01M91 39h.01M104 39h.01M117 39h.01M143 39h.01M182 39h.01M260 39h.01M299 39h.01M325 39h.01M338 39h.01M351 39h.01M364 39h.01M377 39h.01M390 39h.01M403 39h.01M416 39h.01M429 39h.01M13 52h.01M26 52h.01M39 52h.01M52 52h.01M65 52h.01M78 52h.01M91 52h.01M117 52h.01M143 52h.01M299 52h.01M325 52h.01M351 52h.01M364 52h.01M377 52h.01M390 52h.01M403 52h.01M416 52h.01M429 52h.01M13 65h.01M26 65h.01M39 65h.01M403 65h.01M416 65h.01M429 65h.01M13 91h.01M26 91h.01M39 91h.01M403 91h.01M416 91h.01M429 91h.01M13 104h.01M26 104h.01M39 104h.01M52 104h.01M65 104h.01M78 104h.01M91 104h.01M117 104h.01M143 104h.01M299 104h.01M325 104h.01M351 104h.01M364 104h.01M377 104h.01M390 104h.01M403 104h.01M416 104h.01M429 104h.01M13 117h.01M26 117h.01M39 117h.01M52 117h.01M65 117h.01M78 117h.01M91 117h.01M104 117h.01M117 117h.01M143 117h.01M182 117h.01M260 117h.01M299 117h.01M325 117h.01M338 117h.01M351 117h.01M364 117h.01M377 117h.01M390 117h.01M403 117h.01M416 117h.01M429 117h.01M13 130h.01M26 130h.01M39 130h.01M52 130h.01M65 130h.01M78 130h.01M91 130h.01M104 130h.01M117 130h.01M130 130h.01M143 130h.01M156 130h.01M169 130h.01M182 130h.01M260 130h.01M273 130h.01M286 130h.01M299 130h.01M312 130h.01M325 130h.01M338 130h.01M351 130h.01M364 130h.01M377 130h.01M390 130h.01M403 130h.01M416 130h.01M429 130h.01M13 143h.01M26 143h.01M39 143h.01M52 143h.01M65 143h.01M78 143h.01M91 143h.01M104 143h.01M117 143h.01M130 143h.01M143 143h.01M156 143h.01M169 143h.01M182 143h.01M195 143h.01M208 143h.01M234 143h.01M247 143h.01M260 143h.01M273 143h.01M286 143h.01M299 143h.01M312 143h.01M325 143h.01M338 143h.01M351 143h.01M364 143h.01M377 143h.01M390 143h.01M403 143h.01M416 143h.01M429 143h.01" stroke-width="2.3" stroke-opacity="0.2"/><path d="M208 26h.01M234 26h.01M130 39h.01M156 39h.01M286 39h.01M312 39h.01M104 52h.01M338 52h.01M52 65h.01M65 65h.01M91 65h.01M351 65h.01M377 65h.01M390 65h.01M13 78h.01M429 78h.01M52 91h.01M65 91h.01M91 91h.01M351 91h.01M377 91h.01M390 91h.01M104 104h.01M338 104h.01M130 117h.01M156 117h.01M286 117h.01M312 117h.01M208 130h.01M234 130h.01" stroke-width="3.8" stroke-opacity="0.5"/><path d="M221 13h.01M130 52h.01M312 52h.01M78 65h.01M104 65h.01M117 65h.01M130 65h.01M312 65h.01M325 65h.01M338 65h.01M364 65h.01M26 78h.01M39 78h.01M52 78h.01M65 78h.01M78 78h.01M91 78h.01M104 78h.01M117 78h.01M130 78h.01M312 78h.01M325 78h.01M338 78h.01M351 78h.01M364 78h.01M377 78h.01M390 78h.01M403 78h.01M416 78h.01M78 91h.01M104 91h.01M117 91h.01M130 91h.01M312 91h.01M325 91h.01M338 91h.01M364 91h.01M130 104h.01M312 104h.01M221 143h.01" stroke-width="5.6" stroke-opacity="0.85"/><path d="M195 26h.01M221 26h.01M247 26h.01M169 39h.01M195 39h.01M208 39h.01M221 39h.01M234 39h.01M247 39h.01M273 39h.01M156 52h.01M169 52h.01M182 52h.01M195 52h.01M208 52h.01M221 52h.01M234 52h.01M247 52h.01M260 52h.01M273 52h.01M286 52h.01M143 65h.01M156 65h.01M169 65h.01M182 65h.01M195 65h.01M208 65h.01M221 65h.01M234 65h.01M247 65h.01M260 65h.01M273 65h.01M286 65h.01M299 65h.01M143 78h.01M156 78h.01M169 78h.01M182 78h.01M195 78h.01M208 78h.01M221 78h.01M234 78h.01M247 78h.01M260 78h.01M273 78h.01M286 78h.01M299 78h.01M143 91h.01M156 91h.01M169 91h.01M182 91h.01M195 91h.01M208 91h.01M221 91h.01M234 91h.01M247 91h.01M260 91h.01M273 91h.01M286 91h.01M299 91h.01M156 104h.01M169 104h.01M182 104h.01M195 104h.01M208 104h.01M221 104h.01M234 104h.01M247 104h.01M260 104h.01M273 104h.01M286 104h.01M169 117h.01M195 117h.01M208 117h.01M221 117h.01M234 117h.01M247 117h.01M273 117h.01M195 130h.01M221 130h.01M247 130h.01" stroke-width="7" stroke-opacity="1"/></svg><h3>Hold and talk</h3><p>Let go and the text goes in where the cursor is.</p></li>
+            <li><svg class="sp-led" viewBox="0 0 442 156" aria-hidden="true" focusable="false"><path d="M13 13h.01M26 13h.01M39 13h.01M52 13h.01M65 13h.01M78 13h.01M91 13h.01M104 13h.01M156 13h.01M169 13h.01M182 13h.01M195 13h.01M208 13h.01M234 13h.01M247 13h.01M260 13h.01M273 13h.01M286 13h.01M338 13h.01M351 13h.01M364 13h.01M377 13h.01M390 13h.01M403 13h.01M416 13h.01M429 13h.01M13 26h.01M26 26h.01M39 26h.01M52 26h.01M65 26h.01M78 26h.01M91 26h.01M104 26h.01M143 26h.01M156 26h.01M169 26h.01M273 26h.01M286 26h.01M299 26h.01M338 26h.01M351 26h.01M364 26h.01M377 26h.01M390 26h.01M403 26h.01M416 26h.01M429 26h.01M13 39h.01M26 39h.01M39 39h.01M52 39h.01M65 39h.01M78 39h.01M91 39h.01M143 39h.01M156 39h.01M208 39h.01M221 39h.01M234 39h.01M286 39h.01M299 39h.01M351 39h.01M364 39h.01M377 39h.01M390 39h.01M403 39h.01M416 39h.01M429 39h.01M13 52h.01M26 52h.01M39 52h.01M52 52h.01M65 52h.01M78 52h.01M91 52h.01M130 52h.01M143 52h.01M156 52h.01M195 52h.01M208 52h.01M221 52h.01M234 52h.01M247 52h.01M286 52h.01M299 52h.01M312 52h.01M351 52h.01M364 52h.01M377 52h.01M390 52h.01M403 52h.01M416 52h.01M429 52h.01M13 65h.01M26 65h.01M39 65h.01M52 65h.01M65 65h.01M78 65h.01M91 65h.01M130 65h.01M143 65h.01M156 65h.01M182 65h.01M195 65h.01M247 65h.01M260 65h.01M286 65h.01M299 65h.01M312 65h.01M351 65h.01M364 65h.01M377 65h.01M390 65h.01M403 65h.01M416 65h.01M429 65h.01M13 78h.01M26 78h.01M39 78h.01M52 78h.01M65 78h.01M78 78h.01M91 78h.01M130 78h.01M143 78h.01M182 78h.01M195 78h.01M247 78h.01M260 78h.01M299 78h.01M312 78h.01M351 78h.01M364 78h.01M377 78h.01M390 78h.01M403 78h.01M416 78h.01M429 78h.01M13 91h.01M26 91h.01M39 91h.01M52 91h.01M65 91h.01M78 91h.01M91 91h.01M130 91h.01M143 91h.01M156 91h.01M182 91h.01M195 91h.01M247 91h.01M260 91h.01M286 91h.01M299 91h.01M312 91h.01M351 91h.01M364 91h.01M377 91h.01M390 91h.01M403 91h.01M416 91h.01M429 91h.01M13 104h.01M26 104h.01M39 104h.01M52 104h.01M65 104h.01M78 104h.01M91 104h.01M130 104h.01M143 104h.01M156 104h.01M195 104h.01M208 104h.01M221 104h.01M234 104h.01M247 104h.01M286 104h.01M299 104h.01M312 104h.01M351 104h.01M364 104h.01M377 104h.01M390 104h.01M403 104h.01M416 104h.01M429 104h.01M13 117h.01M26 117h.01M39 117h.01M52 117h.01M65 117h.01M78 117h.01M91 117h.01M143 117h.01M156 117h.01M208 117h.01M221 117h.01M234 117h.01M286 117h.01M299 117h.01M351 117h.01M364 117h.01M377 117h.01M390 117h.01M403 117h.01M416 117h.01M429 117h.01M13 130h.01M26 130h.01M39 130h.01M52 130h.01M65 130h.01M78 130h.01M91 130h.01M104 130h.01M143 130h.01M156 130h.01M169 130h.01M273 130h.01M286 130h.01M299 130h.01M338 130h.01M351 130h.01M364 130h.01M377 130h.01M390 130h.01M403 130h.01M416 130h.01M429 130h.01M13 143h.01M26 143h.01M39 143h.01M52 143h.01M65 143h.01M78 143h.01M91 143h.01M104 143h.01M156 143h.01M169 143h.01M182 143h.01M195 143h.01M208 143h.01M234 143h.01M247 143h.01M260 143h.01M273 143h.01M286 143h.01M338 143h.01M351 143h.01M364 143h.01M377 143h.01M390 143h.01M403 143h.01M416 143h.01M429 143h.01" stroke-width="2.3" stroke-opacity="0.2"/><path d="M117 13h.01M143 13h.01M221 13h.01M299 13h.01M325 13h.01M130 26h.01M182 26h.01M260 26h.01M312 26h.01M104 39h.01M130 39h.01M169 39h.01M273 39h.01M312 39h.01M338 39h.01M104 52h.01M338 52h.01M104 65h.01M117 65h.01M325 65h.01M338 65h.01M104 78h.01M117 78h.01M156 78h.01M286 78h.01M325 78h.01M338 78h.01M104 91h.01M117 91h.01M325 91h.01M338 91h.01M104 104h.01M338 104h.01M104 117h.01M130 117h.01M169 117h.01M273 117h.01M312 117h.01M338 117h.01M130 130h.01M182 130h.01M260 130h.01M312 130h.01M117 143h.01M143 143h.01M221 143h.01M299 143h.01M325 143h.01" stroke-width="3.8" stroke-opacity="0.5"/><path d="M130 13h.01M312 13h.01M117 26h.01M325 26h.01M117 39h.01M195 39h.01M247 39h.01M325 39h.01M117 52h.01M182 52h.01M260 52h.01M325 52h.01M117 104h.01M182 104h.01M260 104h.01M325 104h.01M117 117h.01M195 117h.01M247 117h.01M325 117h.01M117 130h.01M325 130h.01M130 143h.01M312 143h.01" stroke-width="5.6" stroke-opacity="0.85"/><path d="M195 26h.01M208 26h.01M221 26h.01M234 26h.01M247 26h.01M182 39h.01M260 39h.01M169 52h.01M273 52h.01M169 65h.01M208 65h.01M221 65h.01M234 65h.01M273 65h.01M169 78h.01M208 78h.01M221 78h.01M234 78h.01M273 78h.01M169 91h.01M208 91h.01M221 91h.01M234 91h.01M273 91h.01M169 104h.01M273 104h.01M182 117h.01M260 117h.01M195 130h.01M208 130h.01M221 130h.01M234 130h.01M247 130h.01" stroke-width="7" stroke-opacity="1"/></svg><h3>Tap to start, tap to stop</h3><p>For when you don’t want to hold. It stops by itself after a minute without speech.</p></li>
+            <li><svg class="sp-led" viewBox="0 0 442 156" aria-hidden="true" focusable="false"><path d="M13 13h.01M26 13h.01M39 13h.01M52 13h.01M65 13h.01M78 13h.01M91 13h.01M104 13h.01M117 13h.01M130 13h.01M143 13h.01M156 13h.01M169 13h.01M182 13h.01M195 13h.01M208 13h.01M221 13h.01M234 13h.01M247 13h.01M260 13h.01M273 13h.01M286 13h.01M299 13h.01M312 13h.01M325 13h.01M338 13h.01M351 13h.01M364 13h.01M377 13h.01M390 13h.01M403 13h.01M416 13h.01M429 13h.01M13 26h.01M26 26h.01M39 26h.01M52 26h.01M65 26h.01M78 26h.01M91 26h.01M104 26h.01M117 26h.01M130 26h.01M143 26h.01M156 26h.01M169 26h.01M182 26h.01M195 26h.01M208 26h.01M221 26h.01M234 26h.01M247 26h.01M260 26h.01M273 26h.01M286 26h.01M299 26h.01M312 26h.01M325 26h.01M338 26h.01M351 26h.01M364 26h.01M377 26h.01M390 26h.01M403 26h.01M416 26h.01M429 26h.01M13 39h.01M26 39h.01M39 39h.01M65 39h.01M78 39h.01M91 39h.01M104 39h.01M117 39h.01M143 39h.01M156 39h.01M169 39h.01M182 39h.01M195 39h.01M208 39h.01M221 39h.01M234 39h.01M247 39h.01M260 39h.01M273 39h.01M286 39h.01M299 39h.01M312 39h.01M325 39h.01M338 39h.01M364 39h.01M377 39h.01M390 39h.01M403 39h.01M416 39h.01M429 39h.01M13 52h.01M26 52h.01M39 52h.01M52 52h.01M78 52h.01M91 52h.01M104 52h.01M130 52h.01M143 52h.01M156 52h.01M169 52h.01M182 52h.01M195 52h.01M208 52h.01M221 52h.01M234 52h.01M247 52h.01M260 52h.01M273 52h.01M286 52h.01M299 52h.01M312 52h.01M325 52h.01M377 52h.01M390 52h.01M403 52h.01M416 52h.01M429 52h.01M13 65h.01M26 65h.01M39 65h.01M52 65h.01M65 65h.01M91 65h.01M117 65h.01M130 65h.01M143 65h.01M156 65h.01M169 65h.01M182 65h.01M195 65h.01M208 65h.01M221 65h.01M234 65h.01M247 65h.01M260 65h.01M273 65h.01M286 65h.01M299 65h.01M312 65h.01M338 65h.01M364 65h.01M390 65h.01M403 65h.01M416 65h.01M429 65h.01M13 78h.01M26 78h.01M39 78h.01M52 78h.01M65 78h.01M78 78h.01M104 78h.01M117 78h.01M130 78h.01M143 78h.01M169 78h.01M182 78h.01M195 78h.01M208 78h.01M221 78h.01M234 78h.01M247 78h.01M260 78h.01M273 78h.01M286 78h.01M325 78h.01M338 78h.01M364 78h.01M377 78h.01M403 78h.01M416 78h.01M429 78h.01M13 91h.01M26 91h.01M39 91h.01M52 91h.01M65 91h.01M91 91h.01M117 91h.01M130 91h.01M143 91h.01M169 91h.01M182 91h.01M195 91h.01M208 91h.01M221 91h.01M234 91h.01M247 91h.01M260 91h.01M273 91h.01M299 91h.01M312 91h.01M325 91h.01M338 91h.01M364 91h.01M377 91h.01M390 91h.01M403 91h.01M416 91h.01M429 91h.01M13 104h.01M26 104h.01M39 104h.01M52 104h.01M78 104h.01M91 104h.01M104 104h.01M130 104h.01M143 104h.01M156 104h.01M182 104h.01M195 104h.01M208 104h.01M221 104h.01M234 104h.01M247 104h.01M260 104h.01M286 104h.01M299 104h.01M312 104h.01M325 104h.01M338 104h.01M364 104h.01M377 104h.01M390 104h.01M403 104h.01M416 104h.01M429 104h.01M13 117h.01M26 117h.01M39 117h.01M65 117h.01M78 117h.01M91 117h.01M104 117h.01M117 117h.01M143 117h.01M156 117h.01M169 117h.01M195 117h.01M247 117h.01M273 117h.01M286 117h.01M299 117h.01M312 117h.01M325 117h.01M338 117h.01M364 117h.01M377 117h.01M390 117h.01M403 117h.01M416 117h.01M429 117h.01M13 130h.01M26 130h.01M39 130h.01M52 130h.01M65 130h.01M78 130h.01M91 130h.01M104 130h.01M117 130h.01M130 130h.01M143 130h.01M156 130h.01M169 130h.01M182 130h.01M195 130h.01M247 130h.01M260 130h.01M273 130h.01M286 130h.01M299 130h.01M312 130h.01M325 130h.01M338 130h.01M351 130h.01M364 130h.01M377 130h.01M390 130h.01M403 130h.01M416 130h.01M429 130h.01M13 143h.01M26 143h.01M39 143h.01M52 143h.01M65 143h.01M78 143h.01M91 143h.01M104 143h.01M117 143h.01M130 143h.01M143 143h.01M156 143h.01M169 143h.01M182 143h.01M195 143h.01M247 143h.01M260 143h.01M273 143h.01M286 143h.01M299 143h.01M312 143h.01M325 143h.01M338 143h.01M351 143h.01M364 143h.01M377 143h.01M390 143h.01M403 143h.01M416 143h.01M429 143h.01" stroke-width="2.3" stroke-opacity="0.2"/><path d="M156 78h.01M156 91h.01M169 104h.01M182 117h.01" stroke-width="3.8" stroke-opacity="0.5"/><path d="M52 39h.01M130 39h.01M65 52h.01M117 52h.01M78 65h.01M104 65h.01M91 78h.01M78 91h.01M104 91h.01M65 104h.01M117 104h.01M52 117h.01M130 117h.01" stroke-width="5.6" stroke-opacity="0.85"/><path d="M351 39h.01M338 52h.01M351 52h.01M364 52h.01M325 65h.01M351 65h.01M377 65h.01M299 78h.01M312 78h.01M351 78h.01M390 78h.01M286 91h.01M351 91h.01M273 104h.01M351 104h.01M208 117h.01M221 117h.01M234 117h.01M260 117h.01M351 117h.01M208 130h.01M221 130h.01M234 130h.01M208 143h.01M221 143h.01M234 143h.01" stroke-width="7" stroke-opacity="1"/></svg><h3>Slide up while holding</h3><p>Left cancels. Right sends when you let go, in fields whose return key is Send, Search or Go.</p></li>
+            <li><svg class="sp-led" viewBox="0 0 442 156" aria-hidden="true" focusable="false"><path d="M13 13h.01M26 13h.01M39 13h.01M52 13h.01M65 13h.01M78 13h.01M91 13h.01M104 13h.01M117 13h.01M130 13h.01M143 13h.01M156 13h.01M169 13h.01M182 13h.01M195 13h.01M208 13h.01M221 13h.01M234 13h.01M247 13h.01M260 13h.01M273 13h.01M286 13h.01M299 13h.01M312 13h.01M325 13h.01M338 13h.01M351 13h.01M364 13h.01M377 13h.01M390 13h.01M403 13h.01M416 13h.01M429 13h.01M13 26h.01M26 26h.01M39 26h.01M52 26h.01M65 26h.01M78 26h.01M91 26h.01M104 26h.01M117 26h.01M130 26h.01M143 26h.01M156 26h.01M169 26h.01M182 26h.01M195 26h.01M208 26h.01M221 26h.01M234 26h.01M247 26h.01M260 26h.01M273 26h.01M286 26h.01M299 26h.01M312 26h.01M325 26h.01M338 26h.01M351 26h.01M364 26h.01M377 26h.01M390 26h.01M403 26h.01M416 26h.01M429 26h.01M13 39h.01M26 39h.01M39 39h.01M52 39h.01M65 39h.01M78 39h.01M91 39h.01M104 39h.01M130 39h.01M143 39h.01M156 39h.01M169 39h.01M182 39h.01M195 39h.01M208 39h.01M221 39h.01M234 39h.01M247 39h.01M260 39h.01M273 39h.01M325 39h.01M351 39h.01M364 39h.01M377 39h.01M390 39h.01M403 39h.01M416 39h.01M429 39h.01M13 52h.01M26 52h.01M39 52h.01M52 52h.01M65 52h.01M78 52h.01M91 52h.01M117 52h.01M130 52h.01M143 52h.01M156 52h.01M169 52h.01M182 52h.01M195 52h.01M208 52h.01M221 52h.01M234 52h.01M247 52h.01M260 52h.01M286 52h.01M299 52h.01M312 52h.01M351 52h.01M364 52h.01M377 52h.01M390 52h.01M403 52h.01M416 52h.01M429 52h.01M13 65h.01M26 65h.01M39 65h.01M52 65h.01M65 65h.01M78 65h.01M169 65h.01M182 65h.01M195 65h.01M208 65h.01M221 65h.01M234 65h.01M247 65h.01M260 65h.01M286 65h.01M299 65h.01M351 65h.01M364 65h.01M377 65h.01M390 65h.01M403 65h.01M416 65h.01M429 65h.01M13 78h.01M26 78h.01M39 78h.01M52 78h.01M65 78h.01M78 78h.01M91 78h.01M117 78h.01M130 78h.01M143 78h.01M156 78h.01M182 78h.01M195 78h.01M208 78h.01M221 78h.01M234 78h.01M247 78h.01M260 78h.01M286 78h.01M299 78h.01M312 78h.01M325 78h.01M338 78h.01M351 78h.01M364 78h.01M377 78h.01M390 78h.01M403 78h.01M416 78h.01M429 78h.01M13 91h.01M26 91h.01M39 91h.01M52 91h.01M65 91h.01M78 91h.01M91 91h.01M104 91h.01M130 91h.01M143 91h.01M156 91h.01M182 91h.01M195 91h.01M208 91h.01M221 91h.01M234 91h.01M247 91h.01M260 91h.01M286 91h.01M299 91h.01M312 91h.01M325 91h.01M338 91h.01M364 91h.01M377 91h.01M390 91h.01M403 91h.01M416 91h.01M429 91h.01M13 104h.01M26 104h.01M39 104h.01M52 104h.01M65 104h.01M78 104h.01M91 104h.01M104 104h.01M117 104h.01M130 104h.01M143 104h.01M156 104h.01M182 104h.01M195 104h.01M208 104h.01M221 104h.01M234 104h.01M247 104h.01M260 104h.01M286 104h.01M299 104h.01M312 104h.01M325 104h.01M338 104h.01M364 104h.01M377 104h.01M390 104h.01M403 104h.01M416 104h.01M429 104h.01M13 117h.01M26 117h.01M39 117h.01M52 117h.01M65 117h.01M78 117h.01M91 117h.01M104 117h.01M117 117h.01M169 117h.01M182 117h.01M195 117h.01M208 117h.01M221 117h.01M234 117h.01M247 117h.01M260 117h.01M273 117h.01M351 117h.01M364 117h.01M377 117h.01M390 117h.01M403 117h.01M416 117h.01M429 117h.01M13 130h.01M26 130h.01M39 130h.01M52 130h.01M65 130h.01M78 130h.01M91 130h.01M104 130h.01M117 130h.01M130 130h.01M143 130h.01M156 130h.01M169 130h.01M182 130h.01M195 130h.01M208 130h.01M221 130h.01M234 130h.01M247 130h.01M260 130h.01M273 130h.01M286 130h.01M299 130h.01M312 130h.01M325 130h.01M338 130h.01M351 130h.01M364 130h.01M377 130h.01M390 130h.01M403 130h.01M416 130h.01M429 130h.01M13 143h.01M26 143h.01M39 143h.01M52 143h.01M65 143h.01M78 143h.01M91 143h.01M104 143h.01M117 143h.01M130 143h.01M143 143h.01M156 143h.01M169 143h.01M182 143h.01M195 143h.01M208 143h.01M221 143h.01M234 143h.01M247 143h.01M260 143h.01M273 143h.01M286 143h.01M299 143h.01M312 143h.01M325 143h.01M338 143h.01M351 143h.01M364 143h.01M377 143h.01M390 143h.01M403 143h.01M416 143h.01M429 143h.01" stroke-width="2.3" stroke-opacity="0.2"/><path d="M117 39h.01M286 39h.01M299 39h.01M312 39h.01M338 39h.01M104 52h.01M273 52h.01M325 52h.01M338 52h.01M91 65h.01M104 65h.01M117 65h.01M130 65h.01M143 65h.01M156 65h.01M273 65h.01M312 65h.01M325 65h.01M338 65h.01M104 78h.01M169 78h.01M273 78h.01M117 91h.01M169 91h.01M273 91h.01M351 91h.01M169 104h.01M273 104h.01M351 104h.01M130 117h.01M143 117h.01M156 117h.01M286 117h.01M299 117h.01M312 117h.01M325 117h.01M338 117h.01" stroke-width="7" stroke-opacity="1"/></svg><h3>Undo, or say it again</h3><p>Both show up after a sentence goes in. Undo takes it back out; Say again takes it out and starts listening.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sp-section" aria-labelledby="say-h">
+        <div class="sp-wrap">
+          <div class="sp-head"><h2 id="say-h">Say it the way you’d say it.</h2><p>Chinese and English in one sentence is fine. Filler words and false starts come out, punctuation goes in.</p></div>
+          <div class="sp-pairs">
+            <dl class="sp-pair">
+              <div><dt>You say</dt><dd class="said"><s>um so</s> I think we should <s>ship it on Monday, no,</s> ship it on Tuesday</dd></div>
+              <div><dt>It types</dt><dd class="typed">I think we should ship it on Tuesday.</dd></div>
+            </dl>
+            <dl class="sp-pair">
+              <div><dt>You say</dt><dd class="said" lang="zh-CN"><s>嗯</s>帮我 review 一下<s>那个那个</s>首页的 PR <s>呃</s> merge 之前跑一下 test</dd></div>
+              <div><dt>It types</dt><dd class="typed" lang="zh-CN">帮我 review 一下首页的 PR，merge 之前跑一下 test。</dd></div>
+            </dl>
+          </div>
+          <p class="sp-note">These are examples; results depend on the models you pick. With OpenRouter, two speech models listen to the same recording by default, so a word one of them misheard can be caught; with other services that check is optional. It does not always get it right, so read it before you send it.</p>
+        </div>
+      </section>
+
+      <section class="sp-section" id="keys" aria-labelledby="keys-h">
+        <div class="sp-wrap sp-duo">
+          <div class="sp-head"><h2 id="keys-h">The other keys.</h2><p>For what you still need a finger for. One tap on ABC switches to ordinary typing, which works offline and without Full Access.</p></div>
+          <table class="sp-keylist">
+            <thead><tr><th scope="col">Key</th><th scope="col">Tap</th><th scope="col">Hold</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Punctuation</th><td>Types a comma</td><td>Shows more marks</td></tr>
+              <tr><th scope="row">Space</th><td>Types a space</td><td>Slide to move the cursor</td></tr>
+              <tr><th scope="row">Delete</th><td>Deletes back</td><td>Keeps deleting</td></tr>
+              <tr><th scope="row">Return</th><td>Send, Search, Go or Return, as the field asks</td><td>–</td></tr>
+              <tr><th scope="row">ABC</th><td>Switches to typing</td><td>–</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sp-section" id="service" aria-labelledby="service-h">
+        <div class="sp-wrap sp-duo">
+          <div class="sp-head"><h2 id="service-h">Bring your own AI&nbsp;service.</h2><p>Speechless is only the keyboard; it comes with no AI of its own. You add one or more services with your own API key, then pick one model for recognition and one for cleanup. They can come from different services.</p><p>The services bill you directly. I sell no AI usage, run no server and get nothing from any of them.</p></div>
+          <div>
+            <ul class="sp-services">
+              <li><b>OpenRouter</b><span>The default, with recommended models set up</span></li>
+              <li><b>OpenAI</b></li>
+              <li><b>Alibaba Cloud Model Studio</b><span>Qwen</span></li>
+              <li><b>Volcengine Ark</b><span>Doubao</span></li>
+              <li><b>SiliconFlow</b></li>
+              <li><b>Any other OpenAI‑compatible service</b><span>By its address</span></li>
+            </ul>
+            <p class="sp-note">Not affiliated with any of these companies. Which one suits you is <a href="#choosing">up to you</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sp-section sp-dark" id="sent" aria-labelledby="sent-h">
+        <div class="sp-wrap">
+          <div class="sp-head"><h2 id="sent-h">Where your voice goes.</h2><p>Straight to the services you chose. Before the first use of each one, the app names it and its address and asks you. If you don’t agree, nothing goes there, and you can still type.</p></div>
+          <div class="sp-flow">
+            <div class="sp-node"><h3>Your iPhone</h3><p>Sends what you dictate with your own API keys. There is no server of mine in between.</p></div>
+            <i class="sp-link a" aria-hidden="true"></i>
+            <i class="sp-link b" aria-hidden="true"></i>
+            <div class="sp-node a"><h3>The service you chose for recognition</h3><p>Gets the <b>recording</b> when you finish, or at a pause in the middle so you wait less, and the <b>words in your dictionary</b> as hints.</p></div>
+            <div class="sp-node b"><h3>The service you chose for cleanup</h3><p>Gets the <b>transcript</b>, and the <b>words in your dictionary</b> as hints.</p></div>
+          </div>
+          <div class="sp-four">
+            <div>
+              <h3>With OpenRouter</h3>
+              <p>The default models are ElevenLabs Scribe v2 and AssemblyAI Universal‑3.6 Pro for recognition, with Mistral AI’s Voxtral Small Transcribe 3 as a backup when the first is slow, and DeepSeek V4.1 Flash or GLM‑5.3 Flash for cleanup, run by a host OpenRouter chooses among those that qualify.</p>
+              <p>Whichever models you pick, every request asks for zero data retention and no data collection. The few <a href="/speechless/privacy.html#protection">exceptions</a> are in the privacy policy. OpenRouter (USA) keeps metadata, such as time, model and token counts, for billing.</p>
+            </div>
+            <div>
+              <h3>With any other service</h3>
+              <p>What you dictate goes straight from your iPhone to that service, under its own terms and privacy policy. Speechless can’t set zero retention there: how long the service keeps your data and what it does with it is between you and the service. It may be processed in another country, for example in China. How the services handle your data: see the <a href="/speechless/privacy.html#other">links</a> in the privacy policy.</p>
+            </div>
+            <div>
+              <h3>Stored only on your iPhone</h3>
+              <ul>
+                <li>Your API keys, one per service, in the iOS Keychain; each is sent only to its own service</li>
+                <li>Settings, and the dictionary itself</li>
+                <li>The last 30 dictations, as text</li>
+                <li>Audio of sentences not transcribed yet</li>
+                <li>A technical log without what you said, 14 days</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Never reaches me</h3>
+              <p>I receive no audio, text, keys or usage data. The app has no analytics, no ads, no tracking and no third‑party SDKs. What you type with the ABC keyboard is not stored, logged or sent.</p>
+            </div>
+          </div>
+          <p class="sp-more">Read the full <a href="/speechless/privacy.html">privacy policy</a>.</p>
+        </div>
+      </section>
+
+      <div class="sp-help" id="help">
+        <div class="wrap doc">
+          <h2 class="sp-help-title">Help</h2>
+          <p class="doc-lead">Setup, how to use it, and answers to common questions.</p>
+          <p class="doc-note">Questions or problems? Email <a href="mailto:tonybingpoon@gmail.com?subject=Speechless">tonybingpoon@gmail.com</a>. I read and answer every message myself.</p>
+          <section id="en">
+          <h2>Requirements</h2>
+          <ul>
+            <li>An iPhone with iOS 17 or later. The interface is in English and Simplified Chinese.</li>
+            <li>For voice: an internet connection, an AI service you add with your own API key, Allow Full Access for the keyboard, microphone permission, and your consent in the app to send what you say to that service.</li>
+            <li>For typing with the ABC keyboard: nothing else. It works offline, without Full Access and without a key.</li>
+            <li>Availability: Speechless is in preparation for the App Store. At first it won’t be offered in China mainland or the EU.</li>
+          </ul>
+
+          <h2>Setting up</h2>
+          <ol>
+            <li>Open the Speechless app and allow the microphone.</li>
+            <li>In Settings › General › Keyboard › Keyboards › Add New Keyboard, choose Speechless. Then tap Speechless in that list and turn on Allow Full Access.</li>
+            <li>In the app, under AI services, add a service and paste its API key. The app names the service and its address and asks whether you agree to send what you say there. If you don’t, you can still type.</li>
+            <li>After you agree, the app loads the service’s list of models and tries recognition (one second of silence) and cleanup (one short sample sentence) once with your key, so you know both work. These two small test requests contain nothing you said. Then pick one model for recognition and one for cleanup; with OpenRouter, recommended models are already set.</li>
+            <li>Tap a text field, touch and hold the globe key, and choose Speechless.</li>
+          </ol>
+
+          <h2 id="choosing">Choosing a service</h2>
+          <ul>
+            <li>You need an account with the service and an API key from it. OpenRouter’s own terms require account holders to be adults; other services set their own rules.</li>
+            <li>OpenRouter is the default. With it, the app lists only models that OpenRouter marks as zero‑retention.</li>
+            <li>You can also add OpenAI, Alibaba Cloud Model Studio (Qwen; Beijing or Singapore region), Volcengine Ark (Doubao; recognition is done by a general model that can listen, not a dedicated speech model), SiliconFlow (China or international), or any other service with OpenAI‑compatible endpoints by its https address.</li>
+            <li>Recognition and cleanup can use different services.</li>
+            <li>Availability in your country, price, quality in your language, speed and data terms differ from service to service. Read the service’s own terms and privacy policy before you add it.</li>
+            <li>Zero data retention is requested only with OpenRouter. With any other service, that service’s terms apply.</li>
+          </ul>
+
+          <h2>Using it</h2>
+          <ul>
+            <li>Hold the pad, talk, and let go. Or tap to start and tap again to stop.</li>
+            <li>Slide up while holding: left cancels; right sends when you let go, if the field’s return key is Send, Search or Go.</li>
+            <li>After a sentence goes in, Undo takes it back out, and Say again lets you say it over.</li>
+            <li>Touch and hold the punctuation key for more marks. Hold space and slide to move the cursor. Hold delete to keep deleting.</li>
+            <li>One recording can be up to 3 minutes long. When you started it with a tap, it stops by itself after a minute without speech.</li>
+            <li>Put names and product names in the dictionary in the app. They are sent along as hints when you dictate.</li>
+          </ul>
+
+          <h2>Common questions</h2>
+          <h3>Do I need an account?</h3>
+          <p>
+            Not with me. For voice you need an API key from the AI service you choose, which means an account there. Typing
+            needs neither.
+          </p>
+
+          <h3>Voice doesn’t work</h3>
+          <p>
+            Check that the microphone is allowed, Allow Full Access is on, you’re online, and in the app a service with a working
+            key is added, you agreed to it, and models are picked. If all of that is fine, see whether your account with the
+            service has credit left.
+          </p>
+
+          <h3>Why does it ask for Allow Full Access?</h3>
+          <p>
+            iOS gives a keyboard no network and no microphone without it, so voice can’t work. The ABC keyboard doesn’t need it.
+            With Full Access on, Speechless still doesn’t store, log or send what you type.
+          </p>
+
+          <h3>Does it listen in the background?</h3>
+          <p>
+            No. It records only while you dictate, with the system’s microphone indicator and the keyboard’s own animation
+            showing. Recording stops after 3 minutes at most, and after a minute without speech when you started it with a tap.
+          </p>
+
+          <h3>What does it cost?</h3>
+          <p>
+            The app is free, with no in-app purchase and no ads. The AI services you add bill you directly for what you use. I
+            sell no AI usage and get nothing from any of them.
+          </p>
+
+          <h3>It got a word wrong</h3>
+          <p>
+            That happens. Tap Undo or Say again, or fix it by hand. If it’s a name it keeps missing, add it to the dictionary in
+            the app.
+          </p>
+
+          <h3>The key says Return instead of Send</h3>
+          <p>
+            In some apps, Send is the app’s own button, and a keyboard can’t press it. There the key says Return; tap the app’s
+            button instead.
+          </p>
+
+          <h3>My music stops</h3>
+          <p>Music pauses while it records.</p>
+
+          <h3>It’s slow</h3>
+          <p>How long you wait depends on your network, on the service and on the models you picked.</p>
+
+          <h3>Speechless isn’t there in a password field</h3>
+          <p>iOS replaces third-party keyboards in password fields. Some apps also don’t allow them.</p>
+
+          <h3>A sentence didn’t come out</h3>
+          <p>
+            Its audio stays on your iPhone until it has been transcribed, so you can try it again. Your last 30 dictations are
+            in the app as text.
+          </p>
+
+          <h3>How do I stop it sending anything?</h3>
+          <p>
+            In the Speechless app, go to AI services, choose the service and tap Withdraw consent. Nothing more is sent there.
+            You can do this for each service at any time. Typing still works.
+          </p>
+
+          <h3>How do I delete my data?</h3>
+          <p>
+            In the app, Clear deletes your recent dictations. Erase all data, under Privacy, deletes the keys, dictionary, history,
+            audio and log. Removing a service under AI services removes its key too.
+          </p>
+
+          <h2>Uninstalling</h2>
+          <p>
+            In the app, under Privacy, tap Erase all data first, then delete the app. Deleting the app removes what it stored, but iOS can keep
+            Keychain items after an app is deleted, and that is where the API keys are. You can also delete a key in
+            your account with the service.
+          </p>
+
+          <h2>Privacy</h2>
+          <p>Speechless sends what you dictate to the AI services you added, after you agree. What you type is not sent. See the <a href="/speechless/privacy.html">privacy policy</a>.</p>
+
+          <h2>Contact</h2>
+          <p><a href="mailto:tonybingpoon@gmail.com?subject=Speechless">tonybingpoon@gmail.com</a></p>
+
+          <p class="doc-fine">
+            Speechless is made by Tao Pan, an independent developer, and is not affiliated with OpenRouter, OpenAI, Alibaba Cloud,
+            Volcengine, SiliconFlow, ElevenLabs, AssemblyAI, Mistral AI, DeepSeek or Z.ai. Their names and product names are trademarks of their owners.
+          </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="wordmark" aria-label="TokenDance">TokenDance</p>
+        <div class="footer-row">
+          <span>© 2026 TokenDance · Tony</span>
+          <span><a href="/speechless/privacy.html">Speechless Privacy Policy</a> · <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a></span>
+        </div>
+      </div>
+    </footer>
+    <script src="/speechless/pad.js?v=20261124a"></script>
+    <script src="/speechless/sp.js?v=20261124a"></script>
+    <script src="/analytics.js?v=20261022"></script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
+  </body>
+</html>

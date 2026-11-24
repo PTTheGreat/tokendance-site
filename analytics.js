@@ -1,4 +1,4 @@
-// Website analytics only (the TokenDance apps themselves collect nothing).
+// Website analytics only (the TokenDance apps have no analytics).
 // Google Analytics 4 runs without cookies. GA4 has no setting that stops it
 // writing its _ga cookies (client_storage: "none" is ignored), and it stops
 // sending hits when it cannot read back what it wrote. So Google's analytics

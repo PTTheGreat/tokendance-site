@@ -6,7 +6,7 @@
     <title>TokenDance · 独立开发的 iOS 与 macOS 小工具</title>
     <meta
       name="description"
-      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录，以及 Mac 菜单栏编程伙伴 Code Buddy（已上架 Mac App Store）。无账号、无广告、数据只存在你的设备上。"
+      content="TokenDance 是独立开发者 Tony 的应用合集：every15min 终端风格时间记录、守守 Goldie 癫痫用药提醒与发作记录、Mac 菜单栏编程伙伴 Code Buddy（已上架 Mac App Store），以及 iPhone 语音键盘 Speechless（准备上架中）。无广告、无追踪。"
     />
     <meta name="author" content="Tony" />
     <meta
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="/styles.css?v=20261104b" />
+    <link rel="stylesheet" href="/styles.css?v=20261124a" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -29,7 +29,7 @@
     <meta property="og:title" content="TokenDance · 独立开发的 iOS 与 macOS 小工具" />
     <meta
       property="og:description"
-      content="every15min、守守 Goldie、Code Buddy。无账号、无广告，数据只存在你的设备上。"
+      content="every15min、守守 Goldie、Code Buddy、Speechless。无广告、无追踪。"
     />
     <meta property="og:url" content="https://tokendance.life/zh/" />
     <meta property="og:locale:alternate" content="en_US" />
@@ -41,7 +41,7 @@
     <meta name="twitter:title" content="TokenDance · 独立开发的 iOS 与 macOS 小工具" />
     <meta
       name="twitter:description"
-      content="every15min、守守 Goldie、Code Buddy。无账号、无广告，数据只存在你的设备上。"
+      content="every15min、守守 Goldie、Code Buddy、Speechless。无广告、无追踪。"
     />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
 
@@ -134,6 +134,23 @@
                   },
                   "softwareVersion": "1.0.0"
                 }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Speechless",
+                  "alternateName": "Speechless 语音键盘",
+                  "url": "https://tokendance.life/speechless/",
+                  "image": "https://tokendance.life/assets/apps/speechless-icon.webp",
+                  "applicationCategory": "UtilitiesApplication",
+                  "operatingSystem": "iOS 17 或更新版本",
+                  "description": "iPhone 语音键盘，正在准备上架 App Store：按住面板说话，松手，文字就输入在光标的位置。AI 服务用你自己的，填自己的 API Key。",
+                  "publisher": {
+                    "@id": "https://tokendance.life/#organization"
+                  }
+                }
               }
             ]
           },
@@ -143,10 +160,18 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "这些应用需要注册账号吗？",
+                "name": "需要注册账号吗？",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "不需要。这些应用都没有账号系统，记录只保存在你自己的设备上。"
+                  "text": "我这边没有账号系统。every15min、守守和 Code Buddy 都不需要账号；Speechless 需要你选的 AI 服务的 API Key，也就是要有那个服务的账号。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "数据只存在我的设备上吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "every15min、守守和 Code Buddy 是这样。Speechless 例外：你在 App 里同意之后，说的内容会发给你添加的 AI 服务。发什么、发给谁，见它的隐私政策：https://tokendance.life/zh/speechless/privacy.html"
                 }
               },
               {
@@ -182,6 +207,7 @@
           <a href="#every15min">every15min</a>
           <a href="#goldie">守守</a>
           <a href="#code-buddy">Code Buddy</a>
+          <a href="#speechless">Speechless</a>
           <a href="#about">关于</a>
         </nav>
         <a class="lang" href="/" hreflang="en" lang="en">EN</a>
@@ -195,7 +221,7 @@
           <p class="hero-eyebrow" data-reveal>TokenDance · Tony 的独立应用</p>
           <h1 id="hero-title" data-split>做小而好用的工具。</h1>
           <p class="hero-lead" data-reveal style="--d: 0.5s">
-            一个人做 iOS 和 macOS 小工具。每个应用都从生活里一个具体的麻烦开始，做到自己每天愿意用为止。没有账号，没有广告，数据只存在你的设备上。
+            一个人做 iOS 和 macOS 小工具。每个应用都从生活里一个具体的麻烦开始，做到自己每天愿意用为止。没有广告，没有追踪，你的数据不会到我这里。
           </p>
           <div class="hero-cta" data-reveal style="--d: 0.65s">
             <a class="btn btn-dark magnetic" href="#every15min">往下看它们怎么用</a>
@@ -207,7 +233,7 @@
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee-track">
-          <span>无账号</span><i>✳</i><span>无广告</span><i>✳</i><span>无追踪</span><i>✳</i><span>数据只在你的设备上</span><i>✳</i><span>一个人长期维护</span>
+          <span>无广告</span><i>✳</i><span>无追踪</span><i>✳</i><span>你的数据不会到我这里</span><i>✳</i><span>一个人长期维护</span>
         </div>
       </div>
 
@@ -428,6 +454,61 @@
             </div>
           </div>
         </section>
+
+        <!-- Speechless: four scenes, changed by swiping sideways -->
+        <section class="story spx" id="speechless" data-story="spx" aria-labelledby="t-speechless">
+          <div class="story-track" style="--n: 4">
+            <div class="story-sticky">
+              <div class="wrap story-grid">
+                <div class="story-copy">
+                  <p class="story-kicker">语音键盘 · iPhone · 准备上架中</p>
+                  <h2 id="t-speechless">Speechless</h2>
+                  <ol class="story-steps">
+                    <li class="is-on"><h3>按住，说话，松手</h3><p>在正在用的输入框里按住面板，说完松手，文字就输入在光标的位置，不用跳出 App。</p></li>
+                    <li><h3>平时怎么说，就怎么说</h3><p>一句话里可以中英混说。口头禅和说错重来的部分会去掉，标点会补好。它不是每次都对。</p></li>
+                    <li><h3>上滑发送，或者取消</h3><p>按住时上滑：左边取消，右边松手就发，要输入框有发送键。点 ABC 切到普通打字。</p></li>
+                    <li><h3>AI 服务，用你自己的</h3><p>用自己的 API Key 添加服务。你说的内容只发给你添加并同意的服务，你打的字不会发送。</p></li>
+                  </ol>
+                  <div class="story-cta">
+                    <a class="btn btn-dark magnetic" href="/zh/speechless/">了解更多</a>
+                    <a class="btn btn-line magnetic" href="/zh/speechless/privacy.html">隐私政策</a>
+                  </div>
+                  <p class="story-fine">App 免费 · iOS 17 或更新版本 · AI 服务由你自己添加。动画里的句子只是示例。</p>
+                  <div class="story-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="stage" aria-hidden="true">
+                  <div class="stage-box spx-box" data-scene="0">
+                    <div class="s s0">
+                      <div class="spx-field"><small>示例</small><p><span id="spx-text"></span><i></i></p></div>
+                      <div class="spx-kb"><canvas id="spx-pad"></canvas><div class="spx-keys"><span>ABC</span><span>，</span><span>空格</span><span>⌫</span><span class="go">发送</span></div></div>
+                    </div>
+
+                    <div class="s s1">
+                      <p class="spx-label">你说</p>
+                      <p class="spx-said"><s>嗯</s>帮我 review 一下<s>那个那个</s>首页的 PR <s>呃</s> merge 之前跑一下 test</p>
+                      <p class="spx-ell"><i></i><i></i><i></i></p>
+                      <p class="spx-label">它输入</p>
+                      <p class="spx-typed">帮我 review 一下首页的 PR，merge 之前跑一下 test。</p>
+                    </div>
+
+                    <div class="s s2">
+                      <div class="spx-chat"><small>示例</small><p id="spx-bubble">我晚十分钟到，你们先开始，不用等我。</p></div>
+                      <div class="spx-kb"><div class="spx-zones"><span class="l">✕ 取消</span><span class="r">↑ 松手发送</span></div><canvas id="spx-pad2"></canvas><i class="spx-thumb"></i><div class="spx-keys"><span>ABC</span><span>，</span><span>空格</span><span>⌫</span><span class="go">发送</span></div></div>
+                    </div>
+
+                    <div class="s s3">
+                      <div class="spx-node"><b>你的 iPhone</b><span>用你自己的 API Key</span></div>
+                      <i class="spx-wire"></i>
+                      <div class="spx-pairs"><div class="spx-node"><b>识别</b><span>收到录音</span></div><div class="spx-node"><b>整理</b><span>收到文字</span></div></div>
+                      <p class="spx-none">中间没有我的服务器。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
 
@@ -436,12 +517,14 @@
           <div>
             <h2 id="about-title" data-split>关于</h2>
             <p class="about-lead" data-reveal>
-              应用里不放广告 SDK，不做跟踪，不需要注册。记录保存在你的手机上，我这边看不到任何内容。
+              应用里不放广告 SDK，不做跟踪，不需要在我这里注册，你留在应用里的内容我都看不到。every15min、守守和 Code Buddy 的记录只在你的设备上。Speechless 例外：你同意之后，它会把你说的话发给你添加的 AI 服务，详见它的<a href="/zh/speechless/privacy.html">隐私政策</a>。
             </p>
           </div>
           <dl id="faq" data-reveal style="--d: 0.1s">
             <dt>需要注册账号吗？</dt>
-            <dd>不需要。这些应用都没有账号系统。</dd>
+            <dd>我这边没有账号系统。every15min、守守和 Code Buddy 都不需要账号；Speechless 需要你选的 AI 服务的 API Key，也就是要有那个服务的账号。</dd>
+            <dt>数据只存在我的设备上吗？</dt>
+            <dd>every15min、守守和 Code Buddy 是这样。Speechless 例外：你在 App 里同意之后，说的内容会发给你添加的 AI 服务。发什么、发给谁，见它的<a href="/zh/speechless/privacy.html">隐私政策</a>。</dd>
             <dt>守守能代替医生吗？</dt>
             <dd>不能。它帮你把情况记清楚，治疗请听医生的。</dd>
             <dt>遇到问题怎么联系？</dt>
@@ -458,11 +541,12 @@
           <span>© 2026 TokenDance · Tony</span>
           <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
         </div>
-        <p class="footer-note">本站用 Google Analytics 统计访问量，不使用 Cookie。App 本身不收集任何数据。</p>
+        <p class="footer-note">本站用 Google Analytics 统计访问量，不使用 Cookie。App 里没有统计，也不会向我发送任何内容。</p>
       </div>
     </footer>
     <script src="/analytics.js?v=20261022"></script>
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
-    <script src="/app.js?v=20261104b" defer></script>
+    <script src="/speechless/pad.js?v=20261124a" defer></script>
+    <script src="/app.js?v=20261124a" defer></script>
   </body>
 </html>
