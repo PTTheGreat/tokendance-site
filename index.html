@@ -6,7 +6,7 @@
     <title>TokenDance · Small, privacy-first apps for iPhone and Mac</title>
     <meta
       name="description"
-      content="TokenDance is Tony's independent app studio: every15min, a terminal-style time log for iPhone; Goldie, an epilepsy medication reminder and seizure diary; and Code Buddy, a Mac menu bar buddy for Claude Code, Codex, Grok and Cursor. No accounts, no ads, your data stays on your device."
+      content="TokenDance is Tony's independent app studio: every15min, a terminal-style time log for iPhone; Goldie, an epilepsy medication reminder and seizure diary; Code Buddy, a Mac menu bar buddy for Claude Code, Codex, Grok and Cursor; and Speechless, an iPhone voice keyboard in preparation. No ads, no tracking."
     />
     <meta name="author" content="Tony" />
     <meta
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261022b" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
-    <link rel="stylesheet" href="/styles.css?v=20261104b" />
+    <link rel="stylesheet" href="/styles.css?v=20261124a" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
@@ -30,7 +30,7 @@
     <meta property="og:title" content="TokenDance · Small, privacy-first apps for iPhone and Mac" />
     <meta
       property="og:description"
-      content="every15min, Goldie and Code Buddy. No accounts, no ads, your data stays on your device."
+      content="every15min, Goldie, Code Buddy and Speechless. No ads, no tracking."
     />
     <meta property="og:url" content="https://tokendance.life/" />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
@@ -41,7 +41,7 @@
     <meta name="twitter:title" content="TokenDance · Small, privacy-first apps for iPhone and Mac" />
     <meta
       name="twitter:description"
-      content="every15min, Goldie and Code Buddy. No accounts, no ads, your data stays on your device."
+      content="every15min, Goldie, Code Buddy and Speechless. No ads, no tracking."
     />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
 
@@ -134,6 +134,23 @@
                   },
                   "softwareVersion": "1.0.0"
                 }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Speechless",
+                  "alternateName": "Speechless: Voice Keyboard",
+                  "url": "https://tokendance.life/speechless/",
+                  "image": "https://tokendance.life/assets/apps/speechless-icon.webp",
+                  "applicationCategory": "UtilitiesApplication",
+                  "operatingSystem": "iOS 17 or later",
+                  "description": "A voice keyboard for iPhone, in preparation for the App Store: hold the pad, talk, let go, and the text goes in where the cursor is. It works with the AI service you bring, with your own API key.",
+                  "publisher": {
+                    "@id": "https://tokendance.life/#organization"
+                  }
+                }
               }
             ]
           },
@@ -146,7 +163,15 @@
                 "name": "Do I need an account?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. None of the apps has an account. Your records stay on your own device."
+                  "text": "Not with me. every15min, Goldie and Code Buddy need no account at all. Speechless needs an API key from the AI service you choose, and that means an account there."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does my data stay on my device?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "With every15min, Goldie and Code Buddy, yes. Speechless is the exception: what you say goes to the AI services you added, after you agree in the app. Its privacy policy says what goes where: https://tokendance.life/speechless/privacy.html"
                 }
               },
               {
@@ -182,6 +207,7 @@
           <a href="#every15min">every15min</a>
           <a href="#goldie">Goldie</a>
           <a href="#code-buddy">Code Buddy</a>
+          <a href="#speechless">Speechless</a>
           <a href="#about">About</a>
         </nav>
         <a class="lang" href="/zh/" hreflang="zh-CN" lang="zh-CN">中文</a>
@@ -195,7 +221,7 @@
           <p class="hero-eyebrow" data-reveal>TokenDance · independent apps by Tony</p>
           <h1 id="hero-title" data-split>Small tools, done well.</h1>
           <p class="hero-lead" data-reveal style="--d: 0.5s">
-            I build small apps for iPhone and Mac, on my own. Each one starts with a real annoyance in daily life and isn't done until I want to use it every day. No accounts, no ads, your data stays on your device.
+            I build small apps for iPhone and Mac, on my own. Each one starts with a real annoyance in daily life and isn't done until I want to use it every day. No ads, no tracking, and none of your data comes to me.
           </p>
           <div class="hero-cta" data-reveal style="--d: 0.65s">
             <a class="btn btn-dark magnetic" href="#every15min">See how they work</a>
@@ -207,7 +233,7 @@
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee-track">
-          <span>No accounts</span><i>✳</i><span>No ads</span><i>✳</i><span>No tracking</span><i>✳</i><span>Your data stays on your device</span><i>✳</i><span>Built and maintained by one person</span>
+          <span>No ads</span><i>✳</i><span>No tracking</span><i>✳</i><span>None of your data comes to me</span><i>✳</i><span>Built and maintained by one person</span>
         </div>
       </div>
 
@@ -428,6 +454,61 @@
             </div>
           </div>
         </section>
+
+        <!-- Speechless: four scenes, changed by swiping sideways -->
+        <section class="story spx" id="speechless" data-story="spx" aria-labelledby="t-speechless">
+          <div class="story-track" style="--n: 4">
+            <div class="story-sticky">
+              <div class="wrap story-grid">
+                <div class="story-copy">
+                  <p class="story-kicker">Voice keyboard · iPhone · In preparation for the App Store</p>
+                  <h2 id="t-speechless">Speechless</h2>
+                  <ol class="story-steps">
+                    <li class="is-on"><h3>Hold, talk, let go</h3><p>Hold the pad in the text field you’re in, say it, let go. The text goes in where the cursor is, without leaving the app.</p></li>
+                    <li><h3>Talk the way you talk</h3><p>Chinese and English in one sentence is fine. Filler words and false starts come out, punctuation goes in. It doesn’t always get it right.</p></li>
+                    <li><h3>Slide up to send or cancel</h3><p>While holding, slide up: left cancels, right sends when you let go, where the field has a Send key. ABC switches to ordinary typing.</p></li>
+                    <li><h3>It works with the AI service you bring</h3><p>Add a service with your own API key. What you say goes only to services you added and agreed to. What you type isn’t sent.</p></li>
+                  </ol>
+                  <div class="story-cta">
+                    <a class="btn btn-dark magnetic" href="/speechless/">Learn more</a>
+                    <a class="btn btn-line magnetic" href="/speechless/privacy.html">Privacy policy</a>
+                  </div>
+                  <p class="story-fine">Free app · iOS 17 or later · You add your own AI service. Sentences in the animation are examples.</p>
+                  <div class="story-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+
+                <div class="stage" aria-hidden="true">
+                  <div class="stage-box spx-box" data-scene="0">
+                    <div class="s s0">
+                      <div class="spx-field"><small>Example</small><p><span id="spx-text"></span><i></i></p></div>
+                      <div class="spx-kb"><canvas id="spx-pad"></canvas><div class="spx-keys"><span>ABC</span><span>,</span><span>space</span><span>⌫</span><span class="go">Send</span></div></div>
+                    </div>
+
+                    <div class="s s1">
+                      <p class="spx-label">You say</p>
+                      <p class="spx-said"><s>um so</s> I think we should <s>ship it on Monday, no,</s> ship it on Tuesday</p>
+                      <p class="spx-ell"><i></i><i></i><i></i></p>
+                      <p class="spx-label">It types</p>
+                      <p class="spx-typed">I think we should ship it on Tuesday.</p>
+                    </div>
+
+                    <div class="s s2">
+                      <div class="spx-chat"><small>Example</small><p id="spx-bubble">Running ten minutes late. Start without me.</p></div>
+                      <div class="spx-kb"><div class="spx-zones"><span class="l">✕ Cancel</span><span class="r">↑ Let go to send</span></div><canvas id="spx-pad2"></canvas><i class="spx-thumb"></i><div class="spx-keys"><span>ABC</span><span>,</span><span>space</span><span>⌫</span><span class="go">Send</span></div></div>
+                    </div>
+
+                    <div class="s s3">
+                      <div class="spx-node"><b>Your iPhone</b><span>your own API keys</span></div>
+                      <i class="spx-wire"></i>
+                      <div class="spx-pairs"><div class="spx-node"><b>Recognition</b><span>the recording</span></div><div class="spx-node"><b>Cleanup</b><span>the transcript</span></div></div>
+                      <p class="spx-none">No server of mine in between.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
 
@@ -436,12 +517,14 @@
           <div>
             <h2 id="about-title" data-split>About</h2>
             <p class="about-lead" data-reveal>
-              No ad SDKs, no tracking, no sign&#8209;up. Your records live on your phone, and I can't see any of them.
+              No ad SDKs, no tracking, no sign&#8209;up with me, and I can't see anything you keep in the apps. In every15min, Goldie and Code Buddy your records stay on your device. Speechless is the exception: after you agree, it sends what you say to the AI services you add. See its <a href="/speechless/privacy.html">privacy policy</a>.
             </p>
           </div>
           <dl id="faq" data-reveal style="--d: 0.1s">
             <dt>Do I need an account?</dt>
-            <dd>No. None of the apps has an account.</dd>
+            <dd>Not with me. every15min, Goldie and Code Buddy need no account at all. Speechless needs an API key from the AI service you choose, and that means an account there.</dd>
+            <dt>Does my data stay on my device?</dt>
+            <dd>With every15min, Goldie and Code Buddy, yes. Speechless is the exception: what you say goes to the AI services you added, after you agree in the app. Its <a href="/speechless/privacy.html">privacy policy</a> says what goes where.</dd>
             <dt>Can Goldie replace my doctor?</dt>
             <dd>No. It helps you keep a clear record. Treatment decisions belong to your doctor.</dd>
             <dt>How do I get in touch?</dt>
@@ -458,11 +541,12 @@
           <span>© 2026 TokenDance · Tony</span>
           <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>
         </div>
-        <p class="footer-note">This site counts visits with Google Analytics, without cookies. The apps themselves collect nothing.</p>
+        <p class="footer-note">This site counts visits with Google Analytics, without cookies. The apps have no analytics and send nothing to me.</p>
       </div>
     </footer>
     <script src="/analytics.js?v=20261022"></script>
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b91ff1dcc4a41f580444839873ea623"}'></script>
-    <script src="/app.js?v=20261104b" defer></script>
+    <script src="/speechless/pad.js?v=20261124a" defer></script>
+    <script src="/app.js?v=20261124a" defer></script>
   </body>
 </html>

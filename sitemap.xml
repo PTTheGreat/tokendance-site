@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tokendance.life/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/" />
   </url>
   <url>
     <loc>https://tokendance.life/zh/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/" />
@@ -41,5 +41,33 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/code-buddy/privacy.html" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/code-buddy/privacy.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/code-buddy/privacy.html" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/speechless/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/speechless/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/speechless/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/speechless/" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/zh/speechless/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/speechless/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/speechless/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/speechless/" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/speechless/privacy.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/speechless/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/speechless/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/speechless/privacy.html" />
+  </url>
+  <url>
+    <loc>https://tokendance.life/zh/speechless/privacy.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokendance.life/speechless/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokendance.life/zh/speechless/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokendance.life/speechless/privacy.html" />
   </url>
 </urlset>

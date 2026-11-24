@@ -192,6 +192,7 @@
     e15: { 0: e15Rhythm, 1: e15Typing },
     goldie: { 1: goldieSeizure, 2: goldieDays },
     cbx: { 0: cbxMenu, 1: cbxTurn, 2: cbxAgents, 3: cbxSpend },
+    spx: { 0: spxTalk, 2: spxSlide },
   };
 
   // ---------- Code Buddy's face ----------
@@ -671,6 +672,80 @@
       el.textContent = "$" + ((to * i) / n).toFixed(2);
       await sleep(28);
     }
+  }
+
+  // ---------- Speechless story scenes ----------
+  // The pad itself is drawn by /speechless/pad.js. Nothing here listens.
+  const spxLines = zh
+    ? ["那个 PR 我看完了，没问题，下午 merge 吧。", "周六下午有空吗？一起去看展。"]
+    : ["Can we push the design review to Thursday afternoon?", "Picked up the parcel. It's on your desk."];
+  const spxPads = new Map();
+  const padFor = (id) => {
+    const el = $(id);
+    if (!el || !window.SpeechlessPad) return null;
+    if (!spxPads.has(el)) spxPads.set(el, new window.SpeechlessPad(el));
+    return spxPads.get(el);
+  };
+
+  async function spxTalk(alive) {
+    const pad = padFor("#spx-pad");
+    const text = $("#spx-text");
+    if (!pad) return;
+    if (reduced) {
+      text.textContent = spxLines[0];
+      pad.set("listening");
+      return;
+    }
+    for (let i = 0; alive(); i++) {
+      text.textContent = "";
+      pad.set("idle");
+      await sleep(900);
+      if (!alive()) break;
+      pad.ripple(pad.w / 2, pad.h / 2);
+      pad.set("listening");
+      await sleep(2800);
+      if (!alive()) break;
+      pad.set("working");
+      await sleep(900);
+      if (!alive()) break;
+      text.textContent = spxLines[i % spxLines.length];
+      pad.set("idle");
+      await sleep(2800);
+    }
+    pad.set("idle");
+  }
+
+  async function spxSlide(alive) {
+    const pad = padFor("#spx-pad2");
+    if (!pad) return;
+    const scene = $(".spx-box .s2");
+    const at = (zone) => (scene.dataset.zone = zone);
+    if (reduced) {
+      at("right");
+      pad.set("listening");
+      return;
+    }
+    while (alive()) {
+      for (const zone of ["right", "left"]) {
+        at("");
+        pad.set("idle");
+        await sleep(700);
+        if (!alive()) break;
+        at("hold");
+        pad.ripple(pad.w / 2, pad.h * 0.6);
+        pad.set("listening");
+        await sleep(1700);
+        if (!alive()) break;
+        at(zone);
+        await sleep(1300);
+        if (!alive()) break;
+        at(zone === "right" ? "sent" : "");
+        pad.set("idle");
+        await sleep(zone === "right" ? 2200 : 900);
+        if (!alive()) break;
+      }
+    }
+    pad.set("idle");
   }
 
   // ---------- Product stories: swipe sideways, tap a dot or use the arrows ----------
