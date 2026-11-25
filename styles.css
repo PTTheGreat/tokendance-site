@@ -2009,6 +2009,12 @@ dd {
   opacity: 0.74;
 }
 
+.spx .story-fine a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* like the keyboard itself: light or dark with the visitor's system */
 .spx-box {
   --kb: #dcdde2;
