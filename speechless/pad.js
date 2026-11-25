@@ -26,6 +26,7 @@
         this.onScreen = e.isIntersecting;
         if (this.onScreen) this.wake();
       }).observe(canvas);
+      matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.draw());
       this.size();
     }
 
@@ -95,7 +96,7 @@
       const mx = w / 2, my = y0 + Math.floor((rows - 2) / 2) * pitch;
       const fade = Math.min(1, (t - this.since) / 0.25);
       g.clearRect(0, 0, w, h);
-      g.fillStyle = "#fff";
+      g.fillStyle = getComputedStyle(this.canvas).color;
       const dot = (x, y, r, a) => {
         g.globalAlpha = a;
         g.beginPath();

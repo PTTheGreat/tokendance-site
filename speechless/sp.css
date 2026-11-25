@@ -7,6 +7,12 @@
   --sp-line: #d9d9d6;
   --sp-key: #2c2c2e;
   --sp-on-ink: #b4b4b8;
+  /* the mock keyboard, in the colours the real one has; it follows the visitor's light or dark like the real one does */
+  --kb: #dcdde2;
+  --kb-key: #fff;
+  --kb-ink: #0b0b0b;
+  --kb-mute: #5b5b60;
+  --kb-go: #007aff;
   --sp-dot: 13px;
   background: var(--sp-paper);
   color: var(--sp-ink);
@@ -179,7 +185,7 @@
 
 /* the keyboard */
 .sp-kb {
-  background: var(--sp-ink);
+  background: var(--kb);
   padding-bottom: 22px;
 }
 
@@ -191,7 +197,7 @@
   padding: 0;
   border: 0;
   background-color: transparent;
-  color: #fff;
+  color: var(--kb-ink);
   font: inherit;
   cursor: pointer;
   touch-action: pan-y;
@@ -202,7 +208,7 @@
 }
 
 .sp-pad:focus-visible {
-  outline: 3px solid #fff;
+  outline: 3px solid var(--kb-ink);
   outline-offset: -6px;
   border-radius: 14px;
 }
@@ -217,10 +223,10 @@
 /* without JavaScript the pad is dots in CSS */
 html:not(.js) .sp-pad {
   background:
-    radial-gradient(circle, #fff 6px, transparent 6.6px) calc(50% - 21px) 50% / 14px 14px no-repeat,
-    radial-gradient(circle, #fff 6px, transparent 6.6px) 50% 50% / 14px 14px no-repeat,
-    radial-gradient(circle, #fff 6px, transparent 6.6px) calc(50% + 21px) 50% / 14px 14px no-repeat,
-    radial-gradient(circle, rgba(255, 255, 255, 0.28) 1.4px, transparent 1.9px) 50% 50% / var(--sp-dot) var(--sp-dot);
+    radial-gradient(circle, var(--kb-ink) 6px, transparent 6.6px) calc(50% - 21px) 50% / 14px 14px no-repeat,
+    radial-gradient(circle, var(--kb-ink) 6px, transparent 6.6px) 50% 50% / 14px 14px no-repeat,
+    radial-gradient(circle, var(--kb-ink) 6px, transparent 6.6px) calc(50% + 21px) 50% / 14px 14px no-repeat,
+    radial-gradient(circle, color-mix(in srgb, var(--kb-ink) 28%, transparent) 1.4px, transparent 1.9px) 50% 50% / var(--sp-dot) var(--sp-dot);
 }
 
 html:not(.js) .sp-hint {
@@ -235,9 +241,9 @@ html:not(.js) .sp-hint {
   max-width: calc(100% - 16px);
   padding: 2px 12px;
   border-radius: 6px;
-  background: var(--sp-ink);
+  background: var(--kb);
   transform: translateX(-50%);
-  color: var(--sp-on-ink);
+  color: var(--kb-mute);
   font-size: 14px;
   line-height: 1.4;
 }
@@ -254,15 +260,15 @@ html:not(.js) .sp-hint {
   place-items: center;
   height: 48px;
   border-radius: 10px;
-  background: var(--sp-key);
-  color: #fff;
+  background: var(--kb-key);
+  color: var(--kb-ink);
   font-size: 16px;
   font-weight: 500;
 }
 
 .sp-keys .go {
-  background: #fff;
-  color: #000;
+  background: var(--kb-go);
+  color: #fff;
   font-weight: 600;
 }
 
@@ -334,12 +340,12 @@ html:not(.js) .sp-hint {
   width: 100%;
   height: auto;
   border-radius: 20px;
-  background: var(--sp-ink);
+  background: var(--kb);
 }
 
 .sp-led path {
   fill: none;
-  stroke: #fff;
+  stroke: var(--kb-ink);
   stroke-linecap: round;
 }
 
@@ -908,5 +914,15 @@ html:not(.js) .sp-hint {
 @media (prefers-reduced-motion: reduce) {
   .sp-hero h1 .w {
     transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sp-page {
+    --kb: #1c1c1e;
+    --kb-key: #47474a;
+    --kb-ink: #fff;
+    --kb-mute: #b4b4b8;
+    --kb-go: #0a84ff;
   }
 }

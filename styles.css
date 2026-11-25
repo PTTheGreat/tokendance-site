@@ -2009,10 +2009,31 @@ dd {
   opacity: 0.74;
 }
 
+/* like the keyboard itself: light or dark with the visitor's system */
 .spx-box {
-  background: #0b0b0b;
-  color: #fff;
+  --kb: #dcdde2;
+  --kb-key: #fff;
+  --kb-field: #fff;
+  --kb-ink: #0b0b0b;
+  --kb-mute: #5b5b60;
+  --kb-go: #007aff;
+  --kb-line: rgba(0, 0, 0, 0.1);
+  background: #eeeef2;
+  color: var(--kb-ink);
   font-size: 15px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .spx-box {
+    --kb: #1c1c1e;
+    --kb-key: #47474a;
+    --kb-field: #2c2c2e;
+    --kb-ink: #fff;
+    --kb-mute: #a5a5a9;
+    --kb-go: #0a84ff;
+    --kb-line: rgba(255, 255, 255, 0.12);
+    background: #0b0b0b;
+  }
 }
 
 .spx-box .s0,
@@ -2029,7 +2050,7 @@ dd {
 .spx-field small,
 .spx-chat small,
 .spx-label {
-  color: #a5a5a9;
+  color: var(--kb-mute);
   font-size: 13px;
   font-weight: 600;
 }
@@ -2039,7 +2060,7 @@ dd {
   margin-top: 8px;
   padding: 16px 20px;
   border-radius: 22px;
-  background: #1c1c1e;
+  background: var(--kb-field);
   font-size: 21px;
   line-height: 1.45;
 }
@@ -2049,7 +2070,7 @@ dd {
   width: 2px;
   height: 1.1em;
   margin-left: 2px;
-  background: #fff;
+  background: var(--kb-ink);
   vertical-align: -0.18em;
 }
 
@@ -2057,7 +2078,8 @@ dd {
   position: absolute;
   inset: auto 0 0;
   height: 282px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid var(--kb-line);
+  background: var(--kb);
 }
 
 .spx-kb canvas {
@@ -2078,13 +2100,13 @@ dd {
   place-items: center;
   height: 46px;
   border-radius: 9px;
-  background: #2c2c2e;
+  background: var(--kb-key);
   font-size: 15px;
 }
 
 .spx-keys .go {
-  background: #fff;
-  color: #000;
+  background: var(--kb-go);
+  color: #fff;
   font-weight: 600;
 }
 
@@ -2103,7 +2125,7 @@ dd {
 }
 
 .spx-said {
-  color: #c4c4c8;
+  color: var(--kb-mute);
 }
 
 .spx-said s {
@@ -2113,8 +2135,8 @@ dd {
 }
 
 [data-scene="1"] .spx-said s {
-  color: #7c7c80;
-  text-decoration-color: #7c7c80;
+  color: var(--kb-mute);
+  text-decoration-color: var(--kb-mute);
   transition-delay: 1.1s;
 }
 
@@ -2128,7 +2150,7 @@ dd {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--kb-ink);
 }
 
 .spx-typed {
@@ -2151,8 +2173,8 @@ dd {
   margin: 14px 0 0 auto;
   padding: 12px 18px;
   border-radius: 22px 22px 6px 22px;
-  background: #fff;
-  color: #000;
+  background: var(--kb-go);
+  color: #fff;
   font-size: 18px;
   line-height: 1.4;
   opacity: 0;
@@ -2187,15 +2209,19 @@ dd {
   place-items: center;
   height: 44px;
   border-radius: 22px;
-  background: #2c2c2e;
+  background: var(--kb-key);
   font-weight: 600;
   transition: background 0.25s, color 0.25s;
 }
 
-[data-zone="left"] .spx-zones .l,
+[data-zone="left"] .spx-zones .l {
+  background: #ff3b30;
+  color: #fff;
+}
+
 [data-zone="right"] .spx-zones .r {
-  background: #fff;
-  color: #000;
+  background: var(--kb-go);
+  color: #fff;
 }
 
 .spx-thumb {
@@ -2207,8 +2233,8 @@ dd {
   height: 54px;
   margin: -27px 0 0 -27px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.55);
+  background: color-mix(in srgb, var(--kb-ink) 22%, transparent);
+  box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--kb-ink) 45%, transparent);
   opacity: 0;
   transform: scale(1.3);
   transition: opacity 0.25s, transform 0.5s var(--ease);
@@ -2242,7 +2268,7 @@ dd {
   gap: 2px;
   padding: 18px 24px;
   border-radius: 20px;
-  background: #1c1c1e;
+  background: var(--kb-field);
   text-align: center;
 }
 
@@ -2251,7 +2277,7 @@ dd {
 }
 
 .spx-node span {
-  color: #b4b4b8;
+  color: var(--kb-mute);
   font-size: 14px;
 }
 
@@ -2264,8 +2290,8 @@ dd {
   width: 100%;
   height: 78px;
   margin: 4px 0;
-  background: radial-gradient(circle, #fff 2.4px, transparent 3px) 25% 0 / 13px 13px repeat-y,
-    radial-gradient(circle, #fff 2.4px, transparent 3px) 75% 0 / 13px 13px repeat-y;
+  background: radial-gradient(circle, var(--kb-ink) 2.4px, transparent 3px) 25% 0 / 13px 13px repeat-y,
+    radial-gradient(circle, var(--kb-ink) 2.4px, transparent 3px) 75% 0 / 13px 13px repeat-y;
 }
 
 .spx-pairs {
@@ -2277,7 +2303,7 @@ dd {
 
 .spx-none {
   margin-top: 30px;
-  color: #b4b4b8;
+  color: var(--kb-mute);
 }
 
 /* ---------- About ---------- */
