@@ -2,7 +2,7 @@
 
 These five standalone SVGs are the source of truth for all animal drawings. All use a 120 × 140 viewBox, small dark eyes, two-tone rounded shapes and a shared ground shadow. Species identity comes from the ears, tail and body silhouette. Keep cream/sage dominant and honey limited to the bee and Goldie's ears/collar.
 
-The backgrounds `island-stage.webp` and each product's `garden-stage.webp` contain no animals. HTML draws characters in the background's 1536 × 1024 coordinate system. Do not bake a differently drawn animal back into those backgrounds.
+Each product's `garden-stage.webp` background contains no animals. HTML draws characters in the background's 1536 × 1024 coordinate system. Do not bake a differently drawn animal back into those backgrounds.
 
 After changing a character, run from this repository:
 
