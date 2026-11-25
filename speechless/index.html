@@ -6,7 +6,7 @@
     <title>Speechless: Voice Keyboard – hold to talk, let go for text</title>
     <meta
       name="description"
-      content="Speechless is a free iPhone voice keyboard, in preparation for the App Store. Hold the pad, talk, let go, and the text goes in where the cursor is. It works with the AI service you bring: you add your own API key, and what you say goes to that service after you agree."
+      content="Speechless is free voice typing for iPhone and Mac. Hold, talk, let go, and the text goes in where the cursor is. The Mac app is a direct download; the iPhone keyboard has been submitted to the App Store. It works with the AI service you bring: you add your own API key, and what you say goes to that service after you agree."
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
@@ -19,13 +19,13 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
     <link rel="stylesheet" href="/styles.css?v=20261125a" />
-    <link rel="stylesheet" href="/speechless/sp.css?v=20261125a" />
+    <link rel="stylesheet" href="/speechless/sp.css?v=20261125b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:url" content="https://tokendance.life/speechless/" />
     <meta property="og:title" content="Speechless: Voice Keyboard – hold to talk, let go for text" />
-    <meta property="og:description" content="A voice keyboard for iPhone that works with the AI service you bring. In preparation for the App Store." />
+    <meta property="og:description" content="Voice typing for iPhone and Mac that works with the AI service you bring. Download the Mac app; the iPhone keyboard has been submitted to the App Store." />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -33,7 +33,7 @@
     <meta property="og:locale:alternate" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Speechless: Voice Keyboard – hold to talk, let go for text" />
-    <meta name="twitter:description" content="A voice keyboard for iPhone that works with the AI service you bring. In preparation for the App Store." />
+    <meta name="twitter:description" content="Voice typing for iPhone and Mac that works with the AI service you bring. Download the Mac app; the iPhone keyboard has been submitted to the App Store." />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <script type="application/ld+json">
       {
@@ -54,9 +54,15 @@
             "url": "https://tokendance.life/speechless/",
             "image": "https://tokendance.life/assets/apps/speechless-icon.webp",
             "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "iOS 17 or later",
+            "operatingSystem": "iOS 17 or later, macOS 14 or later",
+            "downloadUrl": "https://tokendance.life/speechless/#mac",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
             "inLanguage": "en",
-            "description": "A voice keyboard for iPhone, in preparation for the App Store: hold the pad, talk, let go, and the text goes in where the cursor is. It works with the AI service you bring: you add your own API key, and what you say goes to that service after you agree in the app. Ordinary typing works offline.",
+            "description": "Voice typing for iPhone and Mac: hold, talk, let go, and the text goes in where the cursor is. The Mac app is a direct download; the iPhone keyboard has been submitted to the App Store. It works with the AI service you bring: you add your own API key, and what you say goes to that service after you agree in the app. Ordinary typing works offline.",
             "featureList": [
               "Hold to talk, or tap to start and tap to stop",
               "Works with the AI service you bring, with your own API key: OpenRouter, OpenAI, Alibaba Cloud Model Studio (Qwen), Volcengine Ark (Doubao), SiliconFlow or another OpenAI-compatible service",
@@ -174,13 +180,14 @@
     <main id="main">
       <section class="sp-hero" id="sp-hero">
         <div class="sp-wrap sp-hero-copy">
-          <p class="sp-eyebrow"><img src="/assets/apps/speechless-icon.webp?v=20261124a" width="40" height="40" alt="" />Speechless: Voice Keyboard for iPhone</p>
+          <p class="sp-eyebrow"><img src="/assets/apps/speechless-icon.webp?v=20261124a" width="40" height="40" alt="" />Speechless for iPhone and Mac</p>
           <h1><span class="w">Hold<span class="pt">.</span></span> <span class="w">Talk<span class="pt">.</span></span> <span class="w">Let go<span class="pt">.</span></span></h1>
           <div class="sp-hero-row">
-            <p class="sp-lead">A voice keyboard that works with the AI service you bring. Hold the pad, say it, let go, and the text goes in where the cursor is, without leaving the app you’re in.</p>
+            <p class="sp-lead">Voice typing that works with the AI service you bring. Hold the pad on your iPhone or Fn on your Mac, say it, let go, and the text goes in where the cursor is, without leaving the app you’re in.</p>
             <div>
-              <p class="sp-status"><i></i>In preparation for the App Store</p>
-              <p class="sp-small">Free app · iOS 17 or later · you add your own AI service and API key · light or dark, following your iPhone</p>
+              <p class="sp-get"><a class="btn btn-dark" href="#mac">Get it for Mac</a></p>
+              <p class="sp-status"><i></i>iPhone: submitted to the App Store</p>
+              <p class="sp-small">Free · iOS 17 or macOS 14, or later · you add your own AI service and API key · light or dark, following your device</p>
             </div>
           </div>
         </div>
@@ -282,7 +289,7 @@
         <div class="sp-wrap">
           <div class="sp-head"><h2 id="sent-h">Where your voice goes.</h2><p>Straight to the services you chose. Before the first use of each one, the app names it and its address and asks you. If you don’t agree, nothing goes there, and you can still type.</p></div>
           <div class="sp-flow">
-            <div class="sp-node"><h3>Your iPhone</h3><p>Sends what you dictate with your own API keys. There is no server of mine in between.</p></div>
+            <div class="sp-node"><h3>Your iPhone or Mac</h3><p>Sends what you dictate with your own API keys. There is no server of mine in between.</p></div>
             <i class="sp-link a" aria-hidden="true"></i>
             <i class="sp-link b" aria-hidden="true"></i>
             <div class="sp-node a"><h3>The service you chose for recognition</h3><p>Gets the <b>recording</b> when you finish, or at a pause in the middle so you wait less, and the <b>words in your dictionary</b> as hints.</p></div>
@@ -296,7 +303,7 @@
             </div>
             <div>
               <h3>With any other service</h3>
-              <p>What you dictate goes straight from your iPhone to that service, under its own terms and privacy policy. Speechless can’t set zero retention there: how long the service keeps your data and what it does with it is between you and the service. It may be processed in another country, for example in China. How the services handle your data: see the <a href="/speechless/privacy.html#other">links</a> in the privacy policy.</p>
+              <p>What you dictate goes straight from your iPhone or Mac to that service, under its own terms and privacy policy. Speechless can’t set zero retention there: how long the service keeps your data and what it does with it is between you and the service. It may be processed in another country, for example in China. How the services handle your data: see the <a href="/speechless/privacy.html#other">links</a> in the privacy policy.</p>
             </div>
             <div>
               <h3>Stored only on your iPhone</h3>
@@ -328,7 +335,7 @@
             <li>An iPhone with iOS 17 or later, or a Mac with <a href="#mac">macOS 14 or later</a>. The interface is in English and Simplified Chinese.</li>
             <li>For voice: an internet connection, an AI service you add with your own API key, Allow Full Access for the keyboard, microphone permission, and your consent in the app to send what you say to that service.</li>
             <li>For typing with the ABC keyboard: nothing else. It works offline, without Full Access and without a key.</li>
-            <li>Availability: Speechless is in preparation for the App Store. At first it won’t be offered in China mainland or the EU.</li>
+            <li>Availability: the Mac app can be <a href="#mac">downloaded here</a>. The iPhone app has been submitted to the App Store; at first it won’t be offered there in China mainland or the EU.</li>
           </ul>
 
           <h2>Setting up</h2>

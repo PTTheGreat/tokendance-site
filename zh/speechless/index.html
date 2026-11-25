@@ -6,7 +6,7 @@
     <title>Speechless 语音键盘：按住说话，松手就是文字</title>
     <meta
       name="description"
-      content="Speechless 是免费的 iPhone 语音键盘，正在准备上架 App Store。按住面板说话，松手，文字就输入在光标的位置。AI 服务用你自己的：填上你的 API Key，你同意之后，说的内容才会发给那个服务。"
+      content="Speechless 是免费的语音输入，iPhone 和 Mac 都能用。按住说话，松手，文字就输入在光标的位置。Mac 版可以直接下载，iPhone 版已提交 App Store。AI 服务用你自己的：填上你的 API Key，你同意之后，说的内容才会发给那个服务。"
     />
     <meta name="author" content="Tony" />
     <meta name="robots" content="index, follow" />
@@ -19,13 +19,13 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261022b" />
     <script>document.documentElement.classList.add("js")</script>
     <link rel="stylesheet" href="/styles.css?v=20261125a" />
-    <link rel="stylesheet" href="/speechless/sp.css?v=20261125a" />
+    <link rel="stylesheet" href="/speechless/sp.css?v=20261125b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TokenDance" />
     <meta property="og:url" content="https://tokendance.life/zh/speechless/" />
     <meta property="og:title" content="Speechless 语音键盘：按住说话，松手就是文字" />
-    <meta property="og:description" content="iPhone 语音键盘，AI 服务用你自己的。准备上架中。" />
+    <meta property="og:description" content="iPhone 和 Mac 语音输入，AI 服务用你自己的。Mac 版可以下载，iPhone 版已提交 App Store。" />
     <meta property="og:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -33,7 +33,7 @@
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Speechless 语音键盘：按住说话，松手就是文字" />
-    <meta name="twitter:description" content="iPhone 语音键盘，AI 服务用你自己的。准备上架中。" />
+    <meta name="twitter:description" content="iPhone 和 Mac 语音输入，AI 服务用你自己的。Mac 版可以下载，iPhone 版已提交 App Store。" />
     <meta name="twitter:image" content="https://tokendance.life/assets/og-tokendance.png" />
     <script type="application/ld+json">
       {
@@ -54,9 +54,15 @@
             "url": "https://tokendance.life/speechless/",
             "image": "https://tokendance.life/assets/apps/speechless-icon.webp",
             "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "iOS 17 or later",
+            "operatingSystem": "iOS 17 或更新版本，macOS 14 或更新版本",
+            "downloadUrl": "https://tokendance.life/zh/speechless/#mac",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
             "inLanguage": "zh-CN",
-            "description": "iPhone 语音键盘，正在准备上架 App Store：按住面板说话，松手，文字就输入在光标的位置。AI 服务用你自己的：填上你的 API Key，你在 App 里同意之后，说的内容才会发给那个服务。普通打字不用联网。",
+            "description": "iPhone 和 Mac 语音输入：按住说话，松手，文字就输入在光标的位置。Mac 版可以直接下载，iPhone 版已提交 App Store。AI 服务用你自己的：填上你的 API Key，你在 App 里同意之后，说的内容才会发给那个服务。普通打字不用联网。",
             "featureList": [
               "按住说话，或者点一下开始、再点一下结束",
               "AI 服务用你自己的，填自己的 API Key：OpenRouter、OpenAI、阿里云百炼（通义千问）、火山方舟（豆包）、硅基流动，或其他兼容 OpenAI 接口的服务",
@@ -174,13 +180,14 @@
     <main id="main">
       <section class="sp-hero" id="sp-hero">
         <div class="sp-wrap sp-hero-copy">
-          <p class="sp-eyebrow"><img src="/assets/apps/speechless-icon.webp?v=20261124a" width="40" height="40" alt="" />Speechless 语音键盘 · iPhone</p>
+          <p class="sp-eyebrow"><img src="/assets/apps/speechless-icon.webp?v=20261124a" width="40" height="40" alt="" />Speechless · iPhone 和 Mac</p>
           <h1><span class="w">按住<span class="pt">。</span></span> <span class="w">说话<span class="pt">。</span></span> <span class="w">松手<span class="pt">。</span></span></h1>
           <div class="sp-hero-row">
-            <p class="sp-lead">一个语音键盘，AI 服务用你自己的。按住面板说，松手，文字就输入在光标的位置，不用跳出正在用的 App。</p>
+            <p class="sp-lead">语音输入，AI 服务用你自己的。iPhone 上按住面板，Mac 上按住 Fn，说完松手，文字就输入在光标的位置，不用跳出正在用的 App。</p>
             <div>
-              <p class="sp-status"><i></i>准备上架中</p>
-              <p class="sp-small">App 免费 · iOS 17 或更新版本 · AI 服务和 API Key 由你自己添加 · 浅色深色跟随 iPhone</p>
+              <p class="sp-get"><a class="btn btn-dark" href="#mac">下载 Mac 版</a></p>
+              <p class="sp-status"><i></i>iPhone 版已提交 App Store</p>
+              <p class="sp-small">免费 · iOS 17 或 macOS 14 起 · AI 服务和 API Key 由你自己添加 · 浅色深色跟随系统</p>
             </div>
           </div>
         </div>
@@ -282,7 +289,7 @@
         <div class="sp-wrap">
           <div class="sp-head"><h2 id="sent-h">你的声音会发给谁。</h2><p>直接发给你选的服务。每个服务第一次使用之前，App 会写明它的名字和地址，问你同不同意。不同意就不会往那里发，打字照常能用。</p></div>
           <div class="sp-flow">
-            <div class="sp-node"><h3>你的 iPhone</h3><p>用你自己的 API Key，把你说的内容直接发出去，中间没有我的服务器。</p></div>
+            <div class="sp-node"><h3>你的 iPhone 或 Mac</h3><p>用你自己的 API Key，把你说的内容直接发出去，中间没有我的服务器。</p></div>
             <i class="sp-link a" aria-hidden="true"></i>
             <i class="sp-link b" aria-hidden="true"></i>
             <div class="sp-node a"><h3>你选来识别的服务</h3><p>收到<b>录音</b>：说完时发送，中间停顿时也可能提前发，让你少等一会儿。同时带上<b>词典里的词</b>作为提示。</p></div>
@@ -296,7 +303,7 @@
             </div>
             <div>
               <h3>用其他服务时</h3>
-              <p>你说的内容从 iPhone 直接发给那个服务，适用它自己的条款和隐私政策。Speechless 没法在那里设置零保留：它保留多久、怎么使用，是你和那个服务之间的事。处理数据的地方可能在其他国家或地区。各个服务怎么处理，见隐私政策里的<a href="/zh/speechless/privacy.html#other">链接</a>。</p>
+              <p>你说的内容从 iPhone 或 Mac 直接发给那个服务，适用它自己的条款和隐私政策。Speechless 没法在那里设置零保留：它保留多久、怎么使用，是你和那个服务之间的事。处理数据的地方可能在其他国家或地区。各个服务怎么处理，见隐私政策里的<a href="/zh/speechless/privacy.html#other">链接</a>。</p>
             </div>
             <div>
               <h3>只存在你的 iPhone 上</h3>
@@ -328,7 +335,7 @@
             <li>iPhone，iOS 17 或更新版本；或 Mac，<a href="#mac">macOS 14 或更新版本</a>。界面有简体中文和英文。</li>
             <li>用语音：要联网，用自己的 API Key 添加一个 AI 服务，给键盘打开“允许完全访问”，允许使用麦克风，并在 App 里同意把说的内容发给那个服务。</li>
             <li>用 ABC 键盘打字：不需要别的。不联网、不开完全访问、没有 Key 都能用。</li>
-            <li>上架地区：正在准备上架 App Store。刚开始不在中国大陆和欧盟提供。</li>
+            <li>哪里能用：Mac 版<a href="#mac">在这里下载</a>。iPhone 版已提交 App Store，刚开始不在中国大陆和欧盟的 App Store 提供。</li>
           </ul>
 
           <h2>怎么设置</h2>

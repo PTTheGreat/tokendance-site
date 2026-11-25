@@ -122,6 +122,10 @@
   line-height: 1.6;
 }
 
+.sp-get {
+  margin-bottom: 16px;
+}
+
 .sp-status {
   display: flex;
   align-items: center;
@@ -288,7 +292,8 @@ html:not(.js) .sp-hint {
 }
 
 #keys,
-#service {
+#service,
+#mac {
   scroll-margin-top: 64px;
 }
 
